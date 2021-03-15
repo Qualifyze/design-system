@@ -1,5 +1,5 @@
 import '@fontsource/source-sans-pro';
-
+import '../../src/styles/normalize.css';
 import './components/global-theme-styles.css';
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
