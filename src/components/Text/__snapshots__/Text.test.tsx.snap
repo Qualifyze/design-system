@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders as a p tag per default 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: papayawhip;
+  font-size: 18.1818px;
+  line-height: 30px;
+  padding: 0.05px 0;
+  font-weight: 400;
+}
+
+.emotion-0::before {
+  content: '';
+  margin-top: -0.5233em;
+  display: block;
+  height: 0;
+}
+
+.emotion-0::after {
+  content: '';
+  margin-bottom: -0.4723em;
+  display: block;
+  height: 0;
+}
+
+<p
+  class="emotion-0"
+>
+  hola
+</p>
+`;
+
+exports[`Text renders as a span tag 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: papayawhip;
+  font-size: 18.1818px;
+  line-height: 30px;
+  padding: 0.05px 0;
+  font-weight: 400;
+}
+
+.emotion-0::before {
+  content: '';
+  margin-top: -0.5233em;
+  display: block;
+  height: 0;
+}
+
+.emotion-0::after {
+  content: '';
+  margin-bottom: -0.4723em;
+  display: block;
+  height: 0;
+}
+
+<span
+  class="emotion-0"
+>
+  hola
+</span>
+`;
+
+exports[`Text renders as a strong tag 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: papayawhip;
+  font-size: 18.1818px;
+  line-height: 30px;
+  padding: 0.05px 0;
+  font-weight: 400;
+}
+
+.emotion-0::before {
+  content: '';
+  margin-top: -0.5233em;
+  display: block;
+  height: 0;
+}
+
+.emotion-0::after {
+  content: '';
+  margin-bottom: -0.4723em;
+  display: block;
+  height: 0;
+}
+
+<strong
+  class="emotion-0"
+>
+  hola
+</strong>
+`;
+
+exports[`Text renders as an em tag 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: papayawhip;
+  font-size: 18.1818px;
+  line-height: 30px;
+  padding: 0.05px 0;
+  font-weight: 400;
+}
+
+.emotion-0::before {
+  content: '';
+  margin-top: -0.5233em;
+  display: block;
+  height: 0;
+}
+
+.emotion-0::after {
+  content: '';
+  margin-bottom: -0.4723em;
+  display: block;
+  height: 0;
+}
+
+<em
+  class="emotion-0"
+>
+  hola
+</em>
+`;
+
+exports[`Text renders with size prop 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: papayawhip;
+  font-size: 12.1212px;
+  line-height: 18px;
+  padding: 0.05px 0;
+  font-weight: 400;
+}
+
+.emotion-0::before {
+  content: '';
+  margin-top: -0.4421em;
+  display: block;
+  height: 0;
+}
+
+.emotion-0::after {
+  content: '';
+  margin-bottom: -0.3911em;
+  display: block;
+  height: 0;
+}
+
+<p
+  class="emotion-0"
+>
+  hola
+</p>
+`;
+
+exports[`Text renders with tone prop 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: #d0011b;
+  font-size: 18.1818px;
+  line-height: 30px;
+  padding: 0.05px 0;
+  font-weight: 400;
+}
+
+.emotion-0::before {
+  content: '';
+  margin-top: -0.5233em;
+  display: block;
+  height: 0;
+}
+
+.emotion-0::after {
+  content: '';
+  margin-bottom: -0.4723em;
+  display: block;
+  height: 0;
+}
+
+<p
+  class="emotion-0"
+>
+  hola
+</p>
+`;
+
+exports[`Text renders with weight prop 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: papayawhip;
+  font-size: 18.1818px;
+  line-height: 30px;
+  padding: 0.05px 0;
+  font-weight: 700;
+}
+
+.emotion-0::before {
+  content: '';
+  margin-top: -0.5233em;
+  display: block;
+  height: 0;
+}
+
+.emotion-0::after {
+  content: '';
+  margin-bottom: -0.4723em;
+  display: block;
+  height: 0;
+}
+
+<p
+  class="emotion-0"
+>
+  hola
+</p>
+`;

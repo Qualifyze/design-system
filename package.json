@@ -13,7 +13,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
+    "test": "tsdx test",
     "test:watch": "tsdx test --watch",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -79,6 +79,7 @@
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@theme-ui/components": "^0.6.0-alpha.7",
-    "@theme-ui/core": "^0.6.0-alpha.7"
+    "@theme-ui/core": "^0.6.0-alpha.7",
+    "responsive-capsize": "^1.0.0"
   }
 }
