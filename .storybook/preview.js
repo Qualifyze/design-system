@@ -1,5 +1,7 @@
 import '@fontsource/source-sans-pro';
-import '../../src/styles/normalize.css';
+
+import { ThemeProvider, theme } from '../src/theme/theme';
+import '../src/styles/normalize.css';
 import './components/global-theme-styles.css';
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
@@ -50,4 +52,10 @@ export const parameters = {
   actions: { argTypesRegex: `^on.*` },
 };
 
-export const decorators = [];
+const withTheme = Story => (
+  <ThemeProvider theme={theme}>
+    <Story />
+  </ThemeProvider>
+);
+
+export const decorators = [withTheme];

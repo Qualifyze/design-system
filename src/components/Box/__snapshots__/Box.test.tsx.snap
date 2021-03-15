@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box renders with css prop 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding: 1px;
+}
+
+<div
+  class="emotion-0"
+>
+  hola
+</div>
+`;
+
+exports[`Box renders with sx prop 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding: 4px;
+}
+
+<div
+  class="emotion-0"
+>
+  hola
+</div>
+`;
+
+exports[`Box renders with values from Qualifyze theme 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: #138a08;
+  background-color: #ffc600;
+}
+
+<div
+  class="emotion-0"
+>
+  hola
+</div>
+`;
+
+exports[`Box renders with values from local theme 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: #663399;
+  background-color: #ffefd5;
+}
+
+<div
+  class="emotion-0"
+>
+  hola
+</div>
+`;
