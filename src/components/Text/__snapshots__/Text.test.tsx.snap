@@ -5,7 +5,7 @@ exports[`Text renders as a p tag per default 1`] = `
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  color: blue;
+  color: var(--theme-ui-colors-text);
   font-size: 18.1818px;
   line-height: 30px;
   padding: 0.05px 0;
@@ -38,7 +38,7 @@ exports[`Text renders as a span tag 1`] = `
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  color: blue;
+  color: var(--theme-ui-colors-text);
   font-size: 18.1818px;
   line-height: 30px;
   padding: 0.05px 0;
@@ -71,7 +71,7 @@ exports[`Text renders as a strong tag 1`] = `
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  color: blue;
+  color: var(--theme-ui-colors-text);
   font-size: 18.1818px;
   line-height: 30px;
   padding: 0.05px 0;
@@ -104,7 +104,7 @@ exports[`Text renders as an em tag 1`] = `
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  color: blue;
+  color: var(--theme-ui-colors-text);
   font-size: 18.1818px;
   line-height: 30px;
   padding: 0.05px 0;
@@ -137,7 +137,7 @@ exports[`Text renders with size prop 1`] = `
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  color: blue;
+  color: var(--theme-ui-colors-text);
   font-size: 12.1212px;
   line-height: 18px;
   padding: 0.05px 0;
@@ -203,7 +203,7 @@ exports[`Text renders with weight prop 1`] = `
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  color: blue;
+  color: var(--theme-ui-colors-text);
   font-size: 18.1818px;
   line-height: 30px;
   padding: 0.05px 0;
