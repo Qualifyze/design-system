@@ -53,4 +53,24 @@ describe('Box', () => {
     expect(B).toHaveStyleRule(`background-color`, `#ffefd5`);
     expect(B).toMatchSnapshot();
   });
+
+  test('passes `data-` attributes through to the DOM', () => {
+    render(<Box data-testid="some-random-id">hola</Box>);
+    const B = screen.getByText(/hola/);
+    expect(B).toHaveAttribute(`data-testid`, `some-random-id`);
+    expect(B).toMatchSnapshot();
+  });
+
+  test('passes `aria-` attributes through to the DOM', () => {
+    render(<Box aria-hidden="true">hola</Box>);
+    const B = screen.getByText(/hola/);
+    expect(B).toHaveAttribute(`aria-hidden`, `true`);
+    expect(B).toMatchSnapshot();
+  });
+
+  test('renders as passed HTML element', () => {
+    render(<Box as="h1">hola</Box>);
+    const B = screen.getByRole(`heading`);
+    expect(B).toMatchSnapshot();
+  });
 });

@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Box passes \`aria-\` attributes through to the DOM 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+
+<div
+  aria-hidden="true"
+  class="emotion-0"
+>
+  hola
+</div>
+`;
+
+exports[`Box passes \`data-\` attributes through to the DOM 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+
+<div
+  class="emotion-0"
+  data-testid="some-random-id"
+>
+  hola
+</div>
+`;
+
+exports[`Box renders as passed HTML element 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+
+<h1
+  class="emotion-0"
+>
+  hola
+</h1>
+`;
+
 exports[`Box renders with css prop 1`] = `
 .emotion-0 {
   box-sizing: border-box;

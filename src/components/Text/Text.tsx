@@ -1,8 +1,8 @@
 /** @jsxImportSource theme-ui */
 import * as React from 'react';
-import { Box } from 'theme-ui';
 import responsiveCapsize from 'responsive-capsize';
 
+import { Box } from '../Box/Box';
 import { variant } from '../../theme/theme';
 
 // Font metrics for "Source Sans Pro"

@@ -5,11 +5,11 @@ exports[`Flex renders with css prop 1`] = `
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  padding: 1px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  padding: 1px;
 }
 
 <div
