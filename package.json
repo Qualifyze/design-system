@@ -81,5 +81,8 @@
     "@theme-ui/components": "^0.6.0-alpha.7",
     "@theme-ui/core": "^0.6.0-alpha.7",
     "responsive-capsize": "^1.0.0"
+  },
+  "volta": {
+    "node": "14.16.0"
   }
 }
