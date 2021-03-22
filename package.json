@@ -78,8 +78,8 @@
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
-    "@theme-ui/components": "^0.6.0-alpha.7",
-    "@theme-ui/core": "^0.6.0-alpha.7",
+    "@theme-ui/components": "^0.6.0",
+    "@theme-ui/core": "^0.6.0",
     "responsive-capsize": "^1.0.0"
   },
   "volta": {
