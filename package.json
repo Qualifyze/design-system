@@ -42,11 +42,11 @@
   "size-limit": [
     {
       "path": "dist/design-system.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "50 KB"
     },
     {
       "path": "dist/design-system.esm.js",
-      "limit": "10 KB"
+      "limit": "50 KB"
     }
   ],
   "devDependencies": {
