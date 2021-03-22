@@ -48,7 +48,7 @@ describe('Text', () => {
   test('renders with tone prop', () => {
     render(<Text tone="critical">hola</Text>);
     const T = screen.getByText(/hola/);
-    expect(T).toHaveStyleRule(`color`, `#d0011b`);
+    expect(T).toHaveStyleRule(`color`, `var(--theme-ui-colors-critical)`);
     expect(T).toMatchSnapshot();
   });
 

@@ -1,5 +1,6 @@
+/** @jsxImportSource theme-ui */
 import * as React from 'react';
-import { Box } from '@theme-ui/components';
+import { Box } from 'theme-ui';
 import responsiveCapsize from 'responsive-capsize';
 
 import { variant } from '../../theme/theme';
@@ -39,7 +40,7 @@ const largeStyles = responsiveCapsize({
 
 const tones = variant({
   neutral: {
-    color: 'papayawhip',
+    color: 'blue',
   },
   positive: {
     color: 'positive',

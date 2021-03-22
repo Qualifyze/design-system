@@ -1,1 +1,1 @@
-export { Flex } from '@theme-ui/components';
+export { Flex } from 'theme-ui';

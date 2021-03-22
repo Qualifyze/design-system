@@ -78,9 +78,8 @@
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
-    "@theme-ui/components": "^0.6.0",
-    "@theme-ui/core": "^0.6.0",
-    "responsive-capsize": "^1.0.0"
+    "responsive-capsize": "^1.0.0",
+    "theme-ui": "^0.6.0"
   },
   "volta": {
     "node": "14.16.0"

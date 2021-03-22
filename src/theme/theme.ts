@@ -1,4 +1,4 @@
-import { Theme, ThemeProvider, ThemeUICSSObject } from '@theme-ui/core';
+import { Theme, ThemeProvider, ThemeUICSSObject } from 'theme-ui';
 
 /**
  * BREAKPOINTS
@@ -45,6 +45,9 @@ const colors = {
   positive: `#138a08`,
   caution: `#ffc600`,
   critical: `#d0011b`,
+  text: '#00f',
+  background: '#fff',
+  primary: '#07c',
 };
 
 /**

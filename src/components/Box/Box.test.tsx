@@ -34,8 +34,11 @@ describe('Box', () => {
   test('renders with values from Qualifyze theme', () => {
     render(<Box sx={{ color: `positive`, bg: `caution` }}>hola</Box>);
     const B = screen.getByText(/hola/);
-    expect(B).toHaveStyleRule(`color`, `#138a08`);
-    expect(B).toHaveStyleRule(`background-color`, `#ffc600`);
+    expect(B).toHaveStyleRule(`color`, `var(--theme-ui-colors-positive)`);
+    expect(B).toHaveStyleRule(
+      `background-color`,
+      `var(--theme-ui-colors-caution)`
+    );
     expect(B).toMatchSnapshot();
   });
 
