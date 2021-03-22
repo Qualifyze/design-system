@@ -40,7 +40,7 @@ const largeStyles = responsiveCapsize({
 
 const tones = variant({
   neutral: {
-    color: 'blue',
+    color: 'text',
   },
   positive: {
     color: 'positive',

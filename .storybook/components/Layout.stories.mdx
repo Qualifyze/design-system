@@ -1,5 +1,35 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Space } from './private/Space.tsx';
 
 <Meta title="Foundations/Layout" />
 
 # Layout
+
+[The Braid docs](https://seek-oss.github.io/braid-design-system/foundations/layout) summarize our layout guiding principles wonderfully:
+
+> The guiding principle for layout in Braid is that components should not provide surrounding white space. Instead, spacing between elements is owned entirely by layout components. This approach ensures that the system is as composable as possible while keeping white space completely predictable. All of the components referenced below can be infinitely nested within each other to create a wide variety of standard layouts. Getting a firm grasp of these components is an essential part of working effectively with Braid.
+
+The layout components you will be using the most are:
+
+- [Box](/?path=/story/components-box--box)
+- [Flex](/?path=/story/components-flex--flex)
+- Stack (tbd)
+- Columns (tbd)
+- Tiles (tbd)
+- Inline (tbd)
+
+## Spacing
+
+We provide a spacing scale that we use almost exclusively throughout all components. This makes it a lot easier to build visually consistent layout. In most cases, this scale should serve you well, but if you ever need to use custom spacing, feel free to do so.
+
+| Scale index | size  | example               |
+| ----------- | ----- | --------------------- |
+| `space.0`   | 0     | <Space width={0} />   |
+| `space.1`   | 4px   | <Space width={4} />   |
+| `space.2`   | 8px   | <Space width={8} />   |
+| `space.3`   | 16px  | <Space width={16} />  |
+| `space.4`   | 32px  | <Space width={32} />  |
+| `space.5`   | 64px  | <Space width={64} />  |
+| `space.6`   | 128px | <Space width={128} /> |
+| `space.7`   | 256px | <Space width={256} /> |
+| `space.8`   | 512px | <Space width={512} /> |
