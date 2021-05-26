@@ -1753,10 +1753,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@fontsource/source-sans-pro@^4.2.2":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.2.2.tgz#db231e349ed4b3594ccdd9163b2cbf3bfb94b040"
-  integrity sha512-ApmV5F1D32nmBspCJuijDNBV7TtazFC4L7BIilHj3e6IAW/ndQMXl1+4DUjOGVO/83tF/WXjOEMxROE0QxYDwQ==
+"@fontsource/source-sans-pro@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.3.0.tgz#6c9755116c01978e4aea77f106aedef7fcae5466"
+  integrity sha512-WoRd3DG6HZOhKqy07DCHIDC0wsO+uQFjAOR7DTTbQXUOWeqd/CuhujdLyFBQrabhrruxT8skIxXBzk6h+Z2Hpw==
 
 "@hypnosphi/create-react-context@^0.3.1":
   version "0.3.1"
