@@ -54,7 +54,7 @@
     "@emotion/jest": "^11.2.1",
     "@fontsource/source-sans-pro": "^4.2.2",
     "@size-limit/preset-small-lib": "^4.10.2",
-    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-knobs": "^6.2.9",
     "@storybook/addon-links": "^6.1.21",
