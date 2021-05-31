@@ -51,7 +51,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.13.10",
-    "@emotion/jest": "^11.2.1",
+    "@emotion/jest": "^11.3.0",
     "@fontsource/source-sans-pro": "^4.3.0",
     "@size-limit/preset-small-lib": "^4.11.0",
     "@storybook/addon-essentials": "^6.2.9",
