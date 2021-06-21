@@ -50,7 +50,7 @@
     }
   ],
   "devDependencies": {
-    "@babel/core": "^7.13.10",
+    "@babel/core": "^7.14.6",
     "@emotion/jest": "^11.3.0",
     "@fontsource/source-sans-pro": "^4.4.5",
     "@size-limit/preset-small-lib": "^4.12.0",
