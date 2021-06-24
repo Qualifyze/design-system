@@ -1,4 +1,4 @@
-name: build
+name: Build
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ v1 ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,3 +29,30 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+
+  deploy:
+    if: github.ref == 'refs/heads/v1'
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: Qualifyze/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
