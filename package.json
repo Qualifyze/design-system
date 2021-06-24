@@ -11,7 +11,7 @@
     "build:cjs": "rollup -c rollup.config.js",
     "build:esm": "babel --out-dir dist src",
     "build": "yarn clean && yarn build:cjs && yarn build:esm",
-    "dev": "start-storybook --port 3333 --quiet",
+    "start": "start-storybook --port 3333 --quiet",
     "lint:scripts": "eslint '{src,.storybook}/**/*.{jsx,js}'",
     "lint:styles": "stylelint '{src,.storybook}/**/*.{jsx,js}'",
     "lint": "yarn lint:scripts && yarn lint:styles",
