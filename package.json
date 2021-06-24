@@ -6,6 +6,18 @@
   "private": true,
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Qualifyze/design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Qualifyze/design-system/issues"
+  },
+  "homepage": "https://github.com/Qualifyze/design-system#readme",
+  "files": [
+    "dist",
+    "docs"
+  ],
   "scripts": {
     "clean": "shx rm -rf dist",
     "build:cjs": "rollup -c rollup.config.js",
