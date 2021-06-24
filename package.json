@@ -3,7 +3,6 @@
   "description": "Qualifyze Design System",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "private": true,
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "repository": {
