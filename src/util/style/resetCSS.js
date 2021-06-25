@@ -2,7 +2,7 @@
 /** Taken from https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
 import { css } from '@emotion/core'
 
-export default css`
+export const resetCSS = css`
   /* Base for our type scale */
   html {
     font-size: 112.5%;
