@@ -18,9 +18,9 @@ It's recommended you run the Jest tests in the background while developing with 
 
 This project includes several components that have to work even when they are layered on top of each other. To not mess up the order in which they should appear on screen, let's collect all relevant values for `z-index` here.
 
-| Component                 | `z-index` |
-| ------------------------- | --------- |
-| Header                    | 50        |
-| Cookie Banner             | 900       |
-| Notification              | ???       |
-| Modal                     | 500       |
+| Component                    | `z-index` |
+| ---------------------------- | --------- |
+| Header (in `website`)        | 50        |
+| Cookie Banner (in `website`) | 900       |
+| Notification                 | ???       |
+| Modal                        | 500       |
