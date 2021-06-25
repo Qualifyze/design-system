@@ -1,9 +1,6 @@
-import { addDecorator } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
-
-import { withTheme } from '../src/util/style'
-import withFont from '../src/util/style/withFont'
-import withCSSReset from '../src/util/style/withCSSReset'
+import { addDecorator } from '@storybook/react'
+import { withCSSReset, withFont, withTheme } from '../src/util/style'
 
 addDecorator(withKnobs)
 addDecorator(withTheme)

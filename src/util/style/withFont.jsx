@@ -1,7 +1,6 @@
+import styled from '@emotion/styled'
 import React from 'react'
-
 import 'typeface-source-sans-pro'
-import { styled } from './index'
 
 /**
  * We need to apply the correct font to each story source, but *only* the source.
@@ -14,6 +13,4 @@ const FontWrapper = styled.div`
 /**
  * A decorator for Storybook to make sure we apply global styles to our stories.
  */
-const withFont = storyFn => <FontWrapper>{storyFn()}</FontWrapper>
-
-export default withFont
+export const withFont = storyFn => <FontWrapper>{storyFn()}</FontWrapper>
