@@ -21,11 +21,11 @@
     "clean": "shx rm -rf dist",
     "build:cjs": "rollup -c rollup.config.js",
     "build:esm": "babel --out-dir dist src",
-    "build": "yarn clean && yarn build:cjs && yarn build:esm",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "start": "start-storybook --port 3333 --quiet",
     "lint:scripts": "eslint '{src,.storybook}/**/*.{jsx,js}'",
     "lint:styles": "stylelint '{src,.storybook}/**/*.{jsx,js}'",
-    "lint": "yarn lint:scripts && yarn lint:styles",
+    "lint": "npm run lint:scripts && npm run lint:styles",
     "test": "jest"
   },
   "dependencies": {
