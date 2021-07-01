@@ -10,11 +10,13 @@ const PrimaryAction = ({ onClick, iconName }) => (
     onClick={onClick}
     sx={{
       'appearance': 'none',
+      'position': 'relative',
       'textDecoration': 'none !important',
       'border': 0,
       'cursor': 'pointer',
       'display': 'flex',
       'p': 2,
+      'ml': 3,
       'bg': 'transparent',
       'borderRadius': 2,
       '&::after': {
@@ -25,7 +27,7 @@ const PrimaryAction = ({ onClick, iconName }) => (
         height: '100%',
         minHeight: '44px',
         minWidth: '44px',
-        right: '-4px',
+        right: '-6px',
       },
       '&:focus': {
         outline: 'none',

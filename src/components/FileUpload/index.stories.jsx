@@ -93,7 +93,6 @@ export const FileField = () => {
                                 <FileUpload.DangerAction
                                   iconName="trash"
                                   onClick={() => arrayHelpers.remove(index)}
-                                  sx={{ ml: 3 }}
                                 />
                               </FileUpload.File>
                             )
