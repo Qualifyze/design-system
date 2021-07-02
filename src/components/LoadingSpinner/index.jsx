@@ -10,7 +10,6 @@ const Wrapper = styled('div')({
   flex: '1 1 auto',
   alignItems: 'center',
   justifyContent: 'center',
-  scale: '2',
   width: '80px',
   height: '80px',
 })
