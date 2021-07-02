@@ -32,7 +32,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@reach/dialog": "^0.15.0",
-    "@reach/rect": "^0.11.2",
+    "@reach/rect": "^0.15.2",
     "@reach/tooltip": "^0.10.3",
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",
