@@ -43,7 +43,7 @@
     "react-dropzone": "^11.3.4",
     "react-keyed-flatten-children": "^1.2.0",
     "react-select": "^4.3.0",
-    "react-spring": "^8.0.27",
+    "react-spring": "^9.2.3",
     "styled-system": "^5.1.5",
     "typeface-source-sans-pro": "^1.1.5",
     "yup": "^0.32.9"
