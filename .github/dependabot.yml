@@ -6,3 +6,4 @@ updates:
       interval: weekly
     reviewers:
       - 'Qualifyze/dev-people'
+    open-pull-requests-limit: 1
