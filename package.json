@@ -33,7 +33,7 @@
     "@emotion/styled": "^11.3.0",
     "@reach/dialog": "^0.15.2",
     "@reach/rect": "^0.15.3",
-    "@reach/tooltip": "^0.15.2",
+    "@reach/tooltip": "^0.15.3",
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",
     "@styled-system/should-forward-prop": "^5.1.5",
