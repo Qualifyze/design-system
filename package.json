@@ -63,7 +63,7 @@
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@storybook/addon-actions": "^6.3.2",
     "@storybook/addon-docs": "^6.3.2",
-    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-knobs": "^6.1.18",
     "@storybook/react": "^6.3.2",
     "@testing-library/jest-dom": "^5.5.0",
