@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
@@ -80,7 +81,7 @@ export const Default = () => {
                 <Inline space={2} alignY="center">
                   <TextLink href="qualifyze.com">TextLink</TextLink>
                   <Text>
-                    A <strong>{`<TextLink`}</strong> is a link that looks like
+                    A <strong>{`<TextLink>`}</strong> is a link that looks like
                     text and does some form of navigation
                   </Text>
                 </Inline>
