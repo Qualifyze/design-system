@@ -1,9 +1,6 @@
-/** @jsxImportSource theme-ui */
-import * as React from 'react';
-import { Box as UIBox, BoxProps as UIBoxProps } from 'theme-ui';
+import { styled } from '../../stitches.config';
 
-export interface BoxProps extends UIBoxProps {}
-
-export const Box = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
-  return <UIBox ref={ref} {...props} />;
+export const Box = styled('div', {
+  boxSizing: 'border-box',
+  position: 'relative',
 });
