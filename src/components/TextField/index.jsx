@@ -64,6 +64,7 @@ const TextField = ({
   tertiaryLabel,
   message,
   reserveMessageSpace,
+  ...props
 }) => {
   const [field, meta] = useField({ name })
   const hasError = meta.error && meta.touched
@@ -86,6 +87,7 @@ const TextField = ({
         hasError={hasError}
         {...field}
         {...meta}
+        {...props}
       />
       {reserveMessageSpace || messageToShow ? (
         <FieldMessage
