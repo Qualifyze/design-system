@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { text } from '@storybook/addon-knobs'
+import { text, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
@@ -99,4 +99,44 @@ export const InlineStory = () => {
 }
 InlineStory.story = {
   name: 'inline TextField',
+}
+
+export const InputProps = () => {
+  return (
+    <Formik
+      initialValues={{
+        username: '',
+        password: '',
+      }}
+      onSubmit={values => {
+        action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
+      }}
+      validationSchema={Yup.object().shape({
+        username: Yup.string().required(),
+        password: Yup.string().required(),
+      })}
+    >
+      {() => (
+        <Form>
+          <TextField
+            name="username"
+            label="Username"
+            type="email"
+            autoComplete="username"
+            message='This field is annotated with autocomplete="username", so your browser should suggest a username from your password store for you.'
+          />
+          <TextField
+            name="password"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+            message='This field is annotated with autocomplete="current-password", so your browser should suggest the password associated with the username. A right-click on the field will given an option to "Suggest password" in Chrome.'
+          />
+        </Form>
+      )}
+    </Formik>
+  )
+}
+InputProps.story = {
+  name: 'input properties',
 }
