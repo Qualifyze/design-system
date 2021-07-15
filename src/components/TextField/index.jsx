@@ -64,6 +64,8 @@ const TextField = ({
   tertiaryLabel,
   message,
   reserveMessageSpace,
+  inputProps,
+  ...props
 }) => {
   const [field, meta] = useField({ name })
   const hasError = meta.error && meta.touched
@@ -72,7 +74,7 @@ const TextField = ({
     : message ?? null
 
   return (
-    <Box>
+    <Box {...props}>
       <FieldLabel
         htmlFor={name}
         label={label}
@@ -86,6 +88,7 @@ const TextField = ({
         hasError={hasError}
         {...field}
         {...meta}
+        {...inputProps}
       />
       {reserveMessageSpace || messageToShow ? (
         <FieldMessage
@@ -115,6 +118,7 @@ TextField.propTypes = {
   secondaryLabel: PropTypes.node,
   tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
+  inputProps: PropTypes.object,
 }
 
 TextField.defaultProps = {
@@ -125,6 +129,7 @@ TextField.defaultProps = {
   secondaryLabel: null,
   tertiaryLabel: null,
   reserveMessageSpace: true,
+  inputProps: null,
 }
 
 export default TextField
