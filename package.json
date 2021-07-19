@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "yarn workspaces run start",
-    "build:packages": "yarn workspaces run build",
+    "build": "yarn workspaces run build",
     "storybook": "start-storybook -p 6006 -c ./.storybook",
     "build:storybook": "build-storybook",
     "release": "changeset publish"
