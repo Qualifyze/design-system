@@ -7,4 +7,4 @@ export default {
   component: Button,
 };
 
-export const basic = () => <Button variant="transparentBlack">Hello</Button>;
+export const basic = () => <Button>Hello</Button>;

@@ -7,4 +7,6 @@ export default {
   component: Box,
 };
 
-export const basic = () => <Box>Hello</Box>;
+export const basic = () => (
+  <Box css={{ padding: '$2', bc: '$indigo4' }}>Hello</Box>
+);
