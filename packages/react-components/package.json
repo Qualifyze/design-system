@@ -1,0 +1,81 @@
+{
+  "name": "design-system",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "test:watch": "tsdx test --watch",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "author": "nobody",
+  "module": "dist/design-system.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/design-system.cjs.production.min.js",
+      "limit": "50 KB"
+    },
+    {
+      "path": "dist/design-system.esm.js",
+      "limit": "50 KB"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@emotion/jest": "^11.3.0",
+    "@fontsource/source-sans-pro": "^4.4.5",
+    "@size-limit/preset-small-lib": "^5.0.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.0",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "babel-loader": "^8.2.2",
+    "husky": "^7.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "rollup-plugin-static-files": "^0.2.0",
+    "size-limit": "^5.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@radix-ui/colors": "^0.1.7",
+    "@radix-ui/react-polymorphic": "^0.0.12",
+    "@stitches/react": "^0.2.2",
+    "capsize": "^2.0.0"
+  },
+  "volta": {
+    "node": "14.16.0"
+  }
+}

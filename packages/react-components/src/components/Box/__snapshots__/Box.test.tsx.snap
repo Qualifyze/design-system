@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box passes \`aria-\` attributes through to the DOM 1`] = `
+<div
+  aria-hidden="true"
+  class="c-cMmcXp"
+>
+  hola
+</div>
+`;
+
+exports[`Box passes \`data-\` attributes through to the DOM 1`] = `
+<div
+  class="c-cMmcXp"
+  data-testid="some-random-id"
+>
+  hola
+</div>
+`;
+
+exports[`Box renders as passed HTML element 1`] = `
+<h1
+  class="c-cMmcXp"
+>
+  hola
+</h1>
+`;
+
+exports[`Box renders with css prop 1`] = `
+<div
+  class="c-cMmcXp c-cMmcXp-iiMKLbU-css"
+>
+  hola
+</div>
+`;
+
+exports[`Box renders with theme-aware values from Stitches config 1`] = `
+<div
+  class="c-cMmcXp c-cMmcXp-ibcCYNQ-css"
+>
+  hola
+</div>
+`;
