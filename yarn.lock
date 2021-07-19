@@ -8512,11 +8512,6 @@ lodash.uniq@4.5.0, lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash.zipwith@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.zipwith/-/lodash.zipwith-4.2.0.tgz#afacf03fd2f384af29e263c3c6bda3b80e3f51fd"
-  integrity sha1-r6zwP9LzhK8p4mPDxr2juA4/Uf0=
-
 lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.5:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
@@ -10970,14 +10965,6 @@ resolve@^2.0.0-next.3:
   dependencies:
     is-core-module "^2.2.0"
     path-parse "^1.0.6"
-
-responsive-capsize@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/responsive-capsize/-/responsive-capsize-2.0.0.tgz#0bca6418fb3c87b609547443f2f82ad3a46c9484"
-  integrity sha512-RJ0oMijUr0Qhh1Z568B3nwDn+qapog6+ABxtgI6kAXoHp4SRc/oVVEX4jXeCPc/3kohNhTNiQE6ezqS14HxKJg==
-  dependencies:
-    capsize "^2.0.0"
-    lodash.zipwith "^4.2.0"
 
 restore-cursor@^2.0.0:
   version "2.0.0"

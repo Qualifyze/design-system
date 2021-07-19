@@ -75,7 +75,7 @@
     "@radix-ui/colors": "^0.1.7",
     "@radix-ui/react-polymorphic": "^0.0.12",
     "@stitches/react": "^0.2.2",
-    "responsive-capsize": "^2.0.0"
+    "capsize": "^2.0.0"
   },
   "volta": {
     "node": "14.16.0"
