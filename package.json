@@ -12,7 +12,8 @@
     "start": "yarn workspaces run start",
     "build:packages": "yarn workspaces run build",
     "storybook": "start-storybook -p 6006 -c ./.storybook",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "lerna run build"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",

@@ -19,9 +19,7 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "analyze": "size-limit --why"
   },
   "peerDependencies": {
     "react": ">=16"
