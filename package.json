@@ -12,11 +12,11 @@
     "start": "yarn workspaces run start",
     "build:packages": "yarn workspaces run build",
     "storybook": "start-storybook -p 6006 -c ./.storybook",
-    "build-storybook": "build-storybook",
-    "build": "lerna run build"
+    "build:storybook": "build-storybook"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
+    "@changesets/cli": "^2.16.0",
     "@fontsource/inter": "^4.5.0",
     "@storybook/addon-actions": "^6.3.4",
     "@storybook/addon-essentials": "^6.3.4",
