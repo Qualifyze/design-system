@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "@qualifyze/design-system-v2",
   "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",
