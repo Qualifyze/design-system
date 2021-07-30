@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { text, number } from '@storybook/addon-knobs'
+import { text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
