@@ -97,3 +97,71 @@ export const Default = () => {
 Default.story = {
   name: 'default',
 }
+
+export const MultiSelect = () => {
+  const tagOptions = [
+    {
+      label: 'Doxylamine succinate',
+      value: 'someId',
+    },
+    {
+      label: 'Ascorbic acid',
+      value: 'anotherId',
+    },
+  ]
+  const insideState = boolean('Inside State', false)
+  const disabled = boolean('Disabled', false)
+  const placeholder = text('Placeholder', 'Select a product ingredient')
+  const availableSizes = ['tiny', 'small', 'standard', 'large']
+  const size = select('Size', availableSizes, 'standard')
+
+  return (
+    <Formik
+      initialValues={{
+        movie: '',
+      }}
+      onSubmit={values => {
+        action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
+      }}
+      validationSchema={selectSchema}
+    >
+      {({ resetForm }) => (
+        <Form>
+          <Box sx={{ p: 4 }}>
+            <Stack space={3}>
+              <Box>
+                <SelectField
+                  isMulti
+                  options={tagOptions}
+                  name="products"
+                  label="Try to find a product"
+                  placeholder={placeholder}
+                  disabled={disabled}
+                  size={size}
+                />
+              </Box>
+              <Box>
+                <Actions>
+                  <Button type="submit">Submit</Button>
+                  <Button
+                    variant="secondary"
+                    onClick={event => {
+                      event.preventDefault()
+                      resetForm()
+                    }}
+                  >
+                    Reset
+                  </Button>
+                </Actions>
+              </Box>
+              {insideState && <FormDebugger />}
+            </Stack>
+          </Box>
+        </Form>
+      )}
+    </Formik>
+  )
+}
+MultiSelect.story = {
+  name: 'Multi select',
+}

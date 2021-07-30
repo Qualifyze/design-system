@@ -66,8 +66,24 @@ const SelectField = ({
   disabled,
   size,
   menuPlacement,
+  ...props
 }) => {
   const [field, meta, helpers] = useField({ name })
+
+  const getValue = () => {
+    // for single option inputs just return the value selected
+    if (!props.isMulti) {
+      return options.find(option => option.value === field.value) || ''
+    }
+    return options.filter(option => field.value?.includes(option.value))
+  }
+
+  const onChangeHandler = option => {
+    if (!props.isMulti) {
+      helpers.setValue(option.value)
+    }
+    helpers.setValue(option ? option.map(o => o.value) : [])
+  }
 
   const customStyles = {
     control: (provided, state) => {
@@ -143,10 +159,8 @@ const SelectField = ({
         options={options}
         placeholder={placeholder}
         name={field.name}
-        onChange={option => {
-          helpers.setValue(option.value)
-        }}
-        value={options.find(option => option.value === field.value) || ''}
+        onChange={onChangeHandler}
+        value={getValue()}
         styles={customStyles}
         theme={
           (meta.error && meta.touched && errorVariant(baseTheme)) ||
@@ -154,7 +168,9 @@ const SelectField = ({
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
+        {...props}
       />
+
       {meta.error && meta.touched && (
         <FieldMessage tone="critical" message={meta.error} />
       )}
@@ -172,11 +188,13 @@ SelectField.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
+  isMulti: PropTypes.boolean,
 }
 
 SelectField.defaultProps = {
   placeholder: '',
   disabled: false,
+  isMulti: false,
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
