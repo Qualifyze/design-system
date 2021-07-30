@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ v1 ]
+    branches: [ main ]
   pull_request:
-    branches: [ v1 ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -31,7 +31,7 @@ jobs:
       - run: npm run build
 
   deploy:
-    if: github.ref == 'refs/heads/v1'
+    if: github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
     steps:

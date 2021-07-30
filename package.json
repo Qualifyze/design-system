@@ -23,8 +23,8 @@
     "build:esm": "babel --out-dir dist src",
     "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "start": "start-storybook --port 3333 --quiet",
-    "lint:scripts": "eslint '{src,.storybook}/**/*.{jsx,js}'",
-    "lint:styles": "stylelint '{src,.storybook}/**/*.{jsx,js}'",
+    "lint:scripts": "eslint {src,.storybook}/**/*.{jsx,js}",
+    "lint:styles": "stylelint {src,.storybook}/**/*.{jsx,js}",
     "lint": "npm run lint:scripts && npm run lint:styles",
     "test": "jest"
   },
