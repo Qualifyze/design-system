@@ -151,6 +151,19 @@ const SelectField = ({
         baseTheme.placeholderColor,
     }),
     indicatorSeparator: () => ({ display: 'none' }),
+    multiValue: provided => ({
+      ...provided,
+      backgroundColor: baseTheme.multiSelectItem.label.backgroundColor,
+      borderRadius: baseTheme.multiSelectItem.label.borderRadius,
+    }),
+    multiValueLabel: provided => ({
+      ...provided,
+      color: baseTheme.multiSelectItem.label.color,
+    }),
+    multiValueRemove: provided => ({
+      ...provided,
+      color: baseTheme.multiSelectItem.label.color,
+    }),
   }
   return (
     <Wrapper size={size}>

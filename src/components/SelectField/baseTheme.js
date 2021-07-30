@@ -18,4 +18,13 @@ export default {
   disabledBackground: theme.colors.grey[200],
   disabled: theme.colors.grey[200],
   shadowFocusRing: theme.shadows.focusRing,
+  // nest these incase we style up something else for multi select
+  // later
+  multiSelectItem: {
+    label: {
+      backgroundColor: theme.colors.grey[300],
+      color: theme.colors.grey[800],
+      borderRadius: theme.radii[3],
+    },
+  },
 }
