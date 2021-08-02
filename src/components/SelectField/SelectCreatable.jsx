@@ -152,9 +152,6 @@ export const SelectCreatableField = ({
           // if the user would like to add a new value
           if (actionMeta?.action === 'set-value') {
             options.push({
-              // @TODO
-              // we might need to watch out here to make sure the user does
-              // not put anything in that could cause a security leak
               label: customInput,
               value: customInput,
             })
