@@ -127,6 +127,8 @@ const customStyles = {
     ...provided,
     backgroundColor: baseTheme.multiSelectItem.label.backgroundColor,
     borderRadius: baseTheme.multiSelectItem.label.borderRadius,
+    alignItems: 'center',
+    paddingLeft: 10,
   }),
   multiValueLabel: provided => ({
     ...provided,
@@ -134,6 +136,13 @@ const customStyles = {
   }),
   multiValueRemove: provided => ({
     ...provided,
+    cursor: 'pointer',
+    // click area of the remove icon
+    width: 44,
+    height: 44,
+    padding: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
     color: baseTheme.multiSelectItem.label.color,
   }),
 }
