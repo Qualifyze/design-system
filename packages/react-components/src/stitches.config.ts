@@ -1,4 +1,4 @@
-import { createCss, StitchesCss } from '@stitches/react';
+import { createCss } from '@stitches/react';
 import { indigo } from '@radix-ui/colors';
 
 export type { StitchesVariants } from '@stitches/react';
@@ -204,8 +204,6 @@ const stitches = createCss({
     bs: () => (value: any) => ({ boxShadow: value }),
   },
 });
-
-export type CSS = StitchesCss<typeof stitches>;
 
 export const {
   styled,
