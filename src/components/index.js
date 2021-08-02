@@ -28,7 +28,12 @@ export { default as Logo } from './Logo'
 export { default as Modal } from './Modal'
 export { default as Radio } from './Radio'
 export { default as Rect } from './Rect'
-export { SelectField, MultiSelectField } from './SelectField'
+export {
+  SelectField,
+  MultiSelectField,
+  SelectCreatableField,
+  MultiSelectCreatableField,
+} from './SelectField'
 export { default as Stack } from './Stack'
 export { default as Strong } from './Strong'
 export { default as Tag } from './Tag'

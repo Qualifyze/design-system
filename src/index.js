@@ -27,7 +27,12 @@ export { default as Logo } from './components/Logo'
 export { default as Modal } from './components/Modal'
 export { default as Radio } from './components/Radio'
 export { default as Rect } from './components/Rect'
-export { default as SelectField } from './components/SelectField'
+export {
+  SelectField,
+  MultiSelectField,
+  MultiSelectCreatableField,
+  SelectCreatableField,
+} from './components/SelectField'
 export { default as Stack } from './components/Stack'
 export { default as Tag } from './components/Tag'
 export { default as Text } from './components/Text'
