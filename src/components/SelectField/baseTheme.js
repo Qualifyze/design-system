@@ -24,7 +24,7 @@ export default {
     label: {
       backgroundColor: theme.colors.grey[300],
       color: theme.colors.grey[800],
-      borderRadius: theme.radii[3],
+      borderRadius: theme.radii[2],
     },
   },
 }

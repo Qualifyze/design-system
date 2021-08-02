@@ -10,7 +10,7 @@ import Box from '../Box'
 import Stack from '../Stack'
 import Actions from '../Actions'
 
-import SelectField from './index'
+import { SelectField, MultiSelectField } from './index'
 
 export default { title: 'SelectField', component: SelectField }
 
@@ -98,15 +98,27 @@ Default.story = {
   name: 'default',
 }
 
+const multiSelectSchema = Yup.object().shape({
+  products: Yup.array(Yup.string()).required(),
+})
+
 export const MultiSelect = () => {
   const tagOptions = [
     {
       label: 'Doxylamine succinate',
-      value: 'someId',
+      value: 'doxy',
     },
     {
       label: 'Ascorbic acid',
-      value: 'anotherId',
+      value: 'acid',
+    },
+    {
+      label: 'Something dangerous',
+      value: 'etwa',
+    },
+    {
+      label: 'Chemicolosis',
+      value: 'chemi',
     },
   ]
   const insideState = boolean('Inside State', false)
@@ -118,20 +130,19 @@ export const MultiSelect = () => {
   return (
     <Formik
       initialValues={{
-        movie: '',
+        products: '',
       }}
       onSubmit={values => {
         action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
       }}
-      validationSchema={selectSchema}
+      validationSchema={multiSelectSchema}
     >
       {({ resetForm }) => (
         <Form>
           <Box sx={{ p: 4 }}>
             <Stack space={3}>
               <Box>
-                <SelectField
-                  isMulti
+                <MultiSelectField
                   options={tagOptions}
                   name="products"
                   label="Try to find a product"

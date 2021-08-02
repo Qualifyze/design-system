@@ -58,7 +58,87 @@ const errorVariant = customTheme => ({
   boxShadowHover: 'inset 0 0 0 2px',
 })
 
-const SelectField = ({
+const customStyles = {
+  control: (provided, state) => {
+    const styles = {
+      ...provided,
+      'width': '100%',
+      'color': state.isDisabled && `${baseTheme.placeholderColor}`,
+      'background':
+        (state.isDisabled && `${baseTheme.disabledBackground}`) ||
+        state.theme.colors.neutral0,
+      'minHeight': 50,
+      'borderWidth': '0px',
+      'boxShadow':
+        (state.menuIsOpen &&
+          `${baseTheme.shadowFocusRing}, ${state.theme.boxShadowMenuIsOpen} ${state.theme.colors.primary}`) ||
+        (state.isFocused &&
+          `${state.theme.boxShadowIsFocused} ${state.theme.colors.neutral30}`) ||
+        `${state.theme.boxShadowDefault} ${state.theme.colors.neutral20}`,
+      '&:hover': {
+        boxShadow:
+          !state.menuIsOpen &&
+          `${state.theme.boxShadowHover} ${state.theme.colors.neutral30}`,
+      },
+      '&:focus-within': {
+        boxShadow: `${baseTheme.shadowFocusRing}, inset 0 0 0 1px ${state.theme.colors.neutral30}`,
+      },
+    }
+    if (state.isDisabled) styles.borderColor = `${baseTheme.disabled}`
+    return styles
+  },
+  valueContainer: provided => ({ ...provided }),
+  input: () => ({
+    margin: 0,
+  }),
+  menu: provided => ({
+    ...provided,
+    zIndex: 3,
+    // The following values are taken from theme, but copy&pasted for ease
+    marginTop: 4,
+    borderRadius: 4,
+    boxShadow: `0 0 0 1px hsl(210, 24%, 87%), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+  }),
+  menuList: provided => ({
+    ...provided,
+    maxHeight: 200,
+  }),
+  placeholder: provided => ({
+    ...provided,
+    color: baseTheme.placeholderColor,
+    margin: 0,
+    marginLeft: '-1px',
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    cursor: 'pointer',
+    color: state.isSelected
+      ? baseTheme.optionTextSelected
+      : baseTheme.optionTextColor,
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color:
+      (state.isFocused && state.theme.colors.primary) ||
+      baseTheme.placeholderColor,
+  }),
+  indicatorSeparator: () => ({ display: 'none' }),
+  multiValue: provided => ({
+    ...provided,
+    backgroundColor: baseTheme.multiSelectItem.label.backgroundColor,
+    borderRadius: baseTheme.multiSelectItem.label.borderRadius,
+  }),
+  multiValueLabel: provided => ({
+    ...provided,
+    color: baseTheme.multiSelectItem.label.color,
+  }),
+  multiValueRemove: provided => ({
+    ...provided,
+    color: baseTheme.multiSelectItem.label.color,
+  }),
+}
+
+export const MultiSelectField = ({
   options,
   name,
   label,
@@ -66,105 +146,9 @@ const SelectField = ({
   disabled,
   size,
   menuPlacement,
-  ...props
 }) => {
   const [field, meta, helpers] = useField({ name })
 
-  const getValue = () => {
-    // for single option inputs just return the value selected
-    if (!props.isMulti) {
-      return options.find(option => option.value === field.value) || ''
-    }
-    return options.filter(option => field.value?.includes(option.value))
-  }
-
-  const onChangeHandler = option => {
-    if (!props.isMulti) {
-      helpers.setValue(option.value)
-    }
-    helpers.setValue(option ? option.map(o => o.value) : [])
-  }
-
-  const customStyles = {
-    control: (provided, state) => {
-      const styles = {
-        ...provided,
-        'width': '100%',
-        'color': state.isDisabled && `${baseTheme.placeholderColor}`,
-        'background':
-          (state.isDisabled && `${baseTheme.disabledBackground}`) ||
-          state.theme.colors.neutral0,
-        'minHeight': 0,
-        'height': 50,
-        'borderWidth': '0px',
-        'boxShadow':
-          (state.menuIsOpen &&
-            `${baseTheme.shadowFocusRing}, ${state.theme.boxShadowMenuIsOpen} ${state.theme.colors.primary}`) ||
-          (state.isFocused &&
-            `${state.theme.boxShadowIsFocused} ${state.theme.colors.neutral30}`) ||
-          `${state.theme.boxShadowDefault} ${state.theme.colors.neutral20}`,
-        '&:hover': {
-          boxShadow:
-            !state.menuIsOpen &&
-            `${state.theme.boxShadowHover} ${state.theme.colors.neutral30}`,
-        },
-        '&:focus-within': {
-          boxShadow: `${baseTheme.shadowFocusRing}, inset 0 0 0 1px ${state.theme.colors.neutral30}`,
-        },
-      }
-      if (state.isDisabled) styles.borderColor = `${baseTheme.disabled}`
-      return styles
-    },
-    valueContainer: provided => ({ ...provided }),
-    input: () => ({
-      margin: 0,
-    }),
-    menu: provided => ({
-      ...provided,
-      zIndex: 3,
-      // The following values are taken from theme, but copy&pasted for ease
-      marginTop: 4,
-      borderRadius: 4,
-      boxShadow: `0 0 0 1px hsl(210, 24%, 87%), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
-    }),
-    menuList: provided => ({
-      ...provided,
-      maxHeight: 200,
-    }),
-    placeholder: provided => ({
-      ...provided,
-      color: baseTheme.placeholderColor,
-      margin: 0,
-      marginLeft: '-1px',
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      cursor: 'pointer',
-      color: state.isSelected
-        ? baseTheme.optionTextSelected
-        : baseTheme.optionTextColor,
-    }),
-    dropdownIndicator: (provided, state) => ({
-      ...provided,
-      color:
-        (state.isFocused && state.theme.colors.primary) ||
-        baseTheme.placeholderColor,
-    }),
-    indicatorSeparator: () => ({ display: 'none' }),
-    multiValue: provided => ({
-      ...provided,
-      backgroundColor: baseTheme.multiSelectItem.label.backgroundColor,
-      borderRadius: baseTheme.multiSelectItem.label.borderRadius,
-    }),
-    multiValueLabel: provided => ({
-      ...provided,
-      color: baseTheme.multiSelectItem.label.color,
-    }),
-    multiValueRemove: provided => ({
-      ...provided,
-      color: baseTheme.multiSelectItem.label.color,
-    }),
-  }
   return (
     <Wrapper size={size}>
       <FieldLabel htmlFor={name} label={label} />
@@ -172,8 +156,9 @@ const SelectField = ({
         options={options}
         placeholder={placeholder}
         name={field.name}
-        onChange={onChangeHandler}
-        value={getValue()}
+        onChange={option => {
+          helpers.setValue(option ? option.map(o => o.value) : [])
+        }}
         styles={customStyles}
         theme={
           (meta.error && meta.touched && errorVariant(baseTheme)) ||
@@ -181,7 +166,7 @@ const SelectField = ({
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
-        {...props}
+        isMulti
       />
 
       {meta.error && meta.touched && (
@@ -191,7 +176,47 @@ const SelectField = ({
   )
 }
 
-SelectField.propTypes = {
+export const SelectField = ({
+  options,
+  name,
+  label,
+  placeholder,
+  disabled,
+  size,
+  menuPlacement,
+}) => {
+  const [field, meta, helpers] = useField({ name })
+
+  return (
+    <Wrapper size={size}>
+      <FieldLabel htmlFor={name} label={label} />
+      <Select
+        options={options}
+        placeholder={placeholder}
+        name={field.name}
+        onChange={option => {
+          return helpers.setValue(option.value)
+        }}
+        value={options.find(option => option.value === field.value) || ''}
+        styles={customStyles}
+        theme={
+          (meta.error && meta.touched && errorVariant(baseTheme)) ||
+          defaultVariant(baseTheme)
+        }
+        isDisabled={disabled}
+        menuPlacement={menuPlacement}
+      />
+
+      {meta.error && meta.touched && (
+        <FieldMessage tone="critical" message={meta.error} />
+      )}
+    </Wrapper>
+  )
+}
+
+// make some types for our components, the multi inherits from the select but feel free
+// to change it later if you need to this was more just to save typing.
+const SelectPropTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({ label: PropTypes.string, value: PropTypes.string })
   ).isRequired,
@@ -201,15 +226,20 @@ SelectField.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
-  isMulti: PropTypes.boolean,
 }
 
-SelectField.defaultProps = {
+const SelectDefaultProps = {
   placeholder: '',
   disabled: false,
-  isMulti: false,
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
 }
-export default SelectField
+
+// Assign the prop types to the components, later you can spread these if they deviate
+// and you need to change one or the other
+SelectField.propTypes = SelectPropTypes
+SelectField.defaultProps = SelectDefaultProps
+
+MultiSelectField.propTypes = SelectPropTypes
+MultiSelectField.defaultProps = SelectDefaultProps
