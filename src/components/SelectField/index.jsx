@@ -157,8 +157,21 @@ export const MultiSelectField = ({
         placeholder={placeholder}
         name={field.name}
         onChange={option => {
-          helpers.setValue(option ? option.map(o => o.value) : [])
+          return helpers.setValue(option ? option.map(o => o.value) : [])
         }}
+        value={
+          // if there is a value to sort, go through the selections (labels) and
+          // on finding a matching value in the options list, return the first match
+          // this is needed as if you go through all options and return the matches
+          // the order will match the order of options and not selected options
+          // from the user
+          field.value
+            ? field.value.map(
+                fieldValue =>
+                  options.filter(option => option.value === fieldValue)[0]
+              )
+            : []
+        }
         styles={customStyles}
         theme={
           (meta.error && meta.touched && errorVariant(baseTheme)) ||
@@ -194,9 +207,7 @@ export const SelectField = ({
         options={options}
         placeholder={placeholder}
         name={field.name}
-        onChange={option => {
-          return helpers.setValue(option.value)
-        }}
+        onChange={option => helpers.setValue(option.value)}
         value={options.find(option => option.value === field.value) || ''}
         styles={customStyles}
         theme={
