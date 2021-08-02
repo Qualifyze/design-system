@@ -5,9 +5,20 @@ import PropTypes from 'prop-types'
 
 import FieldMessage from '../FieldMessage'
 import FieldLabel from '../FieldLabel'
+import Icon from '../Icon'
+import Flex from '../Flex'
 
 import baseTheme from './baseTheme'
 import Wrapper from './Wrapper'
+
+// eslint-disable-next-line react/prop-types
+const MultiValueRemove = ({ innerProps }) => {
+  return (
+    <Flex sx={{ px: 2, color: 'grey.700' }} {...innerProps}>
+      <Icon name="cross" color="currentColor" />
+    </Flex>
+  )
+}
 
 const spacing = {
   baseUnit: 4,
@@ -127,7 +138,9 @@ const customStyles = {
     ...provided,
     backgroundColor: baseTheme.multiSelectItem.label.backgroundColor,
     borderRadius: baseTheme.multiSelectItem.label.borderRadius,
+    // line up the text with the remove icon
     alignItems: 'center',
+    // padding needed as remove icon has more space to the right now
     paddingLeft: 10,
   }),
   multiValueLabel: provided => ({
@@ -141,6 +154,7 @@ const customStyles = {
     width: 44,
     height: 44,
     padding: 0,
+    // make the icon in the middle of the click area
     alignItems: 'center',
     justifyContent: 'center',
     color: baseTheme.multiSelectItem.label.color,
@@ -165,9 +179,9 @@ export const MultiSelectField = ({
         options={options}
         placeholder={placeholder}
         name={field.name}
-        onChange={option => {
-          return helpers.setValue(option ? option.map(o => o.value) : [])
-        }}
+        onChange={option =>
+          helpers.setValue(option ? option.map(o => o.value) : [])
+        }
         value={
           // if there is a value to sort, go through the selections (labels) and
           // on finding a matching value in the options list, return the first match
@@ -188,6 +202,7 @@ export const MultiSelectField = ({
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
+        components={{ MultiValueRemove }}
         isMulti
       />
 
