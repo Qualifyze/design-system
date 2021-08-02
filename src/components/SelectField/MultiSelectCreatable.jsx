@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CreatableSelect from 'react-select/creatable'
 import { useField } from 'formik'
 import PropTypes from 'prop-types'
@@ -171,6 +171,7 @@ export const MultiSelectCreatableField = ({
   menuPlacement,
 }) => {
   const [field, meta, helpers] = useField({ name })
+  const [customInput, setCustomInput] = useState('')
 
   return (
     <Wrapper size={size}>
@@ -182,6 +183,21 @@ export const MultiSelectCreatableField = ({
         onChange={option =>
           helpers.setValue(option ? option.map(o => o.value) : [])
         }
+        onInputChange={(newValue, actionMeta) => {
+          // keep track of the input state, as on calling "set value" we will not have
+          // the input value in this func
+          setCustomInput(newValue)
+          // if the user would like to add a new value
+          if (actionMeta?.action === 'set-value') {
+            options.push({
+              // @TODO
+              // we might need to watch out here to make sure the user does
+              // not put anything in that could cause a security leak
+              label: customInput,
+              value: customInput,
+            })
+          }
+        }}
         value={
           // if there is a value to sort, go through the selections (labels) and
           // on finding a matching value in the options list, return the first match

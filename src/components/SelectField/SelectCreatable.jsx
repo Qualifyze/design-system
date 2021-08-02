@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CreatableSelect from 'react-select/creatable'
 import { useField } from 'formik'
 import PropTypes from 'prop-types'
@@ -135,6 +135,7 @@ export const SelectCreatableField = ({
   menuPlacement,
 }) => {
   const [field, meta, helpers] = useField({ name })
+  const [customInput, setCustomInput] = useState('')
 
   return (
     <Wrapper size={size}>
@@ -144,6 +145,21 @@ export const SelectCreatableField = ({
         placeholder={placeholder}
         name={field.name}
         onChange={option => helpers.setValue(option.value)}
+        onInputChange={(newValue, actionMeta) => {
+          // keep track of the input state, as on calling "set value" we will not have
+          // the input value in this func
+          setCustomInput(newValue)
+          // if the user would like to add a new value
+          if (actionMeta?.action === 'set-value') {
+            options.push({
+              // @TODO
+              // we might need to watch out here to make sure the user does
+              // not put anything in that could cause a security leak
+              label: customInput,
+              value: customInput,
+            })
+          }
+        }}
         value={options.find(option => option.value === field.value) || ''}
         styles={customStyles}
         theme={

@@ -260,7 +260,10 @@ export const MultiSelectCreatable = () => {
   ]
   const insideState = boolean('Inside State', false)
   const disabled = boolean('Disabled', false)
-  const placeholder = text('Placeholder', 'Select a product ingredient')
+  const placeholder = text(
+    'Placeholder',
+    'Select or create a product ingredient'
+  )
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
 
