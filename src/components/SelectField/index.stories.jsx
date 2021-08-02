@@ -10,7 +10,12 @@ import Box from '../Box'
 import Stack from '../Stack'
 import Actions from '../Actions'
 
-import { SelectField, MultiSelectField } from './index'
+import {
+  SelectField,
+  MultiSelectField,
+  SelectCreatableField,
+  MultiSelectCreatableField,
+} from './index'
 
 export default { title: 'SelectField', component: SelectField }
 
@@ -98,6 +103,63 @@ Default.story = {
   name: 'default',
 }
 
+export const SelectCreatable = () => {
+  const insideState = boolean('Inside State', false)
+  const disabled = boolean('Disabled', false)
+  const placeholder = text('Placeholder', 'Select or create a movie')
+  const availableSizes = ['tiny', 'small', 'standard', 'large']
+  const size = select('Size', availableSizes, 'standard')
+
+  return (
+    <Formik
+      initialValues={{
+        movie: '',
+      }}
+      onSubmit={values => {
+        action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
+      }}
+      validationSchema={selectSchema}
+    >
+      {({ resetForm }) => (
+        <Form>
+          <Box sx={{ p: 4 }}>
+            <Stack space={3}>
+              <Box>
+                <SelectCreatableField
+                  options={options}
+                  name="movie"
+                  label="What is your favorite movie?"
+                  placeholder={placeholder}
+                  disabled={disabled}
+                  size={size}
+                />
+              </Box>
+              <Box>
+                <Actions>
+                  <Button type="submit">Submit</Button>
+                  <Button
+                    variant="secondary"
+                    onClick={event => {
+                      event.preventDefault()
+                      resetForm()
+                    }}
+                  >
+                    Reset
+                  </Button>
+                </Actions>
+              </Box>
+              {insideState && <FormDebugger />}
+            </Stack>
+          </Box>
+        </Form>
+      )}
+    </Formik>
+  )
+}
+SelectCreatable.story = {
+  name: 'Select creatable',
+}
+
 const multiSelectSchema = Yup.object().shape({
   products: Yup.array(Yup.string()).required(),
 })
@@ -175,4 +237,79 @@ export const MultiSelect = () => {
 }
 MultiSelect.story = {
   name: 'Multi select',
+}
+
+export const MultiSelectCreatable = () => {
+  const tagOptions = [
+    {
+      label: 'Doxylamine succinate',
+      value: 'doxy',
+    },
+    {
+      label: 'Ascorbic acid',
+      value: 'acid',
+    },
+    {
+      label: 'Something dangerous',
+      value: 'etwa',
+    },
+    {
+      label: 'Chemicolosis',
+      value: 'chemi',
+    },
+  ]
+  const insideState = boolean('Inside State', false)
+  const disabled = boolean('Disabled', false)
+  const placeholder = text('Placeholder', 'Select a product ingredient')
+  const availableSizes = ['tiny', 'small', 'standard', 'large']
+  const size = select('Size', availableSizes, 'standard')
+
+  return (
+    <Formik
+      initialValues={{
+        products: '',
+      }}
+      onSubmit={values => {
+        action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
+      }}
+      validationSchema={multiSelectSchema}
+    >
+      {({ resetForm }) => (
+        <Form>
+          <Box sx={{ p: 4 }}>
+            <Stack space={3}>
+              <Box>
+                <MultiSelectCreatableField
+                  options={tagOptions}
+                  name="products"
+                  label="Try to find a product"
+                  placeholder={placeholder}
+                  disabled={disabled}
+                  size={size}
+                />
+              </Box>
+              <Box>
+                <Actions>
+                  <Button type="submit">Submit</Button>
+                  <Button
+                    variant="secondary"
+                    onClick={event => {
+                      event.preventDefault()
+                      resetForm()
+                    }}
+                  >
+                    Reset
+                  </Button>
+                </Actions>
+              </Box>
+              {insideState && <FormDebugger />}
+            </Stack>
+          </Box>
+        </Form>
+      )}
+    </Formik>
+  )
+}
+MultiSelectCreatable.story = {
+  name: 'Multi select creatable',
 }
