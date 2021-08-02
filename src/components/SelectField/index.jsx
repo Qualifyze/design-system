@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import FieldMessage from '../FieldMessage'
 import FieldLabel from '../FieldLabel'
 import Icon from '../Icon'
-import Flex from '../Flex'
+import Box from '../Box'
 
 import baseTheme from './baseTheme'
 import Wrapper from './Wrapper'
@@ -14,9 +14,37 @@ import Wrapper from './Wrapper'
 // eslint-disable-next-line react/prop-types
 const MultiValueRemove = ({ innerProps }) => {
   return (
-    <Flex sx={{ px: 2, color: 'grey.700' }} {...innerProps}>
-      <Icon name="cross" color="currentColor" />
-    </Flex>
+    <Box
+      {...innerProps}
+      sx={{
+        'textDecoration': 'none !important',
+        'border': 0,
+        'cursor': 'pointer',
+        'display': 'flex',
+        'p': 2,
+        'bg': 'transparent',
+        'borderRadius': 2,
+        'borderTopLeftRadius': 0,
+        'borderBottomLeftRadius': 0,
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          transform: 'translateY(-50%)',
+          top: '50%',
+          height: '100%',
+          minHeight: '44px',
+          minWidth: '44px',
+          right: '-6px',
+        },
+        '&:hover': {
+          outline: 'none',
+          cursor: 'pointer',
+          bg: 'grey.200',
+        },
+      }}
+    >
+      <Icon name="cross" size="standard" color="grey.700" />
+    </Box>
   )
 }
 
@@ -98,7 +126,9 @@ const customStyles = {
     if (state.isDisabled) styles.borderColor = `${baseTheme.disabled}`
     return styles
   },
-  valueContainer: provided => ({ ...provided }),
+  valueContainer: provided => ({
+    ...provided,
+  }),
   input: () => ({
     margin: 0,
   }),
@@ -141,22 +171,18 @@ const customStyles = {
     // line up the text with the remove icon
     alignItems: 'center',
     // padding needed as remove icon has more space to the right now
-    paddingLeft: 10,
+    paddingLeft: 2,
+    margin: 0,
+    marginRight: 8,
+    marginTop: 4,
+    marginBottom: 4,
+  }),
+  multiValueContainer: provided => ({
+    ...provided,
+    paddingLeft: 0,
   }),
   multiValueLabel: provided => ({
     ...provided,
-    color: baseTheme.multiSelectItem.label.color,
-  }),
-  multiValueRemove: provided => ({
-    ...provided,
-    cursor: 'pointer',
-    // click area of the remove icon
-    width: 44,
-    height: 44,
-    padding: 0,
-    // make the icon in the middle of the click area
-    alignItems: 'center',
-    justifyContent: 'center',
     color: baseTheme.multiSelectItem.label.color,
   }),
 }
@@ -204,6 +230,7 @@ export const MultiSelectField = ({
         menuPlacement={menuPlacement}
         components={{ MultiValueRemove }}
         isMulti
+        isClearable={false}
       />
 
       {meta.error && meta.touched && (
