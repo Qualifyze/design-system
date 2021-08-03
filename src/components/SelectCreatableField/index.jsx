@@ -132,12 +132,11 @@ const SelectCreatableField = ({
   size,
   menuPlacement,
   createNewLabelText,
+  onCreateOption,
 }) => {
   const [field, meta, helpers] = useField({ name })
-  // state to keep track of what the user supplied in the custom input
-  const [customValue, setCustomValue] = useState('')
-  // initially the options match the state of what is passed in to the component
   const [customOptions, setCustomOptions] = useState(options)
+
   return (
     <Wrapper size={size}>
       <FieldLabel htmlFor={name} label={label} />
@@ -159,23 +158,21 @@ const SelectCreatableField = ({
         // `value` needs to be set like this to make sure value gets updated
         // when the form field is changed, e.g., when resetting the form
         onChange={option => helpers.setValue(option.value)}
-        onInputChange={(newValue, actionMeta) => {
-          // we need to store this, as on the next change "set-value", the new
-          // value in the arg to this function will be lost. This means we need
-          // to keep that state
-          setCustomValue(newValue)
-          // if the user would like to add a new value
-          if (actionMeta?.action === 'set-value' && customValue) {
-            setCustomOptions([
-              ...customOptions,
-              {
-                label: customValue,
-                value: customValue,
-              },
-            ])
-          }
+        onCreateOption={newValue => {
+          helpers.setValue(newValue)
+
+          onCreateOption?.()
+          setCustomOptions([
+            ...options,
+            {
+              value: newValue,
+              label: newValue,
+            },
+          ])
         }}
-        value={customOptions.find(option => option.value === field.value) || ''}
+        value={
+          field.value ? customOptions.find(o => o.value === field.value) : ''
+        }
         styles={customStyles}
         theme={
           (meta.error && meta.touched && errorVariant(baseTheme)) ||
@@ -202,6 +199,7 @@ SelectCreatableField.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   createNewLabelText: PropTypes.string,
+  onCreateOption: PropTypes.func,
 }
 SelectCreatableField.defaultProps = {
   placeholder: '',
