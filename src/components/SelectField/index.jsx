@@ -136,6 +136,7 @@ const SelectField = ({
     }),
     indicatorSeparator: () => ({ display: 'none' }),
   }
+
   return (
     <Wrapper size={size}>
       <FieldLabel htmlFor={name} label={label} />
@@ -146,6 +147,11 @@ const SelectField = ({
         onChange={option => {
           helpers.setValue(option.value)
         }}
+        onBlur={() => {
+          helpers.setTouched(true)
+        }}
+        // `value` needs to be set like this to make sure value gets updated
+        // when the form field is changed, e.g., when resetting the form
         value={options.find(option => option.value === field.value) || ''}
         styles={customStyles}
         theme={
