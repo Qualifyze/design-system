@@ -33,6 +33,7 @@ import Radio from './src/components/Radio'
 import FormDebugger from './src/components/FormDebugger'
 import Card from './src/components/Card'
 import SelectField from './src/components/SelectField'
+import SelectFieldCreatable from './src/components/SelectFieldCreatable'
 import LoadingSpinner from './src/components/LoadingSpinner'
 import Tooltip from './src/components/Tooltip'
 import Actions from './src/components/Actions'
@@ -100,4 +101,5 @@ export {
   FileUpload,
   FileRow,
   AutosuggestField,
+  SelectFieldCreatable,
 }
