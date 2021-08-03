@@ -145,7 +145,7 @@ const SelectFieldCreatable = ({
           // the input value in this func
           setCustomInput(newValue)
           // if the user would like to add a new value
-          if (actionMeta?.action === 'set-value') {
+          if (actionMeta?.action === 'set-value' && customInput) {
             options.push({
               label: customInput,
               value: customInput,
