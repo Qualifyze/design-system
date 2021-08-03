@@ -129,6 +129,7 @@ const SelectCreatableField = ({
   disabled,
   size,
   menuPlacement,
+  createNewLabelText,
 }) => {
   const [field, meta, helpers] = useField({ name })
   // state to keep track of what the user supplied in the custom input
@@ -142,6 +143,14 @@ const SelectCreatableField = ({
         options={customOptions}
         placeholder={placeholder}
         name={field.name}
+        formatCreateLabel={
+          // if consumer would like to pass in custom text for the create new label
+          createNewLabelText
+            ? input => {
+                return `${createNewLabelText}: ${input}`
+              }
+            : undefined
+        }
         onChange={option => helpers.setValue(option.value)}
         onInputChange={(newValue, actionMeta) => {
           // we need to store this, as on the next change "set-value", the new
@@ -184,6 +193,7 @@ SelectCreatableField.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
+  createNewLabelText: PropTypes.string,
 }
 SelectCreatableField.defaultProps = {
   placeholder: '',
