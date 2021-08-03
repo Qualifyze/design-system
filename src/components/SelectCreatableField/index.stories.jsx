@@ -10,11 +10,11 @@ import Box from '../Box'
 import Stack from '../Stack'
 import Actions from '../Actions'
 
-import SelectFieldCreatable from './index'
+import SelectCreatableField from './index'
 
 export default {
-  title: 'SelectFieldCreatable',
-  component: SelectFieldCreatable,
+  title: 'SelectCreatableField',
+  component: SelectCreatableField,
 }
 
 const options = [
@@ -66,7 +66,7 @@ export const Default = () => {
           <Box sx={{ p: 4 }}>
             <Stack space={3}>
               <Box>
-                <SelectFieldCreatable
+                <SelectCreatableField
                   options={options}
                   name="movie"
                   label="What is your favorite movie?"
