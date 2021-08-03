@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CreatableSelect from 'react-select/creatable'
 import { useField } from 'formik'
 import PropTypes from 'prop-types'
@@ -135,13 +135,12 @@ const SelectCreatableField = ({
   onCreateOption,
 }) => {
   const [field, meta, helpers] = useField({ name })
-  const [customOptions, setCustomOptions] = useState(options)
 
   return (
     <Wrapper size={size}>
       <FieldLabel htmlFor={name} label={label} />
       <CreatableSelect
-        options={customOptions}
+        options={options}
         placeholder={placeholder}
         name={field.name}
         formatCreateLabel={input => {
@@ -155,24 +154,30 @@ const SelectCreatableField = ({
         onBlur={() => {
           helpers.setTouched(true)
         }}
-        // `value` needs to be set like this to make sure value gets updated
-        // when the form field is changed, e.g., when resetting the form
         onChange={option => helpers.setValue(option.value)}
         onCreateOption={newValue => {
           helpers.setValue(newValue)
-
           onCreateOption?.()
-          setCustomOptions([
-            ...options,
-            {
-              value: newValue,
-              label: newValue,
-            },
-          ])
         }}
-        value={
-          field.value ? customOptions.find(o => o.value === field.value) : ''
-        }
+        // We need to sync the Formik state with the `react-select` input. To do
+        // that, we need to find out whether the user...
+        //    a) ...chose an option of the passed `options` list or
+        //    b) ...created their own option or
+        //    c) ...the input is currently empty/undefined
+        value={(() => {
+          const foundOption = options.find(o => o.value === field.value)
+          switch (true) {
+            // a)
+            case !!foundOption:
+              return foundOption
+            // b)
+            case !!field.value:
+              return { label: field.value, value: field }
+            // c)
+            default:
+              return ''
+          }
+        })()}
         styles={customStyles}
         theme={
           (meta.error && meta.touched && errorVariant(baseTheme)) ||
