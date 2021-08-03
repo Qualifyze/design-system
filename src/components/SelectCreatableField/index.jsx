@@ -121,7 +121,7 @@ const customStyles = {
   }),
   indicatorSeparator: () => ({ display: 'none' }),
 }
-const SelectFieldCreatable = ({
+const SelectCreatableField = ({
   options,
   name,
   label,
@@ -131,28 +131,35 @@ const SelectFieldCreatable = ({
   menuPlacement,
 }) => {
   const [field, meta, helpers] = useField({ name })
-  const [customInput, setCustomInput] = useState('')
+  // state to keep track of what the user supplied in the custom input
+  const [customValue, setCustomValue] = useState('')
+  // initially the options match the state of what is passed in to the component
+  const [customOptions, setCustomOptions] = useState(options)
   return (
     <Wrapper size={size}>
       <FieldLabel htmlFor={name} label={label} />
       <CreatableSelect
-        options={options}
+        options={customOptions}
         placeholder={placeholder}
         name={field.name}
         onChange={option => helpers.setValue(option.value)}
         onInputChange={(newValue, actionMeta) => {
-          // keep track of the input state, as on calling "set value" we will not have
-          // the input value in this func
-          setCustomInput(newValue)
+          // we need to store this, as on the next change "set-value", the new
+          // value in the arg to this function will be lost. This means we need
+          // to keep that state
+          setCustomValue(newValue)
           // if the user would like to add a new value
-          if (actionMeta?.action === 'set-value' && customInput) {
-            options.push({
-              label: customInput,
-              value: customInput,
-            })
+          if (actionMeta?.action === 'set-value' && customValue) {
+            setCustomOptions([
+              ...customOptions,
+              {
+                label: customValue,
+                value: customValue,
+              },
+            ])
           }
         }}
-        value={options.find(option => option.value === field.value) || ''}
+        value={customOptions.find(option => option.value === field.value) || ''}
         styles={customStyles}
         theme={
           (meta.error && meta.touched && errorVariant(baseTheme)) ||
@@ -167,7 +174,7 @@ const SelectFieldCreatable = ({
     </Wrapper>
   )
 }
-SelectFieldCreatable.propTypes = {
+SelectCreatableField.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({ label: PropTypes.string, value: PropTypes.string })
   ).isRequired,
@@ -178,7 +185,7 @@ SelectFieldCreatable.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
 }
-SelectFieldCreatable.defaultProps = {
+SelectCreatableField.defaultProps = {
   placeholder: '',
   disabled: false,
   size: 'standard',
@@ -186,4 +193,4 @@ SelectFieldCreatable.defaultProps = {
   menuPlacement: 'auto',
 }
 
-export default SelectFieldCreatable
+export default SelectCreatableField
