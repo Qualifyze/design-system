@@ -153,6 +153,11 @@ const SelectCreatableField = ({
             </Flex>
           )
         }}
+        onBlur={() => {
+          helpers.setTouched(true)
+        }}
+        // `value` needs to be set like this to make sure value gets updated
+        // when the form field is changed, e.g., when resetting the form
         onChange={option => helpers.setValue(option.value)}
         onInputChange={(newValue, actionMeta) => {
           // we need to store this, as on the next change "set-value", the new
