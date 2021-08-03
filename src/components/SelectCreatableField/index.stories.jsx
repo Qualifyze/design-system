@@ -48,6 +48,7 @@ export const Default = () => {
   const insideState = boolean('Inside State', false)
   const disabled = boolean('Disabled', false)
   const placeholder = text('Placeholder', 'Select or create a movie')
+  const createNewLabelText = text('Create new label', undefined)
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
 
@@ -73,6 +74,7 @@ export const Default = () => {
                   placeholder={placeholder}
                   disabled={disabled}
                   size={size}
+                  createNewLabelText={createNewLabelText}
                 />
               </Box>
               <Box>
