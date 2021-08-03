@@ -33,6 +33,10 @@ export const Default = () => {
       value: 'etwa',
     },
     {
+      label: 'Reallylonglabelwithoutanyspaces',
+      value: 'really',
+    },
+    {
       label: 'Chemicolosis',
       value: 'chemi',
     },

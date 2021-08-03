@@ -24,8 +24,7 @@ const MultiValueRemove = ({ innerProps }) => {
         'p': 2,
         'bg': 'transparent',
         'borderRadius': 2,
-        'borderTopLeftRadius': 0,
-        'borderBottomLeftRadius': 0,
+        'minWidth': '24px',
         '&::after': {
           content: '""',
           position: 'absolute',
@@ -182,6 +181,10 @@ const customStyles = {
   multiValueLabel: provided => ({
     ...provided,
     color: baseTheme.multiSelectItem.label.color,
+    whiteSpace: 'initial',
+    textOverflow: 'initial',
+    overflow: 'initial',
+    wordBreak: 'break-word',
   }),
 }
 
