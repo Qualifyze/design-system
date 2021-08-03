@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 
 import FieldMessage from '../FieldMessage'
 import FieldLabel from '../FieldLabel'
+import Text from '../Text'
+import Flex from '../Flex'
 
 import baseTheme from './baseTheme'
 import Wrapper from './Wrapper'
@@ -143,14 +145,14 @@ const SelectCreatableField = ({
         options={customOptions}
         placeholder={placeholder}
         name={field.name}
-        formatCreateLabel={
-          // if consumer would like to pass in custom text for the create new label
-          createNewLabelText
-            ? input => {
-                return `${createNewLabelText}: ${input}`
-              }
-            : undefined
-        }
+        formatCreateLabel={input => {
+          return (
+            <Flex>
+              {`${createNewLabelText}: `}
+              <Text weight="medium">{`"${input}"`}</Text>
+            </Flex>
+          )
+        }}
         onChange={option => helpers.setValue(option.value)}
         onInputChange={(newValue, actionMeta) => {
           // we need to store this, as on the next change "set-value", the new
@@ -176,6 +178,7 @@ const SelectCreatableField = ({
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
+        createOptionPosition="first"
       />
       {meta.error && meta.touched && (
         <FieldMessage tone="critical" message={meta.error} />
@@ -201,6 +204,7 @@ SelectCreatableField.defaultProps = {
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
+  createNewLabelText: 'Create',
 }
 
 export default SelectCreatableField
