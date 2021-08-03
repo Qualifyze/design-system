@@ -148,8 +148,8 @@ const SelectCreatableField = ({
         formatCreateLabel={input => {
           return (
             <Flex>
-              {`${createNewLabelText}: `}
-              <Text weight="medium">{`"${input}"`}</Text>
+              {`${createNewLabelText}:`}
+              <Text weight="medium">&nbsp;{`"${input}"`}</Text>
             </Flex>
           )
         }}
