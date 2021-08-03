@@ -29,8 +29,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^11.3.0",
+    "@emotion/core": "10.1.1",
+    "@emotion/styled": "10.0.27",
     "@reach/dialog": "^0.15.3",
     "@reach/rect": "^0.15.3",
     "@reach/tooltip": "^0.15.3",
