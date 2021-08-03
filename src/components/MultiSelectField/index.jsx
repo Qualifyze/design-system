@@ -206,6 +206,11 @@ const MultiSelectField = ({
         onChange={option =>
           helpers.setValue(option ? option.map(o => o.value) : [])
         }
+        onBlur={() => {
+          helpers.setTouched(true)
+        }}
+        // `value` needs to be set like this to make sure value gets updated
+        // when the form field is changed, e.g., when resetting the form
         value={
           // if there is a value to sort, go through the selections (labels) and
           // on finding a matching value in the options list, return the first match
