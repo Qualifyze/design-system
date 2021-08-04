@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import styles from 'rollup-plugin-styles'
+
 import { dependencies } from './package.json'
 
 export default defineConfig({
@@ -17,5 +18,5 @@ export default defineConfig({
     commonjs(),
     styles(),
   ],
-  external: Object.keys(dependencies),
+  external: [...Object.keys(dependencies), 'react-select/creatable'],
 })
