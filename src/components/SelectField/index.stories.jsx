@@ -47,6 +47,10 @@ export const Default = () => {
   const placeholder = text('Placeholder', 'Select a movie')
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
+  const noOptionsMessage = text(
+    'No options message',
+    'Oh come on, dont be so picky'
+  )
 
   return (
     <Formik
@@ -70,6 +74,7 @@ export const Default = () => {
                   placeholder={placeholder}
                   disabled={disabled}
                   size={size}
+                  noOptionsMessage={() => noOptionsMessage}
                 />
               </Box>
               <Box>

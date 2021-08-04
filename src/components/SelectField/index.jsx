@@ -77,6 +77,7 @@ const SelectField = ({
   disabled,
   size,
   menuPlacement,
+  noOptionsMessage,
 }) => {
   const [field, meta, helpers] = useField({ name })
 
@@ -165,6 +166,7 @@ const SelectField = ({
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
+        noOptionsMessage={noOptionsMessage}
         components={{ DropdownIndicator }}
       />
       {meta.error && meta.touched && (
@@ -184,6 +186,7 @@ SelectField.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
+  noOptionsMessage: PropTypes.func,
 }
 
 SelectField.defaultProps = {
