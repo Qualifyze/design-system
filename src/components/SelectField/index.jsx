@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 
 import FieldMessage from '../FieldMessage'
 import FieldLabel from '../FieldLabel'
+import Icon from '../Icon'
+import Flex from '../Flex'
 
 import baseTheme from './baseTheme'
 import Wrapper from './Wrapper'
@@ -57,6 +59,15 @@ const errorVariant = customTheme => ({
   boxShadowDefault: 'inset 0 0 0 2px',
   boxShadowHover: 'inset 0 0 0 2px',
 })
+
+// eslint-disable-next-line react/prop-types
+const DropdownIndicator = ({ innerProps }) => {
+  return (
+    <Flex sx={{ px: 2, color: 'grey.700' }} {...innerProps}>
+      <Icon name="chevrondown" color="currentColor" />
+    </Flex>
+  )
+}
 
 const SelectField = ({
   options,
@@ -129,12 +140,6 @@ const SelectField = ({
         ? baseTheme.optionTextSelected
         : baseTheme.optionTextColor,
     }),
-    dropdownIndicator: (provided, state) => ({
-      ...provided,
-      color:
-        (state.isFocused && state.theme.colors.primary) ||
-        baseTheme.placeholderColor,
-    }),
     indicatorSeparator: () => ({ display: 'none' }),
   }
 
@@ -162,6 +167,7 @@ const SelectField = ({
         isDisabled={disabled}
         menuPlacement={menuPlacement}
         noOptionsMessage={noOptionsMessage}
+        components={{ DropdownIndicator }}
       />
       {meta.error && meta.touched && (
         <FieldMessage tone="critical" message={meta.error} />
