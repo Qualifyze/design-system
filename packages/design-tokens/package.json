@@ -1,0 +1,48 @@
+{
+  "name": "@qualifyze/design-tokens-v2",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "test:watch": "tsdx test --watch",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "author": "nobody",
+  "module": "dist/design-tokens.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/design-tokens-v2.cjs.production.min.js",
+      "limit": "50 KB"
+    },
+    {
+      "path": "dist/design-tokens-v2.esm.js",
+      "limit": "50 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.2",
+    "size-limit": "^5.0.2"
+  },
+  "volta": {
+    "node": "14.16.0"
+  }
+}
