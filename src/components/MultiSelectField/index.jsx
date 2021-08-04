@@ -196,6 +196,7 @@ const MultiSelectField = ({
   disabled,
   size,
   menuPlacement,
+  noOptionsMessage,
 }) => {
   const [field, meta, helpers] = useField({ name })
 
@@ -237,6 +238,7 @@ const MultiSelectField = ({
         components={{ MultiValueRemove }}
         isMulti
         isClearable={false}
+        noOptionsMessage={noOptionsMessage}
       />
 
       {meta.error && meta.touched && (
@@ -256,6 +258,7 @@ MultiSelectField.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
+  noOptionsMessage: PropTypes.func,
 }
 MultiSelectField.defaultProps = {
   placeholder: '',

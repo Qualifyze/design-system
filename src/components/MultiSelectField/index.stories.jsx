@@ -46,6 +46,7 @@ export const Default = () => {
   const placeholder = text('Placeholder', 'Select a product ingredient')
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
+  const noOptionsMessage = text('No options message', 'Product not found')
 
   return (
     <Formik
@@ -69,6 +70,7 @@ export const Default = () => {
                   placeholder={placeholder}
                   disabled={disabled}
                   size={size}
+                  noOptionsMessage={() => noOptionsMessage}
                 />
               </Box>
               <Box>
