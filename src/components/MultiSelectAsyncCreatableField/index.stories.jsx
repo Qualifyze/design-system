@@ -64,6 +64,8 @@ export const Default = () => {
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
   const createNewLabelText = text('Create new label', undefined)
+  const loadingMessage = text('Loading message', undefined)
+  const noOptionsMessage = text('No Options message', undefined)
 
   return (
     <Formik
@@ -88,6 +90,8 @@ export const Default = () => {
                   disabled={disabled}
                   size={size}
                   createNewLabelText={createNewLabelText}
+                  loadingMessage={loadingMessage}
+                  noOptionsMessage={noOptionsMessage}
                 />
               </Box>
               <Box>

@@ -201,6 +201,8 @@ const MultiSelectAsyncCreatableField = ({
   menuPlacement,
   createNewLabelText,
   onCreateOption,
+  loadingMessage,
+  noOptionsMessage,
 }) => {
   const [field, meta, helpers] = useField({ name })
   // Options are not available locally, so we need to cache all options locally
@@ -269,6 +271,8 @@ const MultiSelectAsyncCreatableField = ({
         isMulti
         isClearable={false}
         createOptionPosition="first"
+        loadingMessage={() => <Text align="center">{loadingMessage}</Text>}
+        noOptionsMessage={() => <Text align="center">{noOptionsMessage}</Text>}
       />
 
       {meta.error && meta.touched && (
@@ -291,6 +295,8 @@ MultiSelectAsyncCreatableField.propTypes = {
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   createNewLabelText: PropTypes.string,
   onCreateOption: PropTypes.func,
+  loadingMessage: PropTypes.string,
+  noOptionsMessage: PropTypes.string,
 }
 MultiSelectAsyncCreatableField.defaultProps = {
   placeholder: '',
@@ -299,6 +305,8 @@ MultiSelectAsyncCreatableField.defaultProps = {
   label: '',
   menuPlacement: 'auto',
   createNewLabelText: 'Create',
+  loadingMessage: 'Loading ...',
+  noOptionsMessage: 'No Options',
 }
 
 export default MultiSelectAsyncCreatableField
