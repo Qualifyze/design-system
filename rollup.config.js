@@ -18,5 +18,9 @@ export default defineConfig({
     commonjs(),
     styles(),
   ],
-  external: [...Object.keys(dependencies), 'react-select/creatable'],
+  external: [
+    ...Object.keys(dependencies),
+    'react-select/creatable',
+    'react-select/async-creatable',
+  ],
 })
