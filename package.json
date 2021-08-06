@@ -13,6 +13,7 @@
     "build": "yarn workspaces run build",
     "storybook": "start-storybook -p 6006 -c ./.storybook",
     "build:storybook": "build-storybook",
+    "test": "yarn workspaces run test",
     "release": "changeset publish"
   },
   "dependencies": {
