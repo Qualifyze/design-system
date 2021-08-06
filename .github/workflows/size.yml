@@ -1,14 +1,13 @@
-name: Size
+name: Compressed Size
 
-on:
-  pull_request:
-    branches:
-      - next
+on: [pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: preactjs/compressed-size-action@271282ca25e92249d56092e277f42b5db527ccb0
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Build and compare compressed file sizes
+        uses: preactjs/compressed-size-action@271282ca25e92249d56092e277f42b5db527ccb0
