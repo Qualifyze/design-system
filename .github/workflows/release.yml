@@ -10,23 +10,23 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
+      - name: Checkout repo
+        uses: actions/checkout@v2
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@master
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 14.x
 
-      - name: Install Dependencies
-        run: yarn
+      - name: Install dependencies
+        run: yarn install
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create release pull request or publish to npm
         id: changesets
-        uses: changesets/action@master
+        uses: changesets/action@c2918239208f2162b9d27a87f491375c51592434
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release
