@@ -8,5 +8,13 @@ export default {
 };
 
 export const basic = () => (
-  <Box css={{ padding: '$2', bc: '$indigo4' }}>Hello</Box>
+  <Box
+    css={{
+      padding: '$2',
+      bc: '$indigo4',
+      '@bp1': { padding: '$3', color: '$indigo2', bc: '$indigo12' },
+    }}
+  >
+    Hello
+  </Box>
 );
