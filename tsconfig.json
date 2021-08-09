@@ -6,7 +6,8 @@
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "./types"],
     "paths": {
-      "react-components": ["./packages/react-components/src"]
+      "@qualifyze/design-system-v2": ["./packages/react-components/src"],
+      "@qualifyze/design-tokens-v2": ["./packages/design-tokens/src"]
     }
   }
 }

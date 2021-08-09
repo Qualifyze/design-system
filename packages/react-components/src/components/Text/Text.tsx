@@ -40,8 +40,6 @@ const largeStyles = capsize({
   fontMetrics,
 });
 
-console.log(tinyStyles);
-
 export const StyledText = styled(DEFAULT_TAG, {
   // Reset
   lineHeight: '1',
