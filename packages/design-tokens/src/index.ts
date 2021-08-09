@@ -1,2 +1,7 @@
-export { space } from './tokens/space'
 export { colors } from './tokens/colors'
+export { fonts } from './tokens/fonts'
+export { fontSizes } from './tokens/fontSizes'
+export { fontWeights } from './tokens/fontWeights'
+export { radii } from './tokens/radii'
+export { sizes } from './tokens/sizes'
+export { space } from './tokens/space'

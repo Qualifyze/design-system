@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex passes \`aria-\` attributes through to the DOM 1`] = `
+<div
+  aria-hidden="true"
+  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap"
+>
+  hola
+</div>
+`;
+
+exports[`Flex passes \`data-\` attributes through to the DOM 1`] = `
+<div
+  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap"
+  data-testid="some-random-id"
+>
+  hola
+</div>
+`;
+
+exports[`Flex renders as passed HTML element 1`] = `
+<h1
+  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap"
+>
+  hola
+</h1>
+`;
+
+exports[`Flex renders with css prop 1`] = `
+<div
+  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap c-gqwkJN-iiMKLbU-css"
+>
+  hola
+</div>
+`;
+
+exports[`Flex renders with theme-aware values from Stitches config 1`] = `
+<div
+  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap c-gqwkJN-ibcCYNQ-css"
+>
+  hola
+</div>
+`;
