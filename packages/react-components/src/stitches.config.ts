@@ -1,6 +1,7 @@
 import { createCss } from '@stitches/react';
 import { indigo } from '@radix-ui/colors';
 import {
+  breakpoints,
   colors,
   fonts,
   fontSizes,
@@ -44,6 +45,7 @@ const stitches = createCss({
     transitions: {},
   },
   media: {
+    ...breakpoints,
     motion: '(prefers-reduced-motion)',
     hover: '(any-hover: hover)',
   },

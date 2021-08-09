@@ -1,3 +1,4 @@
+export { breakpoints } from './tokens/breakpoints'
 export { colors } from './tokens/colors'
 export { fonts } from './tokens/fonts'
 export { fontSizes } from './tokens/fontSizes'
