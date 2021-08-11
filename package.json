@@ -27,7 +27,9 @@
     "lint:scripts": "eslint {src,.storybook}/**/*.{jsx,js}",
     "lint:styles": "stylelint {src,.storybook}/**/*.{jsx,js}",
     "lint": "npm run lint:scripts && npm run lint:styles",
-    "test": "jest"
+    "test": "jest",
+    "prerelease": "npm run build && npm run test",
+    "release": "changeset publish"
   },
   "dependencies": {
     "@emotion/core": "10.1.1",
