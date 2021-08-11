@@ -1,0 +1,45 @@
+name: Node CI
+
+on:
+  push: {}
+  # Trigger this workflow on PRs created by Changesets by assigning it to
+  # someone. We need this workaround because PRs created by GitHub Actions do
+  # not trigger workflows per default.
+  pull_request:
+    branches:
+      - main
+    types: [assigned]
+
+jobs:
+  test:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          node --version
+          npm --version
+          npm ci
+
+      - name: Build and test
+        run: |
+          npm run build
+          npm run lint
+          npm run test --silent --coverage
+        env:
+          CI: true
+
+      - name: Check integrity of repository artifacts
+        uses: Qualifyze/check-git-integrity-action@v1.0.0
