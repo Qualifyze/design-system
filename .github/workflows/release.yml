@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create release pull request or publish to npm
+        id: changesets
+        uses: changesets/action@c2918239208f2162b9d27a87f491375c51592434
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: npm run release
+          title: Version Packages (`main`)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
