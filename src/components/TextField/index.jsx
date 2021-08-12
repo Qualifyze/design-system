@@ -33,6 +33,7 @@ const Input = styled('input')(
     'appearance': 'none',
     'background': props.theme.colors.white,
     'outline': 'none',
+    'color': props.theme.colors.grey[900],
     '&:hover': {
       boxShadow: `inset 0 0 0 1px ${props.theme.colors.grey[800]}`,
     },
