@@ -22,6 +22,7 @@ export const baseTheme = {
   hoverOverOption: theme.colors.primary[100],
   valueContainerTextColor: 'black',
   backGroundControl: 'white',
+  inputColor: theme.colors.grey[900],
   optionTextColor: theme.colors.grey[900],
   optionTextSelected: theme.colors.white,
   placeholderColor: theme.colors.grey[700],
@@ -80,6 +81,7 @@ export const customStyles = {
   valueContainer: provided => ({ ...provided }),
   input: () => ({
     margin: 0,
+    color: baseTheme.inputColor,
   }),
   menu: provided => ({
     ...provided,

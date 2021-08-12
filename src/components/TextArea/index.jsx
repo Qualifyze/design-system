@@ -34,6 +34,7 @@ const PlainArea = styled('textarea')(
     'appearance': 'none',
     'background': props.theme.colors.white,
     'outline': 'none',
+    'color': props.theme.colors.grey[900],
     'resize': props.resize,
     '&:hover': {
       boxShadow: `0 0 0 1px ${props.theme.colors.grey[800]}`,
