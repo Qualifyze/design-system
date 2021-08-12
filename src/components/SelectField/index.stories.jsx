@@ -35,10 +35,16 @@ const options = [
     label: 'El Secreto de sus Ojos',
     value: 'elSecretoDeSusOjos',
   },
+  {
+    label: 'Frozen',
+    value: 'frozen',
+  },
 ]
 
 const selectSchema = Yup.object().shape({
-  movie: Yup.string().required(),
+  movie: Yup.string()
+    .matches(/frozen/, 'Ooops, think again!')
+    .required(),
 })
 
 export const Default = () => {
@@ -47,6 +53,7 @@ export const Default = () => {
   const placeholder = text('Placeholder', 'Select a movie')
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
+  const message = text('Message', 'E.g., Frozen')
   const noOptionsMessage = text(
     'No options message',
     'Oh come on, dont be so picky'
@@ -74,6 +81,7 @@ export const Default = () => {
                   placeholder={placeholder}
                   disabled={disabled}
                   size={size}
+                  message={message}
                   noOptionsMessage={() => noOptionsMessage}
                 />
               </Box>

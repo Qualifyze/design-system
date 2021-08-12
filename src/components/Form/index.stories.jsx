@@ -109,6 +109,7 @@ export const Default = () => {
                   <SelectField
                     name="country"
                     label="Country of residence"
+                    message="A country with nice beaches is preferable, of course"
                     placeholder="Country"
                     options={[
                       { label: 'Germany', value: 'DE' },

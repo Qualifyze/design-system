@@ -24,8 +24,14 @@ const SelectField = ({
   size,
   menuPlacement,
   noOptionsMessage,
+  message,
+  reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
+  const hasError = meta.error && meta.touched
+  const messageToShow = hasError
+    ? `${meta.error.charAt(0).toUpperCase()}${meta.error.slice(1)}`
+    : message ?? null
 
   return (
     <Wrapper size={size}>
@@ -53,9 +59,12 @@ const SelectField = ({
         noOptionsMessage={noOptionsMessage}
         components={{ DropdownIndicator }}
       />
-      {meta.error && meta.touched && (
-        <FieldMessage tone="critical" message={meta.error} />
-      )}
+      {reserveMessageSpace || messageToShow ? (
+        <FieldMessage
+          message={messageToShow}
+          tone={hasError ? 'critical' : 'neutral'}
+        />
+      ) : null}
     </Wrapper>
   )
 }
@@ -71,6 +80,8 @@ SelectField.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   noOptionsMessage: PropTypes.func,
+  message: PropTypes.string,
+  reserveMessageSpace: PropTypes.bool,
 }
 
 SelectField.defaultProps = {
@@ -79,5 +90,7 @@ SelectField.defaultProps = {
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
+  reserveMessageSpace: true,
+  message: undefined,
 }
 export default SelectField
