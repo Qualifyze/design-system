@@ -10,7 +10,5 @@ module.exports = api => ({
     ],
     '@babel/preset-react',
   ],
-  ignore: api.env('test')
-    ? []
-    : ['**/*.stories.jsx', '**/*.test.jsx', 'src/util/test'],
+  ignore: api.env('test') ? [] : ['**/*.test.jsx', 'src/util/test'],
 })
