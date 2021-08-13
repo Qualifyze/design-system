@@ -38,10 +38,16 @@ const options = [
     label: 'El Secreto de sus Ojos',
     value: 'elSecretoDeSusOjos',
   },
+  {
+    label: 'Frozen',
+    value: 'frozen',
+  },
 ]
 
 const selectSchema = Yup.object().shape({
-  movie: Yup.string().required(),
+  movie: Yup.string()
+    .matches(/^((?!frozen).)*$/, 'Ooops, think again!')
+    .required(),
 })
 
 export const Default = () => {
@@ -51,6 +57,7 @@ export const Default = () => {
   const createNewLabelText = text('Create new label', undefined)
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
+  const message = text('Message', 'E.g., Frozen')
 
   return (
     <Formik
@@ -74,6 +81,7 @@ export const Default = () => {
                   placeholder={placeholder}
                   disabled={disabled}
                   size={size}
+                  message={message}
                   createNewLabelText={createNewLabelText}
                 />
               </Box>

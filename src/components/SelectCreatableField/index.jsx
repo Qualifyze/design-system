@@ -26,8 +26,14 @@ const SelectCreatableField = ({
   menuPlacement,
   createNewLabelText,
   onCreateOption,
+  message,
+  reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
+  const hasError = meta.error && meta.touched
+  const messageToShow = hasError
+    ? `${meta.error.charAt(0).toUpperCase()}${meta.error.slice(1)}`
+    : message ?? null
 
   return (
     <Wrapper size={size}>
@@ -81,9 +87,12 @@ const SelectCreatableField = ({
         createOptionPosition="first"
         components={{ DropdownIndicator }}
       />
-      {meta.error && meta.touched && (
-        <FieldMessage tone="critical" message={meta.error} />
-      )}
+      {reserveMessageSpace || messageToShow ? (
+        <FieldMessage
+          message={messageToShow}
+          tone={hasError ? 'critical' : 'neutral'}
+        />
+      ) : null}
     </Wrapper>
   )
 }
@@ -99,6 +108,8 @@ SelectCreatableField.propTypes = {
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   createNewLabelText: PropTypes.string,
   onCreateOption: PropTypes.func,
+  message: PropTypes.string,
+  reserveMessageSpace: PropTypes.bool,
 }
 SelectCreatableField.defaultProps = {
   placeholder: '',
@@ -107,6 +118,8 @@ SelectCreatableField.defaultProps = {
   label: '',
   menuPlacement: 'auto',
   createNewLabelText: 'Create',
+  reserveMessageSpace: true,
+  message: undefined,
 }
 
 export default SelectCreatableField
