@@ -28,6 +28,8 @@ const MultiSelectAsyncCreatableField = ({
   menuPlacement,
   createNewLabelText,
   onCreateOption,
+  createOption,
+  formatOptionLabel,
   loadingMessage,
   noOptionsMessage,
   message,
@@ -65,15 +67,30 @@ const MultiSelectAsyncCreatableField = ({
           setCachedOptions(valueArray)
         }}
         onCreateOption={valueString => {
-          // Add newly created string...
-          helpers.setValue([...field.value, valueString])
-          // ...and cache the object locally
-          setCachedOptions(current => [
-            ...current,
-            { label: valueString, value: valueString },
-          ])
+          // allow customization of new option object so that the consumer
+          // can choose the proper value and queue the option to create on
+          // backend side
+          const option = createOption
+            ? createOption(valueString)
+            : {
+                value: valueString,
+                label: valueString,
+              }
+          // Add newly created value...
+          helpers.setValue([...field.value, option.value])
+          // ...and save the object locally
+          setCachedOptions(current => [...current, option])
           onCreateOption?.()
         }}
+        formatOptionLabel={(option, { context }) =>
+          // allow formatting of the loaded option in the drop-down menu
+          // react-select allows to format the selected option as well
+          // (context === 'value') but we might be unnecessary
+          // eslint-disable-next-line no-underscore-dangle
+          context === 'menu' && formatOptionLabel && !option.__isNew__
+            ? formatOptionLabel(option)
+            : option.label
+        }
         formatCreateLabel={input => {
           return (
             <Flex>
@@ -91,17 +108,13 @@ const MultiSelectAsyncCreatableField = ({
           // this is needed as if you go through all options and return the matches
           // the order will match the order of options and not selected options
           // from the user
-          field.value.length
-            ? field.value.map(
-                valueItem =>
-                  cachedOptions.filter(
-                    option => option.value === valueItem
-                  )[0] || {
-                    value: valueItem,
-                    label: valueItem,
-                  }
-              )
-            : []
+          field.value.map(
+            valueItem =>
+              cachedOptions.find(({ value }) => value === valueItem) || {
+                value: valueItem,
+                label: valueItem,
+              }
+          )
         }
         styles={customStyles}
         theme={
@@ -113,6 +126,7 @@ const MultiSelectAsyncCreatableField = ({
         components={{ MultiValueRemove, DropdownIndicator }}
         isMulti
         isClearable={false}
+        allowCreateWhileLoading
         createOptionPosition="first"
         loadingMessage={() => <Text align="center">{loadingMessage}</Text>}
         noOptionsMessage={() => <Text align="center">{noOptionsMessage}</Text>}
@@ -141,6 +155,8 @@ MultiSelectAsyncCreatableField.propTypes = {
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   createNewLabelText: PropTypes.string,
   onCreateOption: PropTypes.func,
+  createOption: PropTypes.func,
+  formatOptionLabel: PropTypes.func,
   loadingMessage: PropTypes.string,
   noOptionsMessage: PropTypes.string,
   message: PropTypes.string,

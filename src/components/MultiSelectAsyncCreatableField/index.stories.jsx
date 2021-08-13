@@ -26,14 +26,17 @@ const multiSelectSchema = Yup.object().shape({
 const options = [
   {
     label: 'Doxylamine succinate',
+    hint: 'no idea',
     value: 'doxy',
   },
   {
     label: 'Ascorbic acid',
+    hint: 'just a hint',
     value: 'acid',
   },
   {
     label: 'Something dangerous',
+    hint: 'and strong',
     value: 'etwa',
   },
   {
@@ -97,6 +100,13 @@ export const Default = () => {
                   disabled={disabled}
                   size={size}
                   createNewLabelText={createNewLabelText}
+                  createOption={value => ({
+                    value: `new:${value}`,
+                    label: value,
+                  })}
+                  formatOptionLabel={({ label, hint }) =>
+                    hint ? `${label} (${hint})` : label
+                  }
                   loadingMessage={loadingMessage}
                   noOptionsMessage={noOptionsMessage}
                   message={message}
