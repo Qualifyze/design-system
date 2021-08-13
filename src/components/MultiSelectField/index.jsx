@@ -61,8 +61,16 @@ const MultiSelectField = ({
   size,
   menuPlacement,
   noOptionsMessage,
+  message,
+  reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
+  const hasError = meta.error && meta.touched
+
+  const errorText = hasError ? meta.error.filter(err => err !== '')[0] : ''
+  const messageToShow = hasError
+    ? `${errorText.charAt(0).toUpperCase()}${errorText.slice(1)}`
+    : message ?? null
 
   return (
     <Wrapper size={size}>
@@ -105,9 +113,12 @@ const MultiSelectField = ({
         noOptionsMessage={noOptionsMessage}
       />
 
-      {meta.error && meta.touched && (
-        <FieldMessage tone="critical" message={meta.error} />
-      )}
+      {reserveMessageSpace || messageToShow ? (
+        <FieldMessage
+          message={messageToShow}
+          tone={hasError ? 'critical' : 'neutral'}
+        />
+      ) : null}
     </Wrapper>
   )
 }
@@ -123,6 +134,8 @@ MultiSelectField.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   noOptionsMessage: PropTypes.func,
+  message: PropTypes.string,
+  reserveMessageSpace: PropTypes.bool,
 }
 MultiSelectField.defaultProps = {
   placeholder: '',
@@ -130,6 +143,8 @@ MultiSelectField.defaultProps = {
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
+  reserveMessageSpace: true,
+  message: undefined,
 }
 
 export default MultiSelectField
