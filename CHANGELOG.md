@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.2.4
+
+### Patch Changes
+
+- [#149](https://github.com/Qualifyze/design-system/pull/149) [`ac4439f`](https://github.com/Qualifyze/design-system/commit/ac4439f2ef1ab0e4b5a734f26d0b2f99d8a22600) Thanks [@vubogovich](https://github.com/vubogovich)! - Fix ES module generation, exclude tests and stories from the library artifacts.
+
 ## 1.2.3
 
 ### Patch Changes
