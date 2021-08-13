@@ -28,6 +28,8 @@ const MultiSelectCreatableField = ({
   createNewLabelText,
   onCreateOption,
   message,
+  secondaryLabel,
+  tertiaryLabel,
   reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
@@ -39,7 +41,12 @@ const MultiSelectCreatableField = ({
 
   return (
     <Wrapper size={size}>
-      <FieldLabel htmlFor={name} label={label} />
+      <FieldLabel
+        htmlFor={name}
+        label={label}
+        secondaryLabel={secondaryLabel}
+        tertiaryLabel={tertiaryLabel}
+      />
       <CreatableSelect
         options={options}
         placeholder={placeholder}
@@ -117,6 +124,8 @@ MultiSelectCreatableField.propTypes = {
   createNewLabelText: PropTypes.string,
   onCreateOption: PropTypes.func,
   message: PropTypes.string,
+  secondaryLabel: PropTypes.node,
+  tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
 MultiSelectCreatableField.defaultProps = {
@@ -128,6 +137,8 @@ MultiSelectCreatableField.defaultProps = {
   createNewLabelText: 'Create',
   reserveMessageSpace: true,
   message: undefined,
+  secondaryLabel: null,
+  tertiaryLabel: null,
 }
 
 export default MultiSelectCreatableField
