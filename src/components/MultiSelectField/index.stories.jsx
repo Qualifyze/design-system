@@ -18,7 +18,6 @@ const multiSelectSchema = Yup.object().shape({
   products: Yup.array(
     Yup.string().matches(/^((?!all-the-acid).)*$/, 'Ooops, think again!')
   ).required(),
-  // .notOneOf(['all-the-acid'], 'Ooops, think again!')
 })
 
 export const Default = () => {
