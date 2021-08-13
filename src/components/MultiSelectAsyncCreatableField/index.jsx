@@ -31,6 +31,8 @@ const MultiSelectAsyncCreatableField = ({
   loadingMessage,
   noOptionsMessage,
   message,
+  secondaryLabel,
+  tertiaryLabel,
   reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
@@ -46,7 +48,12 @@ const MultiSelectAsyncCreatableField = ({
 
   return (
     <Wrapper size={size}>
-      <FieldLabel htmlFor={name} label={label} />
+      <FieldLabel
+        htmlFor={name}
+        label={label}
+        secondaryLabel={secondaryLabel}
+        tertiaryLabel={tertiaryLabel}
+      />
       <AsyncCreatableSelect
         loadOptions={loadOptions}
         placeholder={placeholder}
@@ -137,6 +144,8 @@ MultiSelectAsyncCreatableField.propTypes = {
   loadingMessage: PropTypes.string,
   noOptionsMessage: PropTypes.string,
   message: PropTypes.string,
+  secondaryLabel: PropTypes.node,
+  tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
 MultiSelectAsyncCreatableField.defaultProps = {
@@ -150,6 +159,8 @@ MultiSelectAsyncCreatableField.defaultProps = {
   noOptionsMessage: 'No Options',
   reserveMessageSpace: true,
   message: undefined,
+  secondaryLabel: null,
+  tertiaryLabel: null,
 }
 
 export default MultiSelectAsyncCreatableField

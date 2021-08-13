@@ -20,6 +20,8 @@ const SelectField = ({
   name,
   label,
   placeholder,
+  secondaryLabel,
+  tertiaryLabel,
   disabled,
   size,
   menuPlacement,
@@ -35,7 +37,12 @@ const SelectField = ({
 
   return (
     <Wrapper size={size}>
-      <FieldLabel htmlFor={name} label={label} />
+      <FieldLabel
+        htmlFor={name}
+        label={label}
+        secondaryLabel={secondaryLabel}
+        tertiaryLabel={tertiaryLabel}
+      />
       <Select
         options={options}
         placeholder={placeholder}
@@ -81,6 +88,8 @@ SelectField.propTypes = {
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   noOptionsMessage: PropTypes.func,
   message: PropTypes.string,
+  secondaryLabel: PropTypes.node,
+  tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
 
@@ -92,5 +101,7 @@ SelectField.defaultProps = {
   menuPlacement: 'auto',
   reserveMessageSpace: true,
   message: undefined,
+  secondaryLabel: null,
+  tertiaryLabel: null,
 }
 export default SelectField

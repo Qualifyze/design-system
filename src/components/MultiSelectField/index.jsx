@@ -62,6 +62,8 @@ const MultiSelectField = ({
   menuPlacement,
   noOptionsMessage,
   message,
+  secondaryLabel,
+  tertiaryLabel,
   reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
@@ -74,7 +76,12 @@ const MultiSelectField = ({
 
   return (
     <Wrapper size={size}>
-      <FieldLabel htmlFor={name} label={label} />
+      <FieldLabel
+        htmlFor={name}
+        label={label}
+        secondaryLabel={secondaryLabel}
+        tertiaryLabel={tertiaryLabel}
+      />
       <Select
         options={options}
         placeholder={placeholder}
@@ -135,6 +142,8 @@ MultiSelectField.propTypes = {
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   noOptionsMessage: PropTypes.func,
   message: PropTypes.string,
+  secondaryLabel: PropTypes.node,
+  tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
 MultiSelectField.defaultProps = {
@@ -145,6 +154,8 @@ MultiSelectField.defaultProps = {
   menuPlacement: 'auto',
   reserveMessageSpace: true,
   message: undefined,
+  secondaryLabel: null,
+  tertiaryLabel: null,
 }
 
 export default MultiSelectField
