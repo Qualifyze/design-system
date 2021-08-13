@@ -18,7 +18,9 @@ export default {
 }
 
 const multiSelectSchema = Yup.object().shape({
-  products: Yup.array(Yup.string()).required(),
+  products: Yup.array(
+    Yup.string().matches(/^((?!all-the-acid).)*$/, 'Ooops, think again!')
+  ).required(),
 })
 
 const options = [
@@ -41,6 +43,10 @@ const options = [
   {
     label: 'Chemicolosis',
     value: 'chemi',
+  },
+  {
+    label: "Don't pick me",
+    value: 'all-the-acid',
   },
 ]
 
@@ -66,6 +72,7 @@ export const Default = () => {
   const createNewLabelText = text('Create new label', undefined)
   const loadingMessage = text('Loading message', undefined)
   const noOptionsMessage = text('No Options message', undefined)
+  const message = text('Message', 'E.g., Ascorbic acid')
 
   return (
     <Formik
@@ -92,6 +99,7 @@ export const Default = () => {
                   createNewLabelText={createNewLabelText}
                   loadingMessage={loadingMessage}
                   noOptionsMessage={noOptionsMessage}
+                  message={message}
                 />
               </Box>
               <Box>

@@ -30,8 +30,17 @@ const MultiSelectAsyncCreatableField = ({
   onCreateOption,
   loadingMessage,
   noOptionsMessage,
+  message,
+  reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
+  const hasError = meta.error && meta.touched
+
+  const errorText = hasError ? meta.error.filter(err => err !== '')[0] : ''
+  const messageToShow = hasError
+    ? `${errorText.charAt(0).toUpperCase()}${errorText.slice(1)}`
+    : message ?? null
+
   // Options are not available locally, so we need to cache all options locally
   const [cachedOptions, setCachedOptions] = React.useState(defaultOptions)
 
@@ -102,9 +111,12 @@ const MultiSelectAsyncCreatableField = ({
         noOptionsMessage={() => <Text align="center">{noOptionsMessage}</Text>}
       />
 
-      {meta.error && meta.touched && (
-        <FieldMessage tone="critical" message={meta.error} />
-      )}
+      {reserveMessageSpace || messageToShow ? (
+        <FieldMessage
+          message={messageToShow}
+          tone={hasError ? 'critical' : 'neutral'}
+        />
+      ) : null}
     </Wrapper>
   )
 }
@@ -124,6 +136,8 @@ MultiSelectAsyncCreatableField.propTypes = {
   onCreateOption: PropTypes.func,
   loadingMessage: PropTypes.string,
   noOptionsMessage: PropTypes.string,
+  message: PropTypes.string,
+  reserveMessageSpace: PropTypes.bool,
 }
 MultiSelectAsyncCreatableField.defaultProps = {
   placeholder: '',
@@ -134,6 +148,8 @@ MultiSelectAsyncCreatableField.defaultProps = {
   createNewLabelText: 'Create',
   loadingMessage: 'Loading ...',
   noOptionsMessage: 'No Options',
+  reserveMessageSpace: true,
+  message: undefined,
 }
 
 export default MultiSelectAsyncCreatableField
