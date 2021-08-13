@@ -1,5 +1,12 @@
 # @qualifyze/design-system
 
+## 1.2.5
+
+### Patch Changes
+
+- [#148](https://github.com/Qualifyze/design-system/pull/148) [`35c388c`](https://github.com/Qualifyze/design-system/commit/35c388ce8da70186ae4b5f49e837120e8ee7a34f) Thanks [@vubogovich](https://github.com/vubogovich)! - Allow customization of new option object, option label in menu and solve issue
+  with blinking creation option.
+
 ## 1.2.4
 
 ### Patch Changes
