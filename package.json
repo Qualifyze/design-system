@@ -1,7 +1,7 @@
 {
   "name": "@qualifyze/design-system",
   "description": "Qualifyze Design System",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
