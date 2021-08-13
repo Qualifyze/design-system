@@ -27,8 +27,15 @@ const MultiSelectCreatableField = ({
   menuPlacement,
   createNewLabelText,
   onCreateOption,
+  message,
+  reserveMessageSpace,
 }) => {
   const [field, meta, helpers] = useField({ name })
+  const hasError = meta.error && meta.touched
+  const errorText = hasError ? meta.error.filter(err => err !== '')[0] : ''
+  const messageToShow = hasError
+    ? `${errorText.charAt(0).toUpperCase()}${errorText.slice(1)}`
+    : message ?? null
 
   return (
     <Wrapper size={size}>
@@ -87,9 +94,12 @@ const MultiSelectCreatableField = ({
         createOptionPosition="first"
       />
 
-      {meta.error && meta.touched && (
-        <FieldMessage tone="critical" message={meta.error} />
-      )}
+      {reserveMessageSpace || messageToShow ? (
+        <FieldMessage
+          message={messageToShow}
+          tone={hasError ? 'critical' : 'neutral'}
+        />
+      ) : null}
     </Wrapper>
   )
 }
@@ -106,6 +116,8 @@ MultiSelectCreatableField.propTypes = {
   menuPlacement: PropTypes.oneOf(['auto', 'top', 'bottom']),
   createNewLabelText: PropTypes.string,
   onCreateOption: PropTypes.func,
+  message: PropTypes.string,
+  reserveMessageSpace: PropTypes.bool,
 }
 MultiSelectCreatableField.defaultProps = {
   placeholder: '',
@@ -114,6 +126,8 @@ MultiSelectCreatableField.defaultProps = {
   label: '',
   menuPlacement: 'auto',
   createNewLabelText: 'Create',
+  reserveMessageSpace: true,
+  message: undefined,
 }
 
 export default MultiSelectCreatableField
