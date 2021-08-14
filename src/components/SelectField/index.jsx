@@ -58,8 +58,7 @@ const SelectField = ({
         value={options.find(option => option.value === field.value) || ''}
         styles={customStyles}
         theme={
-          (meta.error && meta.touched && errorVariant(baseTheme)) ||
-          defaultVariant(baseTheme)
+          (hasError && errorVariant(baseTheme)) || defaultVariant(baseTheme)
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
