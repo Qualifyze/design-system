@@ -43,7 +43,7 @@ const options = [
 
 const selectSchema = Yup.object().shape({
   movie: Yup.string()
-    .matches(/frozen/, 'Ooops, think again!')
+    .matches(/^((?!frozen).)*$/, 'Ooops, think again!')
     .required(),
 })
 

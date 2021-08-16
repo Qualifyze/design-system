@@ -34,10 +34,14 @@ const MultiSelectCreatableField = ({
 }) => {
   const [field, meta, helpers] = useField({ name })
   const hasError = meta.error && meta.touched
-  const errorText = hasError ? meta.error.filter(err => err !== '')[0] : ''
-  const messageToShow = hasError
-    ? `${errorText.charAt(0).toUpperCase()}${errorText.slice(1)}`
-    : message ?? null
+  let messageToShow = message ?? null
+
+  if (hasError) {
+    const errorText = Array.isArray(meta.error)
+      ? meta.error.find(err => err)
+      : meta.error
+    messageToShow = `${errorText.charAt(0).toUpperCase()}${errorText.slice(1)}`
+  }
 
   return (
     <Wrapper size={size}>
@@ -51,8 +55,8 @@ const MultiSelectCreatableField = ({
         options={options}
         placeholder={placeholder}
         name={field.name}
-        onChange={option =>
-          helpers.setValue(option ? option.map(o => o.value) : [])
+        onChange={newOptions =>
+          helpers.setValue(newOptions ? newOptions.map(o => o.value) : [])
         }
         onCreateOption={newValue => {
           // take the current selection, plus anything new that might be added
@@ -78,20 +82,17 @@ const MultiSelectCreatableField = ({
           // this is needed as if you go through all options and return the matches
           // the order will match the order of options and not selected options
           // from the user
-          field.value
-            ? field.value.map(
-                valueItem =>
-                  options.filter(option => option.value === valueItem)[0] || {
-                    value: valueItem,
-                    label: valueItem,
-                  }
-              )
-            : []
+          field.value.map(
+            valueItem =>
+              options.find(({ value }) => value === valueItem) || {
+                value: valueItem,
+                label: valueItem,
+              }
+          )
         }
         styles={customStyles}
         theme={
-          (meta.error && meta.touched && errorVariant(baseTheme)) ||
-          defaultVariant(baseTheme)
+          (hasError && errorVariant(baseTheme)) || defaultVariant(baseTheme)
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}

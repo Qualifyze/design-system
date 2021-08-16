@@ -39,11 +39,14 @@ const MultiSelectAsyncCreatableField = ({
 }) => {
   const [field, meta, helpers] = useField({ name })
   const hasError = meta.error && meta.touched
+  let messageToShow = message ?? null
 
-  const errorText = hasError ? meta.error.filter(err => err !== '')[0] : ''
-  const messageToShow = hasError
-    ? `${errorText.charAt(0).toUpperCase()}${errorText.slice(1)}`
-    : message ?? null
+  if (hasError) {
+    const errorText = Array.isArray(meta.error)
+      ? meta.error.find(err => err)
+      : meta.error
+    messageToShow = `${errorText.charAt(0).toUpperCase()}${errorText.slice(1)}`
+  }
 
   // Options are not available locally, so we need to cache all options locally
   const [cachedOptions, setCachedOptions] = React.useState(defaultOptions)
@@ -118,8 +121,7 @@ const MultiSelectAsyncCreatableField = ({
         }
         styles={customStyles}
         theme={
-          (meta.error && meta.touched && errorVariant(baseTheme)) ||
-          defaultVariant(baseTheme)
+          (hasError && errorVariant(baseTheme)) || defaultVariant(baseTheme)
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
