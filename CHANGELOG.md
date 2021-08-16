@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.2.6
+
+### Patch Changes
+
+- [#160](https://github.com/Qualifyze/design-system/pull/160) [`967c1e5`](https://github.com/Qualifyze/design-system/commit/967c1e53459044b778af830289b06ea272dc5324) Thanks [@vubogovich](https://github.com/vubogovich)! - Support array validators for multi-select field value.
+
 ## 1.2.5
 
 ### Patch Changes
