@@ -17,7 +17,9 @@ export default { title: 'MultiSelectField', component: MultiSelectField }
 const multiSelectSchema = Yup.object().shape({
   products: Yup.array(
     Yup.string().matches(/^((?!all-the-acid).)*$/, 'Ooops, think again!')
-  ).required(),
+  )
+    .required()
+    .min(3, 'Please select at least 3 products'),
 })
 
 export const Default = () => {
