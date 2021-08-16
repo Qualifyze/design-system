@@ -59,7 +59,9 @@ export const Default = () => {
 
   return (
     <Formik
-      initialValues={{}}
+      initialValues={{
+        products: [],
+      }}
       onSubmit={values => {
         action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
       }}

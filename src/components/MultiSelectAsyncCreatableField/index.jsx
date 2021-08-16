@@ -67,7 +67,7 @@ const MultiSelectAsyncCreatableField = ({
           // We only need a string array in Formik state...
           helpers.setValue(valueArray ? valueArray.map(o => o.value) : [])
           // ...but we need to cache the object array locally
-          setCachedOptions(valueArray || [])
+          setCachedOptions(valueArray)
         }}
         onCreateOption={valueString => {
           // allow customization of new option object so that the consumer
@@ -80,7 +80,7 @@ const MultiSelectAsyncCreatableField = ({
                 label: valueString,
               }
           // Add newly created value...
-          helpers.setValue([...(field.value || []), option.value])
+          helpers.setValue([...field.value, option.value])
           // ...and save the object locally
           setCachedOptions(current => [...current, option])
           onCreateOption?.()
@@ -111,13 +111,13 @@ const MultiSelectAsyncCreatableField = ({
           // this is needed as if you go through all options and return the matches
           // the order will match the order of options and not selected options
           // from the user
-          field.value?.map(
+          field.value.map(
             valueItem =>
               cachedOptions.find(({ value }) => value === valueItem) || {
                 value: valueItem,
                 label: valueItem,
               }
-          ) || []
+          )
         }
         styles={customStyles}
         theme={

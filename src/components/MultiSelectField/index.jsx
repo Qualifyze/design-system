@@ -89,8 +89,8 @@ const MultiSelectField = ({
         options={options}
         placeholder={placeholder}
         name={field.name}
-        onChange={option =>
-          helpers.setValue(option ? option.map(o => o.value) : [])
+        onChange={newOptions =>
+          helpers.setValue(newOptions ? newOptions.map(o => o.value) : [])
         }
         onBlur={() => {
           helpers.setTouched(true)
@@ -103,13 +103,13 @@ const MultiSelectField = ({
           // this is needed as if you go through all options and return the matches
           // the order will match the order of options and not selected options
           // from the user
-          field.value?.map(
+          field.value.map(
             valueItem =>
               options.find(({ value }) => value === valueItem) || {
                 value: valueItem,
                 label: valueItem,
               }
-          ) || []
+          )
         }
         styles={customStyles}
         theme={

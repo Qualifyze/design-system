@@ -28,7 +28,7 @@ export const Default = () => {
         action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
       }}
       validationSchema={Yup.object().shape({
-        ssn: Yup.string()
+        tweet: Yup.string()
           .required()
           .max(144, 'That is way too long for a tweet, boomer...'),
       })}
