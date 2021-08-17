@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.2.7
+
+### Patch Changes
+
+- [#164](https://github.com/Qualifyze/design-system/pull/164) [`1a47037`](https://github.com/Qualifyze/design-system/commit/1a47037ea35470335cd05b75012702988de7097b) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Add missing `corejs` dependency
+
 ## 1.2.6
 
 ### Patch Changes
