@@ -49,7 +49,7 @@ export const Loading = () => {
 
   const handleClick = () => {
     setLoading(true)
-    action('Button clicked')()
+    action('Button clicked')
   }
 
   React.useEffect(() => {
