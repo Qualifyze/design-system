@@ -3,7 +3,6 @@ module.exports = api => ({
     [
       '@babel/preset-env',
       {
-        modules: api.env('test') ? 'cjs' : false,
         useBuiltIns: 'usage',
         corejs: 3,
       },
