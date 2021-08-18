@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.2.8
+
+### Patch Changes
+
+- [#168](https://github.com/Qualifyze/design-system/pull/168) [`8e5b1e9`](https://github.com/Qualifyze/design-system/commit/8e5b1e94cd287eb59514c947bb7993e5cfa63cc1) Thanks [@vubogovich](https://github.com/vubogovich)! - Add missing exports for FileBox and Strong, remove the file with duplicated and unused exports.
+
 ## 1.2.7
 
 ### Patch Changes
