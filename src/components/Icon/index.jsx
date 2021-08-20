@@ -81,7 +81,7 @@ const Icon = ({ name: rawName, size, color, ...props }) => {
     <SVG
       {...props}
       viewBox="0 0 92 92"
-      color={color ?? `currentcolor`}
+      color={props.tone ? undefined : color}
       size={size}
     >
       {basicIcons[name] && <path d={basicIcons[name]} fill="currentColor" />}
@@ -92,9 +92,6 @@ const Icon = ({ name: rawName, size, color, ...props }) => {
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large', 'gigantic']),
-  // We disabled the next rule on color, beacuse we don't want to give it any default value because it
-  // will overwrite any tone given by the user
-  // eslint-disable-next-line react/require-default-props
   color: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
@@ -111,7 +108,8 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: 'standard',
-  tone: 'neutral',
+  color: 'currentColor',
+  tone: undefined,
 }
 Icon.displayName = 'Icon'
 
