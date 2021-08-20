@@ -69,7 +69,7 @@ export const DefaultIcons = () => {
   const renderIcons = basicIconsKeys.map(iconName => {
     return (
       <IconWrapper key={iconName}>
-        <Icon name={iconName} iconColor="primary.800" />
+        <Icon name={iconName} />
         <span>{iconName}</span>
       </IconWrapper>
     )

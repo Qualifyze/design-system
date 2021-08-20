@@ -18,7 +18,7 @@ import Wrapper from '../SelectField/Wrapper'
 import { MultiValueRemove } from '../MultiSelectField'
 
 const MultiSelectAsyncCreatableField = ({
-  defaultOptions = [],
+  defaultOptions,
   loadOptions,
   name,
   label,
@@ -166,13 +166,18 @@ MultiSelectAsyncCreatableField.propTypes = {
   tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
+
 MultiSelectAsyncCreatableField.defaultProps = {
+  defaultOptions: [],
   placeholder: '',
   disabled: false,
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
   createNewLabelText: 'Create',
+  onCreateOption: undefined,
+  createOption: undefined,
+  formatOptionLabel: undefined,
   loadingMessage: 'Loading ...',
   noOptionsMessage: 'No Options',
   reserveMessageSpace: true,

@@ -102,6 +102,7 @@ const SelectCreatableField = ({
     </Wrapper>
   )
 }
+
 SelectCreatableField.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({ label: PropTypes.string, value: PropTypes.string })
@@ -119,6 +120,7 @@ SelectCreatableField.propTypes = {
   tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
+
 SelectCreatableField.defaultProps = {
   placeholder: '',
   disabled: false,
@@ -126,6 +128,7 @@ SelectCreatableField.defaultProps = {
   label: '',
   menuPlacement: 'auto',
   createNewLabelText: 'Create',
+  onCreateOption: undefined,
   reserveMessageSpace: true,
   message: undefined,
   secondaryLabel: null,

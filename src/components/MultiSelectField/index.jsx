@@ -149,12 +149,14 @@ MultiSelectField.propTypes = {
   tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
+
 MultiSelectField.defaultProps = {
   placeholder: '',
   disabled: false,
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
+  noOptionsMessage: undefined,
   reserveMessageSpace: true,
   message: undefined,
   secondaryLabel: null,
