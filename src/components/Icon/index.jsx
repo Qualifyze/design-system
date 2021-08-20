@@ -13,6 +13,7 @@ import basicIcons from './basicIcons'
 
 const SVG = styled('svg')(
   {
+    flex: 'none',
     verticalAlign: 'baseline',
     bottom: '-1px',
   },
