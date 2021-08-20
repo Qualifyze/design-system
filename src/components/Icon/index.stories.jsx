@@ -101,8 +101,16 @@ export const ColoredIcons = () => {
   const iconName = text('Icon name', 'trophy')
   const iconTone = select(
     'Example A: Icon tone',
-    ['neutral', 'positive', 'critical', 'secondary', 'info', 'caution'],
-    'neutral'
+    [
+      'neutral',
+      'positive',
+      'critical',
+      'secondary',
+      'info',
+      'caution',
+      'current',
+    ],
+    'current'
   )
   const iconColor = text('Example B: Icon color', 'yellow.500')
 
