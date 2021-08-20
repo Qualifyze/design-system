@@ -155,6 +155,7 @@ MultiSelectField.defaultProps = {
   size: 'standard',
   label: '',
   menuPlacement: 'auto',
+  noOptionsMessage: undefined,
   reserveMessageSpace: true,
   message: undefined,
   secondaryLabel: null,

@@ -99,6 +99,7 @@ SelectField.defaultProps = {
   label: '',
   menuPlacement: 'auto',
   reserveMessageSpace: true,
+  noOptionsMessage: undefined,
   message: undefined,
   secondaryLabel: null,
   tertiaryLabel: null,
