@@ -2,7 +2,9 @@ import React from 'react'
 import { select, text } from '@storybook/addon-knobs'
 
 import { styled, space } from '../../util/style'
+import Box from '../Box'
 import Text from '../Text'
+import Stack from '../Stack'
 
 import basicIcons from './basicIcons'
 
@@ -76,4 +78,56 @@ export const DefaultIcons = () => {
 }
 DefaultIcons.story = {
   name: 'all Icons',
+}
+
+// eslint-disable-next-line react/prop-types
+const Code = ({ children }) => (
+  <Box
+    as="span"
+    sx={{
+      display: 'inline',
+      bg: 'grey.200',
+      px: 2,
+      py: 1,
+      borderRadius: 2,
+      pre: { display: 'inline', color: 'grey.900' },
+    }}
+  >
+    <Text as="code">{children}</Text>
+  </Box>
+)
+
+export const ColoredIcons = () => {
+  const iconName = text('Icon name', 'trophy')
+  const iconTone = select(
+    'Example A: Icon tone',
+    ['neutral', 'positive', 'critical', 'secondary', 'info', 'caution'],
+    'neutral'
+  )
+  const iconColor = text('Example B: Icon color', 'yellow.500')
+
+  return (
+    <Stack space={4}>
+      <Stack space={2}>
+        <Text weight="medium">Example A:</Text>
+        <Text>
+          When using an Icon, the suggested way to add color is by using the{' '}
+          <Code>tone</Code> prop:
+          <br />
+          <Icon name={iconName} tone={iconTone} />
+        </Text>
+      </Stack>
+      <Stack space={2}>
+        <Text weight="medium">Example B:</Text>
+        <Text>
+          If you need to use a a very specific color for a very specific use
+          case, you can set the <Code>color</Code> directly like this:
+        </Text>
+        <Icon name={iconName} color={iconColor} />
+      </Stack>
+    </Stack>
+  )
+}
+ColoredIcons.story = {
+  name: 'using colors',
 }
