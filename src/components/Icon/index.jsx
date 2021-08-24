@@ -68,6 +68,9 @@ const SVG = styled('svg')(
       info: {
         color: 'secondary.600',
       },
+      current: {
+        color: 'currentColor',
+      },
     },
   }),
   space,
@@ -78,12 +81,7 @@ const SVG = styled('svg')(
 const Icon = ({ name: rawName, size, color, ...props }) => {
   const name = rawName.toLowerCase()
   return (
-    <SVG
-      {...props}
-      viewBox="0 0 92 92"
-      color={color ?? `currentcolor`}
-      size={size}
-    >
+    <SVG {...props} viewBox="0 0 92 92" color={color} size={size}>
       {basicIcons[name] && <path d={basicIcons[name]} fill="currentColor" />}
     </SVG>
   )
@@ -92,9 +90,9 @@ const Icon = ({ name: rawName, size, color, ...props }) => {
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large', 'gigantic']),
-  // We disabled the next rule on color, beacuse we don't want to give it any default value because it
-  // will overwrite any tone given by the user
-  // eslint-disable-next-line react/require-default-props
+  /**
+   * @deprecated Please use the `tone` prop or set `tone="current"` and set the color on a containing element.
+   */
   color: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
@@ -106,12 +104,14 @@ Icon.propTypes = {
     'secondary',
     'info',
     'caution',
+    'current',
   ]),
 }
 
 Icon.defaultProps = {
   size: 'standard',
-  tone: 'neutral',
+  color: undefined,
+  tone: 'current',
 }
 Icon.displayName = 'Icon'
 
