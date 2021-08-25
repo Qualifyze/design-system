@@ -113,6 +113,7 @@ Icon.defaultProps = {
   color: undefined,
   tone: 'current',
 }
+
 Icon.displayName = 'Icon'
 
 export default Icon

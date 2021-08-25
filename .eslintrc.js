@@ -1,6 +1,7 @@
 module.exports = {
+  root: true,
   extends: [
-    'airbnb-base',
+    'airbnb',
     'plugin:prettier/recommended',
     'prettier',
     'plugin:react/recommended',

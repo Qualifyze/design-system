@@ -129,6 +129,7 @@ MultiSelectCreatableField.propTypes = {
   tertiaryLabel: PropTypes.node,
   reserveMessageSpace: PropTypes.bool,
 }
+
 MultiSelectCreatableField.defaultProps = {
   placeholder: '',
   disabled: false,
@@ -136,6 +137,7 @@ MultiSelectCreatableField.defaultProps = {
   label: '',
   menuPlacement: 'auto',
   createNewLabelText: 'Create',
+  onCreateOption: undefined,
   reserveMessageSpace: true,
   message: undefined,
   secondaryLabel: null,
