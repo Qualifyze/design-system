@@ -10,11 +10,7 @@ export const Default = () => {
   const m = text('Margin', '2')
   const p = text('Padding', '4')
 
-  return (
-    <Box bg={bg} m={m} p={p}>
-      Hola, mundo!
-    </Box>
-  )
+  return <Box sx={{ bg, m, p }}>Hola, mundo!</Box>
 }
 Default.story = {
   name: 'default',
