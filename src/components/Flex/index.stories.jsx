@@ -10,11 +10,7 @@ export const Default = () => {
   const m = text('Margin', '2')
   const p = text('Padding', '4')
 
-  return (
-    <Flex bg={bg} m={m} p={p}>
-      Hola, mundo!
-    </Flex>
-  )
+  return <Flex sx={{ bg, m, p }}>Hola, mundo!</Flex>
 }
 Default.story = {
   name: 'default',
