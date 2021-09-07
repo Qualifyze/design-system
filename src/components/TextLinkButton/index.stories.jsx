@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React from 'react'
+import React, { useState } from 'react'
 import { select } from '@storybook/addon-knobs'
 
 import Text from '../Text'
@@ -12,6 +12,7 @@ import TextLinkButton from './index'
 export default { title: 'TextLinkButton', component: TextLinkButton }
 
 export const Default = () => {
+  const [loading, setLoading] = useState(false)
   const hitArea = select('Hit Area', ['standard', 'large'], 'standard')
   const size = select(
     'Text Size',
@@ -23,7 +24,17 @@ export const Default = () => {
     <Stack space={4}>
       <Text size={size}>
         If you want to show a link that triggers some kind of action,{' '}
-        <TextLinkButton onClick={() => alert('Hello there!')} hitArea={hitArea}>
+        <TextLinkButton
+          onClick={() => {
+            setLoading(true)
+            setTimeout(function () {
+              setLoading(false)
+              alert('Hello there!')
+            }, 2000)
+          }}
+          hitArea={hitArea}
+          isLoading={loading}
+        >
           you should use a TextLinkButton instead of a TextLink for semantic
           reasons.
         </TextLinkButton>{' '}
