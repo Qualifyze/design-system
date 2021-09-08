@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { styled } from '../../util/style'
 import TextLink from '../TextLink'
@@ -54,6 +55,14 @@ const TextLinkButton = props => {
       ) : null}
     </Box>
   )
+}
+
+TextLinkButton.defaultProps = {
+  isLoading: false,
+}
+
+TextLinkButton.propTypes = {
+  isLoading: PropTypes.bool,
 }
 
 export default TextLinkButton
