@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 
 import { styled } from '../../util/style'
 import TextLink from '../TextLink'
 import Box from '../Box'
+import ActionsContext from '../Actions/ActionsContext'
 
 const Loader = styled.span`
-  display: 'inline-block';
+  display: inline-flex;
+  font-size: inherit;
+  align-self: center;
+  padding-top: 10px;
 
   & > span {
     width: 0.15em;
@@ -42,12 +46,23 @@ const Loader = styled.span`
 `
 
 const TextLinkButton = props => {
+  const actionsContext = useContext(ActionsContext)
+  const isNestedInActions = actionsContext != null
+
   const { isLoading } = props
   return (
-    <Box as="span">
-      <TextLink as="span" role="button" tabIndex={0} {...props} />
+    <Box as="span" sx={{ display: isNestedInActions ? 'flex' : null }}>
+      <TextLink
+        as="span"
+        role="button"
+        tabIndex={0}
+        {...props}
+        style={{
+          fontSize: !!isNestedInActions ? 'inherit' : null,
+        }}
+      />
       {isLoading ? (
-        <Loader aria-hidden>
+        <Loader isNestedInActions={isNestedInActions} aria-hidden>
           <span />
           <span />
           <span />
