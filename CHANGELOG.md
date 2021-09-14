@@ -1,5 +1,14 @@
 # @qualifyze/design-system
 
+## 1.2.9
+
+### Patch Changes
+
+- [#176](https://github.com/Qualifyze/design-system/pull/176) [`2038da4`](https://github.com/Qualifyze/design-system/commit/2038da48f19c799f1d1e376e0f394c443476c363) Thanks [@jorgechiapello](https://github.com/jorgechiapello)! - A visual queue for progress in the TextLinkButton
+
+* [#172](https://github.com/Qualifyze/design-system/pull/172) [`70adebf`](https://github.com/Qualifyze/design-system/commit/70adebf65c75139e486cc0a7f3091691c2de5964) Thanks [@vubogovich](https://github.com/vubogovich)! - Restore `Icon` tone so it's used when the color is not provided.
+  The `color` prop is kept for backward compatibility, please use `tone` instead.
+
 ## 1.2.8
 
 ### Patch Changes
