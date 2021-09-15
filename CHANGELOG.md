@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.2.10
+
+### Patch Changes
+
+- [#177](https://github.com/Qualifyze/design-system/pull/177) [`2e709a2`](https://github.com/Qualifyze/design-system/commit/2e709a248a0e2e477f7ca114681a673164790023) Thanks [@jorgechiapello](https://github.com/jorgechiapello)! - Make TextLinkButton loading state to work properly when nested inside of an Actions component
+
 ## 1.2.9
 
 ### Patch Changes
