@@ -1,4 +1,5 @@
-import { createCss } from '@stitches/react';
+import { createStitches } from '@stitches/react';
+import type * as Stitches from '@stitches/react';
 import {
   brand,
   gray,
@@ -14,9 +15,15 @@ import {
   space,
 } from '@qualifyze/design-tokens-v2';
 
-export type { StitchesVariants } from '@stitches/react';
-
-const stitches = createCss({
+export const {
+  styled,
+  css,
+  theme,
+  getCssText,
+  globalCss,
+  keyframes,
+  config,
+} = createStitches({
   theme: {
     colors: {
       ...brand,
@@ -55,96 +62,96 @@ const stitches = createCss({
     hover: '(any-hover: hover)',
   },
   utils: {
-    p: () => (value: any) => ({
+    p: (value: Stitches.PropertyValue<'paddingTop'>) => ({
       paddingTop: value,
       paddingBottom: value,
       paddingLeft: value,
       paddingRight: value,
     }),
-    pt: () => (value: any) => ({
+    pt: (value: Stitches.PropertyValue<'paddingTop'>) => ({
       paddingTop: value,
     }),
-    pr: () => (value: any) => ({
+    pr: (value: Stitches.PropertyValue<'paddingRight'>) => ({
       paddingRight: value,
     }),
-    pb: () => (value: any) => ({
+    pb: (value: Stitches.PropertyValue<'paddingBottom'>) => ({
       paddingBottom: value,
     }),
-    pl: () => (value: any) => ({
+    pl: (value: Stitches.PropertyValue<'paddingLeft'>) => ({
       paddingLeft: value,
     }),
-    px: () => (value: any) => ({
+    px: (value: Stitches.PropertyValue<'paddingLeft'>) => ({
       paddingLeft: value,
       paddingRight: value,
     }),
-    py: () => (value: any) => ({
+    py: (value: Stitches.PropertyValue<'paddingTop'>) => ({
       paddingTop: value,
       paddingBottom: value,
     }),
-
-    m: () => (value: any) => ({
+    m: (value: Stitches.PropertyValue<'marginTop'>) => ({
       marginTop: value,
       marginBottom: value,
       marginLeft: value,
       marginRight: value,
     }),
-    mt: () => (value: any) => ({
+    mt: (value: Stitches.PropertyValue<'marginTop'>) => ({
       marginTop: value,
     }),
-    mr: () => (value: any) => ({
+    mr: (value: Stitches.PropertyValue<'marginRight'>) => ({
       marginRight: value,
     }),
-    mb: () => (value: any) => ({
+    mb: (value: Stitches.PropertyValue<'marginBottom'>) => ({
       marginBottom: value,
     }),
-    ml: () => (value: any) => ({
+    ml: (value: Stitches.PropertyValue<'marginLeft'>) => ({
       marginLeft: value,
     }),
-    mx: () => (value: any) => ({
+    mx: (value: Stitches.PropertyValue<'marginLeft'>) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    my: () => (value: any) => ({
+    my: (value: Stitches.PropertyValue<'marginTop'>) => ({
       marginTop: value,
       marginBottom: value,
     }),
-
-    ta: () => (value: any) => ({ textAlign: value }),
-
-    fd: () => (value: any) => ({ flexDirection: value }),
-    fw: () => (value: any) => ({ flexWrap: value }),
-
-    ai: () => (value: any) => ({ alignItems: value }),
-    ac: () => (value: any) => ({ alignContent: value }),
-    jc: () => (value: any) => ({ justifyContent: value }),
-    as: () => (value: any) => ({ alignSelf: value }),
-    fg: () => (value: any) => ({ flexGrow: value }),
-    fs: () => (value: any) => ({ flexShrink: value }),
-    fb: () => (value: any) => ({ flexBasis: value }),
-
-    bc: () => (value: any) => ({
+    ta: (value: Stitches.PropertyValue<'textAlign'>) => ({ textAlign: value }),
+    fd: (value: Stitches.PropertyValue<'flexDirection'>) => ({
+      flexDirection: value,
+    }),
+    fw: (value: Stitches.PropertyValue<'flexWrap'>) => ({ flexWrap: value }),
+    ai: (value: Stitches.PropertyValue<'alignItems'>) => ({
+      alignItems: value,
+    }),
+    ac: (value: Stitches.PropertyValue<'alignContent'>) => ({
+      alignContent: value,
+    }),
+    jc: (value: Stitches.PropertyValue<'justifyContent'>) => ({
+      justifyContent: value,
+    }),
+    as: (value: Stitches.PropertyValue<'alignSelf'>) => ({ alignSelf: value }),
+    fg: (value: Stitches.PropertyValue<'flexGrow'>) => ({ flexGrow: value }),
+    fs: (value: Stitches.PropertyValue<'flexShrink'>) => ({
+      flexShrink: value,
+    }),
+    fb: (value: Stitches.PropertyValue<'flexBasis'>) => ({ flexBasis: value }),
+    bc: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
       backgroundColor: value,
     }),
-
-    br: () => (value: any) => ({
+    br: (value: Stitches.PropertyValue<'borderRadius'>) => ({
       borderRadius: value,
     }),
-    btrr: () => (value: any) => ({
+    btrr: (value: Stitches.PropertyValue<'borderTopRightRadius'>) => ({
       borderTopRightRadius: value,
     }),
-    bbrr: () => (value: any) => ({
+    bbrr: (value: Stitches.PropertyValue<'borderBottomRightRadius'>) => ({
       borderBottomRightRadius: value,
     }),
-    bblr: () => (value: any) => ({
+    bblr: (value: Stitches.PropertyValue<'borderBottomLeftRadius'>) => ({
       borderBottomLeftRadius: value,
     }),
-    btlr: () => (value: any) => ({
+    btlr: (value: Stitches.PropertyValue<'borderTopLeftRadius'>) => ({
       borderTopLeftRadius: value,
     }),
-
-    bs: () => (value: any) => ({ boxShadow: value }),
+    bs: (value: Stitches.PropertyValue<'boxShadow'>) => ({ boxShadow: value }),
   },
 });
-
-export const { styled, css, theme, getCssString, global, keyframes, config } =
-  stitches;
