@@ -27,7 +27,7 @@
     }
   },
   "author": "nobody",
-  "module": "dist/design-tokens.esm.js",
+  "module": "dist/design-tokens-v2.esm.js",
   "size-limit": [
     {
       "path": "dist/design-tokens-v2.cjs.production.min.js",
