@@ -36,7 +36,7 @@
     "trailingComma": "es5"
   },
   "author": "nobody",
-  "module": "dist/design-system.esm.js",
+  "module": "dist/design-system-v2.esm.js",
   "size-limit": [
     {
       "path": "dist/design-system-v2.cjs.production.min.js",

@@ -27,7 +27,7 @@
     }
   },
   "author": "nobody",
-  "module": "dist/design-tokens.esm.js",
+  "module": "dist/design-tokens-v2.esm.js",
   "size-limit": [
     {
       "path": "dist/design-tokens-v2.cjs.production.min.js",
@@ -46,6 +46,7 @@
     "node": "14.16.0"
   },
   "dependencies": {
-    "@radix-ui/colors": "^0.1.7"
+    "@radix-ui/colors": "^0.1.7",
+    "tsdx": "^0.14.1"
   }
 }

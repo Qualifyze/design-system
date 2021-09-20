@@ -1,0 +1,5 @@
+{
+  "node": "14",
+  "sandboxes": ["qf-ds-v2-chfom"],
+  "packages": ["packages/design-tokens", "packages/react-components"]
+}
