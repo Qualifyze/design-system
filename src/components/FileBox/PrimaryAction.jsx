@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Icon from '../Icon'
-import Box from '../Text'
+import Box from '../Box'
 
 const PrimaryAction = ({ onClick, iconName }) => (
   <Box
