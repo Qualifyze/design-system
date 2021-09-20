@@ -3,6 +3,7 @@ import React from 'react'
 
 import Button from '../Button'
 import TextLink from '../TextLink'
+import TextLinkButton from '../TextLinkButton'
 
 import Actions from './index'
 
@@ -32,7 +33,19 @@ WithTextLink.story = {
   name: 'with TextLink',
 }
 
-export const WithBoth = () => {
+export const WithTextLinkButton = () => {
+  return (
+    <Actions>
+      <Button>Submit</Button>
+      <TextLinkButton onClick="#">Cancel</TextLinkButton>
+    </Actions>
+  )
+}
+WithTextLinkButton.story = {
+  name: 'with TextLinkButton',
+}
+
+export const WithButtonsAndLink = () => {
   return (
     <Actions>
       <Button>Save & Close</Button>
@@ -41,6 +54,6 @@ export const WithBoth = () => {
     </Actions>
   )
 }
-WithBoth.story = {
-  name: 'with both',
+WithButtonsAndLink.story = {
+  name: 'with buttons and links',
 }
