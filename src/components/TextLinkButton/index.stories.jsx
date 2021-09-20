@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React from 'react'
 import { select } from '@storybook/addon-knobs'
 
@@ -50,10 +49,8 @@ Default.story = {
 export const InActions = () => {
   return (
     <Actions>
-      <Button>I want option 1</Button>
-      <TextLinkButton onClick={() => alert('clicked')}>
-        I want to opt out
-      </TextLinkButton>
+      <Button>Button</Button>
+      <TextLinkButton>TextLinkButton</TextLinkButton>
     </Actions>
   )
 }
