@@ -3,8 +3,18 @@ import PropTypes from 'prop-types'
 
 import TextLink from '../TextLink'
 
-const TextLinkButton = props => {
-  return <TextLink as="span" role="button" tabIndex={0} {...props} />
+const TextLinkButton = ({ onClick, isLoading, children }) => {
+  return (
+    <TextLink
+      as="span"
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      isLoading={isLoading}
+    >
+      {children}
+    </TextLink>
+  )
 }
 
 TextLinkButton.defaultProps = {
@@ -13,6 +23,10 @@ TextLinkButton.defaultProps = {
 
 TextLinkButton.propTypes = {
   isLoading: PropTypes.bool,
+  // eslint-disable-next-line react/require-default-props
+  onClick: PropTypes.func,
+  // eslint-disable-next-line react/require-default-props
+  children: PropTypes.node,
 }
 
 export default TextLinkButton

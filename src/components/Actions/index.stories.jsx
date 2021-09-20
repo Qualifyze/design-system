@@ -7,6 +7,10 @@ import TextLinkButton from '../TextLinkButton'
 
 import Actions from './index'
 
+function simulateNetworkRequest() {
+  return new Promise(resolve => setTimeout(resolve, 3000))
+}
+
 export default { title: 'Actions', component: Actions }
 
 export const WithButtons = () => {
@@ -37,7 +41,7 @@ export const WithTextLinkButton = () => {
   return (
     <Actions>
       <Button>Submit</Button>
-      <TextLinkButton onClick="#">Cancel</TextLinkButton>
+      <TextLinkButton>Cancel</TextLinkButton>
     </Actions>
   )
 }
@@ -56,4 +60,56 @@ export const WithButtonsAndLink = () => {
 }
 WithButtonsAndLink.story = {
   name: 'with buttons and links',
+}
+
+export const WithLoadingIndicator = () => {
+  const [isLoadingPrimary, setLoadingPrimary] = React.useState(false)
+  const [isLoadingSecondary, setLoadingSecondary] = React.useState(false)
+  const [isLoadingTertiary, setLoadingTertiary] = React.useState(false)
+
+  const handleClickPrimary = () => {
+    setLoadingPrimary(true)
+  }
+
+  const handleClickSecondary = () => {
+    setLoadingSecondary(true)
+  }
+
+  const handleClickTertiary = () => {
+    setLoadingTertiary(true)
+  }
+
+  React.useEffect(() => {
+    if (isLoadingPrimary || isLoadingSecondary || isLoadingTertiary) {
+      simulateNetworkRequest().then(() => {
+        setLoadingPrimary(false)
+        setLoadingSecondary(false)
+        setLoadingTertiary(false)
+      })
+    }
+  }, [isLoadingPrimary, isLoadingSecondary, isLoadingTertiary])
+
+  return (
+    <Actions>
+      <Button onClick={handleClickPrimary} isLoading={isLoadingPrimary}>
+        Save & close
+      </Button>
+      <Button
+        onClick={handleClickSecondary}
+        isLoading={isLoadingSecondary}
+        variant="secondary"
+      >
+        Save
+      </Button>
+      <TextLinkButton
+        onClick={handleClickTertiary}
+        isLoading={isLoadingTertiary}
+      >
+        Cancel
+      </TextLinkButton>
+    </Actions>
+  )
+}
+WithLoadingIndicator.story = {
+  name: 'with loading indicator',
 }
