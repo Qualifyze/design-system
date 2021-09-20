@@ -1,11 +1,8 @@
-import * as React from 'react';
-import { styled, StitchesVariants } from '../../stitches.config';
-
-import type * as Polymorphic from '@radix-ui/react-polymorphic';
+import { styled } from '../../stitches.config';
 
 const DEFAULT_TAG = 'button';
 
-const StyledButton = styled(DEFAULT_TAG, {
+export const Button = styled(DEFAULT_TAG, {
   // Reset
   all: 'unset',
   alignItems: 'center',
@@ -25,7 +22,7 @@ const StyledButton = styled(DEFAULT_TAG, {
 
   // Custom
   // height: '50px',
-  px: '$2',
+  px: '$32',
   fontFamily: '$inter',
   // fontSize: '$2',
   fontWeight: 500,
@@ -33,9 +30,9 @@ const StyledButton = styled(DEFAULT_TAG, {
   cursor: 'pointer',
 
   '&:disabled': {
-    backgroundColor: '$slate2',
-    boxShadow: 'inset 0 0 0 1px $colors$slate7',
-    color: '$slate8',
+    backgroundColor: '$gray2',
+    boxShadow: 'inset 0 0 0 1px $colors$gray7',
+    color: '$gray8',
     pointerEvents: 'none',
   },
 
@@ -52,7 +49,7 @@ const StyledButton = styled(DEFAULT_TAG, {
         borderRadius: '$2',
         height: '50px',
         px: '$3',
-        fontSize: '$3',
+        fontSize: '$14',
         lineHeight: '$sizes$6',
       },
       large: {
@@ -65,50 +62,50 @@ const StyledButton = styled(DEFAULT_TAG, {
     },
     variant: {
       primary: {
-        backgroundColor: '$indigo10',
+        backgroundColor: '$brand10',
         color: 'white',
         '&:active': {
-          backgroundColor: '$indigo9',
+          backgroundColor: '$brand9',
         },
         '&:focus': {
-          backgroundColor: '$indigo8',
+          backgroundColor: '$brand8',
         },
       },
     },
     state: {
       active: {
-        backgroundColor: '$slate4',
-        boxShadow: 'inset 0 0 0 1px $colors$slate8',
-        color: '$slate11',
+        backgroundColor: '$gray4',
+        boxShadow: 'inset 0 0 0 1px $colors$gray8',
+        color: '$gray11',
         '@hover': {
           '&:hover': {
-            backgroundColor: '$slate5',
-            boxShadow: 'inset 0 0 0 1px $colors$slate8',
+            backgroundColor: '$gray5',
+            boxShadow: 'inset 0 0 0 1px $colors$gray8',
           },
         },
         '&:active': {
-          backgroundColor: '$slate5',
+          backgroundColor: '$gray5',
         },
         '&:focus': {
-          boxShadow: 'inset 0 0 0 1px $colors$slate8, 0 0 0 1px $colors$slate8',
+          boxShadow: 'inset 0 0 0 1px $colors$gray8, 0 0 0 1px $colors$gray8',
         },
       },
       waiting: {
-        backgroundColor: '$slate4',
-        boxShadow: 'inset 0 0 0 1px $colors$slate8',
+        backgroundColor: '$gray4',
+        boxShadow: 'inset 0 0 0 1px $colors$gray8',
         color: 'transparent',
         pointerEvents: 'none',
         '@hover': {
           '&:hover': {
-            backgroundColor: '$slate5',
-            boxShadow: 'inset 0 0 0 1px $colors$slate8',
+            backgroundColor: '$gray5',
+            boxShadow: 'inset 0 0 0 1px $colors$gray8',
           },
         },
         '&:active': {
-          backgroundColor: '$slate5',
+          backgroundColor: '$gray5',
         },
         '&:focus': {
-          boxShadow: 'inset 0 0 0 1px $colors$slate8',
+          boxShadow: 'inset 0 0 0 1px $colors$gray8',
         },
       },
     },
@@ -118,18 +115,3 @@ const StyledButton = styled(DEFAULT_TAG, {
     variant: 'primary',
   },
 });
-
-// TODO: Remove omit fix when this is merged https://github.com/modulz/stitches/issues/421
-type ButtonVariants = Omit<StitchesVariants<typeof StyledButton>, 'size'>;
-type ButtonOwnProps = ButtonVariants & { size?: any };
-
-type ButtonComponent = Polymorphic.ForwardRefComponent<
-  typeof DEFAULT_TAG,
-  ButtonOwnProps
->;
-
-export const Button = React.forwardRef((props, forwardedRef) => {
-  return <StyledButton {...props} ref={forwardedRef} />;
-}) as ButtonComponent;
-
-Button.toString = () => `.${StyledButton.className}`;

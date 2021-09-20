@@ -1,9 +1,6 @@
-import * as React from 'react';
-import type * as Polymorphic from '@radix-ui/react-polymorphic';
-// import responsiveCapsize from 'responsive-capsize';
 import capsize from 'capsize';
 
-import { styled, StitchesVariants } from '../../stitches.config';
+import { styled } from '../../stitches.config';
 
 const DEFAULT_TAG = 'p';
 
@@ -40,7 +37,7 @@ const largeStyles = capsize({
   fontMetrics,
 });
 
-export const StyledText = styled(DEFAULT_TAG, {
+export const Text = styled(DEFAULT_TAG, {
   // Reset
   lineHeight: '1',
   margin: '0',
@@ -97,18 +94,3 @@ export const StyledText = styled(DEFAULT_TAG, {
     size: 'standard',
   },
 });
-
-// TODO: Remove omit fix when this is merged https://github.com/modulz/stitches/issues/421
-type TextVariants = Omit<StitchesVariants<typeof StyledText>, 'size'>;
-type TextOwnProps = TextVariants & { size?: any };
-
-type TextComponent = Polymorphic.ForwardRefComponent<
-  typeof DEFAULT_TAG,
-  TextOwnProps
->;
-
-export const Text = React.forwardRef((props, forwardedRef) => {
-  return <StyledText {...props} ref={forwardedRef} />;
-}) as TextComponent;
-
-Text.toString = () => `.${StyledText.className}`;

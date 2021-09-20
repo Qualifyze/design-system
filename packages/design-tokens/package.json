@@ -39,8 +39,8 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^5.0.2",
-    "size-limit": "^5.0.2"
+    "@size-limit/preset-small-lib": "^5.0.3",
+    "size-limit": "^5.0.3"
   },
   "volta": {
     "node": "14.16.0"
