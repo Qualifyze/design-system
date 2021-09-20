@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useState } from 'react'
+import React from 'react'
 import { select } from '@storybook/addon-knobs'
 
 import Text from '../Text'
@@ -47,35 +47,16 @@ Default.story = {
   name: 'default',
 }
 
-export const WithActions = () => {
-  const [loading, setLoading] = useState(true)
-  const hitArea = select('Hit Area', ['standard', 'large'], 'standard')
-  const size = select(
-    'Text Size',
-    ['tiny', 'small', 'standard', 'large'],
-    'standard'
-  )
+export const InActions = () => {
   return (
     <Actions>
-      <Button size={size}>I want option 1</Button>
-      <Text size={size}>
-        <TextLinkButton
-          onClick={() => {
-            setLoading(true)
-            setTimeout(function () {
-              setLoading(false)
-              alert('Hello there!')
-            }, 2000)
-          }}
-          hitArea={hitArea}
-          isLoading={loading}
-        >
-          I want to opt out
-        </TextLinkButton>{' '}
-      </Text>
+      <Button>I want option 1</Button>
+      <TextLinkButton onClick={() => alert('clicked')}>
+        I want to opt out
+      </TextLinkButton>
     </Actions>
   )
 }
-WithActions.story = {
-  name: 'with Actions',
+InActions.story = {
+  name: 'inside Actions',
 }
