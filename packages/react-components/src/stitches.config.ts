@@ -1,11 +1,15 @@
 import { createCss } from '@stitches/react';
-import { indigo } from '@radix-ui/colors';
 import {
-  colors,
-  fonts,
+  brand,
+  gray,
+  red,
+  green,
+  yellow,
+  sky,
+  fontStack,
   fontSizes,
   fontWeights,
-  radii,
+  borderRadius,
   sizes,
   space,
 } from '@qualifyze/design-tokens-v2';
@@ -15,9 +19,12 @@ export type { StitchesVariants } from '@stitches/react';
 const stitches = createCss({
   theme: {
     colors: {
-      ...colors.brand,
-      ...colors.gray,
-      ...indigo,
+      ...brand,
+      ...gray,
+      ...red,
+      ...green,
+      ...yellow,
+      ...sky,
     },
     space: {
       ...space,
@@ -26,7 +33,7 @@ const stitches = createCss({
       ...fontSizes,
     },
     fonts: {
-      ...fonts,
+      ...fontStack,
     },
     fontWeights: {
       ...fontWeights,
@@ -37,7 +44,7 @@ const stitches = createCss({
     borderWidths: {},
     borderStyles: {},
     radii: {
-      ...radii,
+      ...borderRadius,
     },
     shadows: {},
     zIndices: {},
@@ -139,12 +146,5 @@ const stitches = createCss({
   },
 });
 
-export const {
-  styled,
-  css,
-  theme,
-  getCssString,
-  global,
-  keyframes,
-  config,
-} = stitches;
+export const { styled, css, theme, getCssString, global, keyframes, config } =
+  stitches;

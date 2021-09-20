@@ -71,7 +71,6 @@
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@qualifyze/design-tokens-v2": "^0.0.3",
-    "@radix-ui/colors": "^0.1.7",
     "@radix-ui/react-polymorphic": "^0.0.12",
     "@stitches/react": "^0.2.2",
     "capsize": "^2.0.0"

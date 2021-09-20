@@ -44,5 +44,8 @@
   },
   "volta": {
     "node": "14.16.0"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^0.1.7"
   }
 }
