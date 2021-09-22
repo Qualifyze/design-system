@@ -1,51 +1,45 @@
 import { createCss } from '@stitches/react';
-import {
-  brand,
-  gray,
-  red,
-  green,
-  yellow,
-  sky,
-  fontStack,
-  fontSizes,
-  fontWeights,
-  borderRadius,
-  sizes,
-  space,
-} from '@qualifyze/design-tokens-v2';
+import { tokens } from '@qualifyze/design-tokens-v2';
 
 export type { StitchesVariants } from '@stitches/react';
 
 const stitches = createCss({
   theme: {
     colors: {
-      ...brand,
-      ...gray,
-      ...red,
-      ...green,
-      ...yellow,
-      ...sky,
+      brand1: tokens.colorBrand1,
+      brand2: tokens.colorBrand2,
+      brand3: tokens.colorBrand3,
+      brand4: tokens.colorBrand4,
+      brand5: tokens.colorBrand5,
+      brand6: tokens.colorBrand6,
+      brand7: tokens.colorBrand7,
+      brand8: tokens.colorBrand8,
+      brand9: tokens.colorBrand9,
+      brand10: tokens.colorBrand10,
+      brand11: tokens.colorBrand11,
+      brand12: tokens.colorBrand12,
     },
     space: {
-      ...space,
+      0: tokens.spacing0,
+      4: tokens.spacing4,
+      8: tokens.spacing8,
+      12: tokens.spacing12,
+      16: tokens.spacing16,
+      24: tokens.spacing24,
+      32: tokens.spacing32,
+      48: tokens.spacing48,
+      64: tokens.spacing64,
+      96: tokens.spacing96,
     },
-    fontSizes: {
-      ...fontSizes,
-    },
-    fonts: {
-      ...fontStack,
-    },
-    fontWeights: {
-      ...fontWeights,
-    },
+    fontSizes: {},
+    fonts: {},
+    fontWeights: {},
     lineHeights: {},
     letterSpacings: {},
-    sizes: { ...sizes },
+    sizes: {},
     borderWidths: {},
     borderStyles: {},
-    radii: {
-      ...borderRadius,
-    },
+    radii: {},
     shadows: {},
     zIndices: {},
     transitions: {},
@@ -146,5 +140,12 @@ const stitches = createCss({
   },
 });
 
-export const { styled, css, theme, getCssString, global, keyframes, config } =
-  stitches;
+export const {
+  styled,
+  css,
+  theme,
+  getCssString,
+  global,
+  keyframes,
+  config,
+} = stitches;

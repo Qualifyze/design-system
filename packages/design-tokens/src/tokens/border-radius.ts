@@ -1,9 +1,9 @@
 export const borderRadius = {
-  0: '0',
-  1: '2px',
-  2: '4px',
-  3: '8px',
-  4: '16px',
-  round: '50%',
-  pill: '9999px',
+  borderRadius0: '0',
+  borderRadius2: '2px',
+  borderRadius4: '4px',
+  borderRadius8: '8px',
+  borderRadius16: '16px',
+  borderRadiusRound: '50%',
+  borderRadiusPill: '9999px',
 }
