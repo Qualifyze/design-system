@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.2.11
+
+### Patch Changes
+
+- [#180](https://github.com/Qualifyze/design-system/pull/180) [`88fe28d`](https://github.com/Qualifyze/design-system/commit/88fe28d4af0099702710740612a47d2a0f5b5349) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Prevent undesired focus styles when using a mouse
+
+* [#179](https://github.com/Qualifyze/design-system/pull/179) [`2bc9679`](https://github.com/Qualifyze/design-system/commit/2bc9679f9a7b880e7066d5088a7f3fb9731c7b47) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Fix issues with TextLinkButton introduced in v1.2.9 (PR #176) and v1.2.8 (PR #177).
+
 ## 1.2.10
 
 ### Patch Changes
