@@ -73,7 +73,7 @@ const Base = styled('button')(
   })
 )
 
-const Loader = styled.span`
+export const Loader = styled.span`
   display: 'inline-block';
 
   & > span {

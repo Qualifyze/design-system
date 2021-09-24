@@ -3,8 +3,13 @@ import React from 'react'
 
 import Button from '../Button'
 import TextLink from '../TextLink'
+import TextLinkButton from '../TextLinkButton'
 
 import Actions from './index'
+
+function simulateNetworkRequest() {
+  return new Promise(resolve => setTimeout(resolve, 3000))
+}
 
 export default { title: 'Actions', component: Actions }
 
@@ -32,7 +37,19 @@ WithTextLink.story = {
   name: 'with TextLink',
 }
 
-export const WithBoth = () => {
+export const WithTextLinkButton = () => {
+  return (
+    <Actions>
+      <Button>Submit</Button>
+      <TextLinkButton>Cancel</TextLinkButton>
+    </Actions>
+  )
+}
+WithTextLinkButton.story = {
+  name: 'with TextLinkButton',
+}
+
+export const WithButtonsAndLink = () => {
   return (
     <Actions>
       <Button>Save & Close</Button>
@@ -41,6 +58,58 @@ export const WithBoth = () => {
     </Actions>
   )
 }
-WithBoth.story = {
-  name: 'with both',
+WithButtonsAndLink.story = {
+  name: 'with buttons and links',
+}
+
+export const WithLoadingIndicator = () => {
+  const [isLoadingPrimary, setLoadingPrimary] = React.useState(false)
+  const [isLoadingSecondary, setLoadingSecondary] = React.useState(false)
+  const [isLoadingTertiary, setLoadingTertiary] = React.useState(false)
+
+  const handleClickPrimary = () => {
+    setLoadingPrimary(true)
+  }
+
+  const handleClickSecondary = () => {
+    setLoadingSecondary(true)
+  }
+
+  const handleClickTertiary = () => {
+    setLoadingTertiary(true)
+  }
+
+  React.useEffect(() => {
+    if (isLoadingPrimary || isLoadingSecondary || isLoadingTertiary) {
+      simulateNetworkRequest().then(() => {
+        setLoadingPrimary(false)
+        setLoadingSecondary(false)
+        setLoadingTertiary(false)
+      })
+    }
+  }, [isLoadingPrimary, isLoadingSecondary, isLoadingTertiary])
+
+  return (
+    <Actions>
+      <Button onClick={handleClickPrimary} isLoading={isLoadingPrimary}>
+        Save & close
+      </Button>
+      <Button
+        onClick={handleClickSecondary}
+        isLoading={isLoadingSecondary}
+        variant="secondary"
+      >
+        Save
+      </Button>
+      <TextLinkButton
+        onClick={handleClickTertiary}
+        isLoading={isLoadingTertiary}
+      >
+        Cancel
+      </TextLinkButton>
+    </Actions>
+  )
+}
+WithLoadingIndicator.story = {
+  name: 'with loading indicator',
 }

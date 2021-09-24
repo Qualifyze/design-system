@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { styled, createShouldForwardProp, props, sx } from '../../util/style'
 import ActionsContext from '../Actions/ActionsContext'
 import Box from '../Box'
+import { Loader } from '../Button'
 
 const shouldForwardProp = createShouldForwardProp([
   ...props,
@@ -73,9 +74,8 @@ const BaseLink = styled('a', { shouldForwardProp })(
   sx
 )
 
-const TextLink = forwardRef((props, ref) => {
+const TextLink = forwardRef(({ children, icon, isLoading, ...props }, ref) => {
   const actionsContext = useContext(ActionsContext)
-  const { children, icon } = props
 
   return (
     <BaseLink ref={ref} isNestedInActions={actionsContext != null} {...props}>
@@ -85,6 +85,13 @@ const TextLink = forwardRef((props, ref) => {
         </Box>
       ) : null}
       {children}
+      {isLoading ? (
+        <Loader aria-hidden>
+          <span />
+          <span />
+          <span />
+        </Loader>
+      ) : null}
     </BaseLink>
   )
 })
@@ -100,11 +107,14 @@ TextLink.propTypes = {
   icon: PropTypes.node,
   showVisited: PropTypes.bool,
   hitArea: PropTypes.oneOf(['standard', 'large']),
+  /** This doesn't make sense for normal links, but we need it for TextLinkButton to show progress on async onClick actions */
+  isLoading: PropTypes.bool,
 }
 
 TextLink.defaultProps = {
   showVisited: false,
   hitArea: 'standard',
+  isLoading: false,
 }
 
 export default TextLink
