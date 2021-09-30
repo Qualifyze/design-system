@@ -1,6 +1,7 @@
 import React from 'react'
-import { select } from '@storybook/addon-knobs'
+import { select, text } from '@storybook/addon-knobs'
 
+import Box from '../Box'
 import Text from '../Text'
 import Stack from '../Stack'
 import TextLink from '../TextLink'
@@ -56,4 +57,56 @@ export const InActions = () => {
 }
 InActions.story = {
   name: 'inside Actions',
+}
+
+export const WithIcon = () => {
+  const iconName = text('Icon', 'download')
+
+  return (
+    <Stack space={3}>
+      <Box>
+        <Text size="tiny">
+          <TextLinkButton
+            href="https://starwars.fandom.com/"
+            icon={<Icon name={iconName} size="tiny" />}
+          >
+            Download
+          </TextLinkButton>
+        </Text>
+      </Box>
+      <Box>
+        <Text size="small">
+          <TextLinkButton
+            href="https://starwars.fandom.com/"
+            icon={<Icon name={iconName} size="small" />}
+          >
+            Download
+          </TextLinkButton>
+        </Text>
+      </Box>
+      <Box>
+        <Text size="standard">
+          <TextLinkButton
+            href="https://starwars.fandom.com/"
+            icon={<Icon name={iconName} size="standard" />}
+          >
+            Download
+          </TextLinkButton>
+        </Text>
+      </Box>
+      <Box>
+        <Text size="large">
+          <TextLinkButton
+            href="https://starwars.fandom.com/"
+            icon={<Icon name={iconName} size="large" />}
+          >
+            Download
+          </TextLinkButton>
+        </Text>
+      </Box>
+    </Stack>
+  )
+}
+WithIcon.story = {
+  name: 'with Icon',
 }
