@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.2.12
+
+### Patch Changes
+
+- [#191](https://github.com/Qualifyze/design-system/pull/191) [`fe67ee1`](https://github.com/Qualifyze/design-system/commit/fe67ee1819eb7f3c4452842c6ea7c972bcd5e659) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Add `Icon` to `TextLinkButton`
+
 ## 1.2.11
 
 ### Patch Changes
