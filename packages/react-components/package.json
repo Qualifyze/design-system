@@ -72,7 +72,7 @@
     "@emotion/react": "^11.4.0",
     "@qualifyze/design-tokens-v2": "^0.0.3",
     "@radix-ui/react-polymorphic": "^0.0.12",
-    "@stitches/react": "^1.2.0",
+    "@stitches/react": "^1.2.1",
     "capsize": "^2.0.0"
   },
   "volta": {

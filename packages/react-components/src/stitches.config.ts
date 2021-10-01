@@ -2,6 +2,7 @@ import { createStitches } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
 import { tokens } from '@qualifyze/design-tokens-v2';
 
+// @ts-ignore
 export const { styled, css, theme, getCssText, globalCss, keyframes, config } =
   createStitches({
     theme: {
