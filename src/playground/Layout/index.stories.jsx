@@ -1,20 +1,25 @@
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
+import { boolean } from '@storybook/addon-knobs'
 
-import { Global, resetCSS, theme, ThemeProvider } from '../../util/style'
-import Stack from '../Stack'
-import Icon from '../Icon'
-import Text from '../Text'
-import TextLink from '../TextLink'
-
-import { Drawer } from './Drawer'
-import { Layout } from './Layout'
-import { Main } from './Main'
-import { MainMenu } from './MainMenu'
-import { MenuDivider } from './MenuDivider'
-import { MenuFooter } from './MenuFooter'
-import { MenuItem } from './MenuItem'
-import { Title } from './Title'
+import {
+  Stack,
+  Icon,
+  Text,
+  TextLink,
+  Drawer,
+  Layout,
+  Main,
+  MainMenu,
+  MenuDivider,
+  MenuFooter,
+  MenuItem,
+  Title,
+  Global,
+  resetCSS,
+  theme,
+  ThemeProvider,
+} from '../..'
 
 export default {
   title: 'Playground | Layout',
@@ -38,6 +43,8 @@ Link.propTypes = {
 }
 
 export function Default() {
+  const collapsed = boolean('collapsed', false)
+
   const [active, setActive] = useState(0)
   const activate = useCallback(
     index => e => {
@@ -47,36 +54,52 @@ export function Default() {
     []
   )
 
+  const menuIcons = ['documentnew', 'bell', 'web', 'calendar']
+
   return (
     <Layout>
-      <Drawer>
+      <Drawer collapsed={collapsed}>
         <MainMenu>
           {[0, 1, 2].map(index => (
-            <MenuItem key={index} active={active === index}>
-              <Link href="/" onClick={activate(index)}>
-                Menu Item #{index + 1}
-              </Link>
+            <MenuItem
+              key={index}
+              icon={
+                menuIcons[index] ? <Icon name={menuIcons[index]} /> : undefined
+              }
+              active={active === index}
+              as={Link}
+              href="/"
+              onClick={activate(index)}
+            >
+              Menu Item #{index + 1}
             </MenuItem>
           ))}
           <MenuDivider />
           {[3, 4, 5].map(index => (
-            <MenuItem key={index} active={active === index}>
-              <Link href="/" onClick={activate(index)}>
-                Menu Item #{index + 1}
-              </Link>
+            <MenuItem
+              key={index}
+              icon={
+                menuIcons[index] ? <Icon name={menuIcons[index]} /> : undefined
+              }
+              active={active === index}
+              as={Link}
+              href="/"
+              onClick={activate(index)}
+            >
+              Menu Item #{index + 1}
             </MenuItem>
           ))}
         </MainMenu>
         <MenuFooter>
-          <MenuItem>
-            <Link href="/" icon={<Icon name="Settings" size="small" />}>
-              Settings
-            </Link>
+          <MenuItem
+            as={Link}
+            href="/"
+            icon={<Icon name="Settings" size="small" />}
+          >
+            Settings
           </MenuItem>
-          <MenuItem>
-            <Link href="/" icon={<Icon name="Exit" size="small" />}>
-              Logout
-            </Link>
+          <MenuItem as={Link} href="/" icon={<Icon name="Exit" size="small" />}>
+            Logout
           </MenuItem>
         </MenuFooter>
       </Drawer>

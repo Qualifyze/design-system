@@ -45,6 +45,7 @@ export { default as Tiles } from './components/Tiles'
 export { default as Tooltip } from './components/Tooltip'
 export { default as useRect } from './hooks/useRect'
 export { default as useScroll } from './hooks/useScroll'
+export * from './components/Layout'
 export {
   css,
   Global,
