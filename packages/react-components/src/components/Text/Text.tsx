@@ -35,7 +35,7 @@ const largeStyles = capsize({
   fontMetrics,
 });
 
-export const StyledText = styled('p', {
+export const Text = styled('p', {
   // Reset
   lineHeight: '1',
   margin: '0',
