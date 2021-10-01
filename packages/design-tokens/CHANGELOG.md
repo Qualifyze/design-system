@@ -1,5 +1,11 @@
 # @qualifyze/design-tokens-v2
 
+## 0.0.4
+
+### Patch Changes
+
+- [#135](https://github.com/Qualifyze/design-system/pull/135) [`3079081`](https://github.com/Qualifyze/design-system/commit/30790814a1a20f30151f57ada255482f26356194) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Empty release for testing purposes, again
+
 ## 0.0.3
 
 ### Patch Changes
