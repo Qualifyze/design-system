@@ -1,5 +1,12 @@
 # @qualifyze/design-system-v2
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`3079081`](https://github.com/Qualifyze/design-system/commit/30790814a1a20f30151f57ada255482f26356194)]:
+  - @qualifyze/design-tokens-v2@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
