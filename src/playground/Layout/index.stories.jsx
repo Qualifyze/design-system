@@ -37,9 +37,20 @@ export default {
 function Link({ children, ...props }) {
   return <TextLink {...props}>{children}</TextLink>
 }
-
 Link.propTypes = {
   children: PropTypes.node.isRequired,
+}
+
+function LinkIcon({ name }) {
+  return name ? (
+    <Icon name={name} size="small" style={{ position: 'relative', top: 1 }} />
+  ) : null
+}
+LinkIcon.propTypes = {
+  name: PropTypes.string,
+}
+LinkIcon.defaultProps = {
+  name: undefined,
 }
 
 export function Default() {
@@ -63,9 +74,7 @@ export function Default() {
           {[0, 1, 2].map(index => (
             <MenuItem
               key={index}
-              icon={
-                menuIcons[index] ? <Icon name={menuIcons[index]} /> : undefined
-              }
+              icon={<LinkIcon name={menuIcons[index]} />}
               active={active === index}
               as={Link}
               href="/"
@@ -78,9 +87,7 @@ export function Default() {
           {[3, 4, 5].map(index => (
             <MenuItem
               key={index}
-              icon={
-                menuIcons[index] ? <Icon name={menuIcons[index]} /> : undefined
-              }
+              icon={<LinkIcon name={menuIcons[index]} />}
               active={active === index}
               as={Link}
               href="/"
@@ -91,14 +98,10 @@ export function Default() {
           ))}
         </MainMenu>
         <MenuFooter>
-          <MenuItem
-            as={Link}
-            href="/"
-            icon={<Icon name="Settings" size="small" />}
-          >
+          <MenuItem as={Link} href="/" icon={<LinkIcon name="Settings" />}>
             Settings
           </MenuItem>
-          <MenuItem as={Link} href="/" icon={<Icon name="Exit" size="small" />}>
+          <MenuItem as={Link} href="/" icon={<LinkIcon name="Exit" />}>
             Logout
           </MenuItem>
         </MenuFooter>

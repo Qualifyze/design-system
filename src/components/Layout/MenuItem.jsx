@@ -31,13 +31,17 @@ export function MenuItem({ children, active, as: Comp, icon, ...props }) {
             'justifyContent': collapsed ? 'center' : 'flex-start',
             'color': 'inherit',
             'textDecoration': 'none',
-            'px': collapsed ? 2 : 3,
+            'mx': 2,
+            'my': 1,
+            'px': 2,
             'py': 2,
             'bg': active ? 'secondary.600' : 'transparent',
             '&:hover': {
               bg: 'secondary.700',
             },
             'transition': 'background-color 100ms linear',
+            'borderRadius': collapsed ? '50%' : '1rem',
+            'lineHeight': 1,
           }}
         >
           {icon ? (
