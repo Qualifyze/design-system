@@ -16,7 +16,7 @@ import Icon from '../Icon'
 // eslint-disable-next-line react/prop-types
 const Heading = ({ children }) => (
   <Box sx={{ px: 3, pt: 3, pb: 3, mr: '44px' }}>
-    <BaseHeading as="span" level={4} weight="weak">
+    <BaseHeading as="span" level={3} weight="weak">
       {children}
     </BaseHeading>
   </Box>
