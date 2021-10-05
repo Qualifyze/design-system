@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.2.13
+
+### Patch Changes
+
+- [#195](https://github.com/Qualifyze/design-system/pull/195) [`fcc5f1a`](https://github.com/Qualifyze/design-system/commit/fcc5f1a678f3025ba439746f2b4b48191d2fba67) Thanks [@jorgechiapello](https://github.com/jorgechiapello)! - Change Modal.Heading level from 4 to 3
+
 ## 1.2.12
 
 ### Patch Changes
