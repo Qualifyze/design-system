@@ -1,6 +1,8 @@
 export { default as Actions } from './components/Actions'
 export { default as Alert } from './components/Alert'
+export { default as AppBar, useAppBarContext } from './components/AppBar'
 export { default as AutosuggestField } from './components/AutosuggestField'
+export { default as Avatar } from './components/Avatar'
 export { default as Box } from './components/Box'
 export { default as Button } from './components/Button'
 export { default as ButtonLink } from './components/ButtonLink'
@@ -25,6 +27,8 @@ export { default as Inline } from './components/Inline'
 export { default as List } from './components/List'
 export { default as LoadingSpinner } from './components/LoadingSpinner'
 export { default as Logo } from './components/Logo'
+export { default as LoremIpsum } from './components/LoremIpsum'
+export { default as Menu } from './components/Menu'
 export { default as Modal } from './components/Modal'
 export { default as Radio } from './components/Radio'
 export { default as Rect } from './components/Rect'
@@ -45,8 +49,8 @@ export { default as Tiles } from './components/Tiles'
 export { default as Tooltip } from './components/Tooltip'
 export { default as useRect } from './hooks/useRect'
 export { default as useScroll } from './hooks/useScroll'
-export * from './components/Layout'
 export {
+  colorFromString,
   css,
   Global,
   resetCSS,

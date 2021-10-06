@@ -22,9 +22,11 @@ export {
   typography,
   variant,
 } from 'styled-system'
+export * from './colorFromString'
 export * from './resetCSS'
 export * from './sx'
 export * from './theme'
 export * from './withCSSReset'
 export * from './withFont'
 export * from './withTheme'
+export * from './useMediaQuery'
