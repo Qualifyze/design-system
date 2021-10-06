@@ -3,18 +3,17 @@
  *
  * Note: Currently, it's not possible to use <Hidden> inside a <Stack>. This needs more work, but I'm not sure if we will actually need it...
  */
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 
 import { theme } from '../../util/style'
 import Box from '../Box'
 
+const { breakpoints } = theme
+
 // This basically figures out where to show the component.
 // We probably need to move this to a utility somewhere else, its just a first draft
-export const resolveResponsiveRangeProps = props => {
-  const { above, below } = props
-  const { breakpoints } = theme
-
+export function resolveResponsiveRangeProps({ above, below }) {
   if (!above && !below) {
     return [false, false, false, false]
   }
@@ -34,24 +33,23 @@ export const resolveResponsiveRangeProps = props => {
   return [includeSmallest, includeSmall, includeMedium, includeLarge]
 }
 
-const Hidden = ({ children, inline, above, below }) => {
-  const display = inline ? 'inline' : 'block'
-
-  const [hiddenOnSmallest, hiddenOnSmall, hiddenOnMedium, hiddenOnLarge] =
-    resolveResponsiveRangeProps({ above, below })
-
-  return (
-    <Box
-      display={[
-        hiddenOnSmallest ? 'none' : display,
-        hiddenOnSmall ? 'none' : display,
-        hiddenOnMedium ? 'none' : display,
-        hiddenOnLarge ? 'none' : display,
-      ]}
-    >
-      {children}
-    </Box>
+export function useResponsiveStyle({ above, below }) {
+  return useCallback(
+    (enabledValue, disabledValue) => {
+      const flags = resolveResponsiveRangeProps({ above, below })
+      return flags.map(enabled => (enabled ? enabledValue : disabledValue))
+    },
+    [above, below]
   )
+}
+
+const Hidden = ({ children, inline, above, below }) => {
+  const display = useResponsiveStyle({ above, below })(
+    'none',
+    inline ? 'inline' : 'block'
+  )
+
+  return <Box display={display}>{children}</Box>
 }
 
 Hidden.defaultProps = {
