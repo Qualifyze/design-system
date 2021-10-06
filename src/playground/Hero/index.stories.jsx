@@ -14,7 +14,7 @@ import Column from '../../components/Column'
 import TextLink from '../../components/TextLink'
 import Actions from '../../components/Actions'
 
-export default { title: 'Playground | Hero' }
+export default { title: 'Playground/Hero' }
 
 const dummyCTAData = [
   {

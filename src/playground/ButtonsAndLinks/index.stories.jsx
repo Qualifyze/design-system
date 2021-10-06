@@ -15,7 +15,7 @@ import Card from '../../components/Card'
 import List from '../../components/List'
 import Inline from '../../components/Inline'
 
-export default { title: 'Playground | Buttons and Links' }
+export default { title: 'Playground/Buttons and Links' }
 
 export const Default = () => {
   return (
