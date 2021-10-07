@@ -64,6 +64,8 @@
     "@babel/preset-react": "^7.14.5",
     "@changesets/changelog-github": "^0.4.0",
     "@changesets/cli": "^2.16.0",
+    "@radix-ui/react-avatar": "^0.1.0",
+    "@radix-ui/react-dropdown-menu": "^0.1.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
