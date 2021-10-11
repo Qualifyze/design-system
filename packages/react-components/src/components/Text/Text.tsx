@@ -4,34 +4,34 @@ import { styled } from '../../stitches.config';
 
 // Font metrics for "Inter"
 const fontMetrics = {
-  capHeight: 2048,
-  ascent: 2728,
-  descent: -680,
+  capHeight: 660,
+  ascent: 984,
+  descent: -273,
   lineGap: 0,
-  unitsPerEm: 2816,
+  unitsPerEm: 1000,
 };
 
 const tinyStyles = capsize({
-  capHeight: 8,
-  lineGap: 10,
-  fontMetrics,
-});
-
-const smallStyles = capsize({
-  capHeight: 10,
+  fontSize: 12,
   lineGap: 12,
   fontMetrics,
 });
 
+const smallStyles = capsize({
+  fontSize: 14,
+  lineGap: 18,
+  fontMetrics,
+});
+
 const standardStyles = capsize({
-  capHeight: 12,
+  fontSize: 16,
   lineGap: 18,
   fontMetrics,
 });
 
 const largeStyles = capsize({
-  capHeight: 14,
-  lineGap: 20,
+  fontSize: 20,
+  lineGap: 24,
   fontMetrics,
 });
 
@@ -46,6 +46,14 @@ export const Text = styled('p', {
   marginBlockEnd: '0',
   marginInlineStart: '0',
   marginInlineEnd: '0',
+
+  '& svg': {
+    width: '1em',
+    height: '1em',
+    verticalAlign: 'middle',
+    top: '-0.08em',
+    position: 'relative',
+  },
 
   variants: {
     size: {

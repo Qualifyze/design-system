@@ -1,8 +1,0 @@
-/* This file is applied to all Storybook Stories. It should include all styles
-that are also part of our theme, in the `styles.root` key. Storybook somehow
-doesn't seem to apply these global styles, although they will be applied to the
-`<body>` of any consumer of the design system */
-
-body {
-  font-family: 'Source Sans Pro', system-ui, sans-serif;
-}
