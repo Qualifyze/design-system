@@ -94,10 +94,10 @@ export function Default() {
             <MyAccountNavItem user={user} />
           </AppBar.SecondaryNav>
           <AppBar.PrimaryActions>
-            <Button variant="primary">Primary action</Button>
+            <AppBar.Button variant="primary">Primary action</AppBar.Button>
           </AppBar.PrimaryActions>
           <AppBar.SecondaryActions>
-            <Button variant="secondary">Secondary action</Button>
+            <AppBar.Button variant="secondary">Secondary action</AppBar.Button>
           </AppBar.SecondaryActions>
         </AppBar>
         <Box

@@ -7,13 +7,13 @@ export default function MenuItem({ as: Comp, children, ...props }) {
   return (
     <Box
       sx={{
+        fontSize: 2,
         a: {
           'display': 'block',
           'color': 'inherit',
           'textDecoration': 'none',
           '&:hover': {
-            bg: 'grey.100',
-            color: 'primary.500',
+            color: 'primary.800',
           },
         },
       }}
