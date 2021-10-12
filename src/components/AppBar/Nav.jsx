@@ -15,13 +15,12 @@ export default function Nav({ align, children }) {
         display: collapsed ? 'initial' : 'flex',
         alignItems: 'center',
         flexDirection: 'inherit',
-        ml: collapsed ? 0 : align === 'right' ? 'auto' : 0,
+        ml: !collapsed && align === 'right' ? 'auto' : 0,
         my: collapsed ? 2 : 0,
         width: collapsed ? '100%' : 'auto',
-        height: collapsed ? 'auto' : '100%',
       }}
     >
-      {children ?? null}
+      {children}
     </Box>
   )
 }
@@ -33,5 +32,5 @@ Nav.propTypes = {
 
 Nav.defaultProps = {
   align: 'left',
-  children: undefined,
+  children: null,
 }
