@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.3.0
+
+### Minor Changes
+
+- [#199](https://github.com/Qualifyze/design-system/pull/199) [`fc795c8`](https://github.com/Qualifyze/design-system/commit/fc795c890cb03d30774f301b63ad6a6aad9f6b53) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - New component: `DropdownMenu`
+
 ## 1.2.12
 
 ### Patch Changes
