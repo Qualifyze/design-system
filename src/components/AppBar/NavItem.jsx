@@ -11,8 +11,6 @@ function border(weight) {
 
 export default function AppBarNavItem({ active, ...props }) {
   const { collapsed } = useAppBarContext()
-  const borderBottom = border(collapsed ? '0' : '3px')
-  const borderLeft = border(collapsed ? '6px' : '0')
 
   return (
     <TextLink
@@ -21,18 +19,20 @@ export default function AppBarNavItem({ active, ...props }) {
       sx={{
         'px': 3,
         'py': collapsed ? 3 : 2,
+        'mx': collapsed ? 0 : 1,
+        'fontSize': 2,
         'height': '100%',
-        'color': active ? 'primary.500' : 'inherit',
+        'color': active ? 'brand.11' : 'inherit',
         'whiteSpace': 'nowrap',
         'display': 'flex',
         'width': collapsed ? '100%' : 'auto',
         'alignItems': 'center',
+        'borderRadius': 2,
+        'bg': active ? 'brand.3' : 'transparent',
         '&:hover': {
-          color: 'primary.500',
+          bg: 'brand.4',
           textDecoration: 'none',
         },
-        'borderBottom': borderBottom(active),
-        'borderLeft': borderLeft(active),
       }}
     />
   )
