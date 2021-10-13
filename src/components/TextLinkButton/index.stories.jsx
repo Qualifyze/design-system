@@ -1,5 +1,6 @@
 import React from 'react'
 import { select, text } from '@storybook/addon-knobs'
+import { action } from '@storybook/addon-actions'
 
 import Box from '../Box'
 import Text from '../Text'
@@ -8,6 +9,7 @@ import TextLink from '../TextLink'
 import Icon from '../Icon'
 import Actions from '../Actions'
 import Button from '../Button'
+import Inline from '../Inline'
 
 import TextLinkButton from './index'
 
@@ -109,4 +111,43 @@ export const WithIcon = () => {
 }
 WithIcon.story = {
   name: 'with Icon',
+}
+
+function simulateNetworkRequest() {
+  return new Promise(resolve => setTimeout(resolve, 3000))
+}
+
+export const Loading = () => {
+  const content = text('Text', 'Download')
+  const iconName = text('Icon', 'download')
+
+  const [isLoading, setLoading] = React.useState(false)
+
+  const handleClick = () => {
+    setLoading(true)
+    action('Button clicked')()
+  }
+
+  React.useEffect(() => {
+    if (isLoading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false)
+      })
+    }
+  }, [isLoading])
+
+  return (
+    <Inline>
+      <TextLinkButton
+        isLoading={isLoading}
+        onClick={handleClick}
+        icon={<Icon name={iconName} size="standard" />}
+      >
+        {content}
+      </TextLinkButton>
+    </Inline>
+  )
+}
+Loading.story = {
+  name: 'loading',
 }
