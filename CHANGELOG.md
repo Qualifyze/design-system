@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.3.1
+
+### Patch Changes
+
+- [#203](https://github.com/Qualifyze/design-system/pull/203) [`b22ab35`](https://github.com/Qualifyze/design-system/commit/b22ab35609c6f4d5c1ac2df75b90ecf852da576e) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Fix missing keypress handlers on `TextLinkButton`
+
+* [#201](https://github.com/Qualifyze/design-system/pull/201) [`00ff384`](https://github.com/Qualifyze/design-system/commit/00ff384a5856fd2b539e3557ff81add76bd06212) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Add story for `isLoading` prop on `TextLinkButton`
+
 ## 1.3.0
 
 ### Minor Changes
