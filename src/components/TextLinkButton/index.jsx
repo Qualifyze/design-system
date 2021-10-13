@@ -4,18 +4,21 @@ import PropTypes from 'prop-types'
 import TextLink from '../TextLink'
 
 const TextLinkButton = ({ onClick, isLoading, icon, children }) => {
-  const handleKeyPress = React.useCallback(event => {
-    if (event.code === 'Enter' || event.code === 'Space') {
-      onClick()
-    }
-  })
+  const handleKeyPress = React.useCallback(
+    event => {
+      if ((!isLoading && event.code === 'Enter') || event.code === 'Space') {
+        onClick?.()
+      }
+    },
+    [isLoading, onClick]
+  )
 
   return (
     <TextLink
       as="span"
       role="button"
       tabIndex={0}
-      onClick={onClick}
+      onClick={isLoading ? undefined : onClick}
       isLoading={isLoading}
       icon={icon}
       onKeyPress={handleKeyPress}
