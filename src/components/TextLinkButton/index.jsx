@@ -4,6 +4,12 @@ import PropTypes from 'prop-types'
 import TextLink from '../TextLink'
 
 const TextLinkButton = ({ onClick, isLoading, icon, children }) => {
+  const handleKeyPress = React.useCallback(event => {
+    if (event.code === 'Enter' || event.code === 'Space') {
+      onClick()
+    }
+  })
+
   return (
     <TextLink
       as="span"
@@ -12,6 +18,7 @@ const TextLinkButton = ({ onClick, isLoading, icon, children }) => {
       onClick={onClick}
       isLoading={isLoading}
       icon={icon}
+      onKeyPress={handleKeyPress}
     >
       {children}
     </TextLink>
