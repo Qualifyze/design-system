@@ -5,10 +5,6 @@ import TextLink from '../TextLink'
 
 import { useAppBarContext } from './context'
 
-function border(weight) {
-  return active => `${weight} solid ${active ? 'currentColor' : 'transparent'}`
-}
-
 export default function AppBarNavItem({ active, ...props }) {
   const { collapsed } = useAppBarContext()
 
@@ -20,17 +16,17 @@ export default function AppBarNavItem({ active, ...props }) {
         'px': 3,
         'py': collapsed ? 3 : 2,
         'mx': collapsed ? 0 : 1,
-        'fontSize': 2,
+        'fontSize': '16px',
         'height': '100%',
-        'color': active ? 'brand.11' : 'inherit',
+        'color': active ? 'primary.700' : 'inherit',
         'whiteSpace': 'nowrap',
         'display': 'flex',
         'width': collapsed ? '100%' : 'auto',
         'alignItems': 'center',
         'borderRadius': 2,
-        'bg': active ? 'brand.3' : 'transparent',
+        'bg': active ? 'primary.100' : 'transparent',
         '&:hover': {
-          bg: 'brand.4',
+          bg: 'primary.200',
           textDecoration: 'none',
         },
       }}
