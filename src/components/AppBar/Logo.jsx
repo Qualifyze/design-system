@@ -14,6 +14,7 @@ export default function AppBarLogo({ children }) {
         display: 'flex',
         alignItems: 'center',
         pl: collapsed ? 3 : 4,
+        py: collapsed ? 1 : 0,
         mr: collapsed ? 0 : 4,
       }}
     >

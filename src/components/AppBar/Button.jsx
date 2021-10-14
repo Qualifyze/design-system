@@ -12,9 +12,9 @@ const AppBarButton = styled.button(
     'textDecoration': 'none !important',
     'border': 0,
     'cursor': 'pointer',
-    'fontSize': `${props.theme.fontSizes[2]}px`,
+    'fontSize': '16px',
     'lineHeight': 1,
-    'padding': `${props.theme.space[3]}px ${props.theme.space[4]}px`,
+    'padding': `12px ${props.theme.space[3]}px`,
     'borderRadius': `${props.theme.radii[2]}px`,
     '&:focus': {
       outline: 'none',
@@ -26,16 +26,16 @@ const AppBarButton = styled.button(
     variants: {
       primary: {
         'color': 'white',
-        'bg': 'brand.9',
+        'bg': 'primary.800',
         '&:hover': {
-          bg: 'brand.10',
+          bg: 'primary.700',
         },
       },
       secondary: {
-        'color': 'brand.11',
-        'bg': 'brand.3',
+        'color': 'primary.900',
+        'bg': 'grey.300',
         '&:hover': {
-          bg: 'brand.4',
+          bg: 'grey.200',
         },
       },
     },

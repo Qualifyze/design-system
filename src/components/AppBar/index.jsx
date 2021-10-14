@@ -80,73 +80,69 @@ function AppBarContent({ position, children: elements }) {
     useMemo(() => selectElements(elements), [elements])
 
   return (
-    <V2ThemeProvider>
+    <Box
+      as="header"
+      sx={{
+        bg: 'white',
+        color: 'grey.700',
+        // less than modal (500)
+        zIndex: 400,
+        height: collapsed ? 'auto' : '70px',
+        display: 'flex',
+        flexDirection: collapsed ? 'column' : 'row',
+        alignItems: collapsed ? 'flex-start' : 'center',
+        lineHeight: 1,
+        boxShadow: 4,
+        ...(position === 'fixed' && {
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+        }),
+      }}
+    >
       <Box
-        as="header"
         sx={{
-          bg: 'white',
-          color: 'slate.11',
-          // less than modal (500)
-          zIndex: 400,
           display: 'flex',
-          flexDirection: collapsed ? 'column' : 'row',
-          alignItems: collapsed ? 'flex-start' : 'center',
-          lineHeight: 1,
-          boxShadow: 4,
-          ...(position === 'fixed' && {
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-          }),
+          alignItems: 'center',
+          width: collapsed ? '100%' : 'auto',
+          py: collapsed ? 3 : 0,
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            width: collapsed ? '100%' : 'auto',
-            py: collapsed ? 3 : 0,
-          }}
-        >
-          {logo}
-          {collapsed && (
-            <Box sx={{ ml: 'auto', pr: 3 }}>
-              <Icon
-                name={expanded ? 'cross' : 'menu'}
-                onClick={toggleExpanded}
-              />
-            </Box>
-          )}
-        </Box>
-        <Box
-          sx={{
-            display: (collapsed && expanded) || !collapsed ? 'flex' : 'none',
-            flexDirection: 'inherit',
-            alignItems: 'inherit',
-            flex: 1,
-            width: collapsed ? '100%' : 'auto',
-          }}
-        >
-          {collapsed && primaryActions && (
-            <NavActions>{primaryActions}</NavActions>
-          )}
-          <Nav>{primaryNav}</Nav>
-          {collapsed ? (
-            <>
-              {secondaryActions && <NavActions>{secondaryActions}</NavActions>}
-              {secondaryNav && <Nav>{secondaryNav}</Nav>}
-            </>
-          ) : (
-            <Nav align="right">
-              {primaryActions && <NavActions>{primaryActions}</NavActions>}
-              {secondaryActions && <NavActions>{secondaryActions}</NavActions>}
-              {secondaryNav}
-            </Nav>
-          )}
-        </Box>
+        {logo}
+        {collapsed && (
+          <Box sx={{ ml: 'auto', pr: 3 }}>
+            <Icon name={expanded ? 'cross' : 'menu'} onClick={toggleExpanded} />
+          </Box>
+        )}
       </Box>
-    </V2ThemeProvider>
+      <Box
+        sx={{
+          display: (collapsed && expanded) || !collapsed ? 'flex' : 'none',
+          flexDirection: 'inherit',
+          alignItems: 'inherit',
+          flex: 1,
+          width: collapsed ? '100%' : 'auto',
+        }}
+      >
+        {collapsed && primaryActions && (
+          <NavActions>{primaryActions}</NavActions>
+        )}
+        <Nav>{primaryNav}</Nav>
+        {collapsed ? (
+          <>
+            {secondaryActions && <NavActions>{secondaryActions}</NavActions>}
+            {secondaryNav && <Nav>{secondaryNav}</Nav>}
+          </>
+        ) : (
+          <Nav align="right">
+            {primaryActions && <NavActions>{primaryActions}</NavActions>}
+            {secondaryActions && <NavActions>{secondaryActions}</NavActions>}
+            {secondaryNav}
+          </Nav>
+        )}
+      </Box>
+    </Box>
   )
 }
 

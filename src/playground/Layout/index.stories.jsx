@@ -14,7 +14,6 @@ import {
   AppBar,
   Avatar,
   Box,
-  Button,
   colorFromString,
   Flex,
   Global,
@@ -46,11 +45,10 @@ export default {
 function useUser() {
   const name = text('name', 'Testine Tester', 'user')
   const email = text('email', 'testine.tester@qualifyze.com', 'user')
-  const team = text('team', 'Test GmbH', 'user')
   const avatar = boolean('avatar', true, 'user')
     ? `https://i.pravatar.cc/300?u=${email}`
     : undefined
-  return { name, email, avatar, team }
+  return { name, email, avatar }
 }
 
 // eslint-disable-next-line react/prop-types
@@ -83,7 +81,7 @@ export function Default() {
       <Box sx={{ background: 'rgb(245, 246, 250)' }}>
         <AppBar position={position} collapseBelow={collapseBelow}>
           <AppBar.Logo>
-            <Logo width={130} height="auto" />
+            <Logo width={120} height="auto" />
           </AppBar.Logo>
           <AppBar.PrimaryNav>
             <NavLink to="/1">Page 1</NavLink>
@@ -150,7 +148,6 @@ function MyAccountNavItem({ user }) {
             <Stack space={1}>
               <Text weight="medium">{primary}</Text>
               {secondary && <Text>{secondary}</Text>}
-              {user.team && <Text size="small">{user.team}</Text>}
             </Stack>
           </Box>
         </Flex>
