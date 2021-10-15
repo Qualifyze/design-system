@@ -13,26 +13,26 @@ export default function AppBarNavItem({ active, noHover, ...props }) {
       {...props}
       aria-current={active ? 'page' : undefined}
       sx={{
-        px: 3,
-        py: collapsed ? 3 : 2,
-        mx: collapsed ? 0 : 1,
-        fontSize: '16px',
-        height: '100%',
-        bg: active ? 'primary.500' : 'transparent',
-        color: active ? 'white' : 'inherit',
-        whiteSpace: 'nowrap',
-        display: 'flex',
-        width: collapsed ? '100%' : 'auto',
-        alignItems: 'center',
-        borderRadius: collapsed ? 0 : 2,
-        ...(noHover
-          ? {}
-          : {
-              '&:hover': {
+        'px': 3,
+        'py': collapsed ? 3 : 2,
+        'mx': collapsed ? 0 : 1,
+        'fontSize': 2,
+        'height': '100%',
+        'bg': active ? 'primary.500' : 'transparent',
+        'color': active ? 'white' : 'inherit',
+        'whiteSpace': 'nowrap',
+        'display': 'flex',
+        'width': collapsed ? '100%' : 'auto',
+        'alignItems': 'center',
+        'borderRadius': collapsed ? 0 : 2,
+        '&:hover': {
+          textDecoration: 'none',
+          ...(noHover
+            ? {}
+            : {
                 bg: active ? 'primary.600' : 'primary.100',
-                textDecoration: 'none',
-              },
-            }),
+              }),
+        },
       }}
     />
   )
