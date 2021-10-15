@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 
-import { V2ThemeProvider } from '../../util/v2'
 import Box from '../Box'
 import Hidden from '../Hidden'
 import Icon from '../Icon'

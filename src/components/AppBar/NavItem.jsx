@@ -5,7 +5,7 @@ import TextLink from '../TextLink'
 
 import { useAppBarContext } from './context'
 
-export default function AppBarNavItem({ active, ...props }) {
+export default function AppBarNavItem({ active, noHover, ...props }) {
   const { collapsed } = useAppBarContext()
 
   return (
@@ -13,22 +13,26 @@ export default function AppBarNavItem({ active, ...props }) {
       {...props}
       aria-current={active ? 'page' : undefined}
       sx={{
-        'px': 3,
-        'py': collapsed ? 3 : 2,
-        'mx': collapsed ? 0 : 1,
-        'fontSize': '16px',
-        'height': '100%',
-        'color': active ? 'primary.700' : 'inherit',
-        'whiteSpace': 'nowrap',
-        'display': 'flex',
-        'width': collapsed ? '100%' : 'auto',
-        'alignItems': 'center',
-        'borderRadius': 2,
-        'bg': active ? 'primary.100' : 'transparent',
-        '&:hover': {
-          bg: 'primary.200',
-          textDecoration: 'none',
-        },
+        px: 3,
+        py: collapsed ? 3 : 2,
+        mx: collapsed ? 0 : 1,
+        fontSize: '16px',
+        height: '100%',
+        bg: active ? 'primary.500' : 'transparent',
+        color: active ? 'white' : 'inherit',
+        whiteSpace: 'nowrap',
+        display: 'flex',
+        width: collapsed ? '100%' : 'auto',
+        alignItems: 'center',
+        borderRadius: collapsed ? 0 : 2,
+        ...(noHover
+          ? {}
+          : {
+              '&:hover': {
+                bg: active ? 'primary.600' : 'primary.100',
+                textDecoration: 'none',
+              },
+            }),
       }}
     />
   )
@@ -36,8 +40,10 @@ export default function AppBarNavItem({ active, ...props }) {
 
 AppBarNavItem.propTypes = {
   active: PropTypes.bool,
+  noHover: PropTypes.bool,
 }
 
 AppBarNavItem.defaultProps = {
   active: false,
+  noHover: false,
 }
