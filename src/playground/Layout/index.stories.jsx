@@ -143,13 +143,15 @@ function MyAccountNavItem({ user }) {
       {collapsed && <Menu.Divider />}
       <Menu.Item>
         <Flex alignItems="center">
-          <UserAvatar user={user} size={80} />
-          <Box sx={{ ml: 3 }}>
-            <Stack space={1}>
-              <Text weight="medium">{primary}</Text>
-              {secondary && <Text>{secondary}</Text>}
-            </Stack>
-          </Box>
+          {collapsed && (
+            <Box sx={{ mr: 3 }}>
+              <UserAvatar user={user} />
+            </Box>
+          )}
+          <Stack space={1}>
+            <Text weight="medium">{primary}</Text>
+            {secondary && <Text>{secondary}</Text>}
+          </Stack>
         </Flex>
       </Menu.Item>
       {!collapsed && <Menu.Divider />}
