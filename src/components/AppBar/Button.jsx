@@ -1,19 +1,22 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { styled, variant } from '../../util/style'
+import Box from '../Box'
 
-const AppBarButton = styled.button(
+const Button = styled.button(
   props => ({
     'revert': 'all',
     'appearance': 'none',
-    'display': 'block',
-    'position': 'relative',
-    'textAlign': 'center',
+    'display': 'flex',
+    'alignItems': 'center',
+    'justifyContent': 'center',
     'textDecoration': 'none !important',
     'border': 0,
     'cursor': 'pointer',
-    'fontSize': '16px',
+    'fontSize': props.theme.fontSizes[2],
     'lineHeight': 1,
+    'whiteSpace': 'nowrap',
     'padding': `12px ${props.theme.space[3]}px`,
     'borderRadius': `${props.theme.radii[2]}px`,
     '&:focus': {
@@ -42,8 +45,18 @@ const AppBarButton = styled.button(
   })
 )
 
+export default function AppBarButton({ icon, children, ...props }) {
+  return (
+    <Button {...props}>
+      {icon && <Box sx={{ mr: 1 }}>{icon}</Box>}
+      {children}
+    </Button>
+  )
+}
+
 AppBarButton.propTypes = {
   as: PropTypes.elementType,
+  icon: PropTypes.node,
   variant: PropTypes.oneOf(['primary', 'secondary']),
   onClick: PropTypes.func,
   children: PropTypes.node,
@@ -51,9 +64,8 @@ AppBarButton.propTypes = {
 
 AppBarButton.defaultProps = {
   as: null,
+  icon: null,
   variant: 'primary',
   onClick: null,
   children: null,
 }
-
-export default AppBarButton

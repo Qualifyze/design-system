@@ -13,6 +13,7 @@ export default function MenuItem({ as: Comp, children, ...props }) {
           'color': 'inherit',
           'textDecoration': 'none',
           '&:hover': {
+            bg: 'primary.100',
             color: 'primary.800',
           },
         },
