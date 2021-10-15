@@ -15,6 +15,7 @@ import {
   Avatar,
   Box,
   colorFromString,
+  Icon,
   Flex,
   Global,
   Heading,
@@ -66,7 +67,7 @@ export function Default() {
   const collapseBelow = select(
     'collapseBelow',
     { small: 'small', medium: 'medium', large: 'large' },
-    'large'
+    'medium'
   )
 
   const user = useUser()
@@ -92,10 +93,12 @@ export function Default() {
             <MyAccountNavItem user={user} />
           </AppBar.SecondaryNav>
           <AppBar.PrimaryActions>
-            <AppBar.Button variant="primary">Primary action</AppBar.Button>
+            <AppBar.Button variant="primary" icon={<Icon name="plus" />}>
+              Primary
+            </AppBar.Button>
           </AppBar.PrimaryActions>
           <AppBar.SecondaryActions>
-            <AppBar.Button variant="secondary">Secondary action</AppBar.Button>
+            <AppBar.Button variant="secondary">Secondary</AppBar.Button>
           </AppBar.SecondaryActions>
         </AppBar>
         <Box
@@ -154,11 +157,21 @@ function MyAccountNavItem({ user }) {
           </Stack>
         </Flex>
       </Menu.Item>
-      {!collapsed && <Menu.Divider />}
       <Menu.Item as="a" href="#">
         Profile
       </Menu.Item>
-      <Menu.Item>Logout</Menu.Item>
+      <Menu.Item as="a" href="#">
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          Logout
+          <Icon name="exit" size="small" tone="neutral" />
+        </Box>
+      </Menu.Item>
     </Menu>
   )
 
