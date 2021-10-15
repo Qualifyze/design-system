@@ -18,7 +18,7 @@ export default function AppBarNavMenuItem({ label, children }) {
 
   return (
     <DropdownMenuPrimitive.Root>
-      <NavItem as={DropdownMenuPrimitive.Trigger} onClick={toggleOpen}>
+      <NavItem as={DropdownMenuPrimitive.Trigger} onClick={toggleOpen} noHover>
         {label}
         <Icon name={open ? 'chevronup' : 'chevrondown'} sx={{ ml: 2 }} />
       </NavItem>
