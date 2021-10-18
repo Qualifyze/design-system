@@ -2,6 +2,7 @@ import { styled } from '../../stitches.config';
 
 export const Flex = styled('div', {
   boxSizing: 'border-box',
+  position: 'relative',
   display: 'flex',
 
   variants: {
@@ -62,32 +63,35 @@ export const Flex = styled('div', {
       },
     },
     gap: {
-      1: {
-        gap: '$1',
-      },
-      2: {
-        gap: '$2',
-      },
-      3: {
-        gap: '$3',
+      0: {
+        gap: 0,
       },
       4: {
         gap: '$4',
       },
-      5: {
-        gap: '$5',
-      },
-      6: {
-        gap: '$6',
-      },
-      7: {
-        gap: '$7',
-      },
       8: {
         gap: '$8',
       },
-      9: {
-        gap: '$9',
+      12: {
+        gap: '$12',
+      },
+      16: {
+        gap: '$16',
+      },
+      24: {
+        gap: '$24',
+      },
+      32: {
+        gap: '$32',
+      },
+      48: {
+        gap: '$48',
+      },
+      64: {
+        gap: '$64',
+      },
+      96: {
+        gap: '$96',
       },
     },
   },

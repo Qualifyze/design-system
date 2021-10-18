@@ -1,7 +1,8 @@
 import '@fontsource/source-sans-pro'
 
-import '../packages/react-components/src/styles/normalize.css'
-import './components/global-theme-styles.css'
+import { normalizeCss } from '../packages/react-components/src/components/normalizeCss/normalizeCss'
+import { preflightCss } from '../packages/react-components/src/components/preflightCss/preflightCss'
+import { globalCss } from '../packages/react-components/src/stitches.config'
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 export const parameters = {
@@ -51,4 +52,15 @@ export const parameters = {
   actions: { argTypesRegex: `^on.*` },
 }
 
-export const decorators = []
+const customStyles = globalCss(...normalizeCss, ...preflightCss)
+
+function withCustomStyles(Story) {
+  customStyles()
+  return (
+    <div>
+      <Story />
+    </div>
+  )
+}
+
+export const decorators = [withCustomStyles]

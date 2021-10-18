@@ -1,4 +1,12 @@
 import React from 'react';
+import {
+  DownloadIcon,
+  GearIcon,
+  CheckIcon,
+  Cross2Icon,
+} from '@radix-ui/react-icons';
+
+import { Flex } from '../Flex/Flex';
 
 import { Text } from './Text';
 
@@ -48,4 +56,25 @@ export const paragraphs = () => (
       disruptive hypotheses founders long tail focus venture.
     </Text>
   </>
+);
+
+export const withIcon = () => (
+  <Flex css={{ fd: 'column', gap: '$32' }}>
+    <Text size="tiny">
+      <DownloadIcon />
+      Hola mundo
+    </Text>
+    <Text size="small">
+      <GearIcon />
+      Hola mundo
+    </Text>
+    <Text size="standard">
+      <CheckIcon />
+      Hola mundo
+    </Text>
+    <Text size="large">
+      <Cross2Icon />
+      Hola mundo
+    </Text>
+  </Flex>
 );

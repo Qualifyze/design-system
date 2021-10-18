@@ -3,7 +3,7 @@
 exports[`Flex passes \`aria-\` attributes through to the DOM 1`] = `
 <div
   aria-hidden="true"
-  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap"
+  class="c-dwCIWy c-dwCIWy-ejCoEP-direction-row c-dwCIWy-irEjuD-align-stretch c-dwCIWy-awKDG-justify-start c-dwCIWy-kVNAnR-wrap-noWrap"
 >
   hola
 </div>
@@ -11,7 +11,7 @@ exports[`Flex passes \`aria-\` attributes through to the DOM 1`] = `
 
 exports[`Flex passes \`data-\` attributes through to the DOM 1`] = `
 <div
-  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap"
+  class="c-dwCIWy c-dwCIWy-ejCoEP-direction-row c-dwCIWy-irEjuD-align-stretch c-dwCIWy-awKDG-justify-start c-dwCIWy-kVNAnR-wrap-noWrap"
   data-testid="some-random-id"
 >
   hola
@@ -20,7 +20,7 @@ exports[`Flex passes \`data-\` attributes through to the DOM 1`] = `
 
 exports[`Flex renders as passed HTML element 1`] = `
 <h1
-  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap"
+  class="c-dwCIWy c-dwCIWy-ejCoEP-direction-row c-dwCIWy-irEjuD-align-stretch c-dwCIWy-awKDG-justify-start c-dwCIWy-kVNAnR-wrap-noWrap"
 >
   hola
 </h1>
@@ -28,7 +28,7 @@ exports[`Flex renders as passed HTML element 1`] = `
 
 exports[`Flex renders with css prop 1`] = `
 <div
-  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap c-gqwkJN-iiMKLbU-css"
+  class="c-dwCIWy c-dwCIWy-ejCoEP-direction-row c-dwCIWy-irEjuD-align-stretch c-dwCIWy-awKDG-justify-start c-dwCIWy-kVNAnR-wrap-noWrap c-dwCIWy-iiMKLbU-css"
 >
   hola
 </div>
@@ -36,7 +36,7 @@ exports[`Flex renders with css prop 1`] = `
 
 exports[`Flex renders with theme-aware values from Stitches config 1`] = `
 <div
-  class="c-gqwkJN c-gqwkJN-ejCoEP-direction-row c-gqwkJN-irEjuD-align-stretch c-gqwkJN-awKDG-justify-start c-gqwkJN-kVNAnR-wrap-noWrap c-gqwkJN-ibcCYNQ-css"
+  class="c-dwCIWy c-dwCIWy-ejCoEP-direction-row c-dwCIWy-irEjuD-align-stretch c-dwCIWy-awKDG-justify-start c-dwCIWy-kVNAnR-wrap-noWrap c-dwCIWy-ibcCYNQ-css"
 >
   hola
 </div>
