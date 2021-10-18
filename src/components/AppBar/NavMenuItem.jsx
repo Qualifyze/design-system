@@ -22,7 +22,7 @@ export default function AppBarNavMenuItem({ label, children }) {
         {label}
         <Icon name={open ? 'chevronup' : 'chevrondown'} sx={{ ml: 2 }} />
       </NavItem>
-      <DropdownMenuPrimitive.Content>
+      <DropdownMenuPrimitive.Content alignOffset={-4}>
         <Box sx={{ boxShadow: collapsed ? 0 : 4 }}>{children}</Box>
       </DropdownMenuPrimitive.Content>
     </DropdownMenuPrimitive.Root>
