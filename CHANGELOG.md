@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.3.2
+
+### Patch Changes
+
+- [#204](https://github.com/Qualifyze/design-system/pull/204) [`4d01a7c`](https://github.com/Qualifyze/design-system/commit/4d01a7cbd4ceb0fb54b5123da7dd824bbffa1929) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Disable `TextLinkButton` when `isLoading` prop is `true`
+
 ## 1.3.1
 
 ### Patch Changes
