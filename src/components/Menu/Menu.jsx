@@ -4,7 +4,7 @@ import React from 'react'
 import Box from '../Box'
 
 export default function Menu({ children }) {
-  return <Box sx={{ bg: 'white', py: 2 }}>{children}</Box>
+  return <Box sx={{ bg: 'white', py: 2, borderRadius: 2 }}>{children}</Box>
 }
 
 Menu.propTypes = {
