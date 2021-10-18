@@ -25,7 +25,7 @@ export default function AppBarNavItem({ active, noHover, ...props }) {
         'width': collapsed ? '100%' : 'auto',
         'alignItems': 'center',
         'borderRadius': collapsed ? 0 : 2,
-        '&:hover': {
+        '&:hover, &:focus': {
           textDecoration: 'none',
           ...(noHover
             ? {}
