@@ -14,13 +14,11 @@ import {
   AppBar,
   Avatar,
   Box,
-  colorFromString,
-  Icon,
   Flex,
   Global,
   Heading,
+  Icon,
   Logo,
-  LoremIpsum,
   Menu,
   resetCSS,
   Stack,
@@ -30,6 +28,7 @@ import {
 } from '../..'
 import { useAppBarContext } from '../../components/AppBar/context'
 import { useResponsiveStyle } from '../../components/Hidden'
+import LoremIpsum from '../../components/private/LoremIpsum'
 
 export default {
   title: 'Playground/Layout',
@@ -157,6 +156,7 @@ function MyAccountNavItem({ user }) {
           </Stack>
         </Flex>
       </Menu.Item>
+      {!collapsed && <Menu.Divider />}
       <Menu.Item as="a" href="#">
         Profile
       </Menu.Item>
@@ -188,14 +188,7 @@ MyAccountNavItem.propTypes = { user: UserProp.isRequired }
 
 // eslint-disable-next-line react/prop-types
 function UserAvatar({ user: { name, email, avatar }, ...props }) {
-  return (
-    <Avatar
-      src={avatar}
-      alt={name || email}
-      bg={colorFromString(name || email)}
-      {...props}
-    />
-  )
+  return <Avatar src={avatar} alt={name || email} {...props} />
 }
 
 UserAvatar.propTypes = { user: UserProp.isRequired }

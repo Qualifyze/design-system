@@ -48,7 +48,11 @@ const Button = styled.button(
 export default function AppBarButton({ icon, children, ...props }) {
   return (
     <Button {...props}>
-      {icon && <Box sx={{ mr: 1 }}>{icon}</Box>}
+      {icon && (
+        <Box as="span" sx={{ mr: 1 }}>
+          {icon}
+        </Box>
+      )}
       {children}
     </Button>
   )
