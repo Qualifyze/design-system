@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Stack from '../Stack'
-import Text from '../Text'
+import Stack from '../../Stack'
+import Text from '../../Text'
 
 const paragraphs = [
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum cursus magna ac semper. Nunc sodales felis massa, sit amet sollicitudin libero elementum vel. Duis vitae vestibulum sem, at lobortis odio. Phasellus quis consectetur est. Curabitur mi tortor, imperdiet eu massa eu, fermentum semper dui. Curabitur vel arcu tincidunt, fermentum velit vitae, pulvinar felis. Pellentesque sed congue lorem. In dapibus sollicitudin massa, aliquet hendrerit tortor porttitor vel. Ut tincidunt ultrices elit, in sollicitudin orci dictum vel.',

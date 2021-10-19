@@ -1,31 +1,29 @@
 import PropTypes from 'prop-types'
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 
-import Box from '../Box'
+import { DropdownMenu } from '../DropdownMenu'
 import Icon from '../Icon'
-import { DropdownMenuPrimitive } from '../DropdownMenu'
 
-import { useAppBarContext } from './context'
 import NavItem from './NavItem'
 
 export default function AppBarNavMenuItem({ label, children }) {
-  const { collapsed } = useAppBarContext()
   const [open, setOpen] = useState(false)
-  const toggleOpen = useCallback(e => {
-    e.preventDefault()
-    setOpen(o => !o)
-  }, [])
 
   return (
-    <DropdownMenuPrimitive.Root>
-      <NavItem as={DropdownMenuPrimitive.Trigger} onClick={toggleOpen} noHover>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
+      <NavItem as={DropdownMenu.Trigger} noHover>
         {label}
-        <Icon name={open ? 'chevronup' : 'chevrondown'} sx={{ ml: 2 }} />
+        <Icon
+          name="chevrondown"
+          sx={{
+            ml: 2,
+            transform: `rotateX(${open ? '180deg' : '0'})`,
+            transition: 'transform 300ms ease-in-out',
+          }}
+        />
       </NavItem>
-      <DropdownMenuPrimitive.Content alignOffset={-4}>
-        <Box sx={{ boxShadow: collapsed ? 0 : 4 }}>{children}</Box>
-      </DropdownMenuPrimitive.Content>
-    </DropdownMenuPrimitive.Root>
+      <DropdownMenu.Content alignOffset={-4}>{children}</DropdownMenu.Content>
+    </DropdownMenu>
   )
 }
 
