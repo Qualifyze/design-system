@@ -7,11 +7,12 @@ import React, {
   useState,
 } from 'react'
 
-import { theme, useMediaQuery } from '../../util/style'
+import { useMediaQuery, useTheme } from '../../util/style'
 
 const Context = createContext()
 
 export function AppBarContext({ collapseBelow, children }) {
+  const theme = useTheme()
   const [expanded, setExpanded] = useState(false)
   const toggleExpanded = useCallback(() => setExpanded(e => !e), [])
   const collapsed = useMediaQuery(

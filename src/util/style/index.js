@@ -7,7 +7,7 @@ export {
   default as shouldForwardProp,
   props,
 } from '@styled-system/should-forward-prop'
-export { ThemeProvider } from 'emotion-theming'
+export { ThemeProvider, useTheme } from 'emotion-theming'
 export {
   background,
   border,
