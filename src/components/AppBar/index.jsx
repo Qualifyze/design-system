@@ -78,6 +78,7 @@ function selectElements(elements) {
   return { logo, primaryActions, secondaryActions, primaryNav, secondaryNav }
 }
 
+// We're already using the font sizes from Design System v2
 const v2fontSizes = ['12px', '14px', '16px', '18px']
 
 const themev2 = {
