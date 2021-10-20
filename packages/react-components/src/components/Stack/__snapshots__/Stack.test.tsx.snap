@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack passes \`aria-\` attributes through to the DOM 1`] = `
+<div
+  aria-hidden="true"
+  class="c-gLVhRE c-gLVhRE-gjemnU-align-start c-gLVhRE-etXRKT-gap-24"
+>
+  hola
+</div>
+`;
+
+exports[`Stack passes \`data-\` attributes through to the DOM 1`] = `
+<div
+  class="c-gLVhRE c-gLVhRE-gjemnU-align-start c-gLVhRE-etXRKT-gap-24"
+  data-testid="some-random-id"
+>
+  hola
+</div>
+`;
+
+exports[`Stack renders as passed HTML element 1`] = `
+<ul
+  class="c-gLVhRE c-gLVhRE-gjemnU-align-start c-gLVhRE-etXRKT-gap-24"
+>
+  <p
+    class="c-kVPbLv c-kVPbLv-bpkWGi-size-standard"
+  >
+    hola
+  </p>
+  <p
+    class="c-kVPbLv c-kVPbLv-bpkWGi-size-standard"
+  >
+    hello
+  </p>
+</ul>
+`;
+
+exports[`Stack renders with theme-aware gap prop 1`] = `
+<p
+  class="c-kVPbLv c-kVPbLv-bpkWGi-size-standard"
+>
+  hola
+</p>
+`;

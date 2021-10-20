@@ -36,7 +36,7 @@ exports[`Flex renders with css prop 1`] = `
 
 exports[`Flex renders with theme-aware values from Stitches config 1`] = `
 <div
-  class="c-dwCIWy c-dwCIWy-ejCoEP-direction-row c-dwCIWy-irEjuD-align-stretch c-dwCIWy-awKDG-justify-start c-dwCIWy-kVNAnR-wrap-noWrap c-dwCIWy-ibcCYNQ-css"
+  class="c-dwCIWy c-dwCIWy-ejCoEP-direction-row c-dwCIWy-irEjuD-align-stretch c-dwCIWy-awKDG-justify-start c-dwCIWy-kVNAnR-wrap-noWrap c-dwCIWy-icOWITQ-css"
 >
   hola
 </div>
