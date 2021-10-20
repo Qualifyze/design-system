@@ -19,7 +19,7 @@ describe('Flex', () => {
   });
 
   test('renders with theme-aware values from Stitches config', () => {
-    render(<Flex css={{ color: `$indigo400` }}>hola</Flex>);
+    render(<Flex css={{ color: `$gray12` }}>hola</Flex>);
     const B = screen.getByText(/hola/);
     // The `toHaveStyle` matcher relies on a serializer of the created CSS,
     // which we don't have for Stitches yet

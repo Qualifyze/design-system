@@ -19,7 +19,7 @@ describe('Box', () => {
   });
 
   test('renders with theme-aware values from Stitches config', () => {
-    render(<Box css={{ color: `$indigo400` }}>hola</Box>);
+    render(<Box css={{ color: `$gray12` }}>hola</Box>);
     const B = screen.getByText(/hola/);
     // The `toHaveStyle` matcher relies on a serializer of the created CSS,
     // which we don't have for Stitches yet

@@ -36,7 +36,7 @@ exports[`Box renders with css prop 1`] = `
 
 exports[`Box renders with theme-aware values from Stitches config 1`] = `
 <div
-  class="c-cMmcXp c-cMmcXp-ibcCYNQ-css"
+  class="c-cMmcXp c-cMmcXp-icOWITQ-css"
 >
   hola
 </div>
