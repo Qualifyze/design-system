@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.4.0
+
+### Minor Changes
+
+- [#194](https://github.com/Qualifyze/design-system/pull/194) [`f5da4b7`](https://github.com/Qualifyze/design-system/commit/f5da4b7820785999136bbfcf02a0c2140fc66258) Thanks [@phjardas](https://github.com/phjardas)! - Add new components: AppBar and Menu (QC-1275)
+
 ## 1.3.2
 
 ### Patch Changes
