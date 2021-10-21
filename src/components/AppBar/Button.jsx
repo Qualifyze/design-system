@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { styled, variant } from '../../util/style'
-import Box from '../Box'
+import Flex from '../Flex'
 
 const Button = styled.button(
   props => ({
@@ -49,9 +49,9 @@ export default function AppBarButton({ icon, children, ...props }) {
   return (
     <Button {...props}>
       {icon && (
-        <Box as="span" sx={{ mr: 1 }}>
+        <Flex as="span" sx={{ mr: 1 }}>
           {icon}
-        </Box>
+        </Flex>
       )}
       {children}
     </Button>
