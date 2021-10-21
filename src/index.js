@@ -1,6 +1,8 @@
 export { default as Actions } from './components/Actions'
 export { default as Alert } from './components/Alert'
+export { default as AppBar, useAppBarContext } from './components/AppBar'
 export { default as AutosuggestField } from './components/AutosuggestField'
+export { default as Avatar } from './components/Avatar'
 export { default as Box } from './components/Box'
 export { default as Button } from './components/Button'
 export { default as ButtonLink } from './components/ButtonLink'
@@ -9,6 +11,7 @@ export { default as Checkbox } from './components/Checkbox'
 export { default as Column } from './components/Column'
 export { default as Columns } from './components/Columns'
 export { default as Container } from './components/Container'
+export { DropdownMenu, DropdownMenuPrimitive } from './components/DropdownMenu'
 export { default as FieldLabel } from './components/FieldLabel'
 export { default as FieldMessage } from './components/FieldMessage'
 export { default as FileBox } from './components/FileBox'
@@ -25,6 +28,7 @@ export { default as Inline } from './components/Inline'
 export { default as List } from './components/List'
 export { default as LoadingSpinner } from './components/LoadingSpinner'
 export { default as Logo } from './components/Logo'
+export { default as Menu } from './components/Menu'
 export { default as Modal } from './components/Modal'
 export { default as Radio } from './components/Radio'
 export { default as Rect } from './components/Rect'
@@ -46,6 +50,7 @@ export { default as Tooltip } from './components/Tooltip'
 export { default as useRect } from './hooks/useRect'
 export { default as useScroll } from './hooks/useScroll'
 export {
+  colorFromString,
   css,
   Global,
   resetCSS,

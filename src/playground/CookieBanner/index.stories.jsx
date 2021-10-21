@@ -12,7 +12,7 @@ import Card from '../../components/Card'
 import TextLink from '../../components/TextLink'
 import TextLinkButton from '../../components/TextLinkButton'
 
-export default { title: 'Playground | CookieBanner' }
+export default { title: 'Playground/CookieBanner' }
 
 export const Default = () => {
   return (

@@ -10,7 +10,7 @@ import Tiles from '../../components/Tiles'
 import Container from '../../components/Container'
 import Placeholder from '../../components/private/Placeholder'
 
-export default { title: 'Playground | Logo Cloud' }
+export default { title: 'Playground/Logo Cloud' }
 
 export const Default = () => {
   const count = number('Number of logos', '8')

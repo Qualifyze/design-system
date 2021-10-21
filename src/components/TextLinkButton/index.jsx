@@ -18,9 +18,9 @@ const TextLinkButton = ({ onClick, isLoading, icon, children }) => {
       as="span"
       role="button"
       tabIndex={0}
+      icon={icon}
       onClick={isLoading ? undefined : onClick}
       isLoading={isLoading}
-      icon={icon}
       onKeyPress={handleKeyPress}
     >
       {children}
@@ -28,18 +28,18 @@ const TextLinkButton = ({ onClick, isLoading, icon, children }) => {
   )
 }
 
-TextLinkButton.defaultProps = {
-  isLoading: false,
-}
-
 TextLinkButton.propTypes = {
   isLoading: PropTypes.bool,
-  // eslint-disable-next-line react/require-default-props
   onClick: PropTypes.func,
-  // eslint-disable-next-line react/require-default-props
   children: PropTypes.node,
-  // eslint-disable-next-line react/require-default-props
   icon: PropTypes.node,
+}
+
+TextLinkButton.defaultProps = {
+  isLoading: false,
+  onClick: null,
+  children: null,
+  icon: null,
 }
 
 export default TextLinkButton
