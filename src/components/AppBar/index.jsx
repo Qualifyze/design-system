@@ -36,41 +36,46 @@ function selectElements(elements) {
   if (elements) {
     for (let i = 0; i < elements.length; i += 1) {
       const element = elements[i]
-      const type = element.type.name
 
-      if (type === 'AppBarLogo') {
-        if (logo) {
-          throw new Error('You can only have one <AppBar.Logo /> child.')
+      if (element) {
+        const type = element.type.name
+
+        if (type === 'AppBarLogo') {
+          if (logo) {
+            throw new Error('You can only have one <AppBar.Logo /> child.')
+          }
+          logo = element
+        } else if (type === 'AppBarPrimaryNav') {
+          if (primaryNav) {
+            throw new Error(
+              'You can only have one <AppBar.PrimaryNav /> child.'
+            )
+          }
+          primaryNav = element
+        } else if (type === 'AppBarSecondaryNav') {
+          if (secondaryNav) {
+            throw new Error(
+              'You can only have one <AppBar.SecondaryNav /> child.'
+            )
+          }
+          secondaryNav = element
+        } else if (type === 'AppBarPrimaryActions') {
+          if (primaryActions) {
+            throw new Error(
+              'You can only have one <AppBar.PrimaryActions /> child.'
+            )
+          }
+          primaryActions = element
+        } else if (type === 'AppBarSecondaryActions') {
+          if (secondaryActions) {
+            throw new Error(
+              'You can only have one <AppBar.SecondaryActions /> child.'
+            )
+          }
+          secondaryActions = element
+        } else {
+          throw new Error('Unexpected child in AppBar:', element)
         }
-        logo = element
-      } else if (type === 'AppBarPrimaryNav') {
-        if (primaryNav) {
-          throw new Error('You can only have one <AppBar.PrimaryNav /> child.')
-        }
-        primaryNav = element
-      } else if (type === 'AppBarSecondaryNav') {
-        if (secondaryNav) {
-          throw new Error(
-            'You can only have one <AppBar.SecondaryNav /> child.'
-          )
-        }
-        secondaryNav = element
-      } else if (type === 'AppBarPrimaryActions') {
-        if (primaryActions) {
-          throw new Error(
-            'You can only have one <AppBar.PrimaryActions /> child.'
-          )
-        }
-        primaryActions = element
-      } else if (type === 'AppBarSecondaryActions') {
-        if (secondaryActions) {
-          throw new Error(
-            'You can only have one <AppBar.SecondaryActions /> child.'
-          )
-        }
-        secondaryActions = element
-      } else {
-        throw new Error('Unexpected child in AppBar:', element)
       }
     }
   }
