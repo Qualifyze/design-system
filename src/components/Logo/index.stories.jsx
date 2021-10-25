@@ -1,5 +1,7 @@
 import React from 'react'
-import { boolean, number } from '@storybook/addon-knobs'
+import { boolean, text } from '@storybook/addon-knobs'
+
+import Box from '../Box'
 
 import Logo from './index'
 
@@ -7,10 +9,24 @@ export default { title: 'Logo', component: Logo }
 
 export const Default = () => {
   const light = boolean('Light Logo', false)
-  const width = number('Width', 168)
-  const height = number('Height', 42)
+  const width = text('Width', '168')
+  const height = text('Height', '42')
 
-  return <Logo light={light} width={width} height={height} />
+  return (
+    <Box
+      sx={{
+        p: 4,
+        bg: light ? 'secondary.700' : 'white',
+        border: '1px solid black',
+      }}
+    >
+      <Logo
+        light={light}
+        width={width || undefined}
+        height={height || undefined}
+      />
+    </Box>
+  )
 }
 Default.story = {
   name: 'Logo Image',
