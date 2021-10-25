@@ -1,4 +1,4 @@
-import { select } from '@storybook/addon-knobs'
+import { boolean, number, select } from '@storybook/addon-knobs'
 import React from 'react'
 
 import Box from '../Box'
@@ -16,28 +16,45 @@ export const Default = () => {
   )
 
   const collapseBelow = select(
-    'collapseBelow',
+    'collapse below',
     { small: 'small', medium: 'medium', large: 'large' },
     'medium'
   )
+
+  const numberOfNavItems = number('number of nav items', 2, { min: 0 })
+
+  const primaryAction = boolean('primary action', true)
+  const secondaryAction = boolean('secondary action', true)
+  const secondaryNav = boolean('secondary nav item', true)
 
   return (
     <>
       <AppBar position={position} collapseBelow={collapseBelow}>
         <AppBar.Logo>Logo</AppBar.Logo>
-        <AppBar.PrimaryNav>
-          <AppBar.NavItem active>Page #1</AppBar.NavItem>
-          <AppBar.NavItem>Page #2</AppBar.NavItem>
-        </AppBar.PrimaryNav>
-        <AppBar.SecondaryNav>
-          <AppBar.NavItem>Secondary Nav</AppBar.NavItem>
-        </AppBar.SecondaryNav>
-        <AppBar.PrimaryActions>
-          <AppBar.Button>Primary Action</AppBar.Button>
-        </AppBar.PrimaryActions>
-        <AppBar.SecondaryActions>
-          <AppBar.Button variant="secondary">Secondary Action</AppBar.Button>
-        </AppBar.SecondaryActions>
+        {numberOfNavItems > 0 && (
+          <AppBar.PrimaryNav>
+            {Array.from(Array(numberOfNavItems).keys()).map(i => (
+              <AppBar.NavItem key={i} active={i === 0}>
+                Page #{i + 1}
+              </AppBar.NavItem>
+            ))}
+          </AppBar.PrimaryNav>
+        )}
+        {secondaryNav && (
+          <AppBar.SecondaryNav>
+            <AppBar.NavMenuItem label="Secondary" />
+          </AppBar.SecondaryNav>
+        )}
+        {primaryAction && (
+          <AppBar.PrimaryActions>
+            <AppBar.Button>Primary Action</AppBar.Button>
+          </AppBar.PrimaryActions>
+        )}
+        {secondaryAction && (
+          <AppBar.SecondaryActions>
+            <AppBar.Button variant="secondary">Secondary Action</AppBar.Button>
+          </AppBar.SecondaryActions>
+        )}
       </AppBar>
       <Box as="main" sx={{ p: 4, mt: position === 'fixed' ? 70 : 0 }}>
         <LoremIpsum paragraphs={12} />
