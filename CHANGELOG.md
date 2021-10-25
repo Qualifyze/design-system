@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.4.1
+
+### Patch Changes
+
+- [#209](https://github.com/Qualifyze/design-system/pull/209) [`c2d8c4b`](https://github.com/Qualifyze/design-system/commit/c2d8c4bd7d80fca07add64b7b68a7729c6fbeeeb) Thanks [@phjardas](https://github.com/phjardas)! - AppBar: fix error when passing null children
+
 ## 1.4.0
 
 ### Minor Changes
