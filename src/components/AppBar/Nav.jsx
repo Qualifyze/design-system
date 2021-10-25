@@ -5,7 +5,7 @@ import Box from '../Box'
 
 import { useAppBarContext } from './context'
 
-export default function Nav({ align, children }) {
+export default function Nav({ align, padRight, children }) {
   const { collapsed } = useAppBarContext()
 
   return (
@@ -17,6 +17,7 @@ export default function Nav({ align, children }) {
         flexDirection: 'inherit',
         ml: !collapsed && align === 'right' ? 'auto' : 0,
         my: collapsed ? 2 : 0,
+        pr: !collapsed && padRight ? 3 : 0,
         width: collapsed ? '100%' : 'auto',
       }}
     >
@@ -27,10 +28,12 @@ export default function Nav({ align, children }) {
 
 Nav.propTypes = {
   align: PropTypes.oneOf(['left', 'right']),
+  padRight: PropTypes.bool,
   children: PropTypes.node,
 }
 
 Nav.defaultProps = {
   align: 'left',
+  padRight: false,
   children: null,
 }
