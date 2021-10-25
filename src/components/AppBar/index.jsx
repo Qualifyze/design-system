@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React, { Children, useMemo } from 'react'
 
 import { theme, ThemeProvider } from '../../util/style'
 import Box from '../Box'
@@ -34,9 +34,7 @@ function selectElements(elements) {
   let secondaryActions = null
 
   if (elements) {
-    for (let i = 0; i < elements.length; i += 1) {
-      const element = elements[i]
-
+    Children.forEach(elements, element => {
       if (element) {
         const type = element.type.name
 
@@ -77,7 +75,7 @@ function selectElements(elements) {
           throw new Error('Unexpected child in AppBar:', element)
         }
       }
-    }
+    })
   }
 
   return { logo, primaryActions, secondaryActions, primaryNav, secondaryNav }
