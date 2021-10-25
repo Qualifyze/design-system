@@ -154,7 +154,7 @@ function AppBarContent({ position, children: elements }) {
               {secondaryNav && <Nav>{secondaryNav}</Nav>}
             </>
           ) : (
-            <Nav align="right">
+            <Nav align="right" padRight={!secondaryNav}>
               {primaryActions && <NavActions>{primaryActions}</NavActions>}
               {secondaryActions && <NavActions>{secondaryActions}</NavActions>}
               {secondaryNav}
