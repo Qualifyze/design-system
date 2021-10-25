@@ -20,7 +20,7 @@ export default function MenuItem({ as: Comp, children, ...props }) {
       }}
     >
       <Comp {...props}>
-        <Box sx={{ px: [3, 3, 3, 4], py: 3 }}>{children}</Box>
+        <Box sx={{ p: [3, null, 2] }}>{children}</Box>
       </Comp>
     </Box>
   )

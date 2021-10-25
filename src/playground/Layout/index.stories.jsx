@@ -14,6 +14,8 @@ import {
   AppBar,
   Avatar,
   Box,
+  Button,
+  Inline,
   Flex,
   Global,
   Heading,
@@ -160,17 +162,16 @@ function MyAccountNavItem({ user }) {
       <Menu.Item as="a" href="#">
         Profile
       </Menu.Item>
-      <Menu.Item as="a" href="#">
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          Logout
-          <Icon name="exit" size="small" tone="neutral" />
-        </Box>
+      <Menu.Item>
+        <Inline>
+          <Button
+            variant="secondary"
+            size="small"
+            icon={<Icon name="exit" size="small" />}
+          >
+            Logout
+          </Button>
+        </Inline>
       </Menu.Item>
     </Menu>
   )
