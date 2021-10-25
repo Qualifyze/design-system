@@ -1,5 +1,15 @@
 # @qualifyze/design-system
 
+## 1.4.2
+
+### Patch Changes
+
+- [#212](https://github.com/Qualifyze/design-system/pull/212) [`9ec6901`](https://github.com/Qualifyze/design-system/commit/9ec690104704f81f4733045218ad8dc41816313a) Thanks [@phjardas](https://github.com/phjardas)! - AppBar: fix padding for actions when there is no secondary nav
+
+* [#211](https://github.com/Qualifyze/design-system/pull/211) [`5e3e607`](https://github.com/Qualifyze/design-system/commit/5e3e60733759c0b089d32dfa6c5f322ed45928ac) Thanks [@phjardas](https://github.com/phjardas)! - AppBar: fix an error with the handling of children
+
+- [#189](https://github.com/Qualifyze/design-system/pull/189) [`a1c053c`](https://github.com/Qualifyze/design-system/commit/a1c053cced542e28eec31d53d61f1ee53daa89e5) Thanks [@phjardas](https://github.com/phjardas)! - Logo: allow string values for width and height
+
 ## 1.4.1
 
 ### Patch Changes
