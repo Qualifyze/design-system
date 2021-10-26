@@ -36,7 +36,7 @@ function selectElements(elements) {
   if (elements) {
     Children.forEach(elements, element => {
       if (element) {
-        const type = element.type.name
+        const type = element.type.dsName
 
         if (type === 'AppBarLogo') {
           if (logo) {

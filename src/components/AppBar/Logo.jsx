@@ -23,6 +23,8 @@ export default function AppBarLogo({ children }) {
   )
 }
 
+AppBarLogo.dsName = 'AppBarLogo'
+
 AppBarLogo.propTypes = {
   children: PropTypes.node,
 }
