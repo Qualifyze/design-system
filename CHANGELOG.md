@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.4.3
+
+### Patch Changes
+
+- [#214](https://github.com/Qualifyze/design-system/pull/214) [`5b28a34`](https://github.com/Qualifyze/design-system/commit/5b28a34b387c096a7f609851c0c4867f1aff4bea) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Padding and usage change for the navigation
+
+* [#216](https://github.com/Qualifyze/design-system/pull/216) [`bfa07d9`](https://github.com/Qualifyze/design-system/commit/bfa07d9d86a09b0452a501718205ac15cb9b32ae) Thanks [@phjardas](https://github.com/phjardas)! - AppBar: fix production build
+
 ## 1.4.2
 
 ### Patch Changes
