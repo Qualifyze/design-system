@@ -1,5 +1,5 @@
 import React from 'react'
-import { text, number } from '@storybook/addon-knobs'
+import { text, number, boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
@@ -20,6 +20,7 @@ export const Default = () => {
   const secondaryLabel = text('Secondary Label', 'no Star Trek')
   const tertiaryLabel = text('Tertiary Label', 'Need help?')
   const maxNumberOfSuggestionsToDisplay = number('How much to display?', 5)
+  const initial = boolean('Set initial value', false)
   const movies = [
     {
       text: 'The Phantom Menace',
@@ -65,10 +66,9 @@ export const Default = () => {
 
   return (
     <Formik
+      key={initial}
       initialValues={{
-        movie: {
-          text: '',
-        },
+        movie: initial ? movies[0] : { text: '' },
       }}
       onSubmit={values => {
         action(`Submitted! ${JSON.stringify(values, undefined, 2)}`)
@@ -86,24 +86,22 @@ export const Default = () => {
         }),
       })}
     >
-      {() => (
-        <Form>
-          <AutosuggestField
-            name="movie"
-            label={label}
-            message={message}
-            secondaryLabel={secondaryLabel}
-            tertiaryLabel={
-              <TextLink href="https://en.wikipedia.org/wiki/List_of_Star_Wars_films#Skywalker_saga">
-                {tertiaryLabel}
-              </TextLink>
-            }
-            suggestions={movies}
-            maxNumberOfSuggestionsToDisplay={maxNumberOfSuggestionsToDisplay}
-          />
-          <FormDebugger />
-        </Form>
-      )}
+      <Form>
+        <AutosuggestField
+          name="movie"
+          label={label}
+          message={message}
+          secondaryLabel={secondaryLabel}
+          tertiaryLabel={
+            <TextLink href="https://en.wikipedia.org/wiki/List_of_Star_Wars_films#Skywalker_saga">
+              {tertiaryLabel}
+            </TextLink>
+          }
+          suggestions={movies}
+          maxNumberOfSuggestionsToDisplay={maxNumberOfSuggestionsToDisplay}
+        />
+        <FormDebugger />
+      </Form>
     </Formik>
   )
 }
