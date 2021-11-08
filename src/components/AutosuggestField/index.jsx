@@ -132,7 +132,7 @@ const AutosuggestField = ({
   } = useCombobox({
     items: inputSuggestions,
     itemToString: extractText,
-    initialSelectedItem: field.value,
+    selectedItem: field.value,
     onInputValueChange: ({ inputValue, selectedItem }) => {
       // Once an item is selected, you can't change the value unless you select
       // another item. Then, if the user deletes a letter, the value won't be
