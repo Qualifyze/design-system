@@ -80,7 +80,7 @@ const Menu = styled('ul')(props => ({
   visibility: props.isHidden ? 'hidden' : null,
 }))
 
-const extractText = item => (item ? item.text : '')
+const extractText = item => item?.text ?? ''
 
 const filterByContains = (items, value) =>
   items.filter(item => {
@@ -112,13 +112,13 @@ const AutosuggestField = ({
   const [inputSuggestions, setInputSuggestions] = useState(
     suggestions.slice(0, maxNumberOfSuggestionsToDisplay)
   )
-  const [field, meta, helpers] = useField({ name })
-  const { setValue, setTouched } = helpers
+  const [field, meta, { setValue, setTouched }] = useField({ name })
 
   const hasError = meta.error && meta.touched
-  const messageToShow = hasError
-    ? `${meta.error?.text.charAt(0).toUpperCase()}${meta.error?.text.slice(1)}`
-    : message ?? null
+  const messageToShow =
+    hasError && meta.error.text
+      ? `${meta.error.text.charAt(0).toUpperCase()}${meta.error.text.slice(1)}`
+      : message ?? null
 
   const {
     isOpen,
@@ -132,6 +132,7 @@ const AutosuggestField = ({
   } = useCombobox({
     items: inputSuggestions,
     itemToString: extractText,
+    initialSelectedItem: field.value,
     onInputValueChange: ({ inputValue, selectedItem }) => {
       // Once an item is selected, you can't change the value unless you select
       // another item. Then, if the user deletes a letter, the value won't be
@@ -151,6 +152,7 @@ const AutosuggestField = ({
       )
     },
   })
+
   return (
     <Box {...getComboboxProps()}>
       <FieldLabel
