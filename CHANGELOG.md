@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.4.4
+
+### Patch Changes
+
+- [#217](https://github.com/Qualifyze/design-system/pull/217) [`6eb78a9`](https://github.com/Qualifyze/design-system/commit/6eb78a9e27a03ce774ce6eb3825bdf4a4ed33306) Thanks [@phjardas](https://github.com/phjardas)! - AutosuggestField: enable setting of initial value
+
 ## 1.4.3
 
 ### Patch Changes
