@@ -16,7 +16,7 @@ import Icon from '../Icon'
 // eslint-disable-next-line react/prop-types
 const Heading = ({ children }) => (
   <Box sx={{ px: 3, pt: 3, pb: 3, mr: '44px' }}>
-    <BaseHeading as="span" level={4} weight="weak">
+    <BaseHeading as="span" level={4} weight="weak" id="heading_modal">
       {children}
     </BaseHeading>
   </Box>
@@ -43,7 +43,7 @@ const DialogContent = styled(BaseDialogContent)(props => {
       marginTop: props.theme.space[6],
       [`@media (min-width: ${props.theme.breakpoints.small})`]: {
         borderRadius: props.theme.radii[2],
-        maxWidth: props.theme.sizes[props.maxWidth],
+        maxWidth: props.theme.sizes[props.maxwidth],
         marginBottom: props.theme.space[5],
       },
     },
@@ -76,7 +76,7 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children }) => {
           px: [0, 3],
         }}
       >
-        <DialogContent maxWidth={maxWidth}>
+        <DialogContent maxwidth={maxWidth} aria-labelledby="heading_modal">
           <Box
             aria-hidden
             as="button"
