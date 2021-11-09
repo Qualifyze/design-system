@@ -30,16 +30,16 @@ export const Default = () => {
             <Text>
               We provide three compound components that you can use to structure
               your modal:{' '}
-              <Text as="pre" weight="medium">
-                Modal.Heading
-              </Text>{' '}
-              <Text as="pre" weight="medium">
-                Modal.Body
-              </Text>{' '}
-              <Text as="pre" weight="medium">
-                Modal.Actions
-              </Text>{' '}
             </Text>
+            <Text as="pre" weight="medium">
+              Modal.Heading
+            </Text>{' '}
+            <Text as="pre" weight="medium">
+              Modal.Body
+            </Text>{' '}
+            <Text as="pre" weight="medium">
+              Modal.Actions
+            </Text>{' '}
             <Text>
               Note: You still need to wrap Text around your all text you want to
               show in the Modal.Body.
