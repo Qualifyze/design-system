@@ -30,16 +30,16 @@ export const Default = () => {
             <Text>
               We provide three compound components that you can use to structure
               your modal:{' '}
-              <Text as="pre" weight="medium">
-                Modal.Heading
-              </Text>{' '}
-              <Text as="pre" weight="medium">
-                Modal.Body
-              </Text>{' '}
-              <Text as="pre" weight="medium">
-                Modal.Actions
-              </Text>{' '}
             </Text>
+            <Text as="pre" weight="medium">
+              Modal.Heading
+            </Text>{' '}
+            <Text as="pre" weight="medium">
+              Modal.Body
+            </Text>{' '}
+            <Text as="pre" weight="medium">
+              Modal.Actions
+            </Text>{' '}
             <Text>
               Note: You still need to wrap Text around your all text you want to
               show in the Modal.Body.
@@ -190,19 +190,19 @@ export const WithSelect = () => {
                   options={[
                     {
                       label: 'Option 1',
-                      value: 1,
+                      value: '1',
                     },
                     {
                       label: 'Option 2',
-                      value: 2,
+                      value: '2',
                     },
                     {
                       label: 'Option 3',
-                      value: 3,
+                      value: '3',
                     },
                     {
                       label: 'Option 4',
-                      value: 4,
+                      value: '4',
                     },
                   ]}
                   placeholder="select a thing"

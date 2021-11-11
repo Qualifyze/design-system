@@ -6,6 +6,7 @@ import {
   DialogContent as BaseDialogContent,
   DialogOverlay as BaseDialogOverlay,
 } from '@reach/dialog'
+import { useId } from '@react-aria/utils'
 
 import { styled } from '../../util/style'
 import BaseActions from '../Actions'
@@ -14,13 +15,15 @@ import Box from '../Box'
 import Icon from '../Icon'
 
 // eslint-disable-next-line react/prop-types
-const Heading = ({ children }) => (
-  <Box sx={{ px: 3, pt: 3, pb: 3, mr: '44px' }}>
-    <BaseHeading as="span" level={4} weight="weak">
-      {children}
-    </BaseHeading>
-  </Box>
-)
+const Heading = ({ children, id }) => {
+  return (
+    <Box sx={{ px: 3, pt: 3, pb: 3, mr: '44px' }}>
+      <BaseHeading as="span" level={4} weight="weak" id={id}>
+        {children}
+      </BaseHeading>
+    </Box>
+  )
+}
 
 // eslint-disable-next-line react/prop-types
 const Body = ({ children }) => <Box sx={{ px: 3, pb: 3 }}>{children}</Box>
@@ -32,7 +35,11 @@ const Actions = ({ children }) => (
   </Box>
 )
 
-const DialogContent = styled(BaseDialogContent)(props => {
+const DialogContent = styled(BaseDialogContent, {
+  // Do not pass the maxWidth prop to the DialogContent
+  // in the DOM since its not supported
+  shouldForwardProp: prop => prop !== 'maxWidth',
+})(props => {
   return {
     '&[data-reach-dialog-content]': {
       width: `100%`,
@@ -63,6 +70,8 @@ const DialogOverlay = styled(BaseDialogOverlay)(() => {
 // as we add custom styling to both of these components. if the custom styling is
 // removed we can just use the Dialog component that comes from the plugin
 const Modal = ({ isOpen, onDismiss, maxWidth, children }) => {
+  const headingId = useId()
+
   return (
     <DialogOverlay isOpen={isOpen} onDismiss={onDismiss}>
       <Box
@@ -76,7 +85,7 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children }) => {
           px: [0, 3],
         }}
       >
-        <DialogContent maxWidth={maxWidth}>
+        <DialogContent maxWidth={maxWidth} aria-labelledby={headingId}>
           <Box
             aria-hidden
             as="button"
@@ -99,7 +108,14 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children }) => {
           >
             <Icon name="cross" size="large" />
           </Box>
-          {children}
+          {React.Children?.map(children, child => {
+            // For the heading, we need to provide the id so
+            // aria-labelledby can be linked
+            if (child.type === Heading) {
+              return React.cloneElement(child, { id: headingId })
+            }
+            return child
+          })}
         </DialogContent>
       </Box>
     </DialogOverlay>
