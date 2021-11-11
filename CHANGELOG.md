@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.4.5
+
+### Patch Changes
+
+- [#220](https://github.com/Qualifyze/design-system/pull/220) [`52a016c`](https://github.com/Qualifyze/design-system/commit/52a016c9b48309718566924f7d2ea3898cda4f87) Thanks [@falco953](https://github.com/falco953)! - Resolve console warnings on modal component
+
+* [#219](https://github.com/Qualifyze/design-system/pull/219) [`8d1bdeb`](https://github.com/Qualifyze/design-system/commit/8d1bdeb460d2b9ce19db561793a72f304da59c8f) Thanks [@phjardas](https://github.com/phjardas)! - Autosuggest: react to external changes of the field value
+
 ## 1.4.4
 
 ### Patch Changes
