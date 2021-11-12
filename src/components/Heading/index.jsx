@@ -76,7 +76,7 @@ Heading.displayName = 'Heading'
 Heading.defaultProps = {
   level: 1,
   weight: 'regular',
-  color: 'secondary.700',
+  color: 'grey.800',
 }
 
 Heading.propTypes = {

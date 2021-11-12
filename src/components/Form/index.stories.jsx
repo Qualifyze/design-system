@@ -76,7 +76,7 @@ export const Default = () => {
       }
     >
       {({ isSubmitting, errors, touched }) => (
-        <Box bg="secondary.100" p={5}>
+        <Box bg="primary.100" p={5}>
           <Card boxShadow={6}>
             <Form>
               <Stack space={3}>
@@ -249,7 +249,7 @@ export const Login = () => {
       }
     >
       {({ isSubmitting }) => (
-        <Box bg="secondary.100" p={5}>
+        <Box bg="primary.100" p={5}>
           <Card boxShadow={6}>
             <Form>
               <Stack space={3}>
@@ -325,7 +325,7 @@ export const ContactForm = () => {
       }
     >
       {({ isSubmitting }) => (
-        <Box bg="secondary.100" p={5}>
+        <Box bg="primary.100" p={5}>
           <Card boxShadow={6}>
             <Form>
               <Stack space={3}>

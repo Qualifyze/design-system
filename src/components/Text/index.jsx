@@ -68,7 +68,7 @@ const Text = styled('p', { shouldForwardProp })(
         color: 'hsla(0, 0%, 100%, 0.6)',
       },
       info: {
-        color: 'secondary.600',
+        color: 'primary.600',
       },
     },
   }),

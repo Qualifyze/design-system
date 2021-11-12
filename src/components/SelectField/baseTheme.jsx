@@ -16,7 +16,7 @@ import { theme } from '../../util/style'
 
 export const baseTheme = {
   selected: theme.colors.primary[600],
-  hoverBackgroundControl: theme.colors.secondary[100],
+  hoverBackgroundControl: theme.colors.primary[100],
   hoverOverControl: theme.colors.grey[800],
   controlBorder: theme.colors.grey[500],
   hoverOverOption: theme.colors.primary[100],
