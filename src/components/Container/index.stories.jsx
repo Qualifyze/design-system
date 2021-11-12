@@ -6,7 +6,7 @@ import Container from './index'
 export default { title: 'Container', component: Container }
 
 export const Default = () => {
-  const bg = text('Background', 'secondary.100')
+  const bg = text('Background', 'primary.100')
   const m = text('Margin', '2')
   const p = text('Padding', '4')
 

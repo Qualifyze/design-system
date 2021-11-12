@@ -35,7 +35,7 @@ const IconWrapper = styled('div')(
 
     span: {
       paddingLeft: '20px',
-      color: `${props.theme.colors.secondary[800]}`,
+      color: `${props.theme.colors.primary[800]}`,
     },
   }),
   space

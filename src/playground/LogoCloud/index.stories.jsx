@@ -13,12 +13,12 @@ import Placeholder from '../../components/private/Placeholder'
 export default { title: 'Playground/Logo Cloud' }
 
 export const Default = () => {
-  const count = number('Number of logos', '8')
+  const count = number('Number of logos', 8)
 
   return (
     <Box sx={{ px: [3, 4, 5], py: [4, 5, 6], bg: 'background.0' }}>
       <Stack space={3}>
-        <Text as="h2" weight="medium" tone="secondary" align="center">
+        <Text as="h2" weight="medium" align="center">
           Trusted by a handful of very nice people
         </Text>
         <Box>
