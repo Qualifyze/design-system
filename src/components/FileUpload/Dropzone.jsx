@@ -59,7 +59,7 @@ const Dropzone = ({
         <Icon
           name="Upload"
           size="large"
-          color="secondary.300"
+          color="primary.500"
           mb={instructions ? 3 : 0}
         />
         <Box>{instructions}</Box>

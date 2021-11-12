@@ -42,7 +42,7 @@ const FieldLabel = ({
       </Flex>
       {description ? (
         <Box>
-          <Text tone="secondary">{description}</Text>
+          <Text tone="primary">{description}</Text>
         </Box>
       ) : null}
     </Stack>

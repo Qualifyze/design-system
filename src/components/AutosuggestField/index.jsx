@@ -65,7 +65,7 @@ const Item = styled('li')(props => ({
 
 const Menu = styled('ul')(props => ({
   margin: 0,
-  color: props.theme.colors.secondary[500],
+  color: props.theme.colors.primary[500],
   marginBlockStart: props.theme.space[1],
   borderRadius: props.theme.radii[2],
   overflowX: 'hidden',
