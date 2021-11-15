@@ -5,6 +5,7 @@ import { getIn, useFormikContext } from 'formik'
 import Flex from '../Flex'
 import FieldMessage from '../FieldMessage'
 
+// The styling of this should match with `src/components/FileRow/index.jsx`
 const FileUploadRow = ({ text, name, index, children }) => {
   const { errors: formErrors } = useFormikContext()
   const fieldErrors = getIn(formErrors, `${name}.${index}`)
@@ -17,13 +18,17 @@ const FileUploadRow = ({ text, name, index, children }) => {
       sx={{
         'borderRadius': theme => theme.radii[1],
         'boxShadow': theme =>
-          !!errors ? `inset 0 0 0 2px ${theme.colors.red[500]}` : null,
+          !!errors
+            ? `inset 0 0 0 2px ${theme.colors.red[500]}`
+            : `inset 0 0 0 1px ${theme.colors.grey[500]}`,
         'bg': theme => (!!errors ? theme.colors.red[100] : null),
         'flexDirection': 'column',
         '&:hover, &:focus-within': {
-          bg: !!errors ? 'red.100' : 'grey.100',
+          bg: !!errors ? 'red.100' : 'transparent',
           boxShadow: theme =>
-            !!errors ? `inset 0 0 0 2px ${theme.colors.red[700]}` : null,
+            !!errors
+              ? `inset 0 0 0 2px ${theme.colors.red[700]}`
+              : `inset 0 0 0 1px ${theme.colors.grey[800]}`,
         },
         'p': 2,
       }}

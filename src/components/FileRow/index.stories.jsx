@@ -25,6 +25,11 @@ export const Default = () => {
       <Stack space="1">
         {files.map(file => (
           <FileRow key={file.name} text={file.name}>
+            <FileRow.DangerAction
+              iconName="trash"
+              // eslint-disable-next-line no-alert
+              onClick={() => alert("I'm supposed to be delete this file")}
+            />
             <FileRow.PrimaryAction
               iconName="download"
               // eslint-disable-next-line no-alert
