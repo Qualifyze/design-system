@@ -3,15 +3,21 @@ import PropTypes from 'prop-types'
 
 import Flex from '../Flex'
 import PrimaryAction from '../FileBox/PrimaryAction'
+import FieldMessage from '../FieldMessage'
 
-const FileUploadRow = ({ text, children }) => {
+const FileUploadRow = ({ text, errors, children }) => {
   return (
     <Flex
       sx={{
         'borderRadius': theme => theme.radii[1],
+        'boxShadow': theme =>
+          !!errors ? `inset 0 0 0 2px ${theme.colors.red[500]}` : null,
+        'bg': theme => (!!errors ? theme.colors.red[100] : null),
         'flexDirection': 'column',
         '&:hover, &:focus-within': {
-          bg: 'grey.100',
+          bg: !!errors ? 'red.100' : 'grey.100',
+          boxShadow: theme =>
+            !!errors ? `inset 0 0 0 2px ${theme.colors.red[700]}` : null,
         },
         'p': 2,
       }}
@@ -34,6 +40,13 @@ const FileUploadRow = ({ text, children }) => {
           {children}
         </Flex>
       </Flex>
+      {errors?.map(messageToShow => (
+        <FieldMessage
+          key={messageToShow}
+          message={messageToShow}
+          tone="critical"
+        />
+      ))}
     </Flex>
   )
 }
@@ -41,8 +54,13 @@ const FileUploadRow = ({ text, children }) => {
 FileUploadRow.PrimaryAction = PrimaryAction
 FileUploadRow.propTypes = {
   text: PropTypes.string.isRequired,
-  // eslint-disable-next-line react/require-default-props
   children: PropTypes.node,
+  errors: PropTypes.arrayOf(PropTypes.string),
+}
+
+FileUploadRow.defaultProps = {
+  children: null,
+  errors: null,
 }
 
 export default FileUploadRow
