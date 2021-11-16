@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import Flex from '../Flex'
 import PrimaryAction from '../FileBox/PrimaryAction'
+import DangerAction from '../FileBox/DangerAction'
 import FieldMessage from '../FieldMessage'
 
 const FileUploadRow = ({ text, errors, children }) => {
@@ -52,6 +53,7 @@ const FileUploadRow = ({ text, errors, children }) => {
 }
 
 FileUploadRow.PrimaryAction = PrimaryAction
+FileUploadRow.DangerAction = DangerAction
 FileUploadRow.propTypes = {
   text: PropTypes.string.isRequired,
   children: PropTypes.node,
