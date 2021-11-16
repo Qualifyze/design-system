@@ -10,6 +10,7 @@ const FileUploadRow = ({ text, children }) => {
       sx={{
         'borderRadius': theme => theme.radii[1],
         'flexDirection': 'column',
+        'cursor': 'default',
         '&:hover, &:focus-within': {
           bg: 'grey.100',
         },

@@ -20,6 +20,7 @@ const FileUploadRow = ({ text, name, index, children }) => {
           !!errors ? `inset 0 0 0 2px ${theme.colors.red[500]}` : null,
         'bg': theme => (!!errors ? theme.colors.red[100] : null),
         'flexDirection': 'column',
+        'cursor': 'default',
         '&:hover, &:focus-within': {
           bg: !!errors ? 'red.100' : 'grey.100',
           boxShadow: theme =>
