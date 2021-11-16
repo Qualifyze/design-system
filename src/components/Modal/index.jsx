@@ -111,7 +111,7 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children }) => {
           {React.Children?.map(children, child => {
             // For the heading, we need to provide the id so
             // aria-labelledby can be linked
-            if (child.type === Heading) {
+            if (child?.type === Heading) {
               return React.cloneElement(child, { id: headingId })
             }
             return child
