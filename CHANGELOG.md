@@ -1,5 +1,19 @@
 # @qualifyze/design-system
 
+## 1.4.5
+
+### Patch Changes
+
+- [#225](https://github.com/Qualifyze/design-system/pull/225) [`5173fe5`](https://github.com/Qualifyze/design-system/commit/5173fe5e202cfbe5482b1ad4ea42626c23a81f78) Thanks [@falco953](https://github.com/falco953)! - This adds the capability of displaying errors to the FileRow component and uses this component in the File component of the FileUpload.
+
+* [#224](https://github.com/Qualifyze/design-system/pull/224) [`3c75f5e`](https://github.com/Qualifyze/design-system/commit/3c75f5edf6d7d96caa66bbbca6d267c80285da1a) Thanks [@falco953](https://github.com/falco953)! - This changes the cursor of the Text on a FileRow component to be the default pointer.
+
+- [#227](https://github.com/Qualifyze/design-system/pull/227) [`16d634d`](https://github.com/Qualifyze/design-system/commit/16d634dc8a0f3142cb28a70d51625e53765e098c) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Add `DangerAction` to `FileRow`
+
+* [#220](https://github.com/Qualifyze/design-system/pull/220) [`52a016c`](https://github.com/Qualifyze/design-system/commit/52a016c9b48309718566924f7d2ea3898cda4f87) Thanks [@falco953](https://github.com/falco953)! - Resolve console warnings on modal component
+
+- [#219](https://github.com/Qualifyze/design-system/pull/219) [`8d1bdeb`](https://github.com/Qualifyze/design-system/commit/8d1bdeb460d2b9ce19db561793a72f304da59c8f) Thanks [@phjardas](https://github.com/phjardas)! - Autosuggest: react to external changes of the field value
+
 ## 1.4.4
 
 ### Patch Changes
