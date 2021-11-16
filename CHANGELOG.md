@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.4.6
+
+### Patch Changes
+
+- [#228](https://github.com/Qualifyze/design-system/pull/228) [`639bccd`](https://github.com/Qualifyze/design-system/commit/639bccd40f9fdab18b733f1b3de7367a253323a3) Thanks [@falco953](https://github.com/falco953)! - Fix broken modal
+
 ## 1.4.5
 
 ### Patch Changes
