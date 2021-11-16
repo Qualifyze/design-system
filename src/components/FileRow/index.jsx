@@ -24,7 +24,9 @@ const FileUploadRow = ({ text, children }) => {
           alignItems: 'stretch',
         }}
       >
-        <Flex sx={{ flex: 1, alignItems: 'center' }}>{text}</Flex>
+        <Flex sx={{ flex: 1, alignItems: 'center', cursor: 'pointer' }}>
+          {text}
+        </Flex>
         <Flex
           sx={{
             flexDirection: 'row',
