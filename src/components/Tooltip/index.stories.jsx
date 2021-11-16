@@ -1,28 +1,47 @@
 import React from 'react'
-import { text, select } from '@storybook/addon-knobs'
+import { text } from '@storybook/addon-knobs'
 
-import Box from '../Box'
+import Flex from '../Flex'
+import Inline from '../Inline'
+import Button from '../Button'
 
-import Tooltip from './index'
+import { Tooltip } from './index'
 
 export default { title: 'Tooltip', component: Tooltip }
 
 export const Default = () => {
-  const textExample = text('Text', 'Some text as Example')
-  const tooltipText = text('Tooltip Text', 'Some text to test')
-  const variant = select('Variant', ['default', 'light'], 'default')
-  const indicator = text('Indicator', 'chevronUp')
+  const tooltipText = text('Tooltip Text', 'Do NOT click this button...')
 
   return (
-    <Box mx={7} my={5}>
-      <Tooltip
-        dataTooltip={tooltipText}
-        indicator={indicator}
-        variant={variant}
-      >
-        {textExample}
-      </Tooltip>
-    </Box>
+    <Flex
+      sx={{
+        width: '100%',
+        minWidth: '600px',
+        height: '100%',
+        minHeight: '600px',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Inline>
+        <Tooltip>
+          <Tooltip.Trigger asChild>
+            <Button
+              onClick={() => {
+                // eslint-disable-next-line no-alert
+                alert('Why? Just... why did you do this?')
+              }}
+            >
+              Send missile alert (test)
+            </Button>
+          </Tooltip.Trigger>
+          <Tooltip.Content sideOffset={5}>
+            {tooltipText}
+            <Tooltip.Arrow />
+          </Tooltip.Content>
+        </Tooltip>
+      </Inline>
+    </Flex>
   )
 }
 Default.story = {
