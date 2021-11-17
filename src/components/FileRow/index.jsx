@@ -32,7 +32,9 @@ const FileUploadRow = ({ text, errors, children }) => {
           alignItems: 'stretch',
         }}
       >
-        <Flex sx={{ flex: 1, alignItems: 'center' }}>{text}</Flex>
+        <Flex sx={{ flex: 1, alignItems: 'center', color: 'grey.800' }}>
+          {text}
+        </Flex>
         <Flex
           sx={{
             flexDirection: 'row',
