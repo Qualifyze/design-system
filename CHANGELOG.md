@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.4.7
+
+### Patch Changes
+
+- [#230](https://github.com/Qualifyze/design-system/pull/230) [`b719980`](https://github.com/Qualifyze/design-system/commit/b719980a30cb541381be0193c58d83abfd0cf4a3) Thanks [@falco953](https://github.com/falco953)! - Set text color on FileRow to default text color
+
+* [#232](https://github.com/Qualifyze/design-system/pull/232) [`92b720b`](https://github.com/Qualifyze/design-system/commit/92b720b79c7355d9bb1bbd117ad5001b6bca067d) Thanks [@falco953](https://github.com/falco953)! - Improve FileRow styling
+
 ## 1.4.6
 
 ### Patch Changes
