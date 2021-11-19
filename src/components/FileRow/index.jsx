@@ -12,14 +12,17 @@ const FileUploadRow = ({ text, errors, children }) => {
       sx={{
         'borderRadius': theme => theme.radii[1],
         'boxShadow': theme =>
-          !!errors ? `inset 0 0 0 2px ${theme.colors.red[500]}` : null,
-        'bg': theme => (!!errors ? theme.colors.red[100] : null),
+          !!errors
+            ? `inset 0 0 0 2px ${theme.colors.red[500]}`
+            : `inset 0 0 0 1px ${theme.colors.grey[500]}`,
+        'bg': !!errors ? 'red.100' : 'grey.100',
         'flexDirection': 'column',
         'cursor': 'default',
         '&:hover, &:focus-within': {
-          bg: !!errors ? 'red.100' : 'grey.100',
           boxShadow: theme =>
-            !!errors ? `inset 0 0 0 2px ${theme.colors.red[700]}` : null,
+            !!errors
+              ? `inset 0 0 0 2px ${theme.colors.red[700]}`
+              : `inset 0 0 0 1px ${theme.colors.grey[700]}`,
         },
         'p': 2,
       }}
