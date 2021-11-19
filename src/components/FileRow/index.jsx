@@ -40,7 +40,7 @@ const FileUploadRow = ({ text, errors, children }) => {
             flex: 1,
             alignItems: 'center',
             color: 'grey.800',
-            wordBreak: 'break-word',
+            wordBreak: 'break-all',
           }}
         >
           {text}
