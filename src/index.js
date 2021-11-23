@@ -46,7 +46,7 @@ export { default as TextField } from './components/TextField'
 export { default as TextLink } from './components/TextLink'
 export { default as TextLinkButton } from './components/TextLinkButton'
 export { default as Tiles } from './components/Tiles'
-export { Tooltip, TooltipPrimitive } from './components/Tooltip'
+export { default as Tooltip } from './components/Tooltip'
 export { default as useRect } from './hooks/useRect'
 export { default as useScroll } from './hooks/useScroll'
 export {
