@@ -5,7 +5,6 @@ import Stack from '../Stack'
 import Box from '../Box'
 import Flex from '../Flex'
 import Text from '../Text'
-import Strong from '../Strong'
 
 const FieldLabel = ({
   htmlFor,
@@ -20,7 +19,9 @@ const FieldLabel = ({
 
   const labelElement = (
     <Text as="span">
-      <Strong>{label}</Strong>
+      <Box as="span" sx={{ fontWeight: 'semibold' }}>
+        {label}
+      </Box>
       {secondaryLabel ? (
         <Text as="span" color="grey.600">
           &nbsp;({secondaryLabel})
