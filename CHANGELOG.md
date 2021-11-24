@@ -1,5 +1,17 @@
 # @qualifyze/design-system
 
+## 1.5.0
+
+### Minor Changes
+
+- [#239](https://github.com/Qualifyze/design-system/pull/239) [`cc17368`](https://github.com/Qualifyze/design-system/commit/cc173685814f49007a5bc2aa5577a4bf95b4cba3) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Add VisuallyHidden component
+
+### Patch Changes
+
+- [#238](https://github.com/Qualifyze/design-system/pull/238) [`0e4fe61`](https://github.com/Qualifyze/design-system/commit/0e4fe613a2b895032679c4dfa6e257237f9cafab) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Do not use `<strong>` inside form labels
+
+* [#234](https://github.com/Qualifyze/design-system/pull/234) [`e362d26`](https://github.com/Qualifyze/design-system/commit/e362d2659e7f404a807293d5f39e1535a42709a2) Thanks [@falco953](https://github.com/falco953)! - Add word break on FileRow component
+
 ## 1.4.7
 
 ### Patch Changes
