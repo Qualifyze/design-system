@@ -59,3 +59,4 @@ export {
   theme,
   ThemeProvider,
 } from './util/style'
+export { VisuallyHidden } from './components/VisuallyHidden'
