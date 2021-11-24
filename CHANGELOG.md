@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.5.1
+
+### Patch Changes
+
+- [#242](https://github.com/Qualifyze/design-system/pull/242) [`313f8e5`](https://github.com/Qualifyze/design-system/commit/313f8e5b0b08a46b7890f6d832d96975ed3c68cd) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Export `VisuallyHidden`
+
 ## 1.5.0
 
 ### Minor Changes
