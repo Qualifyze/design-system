@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-// import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { select } from '@storybook/addon-knobs'
 
 import { styled } from '../../util/style'
 import Box from '../Box'
@@ -139,4 +139,77 @@ export const CustomItem = () => {
 }
 CustomItem.story = {
   name: 'with custom item',
+}
+
+const localeToDisplayLabel = {
+  de: 'Deutsch',
+  en: 'English',
+  es: 'Español',
+}
+
+const resolveBackground = {
+  dark: 'grey.900',
+  light: 'white',
+}
+
+const LanguageButton = styled(Button)(props => ({
+  'background': 'white',
+  'border': `1px solid ${props.theme.colors.grey[300]}`,
+
+  '&:hover': {
+    background: props.theme.colors.primary[100],
+  },
+}))
+
+export const LanguageSwitch = () => {
+  const [locale, setLocale] = React.useState('de')
+  const background = select('Background', ['dark', 'light'], 'dark')
+
+  return (
+    <Box sx={{ p: 5, bg: resolveBackground[background] }}>
+      <DropdownMenu>
+        <Inline>
+          <DropdownMenu.Trigger asChild>
+            <LanguageButton
+              variant="secondary"
+              size="small"
+              icon={<Icon name="chevrondown" size="tiny" />}
+            >
+              {localeToDisplayLabel[locale]}
+            </LanguageButton>
+          </DropdownMenu.Trigger>
+        </Inline>
+
+        <DropdownMenu.Content align="start">
+          <DropdownMenu.Item onClick={() => setLocale('de')}>
+            {localeToDisplayLabel.de}
+            <RightSlot>
+              {locale === 'de' ? (
+                <Icon name="checkmark" size="small" tone="secondary" />
+              ) : null}
+            </RightSlot>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item onClick={() => setLocale('en')}>
+            {localeToDisplayLabel.en}
+            <RightSlot>
+              {locale === 'en' ? (
+                <Icon name="checkmark" size="small" tone="secondary" />
+              ) : null}
+            </RightSlot>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item onClick={() => setLocale('es')}>
+            {localeToDisplayLabel.es}
+            <RightSlot>
+              {locale === 'es' ? (
+                <Icon name="checkmark" size="small" tone="secondary" />
+              ) : null}
+            </RightSlot>
+          </DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu>
+    </Box>
+  )
+}
+LanguageSwitch.story = {
+  name: 'as language switch',
 }
