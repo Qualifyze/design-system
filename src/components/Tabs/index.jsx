@@ -9,11 +9,8 @@ const Tabs = styled(TabsPrimitive.Root)(() => ({
 const TabList = styled(TabsPrimitive.List)(props => ({
   flexShrink: 0,
   display: 'flex',
-  borderBottomStyle: 'solid',
-  borderBottomWidth: '2px',
-  borderBottomColor: props.theme.colors.grey[300],
   overflow: 'auto',
-  marginBottom: '-1px',
+  boxShadow: `inset 0 -1px 0 ${props.theme.colors.grey[300]}`,
 }))
 
 const TabTrigger = styled(TabsPrimitive.Trigger)(props => ({
@@ -28,11 +25,12 @@ const TabTrigger = styled(TabsPrimitive.Trigger)(props => ({
   'paddingBottom': props.theme.space[2],
   'marginLeft': props.theme.space[3],
   'marginRight': props.theme.space[3],
-  '&:first-child': { marginLeft: 0 },
-  '&:last-child': { marginRight: 0 },
   'borderBottomStyle': 'solid',
   'borderBottomWidth': '2px',
   'borderBottomColor': 'transparent',
+  'zIndex': '1',
+  '&:first-child': { marginLeft: 0 },
+  '&:last-child': { marginRight: 0 },
   '&::after': {
     content: '""',
     position: 'absolute',
