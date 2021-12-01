@@ -8,19 +8,19 @@ import TextLink from '../TextLink'
 import List from '../List'
 import Stack from '../Stack'
 
-import { Tabs, TabList, TabContent, TabTrigger } from '.'
+import { Tabs } from '.'
 
 export default { title: 'Tabs', component: Tabs }
 
 export const Default = () => {
   return (
     <Tabs defaultValue="bar">
-      <TabList>
-        <TabTrigger value="bar">TabBar</TabTrigger>
-        <TabTrigger value="triggers">TabTrigger</TabTrigger>
-        <TabTrigger value="content">Content</TabTrigger>
-      </TabList>
-      <TabContent value="bar">
+      <Tabs.List>
+        <Tabs.Trigger value="bar">TabBar</Tabs.Trigger>
+        <Tabs.Trigger value="triggers">TabTrigger</Tabs.Trigger>
+        <Tabs.Trigger value="content">Content</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="bar">
         <List>
           <Text>
             A really simple Tabs component built on top of the{' '}
@@ -35,11 +35,11 @@ export const Default = () => {
             </TextLink>
           </Text>
         </List>
-      </TabContent>
-      <TabContent value="triggers">
+      </Tabs.Content>
+      <Tabs.Content value="triggers">
         <Text>Triggers!!</Text>
-      </TabContent>
-      <TabContent value="content">
+      </Tabs.Content>
+      <Tabs.Content value="content">
         <List>
           <Text>
             You can place whatever you want inside the TabContent or place them
@@ -50,7 +50,7 @@ export const Default = () => {
             example.
           </Text>
         </List>
-      </TabContent>
+      </Tabs.Content>
     </Tabs>
   )
 }
@@ -75,19 +75,19 @@ export const Example = () => {
                 <Text>Karlstrasse 15, 32423 Minden, Germany</Text>
               </Stack>
             </Box>
-            <TabList>
-              <TabTrigger value="requests">Requests</TabTrigger>
-              <TabTrigger value="contacts">Contacts</TabTrigger>
-              <TabTrigger value="capa">CAPA</TabTrigger>
-              <TabTrigger value="reports">Reports</TabTrigger>
-              <TabTrigger value="auditee">Auditee</TabTrigger>
-            </TabList>
+            <Tabs.List>
+              <Tabs.Trigger value="requests">Requests</Tabs.Trigger>
+              <Tabs.Trigger value="contacts">Contacts</Tabs.Trigger>
+              <Tabs.Trigger value="capa">CAPA</Tabs.Trigger>
+              <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
+              <Tabs.Trigger value="auditee">Auditee</Tabs.Trigger>
+            </Tabs.List>
           </Container>
         </Box>
         <Box sx={{ py: 4 }}>
           <Container maxWidth="page">
             <Box>
-              <TabContent value="requests">
+              <Tabs.Content value="requests">
                 {[
                   'Crystallized ascorbic acid, Ascorbic acid Type EC coated, Dexpanthenol, Calcium Panthotenate',
                   'Guaifenesinum',
@@ -97,8 +97,8 @@ export const Example = () => {
                     {item}
                   </Box>
                 ))}
-              </TabContent>
-              <TabContent value="contacts">
+              </Tabs.Content>
+              <Tabs.Content value="contacts">
                 {['Acme Co.', 'Binford Ltd.', 'Big Kahuna Burger Ltd.'].map(
                   item => (
                     <Box key={item} sx={{ ...cardStyles }}>
@@ -106,10 +106,10 @@ export const Example = () => {
                     </Box>
                   )
                 )}
-              </TabContent>
-              <TabContent value="capa">CAPA</TabContent>
-              <TabContent value="reports">Reports</TabContent>
-              <TabContent value="auditee">Auditee</TabContent>
+              </Tabs.Content>
+              <Tabs.Content value="capa">CAPA</Tabs.Content>
+              <Tabs.Content value="reports">Reports</Tabs.Content>
+              <Tabs.Content value="auditee">Auditee</Tabs.Content>
             </Box>
           </Container>
         </Box>

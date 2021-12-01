@@ -1,22 +1,22 @@
-import * as TabsPrimitives from '@radix-ui/react-tabs'
+import * as TabsPrimitive from '@radix-ui/react-tabs'
 
 import { styled } from '../../util/style'
 
-const Tabs = styled(TabsPrimitives.Root)(() => ({
+const Tabs = styled(TabsPrimitive.Root)(() => ({
   width: '100%',
 }))
 
-const TabList = styled(TabsPrimitives.List)(props => ({
-  'flexShrink': 0,
-  'display': 'flex',
-  'borderBottomStyle': 'solid',
-  'borderBottomWidth': '1px',
-  'borderBottomColor': props.theme.colors.grey[300],
-  'overflow-x': 'auto hidden',
-  'marginBottom': '-1px',
+const TabList = styled(TabsPrimitive.List)(props => ({
+  flexShrink: 0,
+  display: 'flex',
+  borderBottomStyle: 'solid',
+  borderBottomWidth: '2px',
+  borderBottomColor: props.theme.colors.grey[300],
+  overflow: 'auto',
+  marginBottom: '-1px',
 }))
 
-const TabTrigger = styled(TabsPrimitives.Trigger)(props => ({
+const TabTrigger = styled(TabsPrimitive.Trigger)(props => ({
   'position': 'relative',
   'color': props.theme.colors.grey[800],
   'fontWeight': props.theme.fontWeights.semibold,
@@ -28,7 +28,6 @@ const TabTrigger = styled(TabsPrimitives.Trigger)(props => ({
   'paddingBottom': props.theme.space[2],
   'marginLeft': props.theme.space[3],
   'marginRight': props.theme.space[3],
-  'marginBottom': '-1px',
   '&:first-child': { marginLeft: 0 },
   '&:last-child': { marginRight: 0 },
   'borderBottomStyle': 'solid',
@@ -66,7 +65,7 @@ const TabTrigger = styled(TabsPrimitives.Trigger)(props => ({
   },
 }))
 
-const TabContent = styled(TabsPrimitives.Content)(props => ({
+const TabContent = styled(TabsPrimitive.Content)(props => ({
   'borderRadius': props.theme.radii[2],
   '&:focus-visible': {
     outline: 'none',
@@ -75,5 +74,8 @@ const TabContent = styled(TabsPrimitives.Content)(props => ({
 }))
 
 Tabs.displayName = 'Tabs'
+Tabs.List = TabList
+Tabs.Trigger = TabTrigger
+Tabs.Content = TabContent
 
-export { Tabs, TabList, TabContent, TabTrigger, TabsPrimitives }
+export { Tabs, TabsPrimitive }
