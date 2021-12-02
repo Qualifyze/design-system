@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.6.0
+
+### Minor Changes
+
+- [#245](https://github.com/Qualifyze/design-system/pull/245) [`7fd9097`](https://github.com/Qualifyze/design-system/commit/7fd909755f6b6beefb0a917ab5d9b5f5400f8f2b) Thanks [@jorgechiapello](https://github.com/jorgechiapello)! - Add Tabs component
+
 ## 1.5.1
 
 ### Patch Changes
