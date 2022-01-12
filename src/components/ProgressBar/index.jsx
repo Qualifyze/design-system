@@ -24,10 +24,12 @@ const IndeterminateBar1 = styled(Bar)`
       left: -35%;
       right: 100%;
     }
+
     60% {
       left: 100%;
       right: -90%;
     }
+
     100% {
       left: 100%;
       right: -90%;
@@ -44,10 +46,12 @@ const IndeterminateBar2 = styled(Bar)`
       left: -200%;
       right: 100%;
     }
+
     60% {
       left: 107%;
       right: -8%;
     }
+
     100% {
       left: 107%;
       right: -8%;

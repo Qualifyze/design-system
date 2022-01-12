@@ -5,4 +5,7 @@ module.exports = {
     'stylelint-config-styled-components',
   ],
   processors: [['stylelint-processor-styled-components']],
+  rules: {
+    'declaration-colon-newline-after': null,
+  },
 }
