@@ -64,6 +64,7 @@ const Indicator = styled(Box)(
     alignItems: 'center',
     height: '24px',
     width: '24px',
+    minWidth: '24px',
     background: props.theme.colors.white,
     boxShadow: `inset 0 0 0 1px ${props.theme.colors.grey[400]}`,
     borderRadius: props.theme.radii[2],
