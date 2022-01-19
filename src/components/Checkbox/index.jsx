@@ -66,7 +66,6 @@ const Indicator = styled(Box)(
     boxShadow: `inset 0 0 0 1px ${props.theme.colors.grey[400]}`,
     borderRadius: props.theme.radii[2],
     marginRight: props.theme.space[2],
-    marginTop: props.theme.space[1],
   }),
   variant({
     prop: 'size',
@@ -126,7 +125,6 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
             as="label"
             sx={{
               cursor: disabled ? 'default' : 'pointer',
-              lineHeight: '24px',
             }}
             htmlFor={name}
           >
@@ -134,20 +132,6 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
               size={size}
               as="span"
               color={disabled ? 'grey.400' : 'grey.800'}
-              sx={{
-                'lineHeight': '24px',
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  transform: 'translateY(-50%)',
-                  top: '50%',
-                  height: '100%',
-                  minHeight: '44px',
-                  minWidth: '44px',
-                  left: '-10px',
-                  right: '-10px',
-                },
-              }}
             >
               {label}
             </Text>
