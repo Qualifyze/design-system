@@ -90,7 +90,7 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace }) => {
           {...field}
           {...meta}
         />
-        <Flex alignItems="center">
+        <Flex alignItems="flex-start">
           <Indicator
             hasError={hasError}
             isChecked={meta.value}

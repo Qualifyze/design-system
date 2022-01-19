@@ -7,6 +7,7 @@ import * as Yup from 'yup'
 import Button from '../Button'
 import FormDebugger from '../FormDebugger'
 import Box from '../Box'
+import Stack from '../Stack'
 
 import Checkbox from './index'
 
@@ -42,7 +43,7 @@ export const Default = () => {
       >
         {() => (
           <Form>
-            <>
+            <Stack space={2}>
               <Checkbox name="preference" label="I like movies" size={size} />
               <Checkbox
                 name="newsletter"
@@ -54,7 +55,7 @@ export const Default = () => {
                 Submit
               </Button>
               {insideState && <FormDebugger />}
-            </>
+            </Stack>
           </Form>
         )}
       </Formik>
