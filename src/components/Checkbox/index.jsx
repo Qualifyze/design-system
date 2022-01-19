@@ -66,29 +66,26 @@ const Indicator = styled(Box)(
     boxShadow: `inset 0 0 0 1px ${props.theme.colors.grey[400]}`,
     borderRadius: props.theme.radii[2],
     marginRight: props.theme.space[2],
+    height: '24px',
+    width: '24px',
+    minWidth: '24px',
   }),
+  // as the text changes in size we need to adjust the space at the top
+  // of the box to line up correctly
   variant({
     prop: 'size',
     variants: {
       tiny: {
-        height: '18px',
-        width: '18px',
-        minWidth: '18px',
+        marginTop: '-3px',
       },
       small: {
-        height: '21px',
-        width: '21px',
-        minWidth: '21px',
+        marginTop: '-1px',
       },
       standard: {
-        height: '24px',
-        width: '24px',
-        minWidth: '24px',
+        marginTop: '1px',
       },
       large: {
-        height: '27px',
-        width: '27px',
-        minWidth: '27px',
+        marginTop: '3px',
       },
     },
   }),
@@ -119,7 +116,7 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
             disabled={disabled}
             size={size}
           >
-            {meta.value && <Icon name="checkmark" size={size} color="white" />}
+            {meta.value && <Icon name="checkmark" color="white" />}
           </Indicator>
           <Flex
             as="label"
