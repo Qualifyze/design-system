@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.6.2
+
+### Patch Changes
+
+- [#251](https://github.com/Qualifyze/design-system/pull/251) [`2ea8509`](https://github.com/Qualifyze/design-system/commit/2ea850977bca1fe51e916c39f3d5fb21f6f0847e) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Better multi line support for checkbox
+
 ## 1.6.1
 
 ### Patch Changes
