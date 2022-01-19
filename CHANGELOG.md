@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.6.1
+
+### Patch Changes
+
+- [#249](https://github.com/Qualifyze/design-system/pull/249) [`ce22186`](https://github.com/Qualifyze/design-system/commit/ce221863485aabe7e6383dbd9f60c5a6024d951d) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Add min width for the checkbox so it does not break with long text
+
 ## 1.6.0
 
 ### Minor Changes
