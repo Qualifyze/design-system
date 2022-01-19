@@ -7,7 +7,7 @@ import Icon from '../Icon'
 import Box from '../Box'
 import Text from '../Text'
 import FieldMessage from '../FieldMessage'
-import { styled } from '../../util/style'
+import { styled, variant } from '../../util/style'
 
 const Input = styled('input')(props => ({
   'outline': 'none',
@@ -62,20 +62,39 @@ const Indicator = styled(Box)(
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '24px',
-    width: '24px',
-    minWidth: '24px',
     background: props.theme.colors.white,
     boxShadow: `inset 0 0 0 1px ${props.theme.colors.grey[400]}`,
     borderRadius: props.theme.radii[2],
     marginRight: props.theme.space[2],
+    height: '24px',
+    width: '24px',
+    minWidth: '24px',
+  }),
+  // as the text changes in size we need to adjust the space at the top
+  // of the box to line up correctly
+  variant({
+    prop: 'size',
+    variants: {
+      tiny: {
+        marginTop: '-3px',
+      },
+      small: {
+        marginTop: '-1px',
+      },
+      standard: {
+        marginTop: '1px',
+      },
+      large: {
+        marginTop: '3px',
+      },
+    },
   }),
   useCheckedStyles,
   useErrorStyles,
   useDisabledStyles
 )
 
-const Checkbox = ({ name, label, disabled, reserveMessageSpace }) => {
+const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
   const [field, meta] = useField({ name, type: 'checkbox' })
   const hasError = meta.error && meta.touched
 
@@ -90,11 +109,12 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace }) => {
           {...field}
           {...meta}
         />
-        <Flex alignItems="center">
+        <Flex alignItems="flex-start">
           <Indicator
             hasError={hasError}
             isChecked={meta.value}
             disabled={disabled}
+            size={size}
           >
             {meta.value && <Icon name="checkmark" color="white" />}
           </Indicator>
@@ -102,27 +122,13 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace }) => {
             as="label"
             sx={{
               cursor: disabled ? 'default' : 'pointer',
-              lineHeight: '24px',
             }}
             htmlFor={name}
           >
             <Text
+              size={size}
               as="span"
               color={disabled ? 'grey.400' : 'grey.800'}
-              sx={{
-                'lineHeight': '24px',
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  transform: 'translateY(-50%)',
-                  top: '50%',
-                  height: '100%',
-                  minHeight: '44px',
-                  minWidth: '44px',
-                  left: '-10px',
-                  right: '-10px',
-                },
-              }}
             >
               {label}
             </Text>
@@ -148,11 +154,13 @@ Checkbox.propTypes = {
   /** Whether Checkbox is disabled */
   disabled: PropTypes.bool,
   reserveMessageSpace: PropTypes.bool,
+  size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
 }
 
 Checkbox.defaultProps = {
   disabled: false,
   reserveMessageSpace: false,
+  size: 'standard',
 }
 
 export default Checkbox
