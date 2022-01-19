@@ -7,7 +7,7 @@ import Icon from '../Icon'
 import Box from '../Box'
 import Text from '../Text'
 import FieldMessage from '../FieldMessage'
-import { styled } from '../../util/style'
+import { styled, variant } from '../../util/style'
 
 const Input = styled('input')(props => ({
   'outline': 'none',
@@ -62,20 +62,43 @@ const Indicator = styled(Box)(
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '24px',
-    width: '24px',
-    minWidth: '24px',
     background: props.theme.colors.white,
     boxShadow: `inset 0 0 0 1px ${props.theme.colors.grey[400]}`,
     borderRadius: props.theme.radii[2],
     marginRight: props.theme.space[2],
+    marginTop: props.theme.space[1],
+  }),
+  variant({
+    prop: 'size',
+    variants: {
+      tiny: {
+        height: '18px',
+        width: '18px',
+        minWidth: '18px',
+      },
+      small: {
+        height: '21px',
+        width: '21px',
+        minWidth: '21px',
+      },
+      standard: {
+        height: '24px',
+        width: '24px',
+        minWidth: '24px',
+      },
+      large: {
+        height: '27px',
+        width: '27px',
+        minWidth: '27px',
+      },
+    },
   }),
   useCheckedStyles,
   useErrorStyles,
   useDisabledStyles
 )
 
-const Checkbox = ({ name, label, disabled, reserveMessageSpace }) => {
+const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
   const [field, meta] = useField({ name, type: 'checkbox' })
   const hasError = meta.error && meta.touched
 
@@ -95,8 +118,9 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace }) => {
             hasError={hasError}
             isChecked={meta.value}
             disabled={disabled}
+            size={size}
           >
-            {meta.value && <Icon name="checkmark" color="white" />}
+            {meta.value && <Icon name="checkmark" size={size} color="white" />}
           </Indicator>
           <Flex
             as="label"
@@ -107,6 +131,7 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace }) => {
             htmlFor={name}
           >
             <Text
+              size={size}
               as="span"
               color={disabled ? 'grey.400' : 'grey.800'}
               sx={{
@@ -148,11 +173,13 @@ Checkbox.propTypes = {
   /** Whether Checkbox is disabled */
   disabled: PropTypes.bool,
   reserveMessageSpace: PropTypes.bool,
+  size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
 }
 
 Checkbox.defaultProps = {
   disabled: false,
   reserveMessageSpace: false,
+  size: 'standard',
 }
 
 export default Checkbox
