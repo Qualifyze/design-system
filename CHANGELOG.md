@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.6.4
+
+### Patch Changes
+
+- [#256](https://github.com/Qualifyze/design-system/pull/256) [`2e275d9`](https://github.com/Qualifyze/design-system/commit/2e275d98b953fe1612ac47c024b8b49da40dc4f0) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Focus on checkbox label was not correct with introduction of additional text
+
 ## 1.6.3
 
 ### Patch Changes
