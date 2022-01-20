@@ -125,7 +125,7 @@ const Checkbox = ({
           >
             {meta.value && <Icon name="checkmark" color="white" />}
           </Indicator>
-          <Box sx={{ display: 'inline' }}>
+          <Box sx={{ display: 'inline' }} as="span">
             <Box
               as="label"
               sx={{
