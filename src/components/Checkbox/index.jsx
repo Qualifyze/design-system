@@ -76,16 +76,16 @@ const Indicator = styled(Box)(
     prop: 'size',
     variants: {
       tiny: {
-        marginTop: '-3px',
+        marginTop: '2px',
       },
       small: {
-        marginTop: '-1px',
+        marginTop: '2px',
       },
       standard: {
-        marginTop: '1px',
+        marginTop: '0px',
       },
       large: {
-        marginTop: '3px',
+        marginTop: '5px',
       },
     },
   }),
@@ -94,7 +94,14 @@ const Indicator = styled(Box)(
   useDisabledStyles
 )
 
-const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
+const Checkbox = ({
+  name,
+  label,
+  disabled,
+  reserveMessageSpace,
+  size,
+  additionalText,
+}) => {
   const [field, meta] = useField({ name, type: 'checkbox' })
   const hasError = meta.error && meta.touched
 
@@ -118,21 +125,32 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
           >
             {meta.value && <Icon name="checkmark" color="white" />}
           </Indicator>
-          <Flex
-            as="label"
-            sx={{
-              cursor: disabled ? 'default' : 'pointer',
-            }}
-            htmlFor={name}
-          >
-            <Text
-              size={size}
-              as="span"
-              color={disabled ? 'grey.400' : 'grey.800'}
+          <Box sx={{ display: 'inline' }}>
+            <Box
+              as="label"
+              sx={{
+                cursor: disabled ? 'default' : 'pointer',
+              }}
+              htmlFor={name}
             >
-              {label}
-            </Text>
-          </Flex>
+              <Text
+                size={size}
+                as="span"
+                color={disabled ? 'grey.400' : 'grey.800'}
+              >
+                {label}
+              </Text>
+            </Box>
+            {additionalText ? (
+              <Text
+                size={size}
+                as="span"
+                color={disabled ? 'grey.400' : 'grey.800'}
+              >
+                {additionalText}
+              </Text>
+            ) : null}
+          </Box>
         </Flex>
       </Flex>
       {reserveMessageSpace || hasError ? (
@@ -155,12 +173,14 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   reserveMessageSpace: PropTypes.bool,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
+  additionalText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 Checkbox.defaultProps = {
   disabled: false,
   reserveMessageSpace: false,
   size: 'standard',
+  additionalText: '',
 }
 
 export default Checkbox

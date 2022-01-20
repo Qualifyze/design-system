@@ -8,6 +8,7 @@ import Button from '../Button'
 import FormDebugger from '../FormDebugger'
 import Box from '../Box'
 import Stack from '../Stack'
+import TextLink from '../TextLink'
 
 import Checkbox from './index'
 
@@ -15,10 +16,12 @@ export default { title: 'Checkbox', component: Checkbox }
 
 export const Default = () => {
   const sizes = ['tiny', 'small', 'standard', 'large']
+  const extraTexts = ['text', 'text_and_link']
 
   const label = text('Label', 'Sign me up for the newsletter')
   const size = select('Size', sizes, 'standard')
   const disabled = boolean('Disabled', false)
+  const additionalText = select('Additional text', extraTexts, 'text')
   const error = boolean('Not false error', false)
   const insideState = boolean('Inside State', false)
 
@@ -29,6 +32,7 @@ export const Default = () => {
   const checkboxSchemaEmpty = Yup.object().shape({
     newsletter: Yup.boolean().required(),
   })
+
   return (
     <Box m={5}>
       <Formik
@@ -50,6 +54,15 @@ export const Default = () => {
                 label={label}
                 size={size}
                 disabled={disabled}
+                additionalText={
+                  additionalText === 'text' ? (
+                    ' this is some text on the end of the select'
+                  ) : (
+                    <>
+                      {` this is some text`} <TextLink>with a link</TextLink>
+                    </>
+                  )
+                }
               />
               <Button type="submit" ml={5}>
                 Submit
