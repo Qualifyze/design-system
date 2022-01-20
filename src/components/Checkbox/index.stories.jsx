@@ -19,6 +19,7 @@ export const Default = () => {
   const label = text('Label', 'Sign me up for the newsletter')
   const size = select('Size', sizes, 'standard')
   const disabled = boolean('Disabled', false)
+  const withFor = boolean('With for', false)
   const error = boolean('Not false error', false)
   const insideState = boolean('Inside State', false)
 
@@ -50,6 +51,7 @@ export const Default = () => {
                 label={label}
                 size={size}
                 disabled={disabled}
+                withFor={withFor}
               />
               <Button type="submit" ml={5}>
                 Submit
