@@ -7,7 +7,7 @@ import Icon from '../Icon'
 import Box from '../Box'
 import Text from '../Text'
 import FieldMessage from '../FieldMessage'
-import { styled, variant } from '../../util/style'
+import { propTypes, styled, variant } from '../../util/style'
 
 const Input = styled('input')(props => ({
   'outline': 'none',
@@ -94,7 +94,14 @@ const Indicator = styled(Box)(
   useDisabledStyles
 )
 
-const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
+const Checkbox = ({
+  name,
+  label,
+  disabled,
+  reserveMessageSpace,
+  size,
+  withFor,
+}) => {
   const [field, meta] = useField({ name, type: 'checkbox' })
   const hasError = meta.error && meta.touched
 
@@ -123,7 +130,7 @@ const Checkbox = ({ name, label, disabled, reserveMessageSpace, size }) => {
             sx={{
               cursor: disabled ? 'default' : 'pointer',
             }}
-            htmlFor={name}
+            htmlFor={withFor ? name : ''}
           >
             <Text
               size={size}
@@ -154,12 +161,14 @@ Checkbox.propTypes = {
   /** Whether Checkbox is disabled */
   disabled: PropTypes.bool,
   reserveMessageSpace: PropTypes.bool,
+  withFor: propTypes.bool,
   size: PropTypes.oneOf(['tiny', 'small', 'standard', 'large']),
 }
 
 Checkbox.defaultProps = {
   disabled: false,
   reserveMessageSpace: false,
+  withFor: true,
   size: 'standard',
 }
 
