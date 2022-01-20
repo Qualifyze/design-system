@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.6.3
+
+### Patch Changes
+
+- [#254](https://github.com/Qualifyze/design-system/pull/254) [`a04cb63`](https://github.com/Qualifyze/design-system/commit/a04cb630c26b80afb48bb6028e639b0b18bc1d13) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Make the for prop optional on checkboxes
+
 ## 1.6.2
 
 ### Patch Changes
