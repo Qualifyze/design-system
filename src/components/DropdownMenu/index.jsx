@@ -3,13 +3,20 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { styled } from '../../util/style'
 
 const StyledContent = styled(DropdownMenuPrimitive.Content)(props => ({
-  minWidth: '100px',
-  backgroundColor: props.theme.colors.white,
-  borderRadius: props.theme.radii[2],
-  padding: props.theme.space[2],
-  // The following values are taken from theme, but copy&pasted for ease of use.
-  // Same as AutosuggestField
-  boxShadow: `0 0 0 1px hsl(210, 24%, 87%), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+  'minWidth': '100px',
+  'backgroundColor': props.theme.colors.white,
+  'borderRadius': props.theme.radii[2],
+  'padding': props.theme.space[2],
+  '&::after': {
+    content: '""',
+    position: 'absolute',
+    inset: 0,
+    zIndex: '-1',
+    borderRadius: props.theme.radii[2],
+    // The following values are taken from theme, but copy&pasted for ease of use.
+    // Same as AutosuggestField
+    boxShadow: `0 0 0 1px hsl(210, 24%, 87%), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+  },
 }))
 
 const useItemStyles = props => ({
