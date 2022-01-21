@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.6.5
+
+### Patch Changes
+
+- [#259](https://github.com/Qualifyze/design-system/pull/259) [`b3939a7`](https://github.com/Qualifyze/design-system/commit/b3939a77ba3f1ecc739e7d0a2ae077ec8f00831e) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Fix shadows of `DropdownMenu`
+
 ## 1.6.4
 
 ### Patch Changes
