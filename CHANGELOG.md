@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.6.6
+
+### Patch Changes
+
+- [#261](https://github.com/Qualifyze/design-system/pull/261) [`7a77bc9`](https://github.com/Qualifyze/design-system/commit/7a77bc9aa3c94d473876914b8f13dc6d2b5bac1b) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Update the package lock
+
 ## 1.6.5
 
 ### Patch Changes
