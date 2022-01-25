@@ -112,6 +112,7 @@ TextField.propTypes = {
     'tel',
     'time',
     'url',
+    'date',
   ]),
   placeholder: PropTypes.string,
   message: PropTypes.string,
