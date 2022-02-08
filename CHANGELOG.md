@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.6.7
+
+### Patch Changes
+
+- [#263](https://github.com/Qualifyze/design-system/pull/263) [`4c2cfc1`](https://github.com/Qualifyze/design-system/commit/4c2cfc12b04d7a290856e86d167945523028cbdc) Thanks [@falco953](https://github.com/falco953)! - Quickfix: Allow type date for `TextField`
+
+* [#265](https://github.com/Qualifyze/design-system/pull/265) [`1cd7521`](https://github.com/Qualifyze/design-system/commit/1cd75214ad0c336a389beba2c0e9c229cc12a4c1) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Add docs about having to include global this when using the DS
+
 ## 1.6.6
 
 ### Patch Changes
