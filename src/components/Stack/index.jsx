@@ -7,7 +7,6 @@ import flattenChildren from 'react-keyed-flatten-children'
 
 import { propType } from '../../util/style'
 import Box from '../Box'
-import useNegativeValue from '../private/hooks/useNegativeValue'
 
 const useStackItem = ({ align, space }) => ({
   pt: space,
@@ -29,11 +28,17 @@ const Stack = ({ as, space, children, align }) => {
   // when the stack should be a list we need to render `<li>`s
   const isList = as === 'ol' || as === 'ul'
   const stackItemComponent = isList ? 'li' : 'div'
-  const stackItemProps = useStackItem({ space, align })
+  // We don't expect the first child component to be spaced so it doesn't need top spacing
+  // We had previously tried negative margin top values on the top Box but leads
+  // to the component overlapping with other components
+  const firstStackItemProps = useStackItem({ space: 0, align })
+  const restStackItemProps = useStackItem({ space, align })
 
   return (
-    <Box as={as} mt={useNegativeValue(space)}>
-      {Children.map(stackItems, child => {
+    <Box as={as}>
+      {Children.map(stackItems, (child, index) => {
+        const stackItemProps =
+          index === 0 ? firstStackItemProps : restStackItemProps
         return (
           <Box as={stackItemComponent} {...stackItemProps}>
             {child}
