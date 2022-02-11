@@ -40,6 +40,18 @@ const DialogContent = styled(BaseDialogContent, {
   // in the DOM since its not supported
   shouldForwardProp: prop => prop !== 'maxWidth',
 })(props => {
+  const sideBarStyles = props.asSidebar
+    ? {
+        right: 0,
+        bottom: 0,
+        top: 0,
+        position: 'fixed',
+        overflowY: 'scroll',
+        height: '100%',
+        margin: '0 !important',
+        borderRadius: '0 !important',
+      }
+    : {}
   return {
     '&[data-reach-dialog-content]': {
       width: `100%`,
@@ -48,6 +60,7 @@ const DialogContent = styled(BaseDialogContent, {
       background: `white`,
       position: `relative`,
       marginTop: props.theme.space[6],
+      ...sideBarStyles,
       [`@media (min-width: ${props.theme.breakpoints.small})`]: {
         borderRadius: props.theme.radii[2],
         maxWidth: props.theme.sizes[props.maxWidth],
@@ -69,7 +82,7 @@ const DialogOverlay = styled(BaseDialogOverlay)(() => {
 // this is the base modal it is very basic right now we use the overlay and the content
 // as we add custom styling to both of these components. if the custom styling is
 // removed we can just use the Dialog component that comes from the plugin
-const Modal = ({ isOpen, onDismiss, maxWidth, children }) => {
+const Modal = ({ isOpen, onDismiss, maxWidth, children, asSidebar }) => {
   const headingId = useId()
 
   return (
@@ -85,7 +98,11 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children }) => {
           px: [0, 3],
         }}
       >
-        <DialogContent maxWidth={maxWidth} aria-labelledby={headingId}>
+        <DialogContent
+          asSidebar={asSidebar}
+          maxWidth={maxWidth}
+          aria-labelledby={headingId}
+        >
           <Box
             aria-hidden
             as="button"
@@ -130,12 +147,14 @@ Modal.Body = Body
 Modal.defaultProps = {
   onDismiss: null,
   maxWidth: 'medium',
+  asSidebar: false,
 }
 
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onDismiss: PropTypes.func,
   children: PropTypes.node.isRequired,
+  asSidebar: PropTypes.bool,
   maxWidth: PropTypes.oneOf(['narrow', 'medium', 'wide', 'page']),
 }
 
