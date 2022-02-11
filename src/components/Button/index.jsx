@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { styled, variant } from '../../util/style'
 import Box from '../Box'
 
+import { LoadingBar } from './LoadingBar'
+
 const Base = styled('button')(
   props => ({
     'revert': 'all',
@@ -73,42 +75,6 @@ const Base = styled('button')(
   })
 )
 
-export const Loader = styled.span`
-  display: 'inline-block';
-
-  & > span {
-    width: 0.15em;
-    height: 0.15em;
-    background-color: currentColor;
-    border-radius: 100%;
-    display: inline-block;
-    animation: loading-animation 1000ms infinite ease-in-out both;
-  }
-
-  & > span:nth-of-type(1) {
-    margin-left: 0.25em;
-    margin-right: 0.15em;
-    animation-delay: -320ms;
-  }
-
-  & > span:nth-of-type(2) {
-    margin-right: 0.15em;
-    animation-delay: -160ms;
-  }
-
-  @keyframes loading-animation {
-    0%,
-    80%,
-    100% {
-      transform: scale(0);
-    }
-
-    40% {
-      transform: scale(1);
-    }
-  }
-`
-
 const Button = forwardRef(
   ({ children, icon, isLoading, onClick, ...props }, ref) => {
     return (
@@ -119,13 +85,7 @@ const Button = forwardRef(
           </Box>
         ) : null}
         {children}
-        {isLoading ? (
-          <Loader aria-hidden>
-            <span />
-            <span />
-            <span />
-          </Loader>
-        ) : null}
+        {isLoading ? <LoadingBar aria-hidden /> : null}
       </Base>
     )
   }
