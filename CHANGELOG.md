@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.7.0
+
+### Minor Changes
+
+- [#267](https://github.com/Qualifyze/design-system/pull/267) [`262c0b3`](https://github.com/Qualifyze/design-system/commit/262c0b3a6653a3b456ce7c6dbf820eb6eb475fb9) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Add a new type of modal, the side bar
+
 ## 1.6.7
 
 ### Patch Changes
