@@ -1,6 +1,8 @@
 import React from 'react'
-import { text, array, select } from '@storybook/addon-knobs'
+import { text, select } from '@storybook/addon-knobs'
 
+import Box from '../Box'
+import Button from '../Button'
 import Columns from '../Columns'
 import Placeholder from '../private/Placeholder'
 
@@ -8,8 +10,11 @@ import Column from './index'
 
 export default { title: 'Column', component: Column }
 
+// All possible values for `space` according to our theme
+const ALL_SPACES = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
 export const Default = () => {
-  const space = array('Space', [1, 3, 5])
+  const space = select('Space', ALL_SPACES, 5)
   const firstColWith = text('first col width', '20%')
   const secondColWidth = text('second col width', '30%')
   const thirdColWidth = text('third col width', '50%')
@@ -69,4 +74,33 @@ export const AutoWidth = () => (
 )
 AutoWidth.story = {
   name: 'automatic width',
+}
+
+export const Adjacent = () => {
+  const space = select('Space', ALL_SPACES, 5)
+
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <Box>
+        <Button>Am I clickable?</Button>
+      </Box>
+      <Columns space={space}>
+        <Column>
+          <Placeholder height={50} width="100%" label="hello there" />
+        </Column>
+        <Column>
+          <Placeholder height={50} width="100%" label="hello there" />
+        </Column>
+        <Column>
+          <Placeholder height={50} width="100%" label="hello there" />
+        </Column>
+        <Column>
+          <Placeholder height={50} width="100%" label="hello there" />
+        </Column>
+      </Columns>
+    </Box>
+  )
+}
+Adjacent.story = {
+  name: 'with adjacent interactive elements',
 }
