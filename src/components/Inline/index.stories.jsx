@@ -1,15 +1,23 @@
+/* eslint-disable no-alert */
 import React from 'react'
 import { select } from '@storybook/addon-knobs'
 
+import Box from '../Box'
+import Button from '../Button'
 import Placeholder from '../private/Placeholder'
 
 import Inline from './index'
 
+// All possible values for `space` according to our theme
+const ALL_SPACES = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
 export default { title: 'Inline', component: Inline }
 
 export const Default = () => {
+  const space = select('Space', ALL_SPACES, 3)
+
   return (
-    <Inline space={3}>
+    <Inline space={space}>
       <Placeholder width={20} height={48} />
       <Placeholder width={80} height={48} />
       <Placeholder width={40} height={48} />
@@ -35,9 +43,10 @@ export const Collapsible = () => {
     ['mobile', 'tablet', 'desktop'],
     'tablet'
   )
+  const space = select('Space', ALL_SPACES, 3)
 
   return (
-    <Inline space={3} collapseBelow={collapseBelow}>
+    <Inline space={space} collapseBelow={collapseBelow}>
       <Placeholder width={48} height={48} />
       <Placeholder width={48} height={48} />
       <Placeholder width={48} height={48} />
@@ -53,9 +62,10 @@ Collapsible.story = {
 
 export const AlignY = () => {
   const alignY = select('alignY', ['top', 'center', 'bottom'], 'center')
+  const space = select('Space', ALL_SPACES, 3)
 
   return (
-    <Inline space={3} alignY={alignY}>
+    <Inline space={space} alignY={alignY}>
       <Placeholder width={32} height={32} />
       <Placeholder width={32} height={32} />
       <Placeholder width={32} height={32} />
@@ -71,4 +81,24 @@ export const AlignY = () => {
 }
 AlignY.story = {
   name: 'vertically aligned',
+}
+
+export const Adjacent = () => {
+  const space = select('Space', ALL_SPACES, 5)
+
+  return (
+    <Box css={{ display: 'flex', flexDirection: 'row' }}>
+      <Inline>
+        <Button onClick={() => alert('Yes i am!')}>Am I clickable?</Button>
+      </Inline>
+      <Inline space={space}>
+        <Placeholder width={50} height={50} />
+        <Placeholder width={50} height={50} />
+        <Placeholder width={50} height={50} />
+      </Inline>
+    </Box>
+  )
+}
+Adjacent.story = {
+  name: 'with adjacent interactive elements',
 }
