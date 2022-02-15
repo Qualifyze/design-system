@@ -14,14 +14,20 @@ import useAlignment from './useAlignment'
 const Tiles = ({ columns, as, space, align, children }) => (
   <Box
     as={as}
-    sx={{ display: 'block', width: '100%', mt: useNegativeValue(space) }}
+    sx={{
+      display: 'block',
+      width: '100%',
+      position: 'static',
+      mt: useNegativeValue(space),
+    }}
   >
     <Box
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
-        ml: useNegativeValue(space),
         justifyContent: useAlignment(align),
+        position: 'static',
+        ml: useNegativeValue(space),
       }}
     >
       {Children.map(flattenChildren(children), child => (
@@ -29,6 +35,7 @@ const Tiles = ({ columns, as, space, align, children }) => (
           sx={{
             'minWidth': 0,
             'flex': useColumns(columns),
+            'position': 'static',
             '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)':
               {
                 // IE11 needs this overflow, although it doesn't change the layout.
@@ -40,6 +47,7 @@ const Tiles = ({ columns, as, space, align, children }) => (
           <Box
             sx={{
               height: '100%',
+              position: 'static',
               /* This needs to be a separate element to support IE11. */
               paddingTop: space,
               paddingLeft: space,
