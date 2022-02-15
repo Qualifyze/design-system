@@ -10,6 +10,7 @@ import flattenChildren from 'react-keyed-flatten-children'
 import { propType } from '../../util/style'
 import Box from '../Box'
 import Flex from '../Flex'
+import useNegativeValue from '../private/hooks/useNegativeValue'
 
 import useFlexDirection from './useFlexDirection'
 import useAlignment from './useAlignment'
@@ -18,18 +19,32 @@ const Inline = ({ space, collapseBelow, alignY, children }) => {
   const inlineItems = flattenChildren(children)
 
   return (
-    <Box mt={-space}>
+    <Box
+      sx={{
+        'position': 'static',
+        '&::before': {
+          content: '""',
+          display: 'table',
+          mt: useNegativeValue(space),
+        },
+      }}
+    >
       <Flex
-        ml={-space}
         flexWrap="wrap"
         flexDirection={useFlexDirection(collapseBelow)}
         {...useAlignment(alignY)}
+        sx={{
+          'position': 'static',
+          '&::before': {
+            content: '""',
+            display: 'table',
+            ml: useNegativeValue(space),
+          },
+        }}
       >
         {Children.map(inlineItems, child => {
           return (
-            <Box pl={space} pt={space}>
-              {child}
-            </Box>
+            <Box sx={{ pl: space, pt: space, position: 'static' }}>{child}</Box>
           )
         })}
       </Flex>
