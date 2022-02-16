@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.7.1
+
+### Patch Changes
+
+- [#271](https://github.com/Qualifyze/design-system/pull/271) [`f964148`](https://github.com/Qualifyze/design-system/commit/f964148cc1f649e518829537fc37de6cd011d4e3) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Update the spacing in the side bar modal
+
 ## 1.7.0
 
 ### Minor Changes
