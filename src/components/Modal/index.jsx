@@ -36,12 +36,18 @@ const Actions = ({ children }) => (
 )
 
 const DialogContent = styled(BaseDialogContent, {
-  // Do not pass the maxWidth prop to the DialogContent
-  // in the DOM since its not supported
+  // prop to the DialogContent
+  // in the DOM since its not Do not pass the maxWidth supported
   shouldForwardProp: prop => prop !== 'maxWidth',
 })(props => {
-  const sideBarStyles = props.asSidebar
+  const sideBarDesktopStyles = props.asSidebar
     ? {
+        padding: props.theme.space[3],
+      }
+    : {}
+  const sideBarMobileStyles = props.asSidebar
+    ? {
+        padding: 0,
         right: 0,
         bottom: 0,
         top: 0,
@@ -60,11 +66,12 @@ const DialogContent = styled(BaseDialogContent, {
       background: `white`,
       position: `relative`,
       marginTop: props.theme.space[6],
-      ...sideBarStyles,
+      ...sideBarMobileStyles,
       [`@media (min-width: ${props.theme.breakpoints.small})`]: {
         borderRadius: props.theme.radii[2],
         maxWidth: props.theme.sizes[props.maxWidth],
         marginBottom: props.theme.space[5],
+        ...sideBarDesktopStyles,
       },
     },
   }
@@ -137,6 +144,10 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children, asSidebar }) => {
       </Box>
     </DialogOverlay>
   )
+}
+
+DialogContent.propTypes = {
+  asSidebar: PropTypes.bool.isRequired,
 }
 
 Modal.displayName = 'Modal'
