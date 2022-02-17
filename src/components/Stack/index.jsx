@@ -32,10 +32,24 @@ const Stack = ({ as, space, children, align }) => {
   const stackItemProps = useStackItem({ space, align })
 
   return (
-    <Box as={as} mt={useNegativeValue(space)}>
+    <Box
+      as={as}
+      sx={{
+        'position': 'static',
+        '&::before': {
+          content: '""',
+          display: 'table',
+          mt: useNegativeValue(space),
+        },
+      }}
+    >
       {Children.map(stackItems, child => {
         return (
-          <Box as={stackItemComponent} {...stackItemProps}>
+          <Box
+            as={stackItemComponent}
+            {...stackItemProps}
+            sx={{ position: 'static' }}
+          >
             {child}
           </Box>
         )

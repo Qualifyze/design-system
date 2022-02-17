@@ -44,8 +44,11 @@ const Columns = ({ children, collapseBelow, space, alignY, align }) => {
       {...useFlexAlignment(align, alignY, collapseBelow)}
       flexDirection={useFlexDirection(collapseBelow)}
       flexWrap={useFlexWrap(collapseBelow)}
-      ml={useNegativeValue(space)}
-      mt={useNegativeValue(space)}
+      sx={{
+        position: 'static',
+        mt: useNegativeValue(space),
+        ml: useNegativeValue(space),
+      }}
     >
       <ColumnsContext.Provider
         value={{

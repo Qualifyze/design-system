@@ -22,6 +22,7 @@ const Column = ({ width, children }) => {
         pl,
         width: resolveWidth[width] ?? width ?? defaultWidth,
         flexShrink: preventBreak ? 0 : null,
+        position: 'static',
       }}
     >
       {children}
