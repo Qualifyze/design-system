@@ -38,7 +38,7 @@ const Actions = ({ children }) => (
 const DialogContent = styled(BaseDialogContent, {
   // prop to the DialogContent
   // in the DOM since its not Do not pass the maxWidth supported
-  shouldForwardProp: prop => prop !== 'maxWidth',
+  shouldForwardProp: prop => prop !== 'maxWidth' && prop !== 'asSidebar',
 })(props => {
   const sideBarDesktopStyles = props.asSidebar
     ? {
