@@ -1,5 +1,17 @@
 # @qualifyze/design-system
 
+## 1.7.2
+
+### Patch Changes
+
+- [#274](https://github.com/Qualifyze/design-system/pull/274) [`baac7bf`](https://github.com/Qualifyze/design-system/commit/baac7bf2fe1b9da6aea527cfeb0c10f084469a45) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Fix the console error on the as sidebar prop
+
+* [#270](https://github.com/Qualifyze/design-system/pull/270) [`8d95a4d`](https://github.com/Qualifyze/design-system/commit/8d95a4d4b82906152db8d6f9a055cc9e8745ce87) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Fix CSS stacking context for several layout components
+
+  The following components were "leaking" (layout-wise speaking) into adjacent components. We use negative margins for all of them, which resulted in adjacent interactive components (e.g., buttons) not being clickable because these components were overlapping with the buttons. This release fixes that by making sure all layout components use `position: static` to avoid creating a new CSS stacking context for them.
+
+  The affected components are: `Stack`, `Inline`, `Column(s)`, and `Tiles`.
+
 ## 1.7.1
 
 ### Patch Changes
