@@ -1,10 +1,11 @@
 /* eslint-disable no-alert */
 import React from 'react'
-import { select } from '@storybook/addon-knobs'
+import { select, boolean } from '@storybook/addon-knobs'
 
 import Box from '../Box'
 import Button from '../Button'
 import Inline from '../Inline'
+import Flex from '../Flex'
 import Placeholder from '../private/Placeholder'
 
 import Stack from './index'
@@ -48,4 +49,45 @@ export const Adjacent = () => {
 }
 Adjacent.story = {
   name: 'with adjacent interactive elements',
+}
+
+export const LeakingCase = () => {
+  const space = select('Space', ALL_SPACES, 6)
+  const withIndex = boolean('Using z-index', true)
+
+  return (
+    <Box sx={{ border: 'solid 3px black' }}>
+      <Flex
+        sx={{
+          backgroundColor: 'grey.100',
+          width: '100%',
+          flexWrap: 'wrap',
+          borderTop: '1px solid',
+          borderLeft: '1px solid',
+          borderColor: 'grey.200',
+          mb: 3,
+          zIndex: withIndex ? '2' : null,
+        }}
+      >
+        <Inline>
+          <Button onClick={() => alert('Yes, I am!')}>
+            But am I clickable? Try me with and without z-index and high space
+          </Button>
+        </Inline>
+      </Flex>
+      <Box sx={{ zIndex: withIndex ? '1' : null, border: 'solid 3px red' }}>
+        <Stack space={space}>
+          <Inline>
+            <Button onClick={() => alert('I am!')}>Am I clickable?</Button>
+          </Inline>
+          <Placeholder height={50} width="100%" />
+          <Placeholder height={50} width="100%" />
+          <Placeholder height={50} width="100%" />
+        </Stack>
+      </Box>
+    </Box>
+  )
+}
+LeakingCase.story = {
+  name: 'example from the platform where leaks',
 }
