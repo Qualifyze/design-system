@@ -91,3 +91,31 @@ export const LeakingCase = () => {
 LeakingCase.story = {
   name: 'example from the platform where leaks',
 }
+
+export const UsingOneBox = () => {
+  const space = select('Space', ALL_SPACES, 6)
+  const withIndex = boolean('Using z-index', true)
+
+  return (
+    <Box sx={{ border: 'solid 3px black' }}>
+      <Inline>
+        <Button onClick={() => alert('Yes, I am!')}>
+          But am I clickable? Try me with and without z-index and high space
+        </Button>
+      </Inline>
+      <Box sx={{ zIndex: withIndex ? '0' : null, border: 'solid 3px red' }}>
+        <Stack space={space}>
+          <Inline>
+            <Button onClick={() => alert('I am!')}>Am I clickable?</Button>
+          </Inline>
+          <Placeholder height={50} width="100%" />
+          <Placeholder height={50} width="100%" />
+          <Placeholder height={50} width="100%" />
+        </Stack>
+      </Box>
+    </Box>
+  )
+}
+UsingOneBox.story = {
+  name: 'example where leaks with one Box inside',
+}
