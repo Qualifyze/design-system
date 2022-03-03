@@ -34,3 +34,30 @@ This project includes several components that have to work even when they are la
 | Cookie Banner (in `website`) | 900       |
 | Notification                 | ???       |
 | Modal                        | 500       |
+
+## Limitations and known issues
+
+### Stack component with large `space` prop values
+
+Child components of `Stack` might "leak" into other components if values above 4 are given to it in the `space` prop, blocking interaction with other UI elements like buttons or text. 
+
+Workaround is to wrap the component that "leaks" and the one "leaked into" in `Box` or `Flex` components and provide `z-index` for both.
+
+```jsx
+import Box from "./index";
+
+<Box>
+  <Box sx={{zIndex: 2}}>
+    <Button> You can't click Me!</Button>
+  </Box>
+  <Box sx={{zIndex: 1}}>
+    <Stack space={5}>
+      <Button> Just a regular button</Button>
+    </Stack>
+  </Box>
+</Box>
+```
+You can find an example taken from the platform in the `Stack` stories in storybook under "leaking example".
+
+Fixing this requires a major version release because we still need to support [Internet Explorer](https://death-to-ie11.com/).
+
