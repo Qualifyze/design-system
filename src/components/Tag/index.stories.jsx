@@ -1,9 +1,10 @@
 import React from 'react'
-import { array } from '@storybook/addon-knobs'
+import { array, text } from '@storybook/addon-knobs'
 
 import Inline from '../Inline'
 import Stack from '../Stack'
 import Text from '../Text'
+import Icon from '../Icon'
 
 import Tag from './index'
 
@@ -22,6 +23,7 @@ export const Default = () => {
         {MultipleExamples.map(content => (
           <Tag key={`${content}`}>{content}</Tag>
         ))}
+        <Tag onClick={() => {}}>Clickable Tag</Tag>
       </Inline>
       <Text>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
@@ -39,4 +41,20 @@ export const Default = () => {
 }
 Default.story = {
   name: 'default',
+}
+
+export const WithIcon = () => {
+  const iconName = text('Icon', 'pencil')
+  const content = text('Text', 'Tag including an icon')
+
+  return (
+    <Stack space={4}>
+      <Inline space={1}>
+        <Tag icon={<Icon name={iconName} size="tiny" />}>{content}</Tag>
+      </Inline>
+    </Stack>
+  )
+}
+WithIcon.story = {
+  name: 'with Icon',
 }

@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 
 import { styled } from '../../util/style'
 import Text from '../Text'
+import Box from '../Box'
 
 const Base = styled('span')(props => ({
   'position': 'relative',
   'paddingLeft': props.theme.space[2],
   'paddingRight': props.theme.space[2],
   'whiteSpace': 'nowrap',
+  'cursor': props.onClick ? 'pointer' : 'text',
   '& > span': {
     'color': props.theme.colors.grey[700],
     '&::after': {
@@ -34,11 +36,16 @@ const Base = styled('span')(props => ({
   },
 }))
 
-const Tag = forwardRef(({ children, as, onClick }, ref) => (
+const Tag = forwardRef(({ children, as, icon, onClick }, ref) => (
   <Base as={as} ref={ref} onClick={onClick}>
     <Text as="span" size="small" weight="medium">
       {children}
     </Text>
+    {icon ? (
+      <Box as="span" sx={{ pl: 2 }}>
+        {icon}
+      </Box>
+    ) : null}
   </Base>
 ))
 
@@ -47,6 +54,7 @@ Tag.displayName = 'Tag'
 Tag.defaultProps = {
   as: 'span',
   onClick: null,
+  icon: null,
 }
 
 Tag.propTypes = {
@@ -54,6 +62,7 @@ Tag.propTypes = {
   as: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.string.isRequired,
+  icon: PropTypes.node,
 }
 
 export default Tag
