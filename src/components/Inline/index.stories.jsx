@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import React from 'react'
-import { select } from '@storybook/addon-knobs'
+import { boolean, select } from '@storybook/addon-knobs'
 
 import Box from '../Box'
 import Button from '../Button'
@@ -101,4 +101,44 @@ export const Adjacent = () => {
 }
 Adjacent.story = {
   name: 'with adjacent interactive elements',
+}
+
+export const LeakingExample = () => {
+  const space = select('Space', ALL_SPACES, 7)
+  const withIndex = boolean('Using z-index', true)
+
+  return (
+    <Box
+      css={{
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Box
+        sx={{
+          zIndex: withIndex ? '2' : null,
+        }}
+      >
+        <Inline>
+          <Button onClick={() => alert('Yes i am!')}>
+            Am I clickable? Try with high space values
+          </Button>
+        </Inline>
+      </Box>
+      <Box
+        sx={{
+          zIndex: withIndex ? '1' : null,
+        }}
+      >
+        <Inline space={space}>
+          <Placeholder width={50} height={50} />
+          <Placeholder width={50} height={50} />
+          <Placeholder width={50} height={50} />
+        </Inline>
+      </Box>
+    </Box>
+  )
+}
+LeakingExample.story = {
+  name: 'leaking example',
 }
