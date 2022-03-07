@@ -1,5 +1,15 @@
 # @qualifyze/design-system
 
+## 1.9.0
+
+### Minor Changes
+
+- [#278](https://github.com/Qualifyze/design-system/pull/278) [`d26c5ba`](https://github.com/Qualifyze/design-system/commit/d26c5ba7d608ee7e471308f56c44cd8d652bdb25) Thanks [@falco953](https://github.com/falco953)! - Extend Tag component with optional Icon and fix pointer if clickable
+
+### Patch Changes
+
+- [#276](https://github.com/Qualifyze/design-system/pull/276) [`921bdeb`](https://github.com/Qualifyze/design-system/commit/921bdeb28bb547764f31152e6b1ec9d4247ed8d9) Thanks [@jorgechiapello](https://github.com/jorgechiapello)! - Add explanation and example about Stack component leaking
+
 ## 1.7.2
 
 ### Patch Changes
