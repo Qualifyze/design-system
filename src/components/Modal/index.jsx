@@ -110,6 +110,14 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children, asSidebar }) => {
           maxWidth={maxWidth}
           aria-labelledby={headingId}
         >
+          {React.Children?.map(children, child => {
+            // For the heading, we need to provide the id so
+            // aria-labelledby can be linked
+            if (child?.type === Heading) {
+              return React.cloneElement(child, { id: headingId })
+            }
+            return child
+          })}
           <Box
             aria-hidden
             as="button"
@@ -132,14 +140,6 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children, asSidebar }) => {
           >
             <Icon name="cross" size="large" />
           </Box>
-          {React.Children?.map(children, child => {
-            // For the heading, we need to provide the id so
-            // aria-labelledby can be linked
-            if (child?.type === Heading) {
-              return React.cloneElement(child, { id: headingId })
-            }
-            return child
-          })}
         </DialogContent>
       </Box>
     </DialogOverlay>
