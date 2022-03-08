@@ -128,6 +128,7 @@ const Modal = ({ isOpen, onDismiss, maxWidth, children, asSidebar }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              zIndex: '501',
             }}
           >
             <Icon name="cross" size="large" />
