@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.9.1
+
+### Patch Changes
+
+- [#279](https://github.com/Qualifyze/design-system/pull/279) [`ebe99e7`](https://github.com/Qualifyze/design-system/commit/ebe99e7c1c1d7825e41018de658c170e0c770855) Thanks [@jorgechiapello](https://github.com/jorgechiapello)! - Extended leaking explanation and exmples for Tiles, Inline and Columns
+
+* [#281](https://github.com/Qualifyze/design-system/pull/281) [`bdae62c`](https://github.com/Qualifyze/design-system/commit/bdae62c55a6db44bef260fe99e3abe40b46c777c) Thanks [@falco953](https://github.com/falco953)! - Quickfix: Make close button on Modal always actionable
+
 ## 1.9.0
 
 ### Minor Changes
