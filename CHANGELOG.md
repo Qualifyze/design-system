@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.9.2
+
+### Patch Changes
+
+- [#282](https://github.com/Qualifyze/design-system/pull/282) [`db91798`](https://github.com/Qualifyze/design-system/commit/db91798becab9fb145ec6123872e5687ef460bf1) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Fix styling of `Tabs`
+
 ## 1.9.1
 
 ### Patch Changes
