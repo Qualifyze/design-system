@@ -14,6 +14,9 @@ const TabList = styled(TabsPrimitive.List)(props => ({
 }))
 
 const TabTrigger = styled(TabsPrimitive.Trigger)(props => ({
+  'all': 'unset',
+  'border': 'none',
+  'background': 'transparent',
   'position': 'relative',
   'color': props.theme.colors.grey[800],
   'fontWeight': props.theme.fontWeights.semibold,
