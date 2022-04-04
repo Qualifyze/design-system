@@ -1,23 +1,26 @@
+import { select, text } from '@storybook/addon-knobs'
 import React from 'react'
-import { select } from '@storybook/addon-knobs'
 
 import Box from '../Box'
 
 import LoadingSpinner from './index'
 
-export default { title: 'LoadingSpinner', component: LoadingSpinner }
+export default { title: 'LoadingSpinner' }
+
+const variants = ['primary', 'secondary', 'light']
 
 export const Default = () => {
-  const variants = ['default', 'secondary', 'light']
-  const variant = select('Variant', variants, 'default')
-  const storyBg = select('Story Background', ['primary.800', 'white'], 'white')
+  const variant = select('Variant', variants, 'primary')
+  const size = text('Size', '80px')
+  const storyBg = text('Background', 'white')
 
   return (
-    <Box bg={storyBg} m={3}>
-      <LoadingSpinner variant={variant} />
+    <Box bg={storyBg} p={3}>
+      <LoadingSpinner variant={variant} size={size} />
     </Box>
   )
 }
+
 Default.story = {
   name: 'default',
 }

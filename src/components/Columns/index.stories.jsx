@@ -181,6 +181,9 @@ export const LeakingExample = () => {
   const space = select('Space', ALL_SPACES, 6)
   const withIndex = boolean('Using z-index', true)
 
+  // eslint-disable-next-line no-alert
+  const click = () => alert('Yes I am!')
+
   return (
     <Box>
       <Card>
@@ -191,7 +194,7 @@ export const LeakingExample = () => {
             }}
           >
             <Inline>
-              <Button onClick={() => alert('Yes I am!')}>
+              <Button onClick={click}>
                 Am I clickable? Try with high space values
               </Button>
             </Inline>
