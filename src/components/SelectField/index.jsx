@@ -62,6 +62,8 @@ const SelectField = ({
         }
         isDisabled={disabled}
         menuPlacement={menuPlacement}
+        menuPortalTarget={window.document.body}
+        menuPosition="absolute"
         noOptionsMessage={noOptionsMessage}
         components={{ DropdownIndicator }}
       />

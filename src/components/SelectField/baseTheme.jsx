@@ -140,6 +140,10 @@ export const customStyles = {
     overflow: 'initial',
     wordBreak: 'break-word',
   }),
+  menuPortal: provided => ({
+    ...provided,
+    zIndex: 9999,
+  }),
 }
 
 export const defaultVariant = customTheme => ({
