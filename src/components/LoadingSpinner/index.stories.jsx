@@ -3,9 +3,9 @@ import React from 'react'
 
 import Box from '../Box'
 
-import LoadingSpinner from './index'
+import LoadingSpinner from '.'
 
-export default { title: 'LoadingSpinner' }
+export default { title: 'LoadingSpinner', component: LoadingSpinner }
 
 const variants = ['primary', 'secondary', 'light']
 
