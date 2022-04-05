@@ -69,8 +69,8 @@ const DialogContent = styled(BaseDialogContent, {
           }
         : {
             borderRadius: theme.radii[2],
-            margin: `${theme.space[6]}px auto ${theme.space[5]}px`,
-            maxHeight: `calc(100% - ${theme.space[6]}px - ${theme.space[5]}px)`,
+            margin: '10% auto',
+            maxHeight: '80%',
           }),
     },
     [`@media (min-width: ${theme.breakpoints.tablet})`]: {
@@ -89,7 +89,7 @@ const DialogOverlay = styled(BaseDialogOverlay)(({ theme }) => {
       flexDirection: 'column',
       justifyContent: 'flex-end',
       [`@media (min-width: ${theme.breakpoints.small})`]: {
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
       },
     },
   }
