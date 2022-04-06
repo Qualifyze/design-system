@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.10.0
+
+### Minor Changes
+
+- [#285](https://github.com/Qualifyze/design-system/pull/285) [`e8dd7bb`](https://github.com/Qualifyze/design-system/commit/e8dd7bb4e14942d1296210f51108b2aaa5371d6d) Thanks [@phjardas](https://github.com/phjardas)! - New circular scalable loading spinner
+
 ## 1.9.2
 
 ### Patch Changes
