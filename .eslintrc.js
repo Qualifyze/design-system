@@ -6,6 +6,7 @@ module.exports = {
     'prettier',
     'plugin:react/recommended',
     'plugin:testing-library/recommended',
+    'plugin:storybook/recommended',
   ],
   parser: 'babel-eslint',
   env: {
