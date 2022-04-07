@@ -10,8 +10,12 @@ import Box from '../Box'
 import useNegativeValue from '../private/hooks/useNegativeValue'
 
 const useStackItem = ({ align, space }) => ({
-  pt: space,
-  width: '100%',
+  'pt': space,
+  // if browser supports gap, revert using margins
+  '@supports (gap: 10px)': {
+    pt: 0,
+  },
+  'width': '100%',
   // If we're aligned left across all screen sizes,
   // there's actually no alignment work to do.
   ...(align === 'left'
@@ -36,10 +40,20 @@ const Stack = ({ as, space, children, align }) => {
       as={as}
       sx={{
         'position': 'static',
+        'display': 'flex',
+        'flex-direction': 'column',
+        // 10 is a dummy value to test if browser supports gap (Internet Explorer doesn't)
+        '@supports (gap: 10px)': {
+          gap: space,
+        },
         '&::before': {
-          content: '""',
-          display: 'table',
-          mt: useNegativeValue(space),
+          'content': '""',
+          'display': 'table',
+          'mt': useNegativeValue(space),
+          // if browser supports gap, revert using margins
+          '@supports (gap: 10px)': {
+            mt: 0,
+          },
         },
       }}
     >
