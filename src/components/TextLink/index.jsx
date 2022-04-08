@@ -2,7 +2,13 @@
 import React, { forwardRef, useContext } from 'react'
 import PropTypes from 'prop-types'
 
-import { styled, createShouldForwardProp, props, sx } from '../../util/style'
+import {
+  styled,
+  createShouldForwardProp,
+  props,
+  sx,
+  variant,
+} from '../../util/style'
 import ActionsContext from '../Actions/ActionsContext'
 import Box from '../Box'
 import { Loader } from '../Button'
@@ -49,7 +55,6 @@ const BaseLink = styled('a', { shouldForwardProp })(
     'fontWeight': props.theme.fontWeights.semibold,
     'textDecoration': 'none',
     'WebkitTapHighlightColor': 'transparent',
-    'color': props.theme.colors.primary[600],
     'borderRadius': props.theme.radii[1],
     '&:focus, &:hover': {
       textDecoration: 'underline',
@@ -68,6 +73,26 @@ const BaseLink = styled('a', { shouldForwardProp })(
           width: '100%',
         }
       : null),
+  }),
+  variant({
+    prop: 'tone',
+    variants: {
+      primary: {
+        color: 'primary.600',
+      },
+      neutral: {
+        color: 'grey.700',
+      },
+      positive: {
+        color: 'green.700',
+      },
+      critical: {
+        color: 'red.700',
+      },
+      info: {
+        color: 'secondary.600',
+      },
+    },
   }),
   useVisitedStyles,
   useHitArea,
@@ -109,12 +134,14 @@ TextLink.propTypes = {
   hitArea: PropTypes.oneOf(['standard', 'large']),
   /** This doesn't make sense for normal links, but we need it for TextLinkButton to show progress on async onClick actions */
   isLoading: PropTypes.bool,
+  tone: PropTypes.oneOf(['primary', 'neutral', 'positive', 'critical', 'info']),
 }
 
 TextLink.defaultProps = {
   showVisited: false,
   hitArea: 'standard',
   isLoading: false,
+  tone: 'primary',
 }
 
 export default TextLink

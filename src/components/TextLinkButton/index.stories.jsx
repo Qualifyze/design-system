@@ -22,15 +22,21 @@ export const Default = () => {
     ['tiny', 'small', 'standard', 'large'],
     'standard'
   )
+  const tone = select(
+    'Tone',
+    ['primary', 'neutral', 'positive', 'critical', 'info'],
+    'primary'
+  )
 
   return (
     <Stack space={4}>
       <Text size={size}>
-        If you want to show a link that triggers some kind of action,{' '}
-        <TextLinkButton hitArea={hitArea}>
-          you should use a TextLinkButton instead of a TextLink for semantic
-          reasons.
+        If you want to show a link that triggers some kind of action, you should
+        use a{' '}
+        <TextLinkButton hitArea={hitArea} tone={tone}>
+          TextLinkButton
         </TextLinkButton>{' '}
+        instead of a TextLink for semantic reasons.
       </Text>
       <Text>
         If you need more documentation, please look at the{' '}
