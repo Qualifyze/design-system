@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import TextLink from '../TextLink'
 
-const TextLinkButton = ({ onClick, isLoading, icon, children }) => {
+const TextLinkButton = ({ onClick, isLoading, ...props }) => {
   const handleKeyPress = React.useCallback(
     event => {
       if (!isLoading && (event.code === 'Enter' || event.code === 'Space')) {
@@ -18,28 +17,28 @@ const TextLinkButton = ({ onClick, isLoading, icon, children }) => {
       as="span"
       role="button"
       tabIndex={0}
-      icon={icon}
+      {...props}
       onClick={isLoading ? undefined : onClick}
       isLoading={isLoading}
       onKeyPress={handleKeyPress}
-    >
-      {children}
-    </TextLink>
+    />
   )
 }
 
 TextLinkButton.propTypes = {
-  isLoading: PropTypes.bool,
-  onClick: PropTypes.func,
-  children: PropTypes.node,
-  icon: PropTypes.node,
+  children: TextLink.propTypes.children,
+  icon: TextLink.propTypes.icon,
+  isLoading: TextLink.propTypes.isLoading,
+  onClick: TextLink.propTypes.onClick,
+  tone: TextLink.propTypes.tone,
 }
 
 TextLinkButton.defaultProps = {
-  isLoading: false,
-  onClick: null,
-  children: null,
-  icon: null,
+  children: TextLink.defaultProps.children,
+  icon: TextLink.defaultProps.icon,
+  isLoading: TextLink.defaultProps.isLoading,
+  onClick: TextLink.defaultProps.onClick,
+  tone: TextLink.defaultProps.tone,
 }
 
 export default TextLinkButton

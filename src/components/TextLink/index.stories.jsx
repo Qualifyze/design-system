@@ -21,11 +21,21 @@ export const Default = () => {
     ['tiny', 'small', 'standard', 'large'],
     'standard'
   )
+  const tone = select(
+    'Tone',
+    ['primary', 'neutral', 'positive', 'critical', 'info'],
+    'primary'
+  )
 
   return (
     <Text size={size}>
       If you want to link somewhere, use the{' '}
-      <TextLink href={href} showVisited={showVisited} hitArea={hitArea}>
+      <TextLink
+        href={href}
+        showVisited={showVisited}
+        hitArea={hitArea}
+        tone={tone}
+      >
         TextLink
       </TextLink>{' '}
       component. It should be nested inside a Text.
