@@ -1,5 +1,15 @@
 # @qualifyze/design-system
 
+## 1.11.0
+
+### Minor Changes
+
+- [#289](https://github.com/Qualifyze/design-system/pull/289) [`0aa0cf9`](https://github.com/Qualifyze/design-system/commit/0aa0cf9410a3610a8419386abb53174340c741d5) Thanks [@phjardas](https://github.com/phjardas)! - TextLink and TextLinkButton: add tone property
+
+### Patch Changes
+
+- [#291](https://github.com/Qualifyze/design-system/pull/291) [`26853fd`](https://github.com/Qualifyze/design-system/commit/26853fd3032a7314ce78cea7a5a9ce745b2c5f2e) Thanks [@phjardas](https://github.com/phjardas)! - Text: increase contrast for secondary tone.
+
 ## 1.10.0
 
 ### Minor Changes
