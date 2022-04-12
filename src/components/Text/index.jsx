@@ -62,7 +62,7 @@ const Text = styled('p', { shouldForwardProp })(
         color: 'red.700',
       },
       secondary: {
-        color: 'grey.700',
+        color: 'grey.800',
       },
       lightsecondary: {
         color: 'hsla(0, 0%, 100%, 0.6)',
