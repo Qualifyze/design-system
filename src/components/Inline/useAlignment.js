@@ -17,19 +17,11 @@ const transformAlign = direction => {
   return alignment
 }
 
-const getValues = values => {
+const useAlignment = values => {
   if (Array.isArray(values)) {
     return values.map(a => transformAlign(a))
   }
   return transformAlign(values)
-}
-
-const useAlignment = x => {
-  const alignment = getValues(x)
-
-  return {
-    alignItems: alignment,
-  }
 }
 
 export default useAlignment

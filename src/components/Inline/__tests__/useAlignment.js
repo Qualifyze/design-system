@@ -6,15 +6,13 @@ describe('useAlignment', () => {
     const alignBottom = useAlignment('bottom')
     const alignCenter = useAlignment('center')
 
-    expect(alignTop).toEqual({ alignItems: 'flex-start' })
-    expect(alignBottom).toEqual({ alignItems: 'flex-end' })
-    expect(alignCenter).toEqual({ alignItems: 'center' })
+    expect(alignTop).toEqual('flex-start')
+    expect(alignBottom).toEqual('flex-end')
+    expect(alignCenter).toEqual('center')
   })
 
   test('when you pass a responsive array you should get out an array', () => {
     const responsiveAlignment = useAlignment(['top', 'bottom', 'center'])
-    expect(responsiveAlignment).toEqual({
-      alignItems: ['flex-start', 'flex-end', 'center'],
-    })
+    expect(responsiveAlignment).toEqual(['flex-start', 'flex-end', 'center'])
   })
 })

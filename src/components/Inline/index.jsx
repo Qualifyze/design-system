@@ -3,51 +3,27 @@
  *
  * Note: Currently, it's not possible to use <Hidden> inside an <Inline>. This needs more work, but I'm not sure if we will actually need it...
  */
-import React, { Children } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import flattenChildren from 'react-keyed-flatten-children'
 
 import { propType } from '../../util/style'
 import Box from '../Box'
-import Flex from '../Flex'
-import useNegativeValue from '../private/hooks/useNegativeValue'
 
 import useFlexDirection from './useFlexDirection'
 import useAlignment from './useAlignment'
 
 const Inline = ({ space, collapseBelow, alignY, children }) => {
-  const inlineItems = flattenChildren(children)
-
   return (
     <Box
       sx={{
-        'position': 'static',
-        '&::before': {
-          content: '""',
-          display: 'table',
-          mt: useNegativeValue(space),
-        },
+        display: 'inline-flex',
+        flexWrap: 'wrap',
+        flexDirection: useFlexDirection(collapseBelow),
+        alignItems: useAlignment(alignY),
+        gap: space,
       }}
     >
-      <Flex
-        flexWrap="wrap"
-        flexDirection={useFlexDirection(collapseBelow)}
-        {...useAlignment(alignY)}
-        sx={{
-          'position': 'static',
-          '&::before': {
-            content: '""',
-            display: 'table',
-            ml: useNegativeValue(space),
-          },
-        }}
-      >
-        {Children.map(inlineItems, child => {
-          return (
-            <Box sx={{ pl: space, pt: space, position: 'static' }}>{child}</Box>
-          )
-        })}
-      </Flex>
+      {children}
     </Box>
   )
 }
@@ -67,6 +43,7 @@ Inline.propTypes = {
   space: propType,
   /** Shows components in a single column below this breakpoint */
   collapseBelow: PropTypes.oneOf(['mobile', 'tablet', 'desktop']),
+  /** Vertical alignment of components */
   alignY: PropTypes.oneOfType([alignYValues, PropTypes.arrayOf(alignYValues)]),
 }
 
