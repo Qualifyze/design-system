@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { propTypes } from '../../util/style'
 import Flex from '../Flex'
-import useNegativeValue from '../private/hooks/useNegativeValue'
 
 import useDefaultWidth from './useDefaultWidth'
 import useFlexAlignment from './useFlexAlignment'
@@ -16,23 +15,6 @@ export const ColumnsContext = createContext({
   defaultWidth: '100%',
 })
 
-// -----
-// align: 'center' | 'right' | 'left' || Array < 'center' | 'right' | 'left' >
-//   How children will align top to bottom, can also be an array of how the children will align
-//   at breakpoints
-// -----
-// alignY: 'center' | 'top' | 'bottom' || Array<'center' | 'top' | 'bottom'>
-//   How children will align along you y axis so top to bottom, can also be an array for
-//   responsive props
-// -----
-// collapseBellow:? 'mobile' | 'tablet' | 'desktop'
-//   At what breakpoint would you like to collapse into cols mode, this is most of the time
-//   just mobile, but if you want to keep a row just don't supply anything here
-// -----
-// space:?propTypes.space
-//   Optional prop for how to space out the children also can be responsive array
-// -----
-
 const Columns = ({ children, collapseBelow, space, alignY, align }) => {
   // calculate the default width to use if none if provided for the children
   // add it to the context so each col can just use the default width per item
@@ -41,19 +23,15 @@ const Columns = ({ children, collapseBelow, space, alignY, align }) => {
 
   return (
     <Flex
-      {...useFlexAlignment(align, alignY, collapseBelow)}
-      flexDirection={useFlexDirection(collapseBelow)}
-      flexWrap={useFlexWrap(collapseBelow)}
       sx={{
-        position: 'static',
-        mt: useNegativeValue(space),
-        ml: useNegativeValue(space),
+        flexWrap: useFlexWrap(collapseBelow),
+        flexDirection: useFlexDirection(collapseBelow),
+        ...useFlexAlignment(align, alignY, collapseBelow),
+        gap: space,
       }}
     >
       <ColumnsContext.Provider
         value={{
-          pl: space,
-          pt: space,
           defaultWidth,
         }}
       >
@@ -69,7 +47,6 @@ Columns.defaultProps = {
   alignY: 'top',
 }
 
-// enums for prop checking
 const alignValues = PropTypes.oneOf(['left', 'right', 'center', 'fill'])
 const alignYValues = PropTypes.oneOf(['top', 'bottom', 'center', 'stretch'])
 
@@ -78,9 +55,13 @@ Columns.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
   ]).isRequired,
+  /** Breakpoint for when columns should appear stacked vertically */
   collapseBelow: PropTypes.oneOf(['mobile', 'tablet', 'desktop']),
+  /** Spacing between child components */
   ...propTypes.space,
+  /** Vertical alignment of child components */
   alignY: PropTypes.oneOfType([alignYValues, PropTypes.arrayOf(alignYValues)]),
+  /** Horizontal alignment of child components */
   align: PropTypes.oneOfType([alignValues, PropTypes.arrayOf(alignValues)]),
 }
 
