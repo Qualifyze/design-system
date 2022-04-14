@@ -89,10 +89,10 @@ export default function ProgressBar({ variant, size, value, color, bg, fg }) {
 ProgressBar.propTypes = {
   variant: PropTypes.oneOf(['indeterminate', 'determinate']),
   size: PropTypes.oneOf(['normal', 'small']),
-  value: PropTypes.number(),
+  value: PropTypes.number,
   color: PropTypes.oneOf(['primary', 'secondary']),
-  bg: PropTypes.string(),
-  fg: PropTypes.string(),
+  bg: PropTypes.string,
+  fg: PropTypes.string,
 }
 
 ProgressBar.defaultProps = {
