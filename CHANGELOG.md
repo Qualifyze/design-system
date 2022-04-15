@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 1.11.1
+
+### Patch Changes
+
+- [#297](https://github.com/Qualifyze/design-system/pull/297) [`5566372`](https://github.com/Qualifyze/design-system/commit/5566372273f7a65ccd9317b71ab02e466b403b69) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Fix `ProgressBar`'s proptypes
+
+* [#299](https://github.com/Qualifyze/design-system/pull/299) [`34bec6a`](https://github.com/Qualifyze/design-system/commit/34bec6a6f280be36f04967de930320ac754ace4b) Thanks [@vubogovich](https://github.com/vubogovich)! - Bugfix: move reach router to dev dependencies as it's used in stories only and not compatible with React v17.
+
 ## 1.11.0
 
 ### Minor Changes
