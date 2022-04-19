@@ -7,10 +7,8 @@ import flattenChildren from 'react-keyed-flatten-children'
 
 import { propType } from '../../util/style'
 import Box from '../Box'
-import useNegativeValue from '../private/hooks/useNegativeValue'
 
-const useStackItem = ({ align, space }) => ({
-  pt: space,
+const useStackItem = ({ align }) => ({
   width: '100%',
   // If we're aligned left across all screen sizes,
   // there's actually no alignment work to do.
@@ -29,27 +27,20 @@ const Stack = ({ as, space, children, align }) => {
   // when the stack should be a list we need to render `<li>`s
   const isList = as === 'ol' || as === 'ul'
   const stackItemComponent = isList ? 'li' : 'div'
-  const stackItemProps = useStackItem({ space, align })
+  const stackItemStyles = useStackItem({ align })
 
   return (
     <Box
       as={as}
       sx={{
-        'position': 'static',
-        '&::before': {
-          content: '""',
-          display: 'table',
-          mt: useNegativeValue(space),
-        },
+        display: 'flex',
+        flexDirection: 'column',
+        gap: space,
       }}
     >
       {Children.map(stackItems, child => {
         return (
-          <Box
-            as={stackItemComponent}
-            {...stackItemProps}
-            sx={{ position: 'static' }}
-          >
+          <Box as={stackItemComponent} sx={{ ...stackItemStyles }}>
             {child}
           </Box>
         )
