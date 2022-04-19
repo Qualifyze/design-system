@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import TextLink from '../TextLink'
 
@@ -29,7 +30,7 @@ TextLinkButton.propTypes = {
   children: TextLink.propTypes.children,
   icon: TextLink.propTypes.icon,
   isLoading: TextLink.propTypes.isLoading,
-  onClick: TextLink.propTypes.onClick,
+  onClick: PropTypes.func, // Hidden in `TextLink`
   tone: TextLink.propTypes.tone,
 }
 
@@ -37,7 +38,7 @@ TextLinkButton.defaultProps = {
   children: TextLink.defaultProps.children,
   icon: TextLink.defaultProps.icon,
   isLoading: TextLink.defaultProps.isLoading,
-  onClick: TextLink.defaultProps.onClick,
+  onClick: undefined,
   tone: TextLink.defaultProps.tone,
 }
 
