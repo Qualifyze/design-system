@@ -3,7 +3,10 @@ import React from 'react'
 
 import Box from '../Box'
 
-export default function Menu({ children }) {
+import MenuDivider from './MenuDivider'
+import MenuItem from './MenuItem'
+
+function Menu({ children }) {
   return <Box>{children}</Box>
 }
 
@@ -14,3 +17,8 @@ Menu.propTypes = {
 Menu.defaultProps = {
   children: null,
 }
+
+Menu.Item = MenuItem
+Menu.Divider = MenuDivider
+
+export default Menu

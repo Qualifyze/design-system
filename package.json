@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Qualifyze/design-system.git"
@@ -21,7 +22,8 @@
     "clean": "shx rm -rf dist",
     "build:cjs": "rollup -c rollup.config.js",
     "build:esm": "babel --out-dir dist src",
-    "build": "npm run clean && npm run build:cjs && npm run build:esm",
+    "build:types": "node scripts/create-type-definitions.js && cp src/index.d.ts dist/types/",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types",
     "build:storybook": "build-storybook",
     "start": "start-storybook --port 3333 --quiet",
     "lint:scripts": "eslint .storybook src",
@@ -100,6 +102,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
+    "react-to-typescript-definitions": "^3.1.0",
     "rollup": "^2.53.1",
     "rollup-plugin-styles": "^3.14.1",
     "shx": "^0.3.3",

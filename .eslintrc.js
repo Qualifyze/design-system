@@ -31,6 +31,13 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
       },
     },
+    {
+      files: ['scripts/**'],
+      rules: {
+        'no-console': 'off',
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
   ],
   rules: {
     'import/extensions': 'off',
