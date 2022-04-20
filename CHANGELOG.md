@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 1.11.2
+
+### Patch Changes
+
+- [#300](https://github.com/Qualifyze/design-system/pull/300) [`208966e`](https://github.com/Qualifyze/design-system/commit/208966e4ae0df74360f7e0eb362a26d18fa06673) Thanks [@vubogovich](https://github.com/vubogovich)! - Fix type definition for `TextLinkButton.onClick`.
+
 ## 1.11.1
 
 ### Patch Changes
