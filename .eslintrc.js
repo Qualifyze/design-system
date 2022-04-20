@@ -24,7 +24,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.stories.*'],
+      files: ['*.stories.*', '.storybook/**'],
       rules: {
         'import/no-default-export': 'off',
         // eslint cannot resolve properly the @storybook paths
