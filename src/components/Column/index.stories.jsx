@@ -1,8 +1,6 @@
 import React from 'react'
 import { text, select } from '@storybook/addon-knobs'
 
-import Box from '../Box'
-import Button from '../Button'
 import Columns from '../Columns'
 import Placeholder from '../private/Placeholder'
 
@@ -74,33 +72,4 @@ export const AutoWidth = () => (
 )
 AutoWidth.story = {
   name: 'automatic width',
-}
-
-export const Adjacent = () => {
-  const space = select('Space', ALL_SPACES, 5)
-
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <Box>
-        <Button>Am I clickable?</Button>
-      </Box>
-      <Columns space={space}>
-        <Column>
-          <Placeholder height={50} width="100%" label="hello there" />
-        </Column>
-        <Column>
-          <Placeholder height={50} width="100%" label="hello there" />
-        </Column>
-        <Column>
-          <Placeholder height={50} width="100%" label="hello there" />
-        </Column>
-        <Column>
-          <Placeholder height={50} width="100%" label="hello there" />
-        </Column>
-      </Columns>
-    </Box>
-  )
-}
-Adjacent.story = {
-  name: 'with adjacent interactive elements',
 }
