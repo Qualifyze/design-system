@@ -1,9 +1,7 @@
 /* eslint-disable no-alert */
 import React from 'react'
-import { boolean, select } from '@storybook/addon-knobs'
+import { select } from '@storybook/addon-knobs'
 
-import Box from '../Box'
-import Button from '../Button'
 import Placeholder from '../private/Placeholder'
 
 import Inline from './index'
@@ -81,64 +79,4 @@ export const AlignY = () => {
 }
 AlignY.story = {
   name: 'vertically aligned',
-}
-
-export const Adjacent = () => {
-  const space = select('Space', ALL_SPACES, 5)
-
-  return (
-    <Box css={{ display: 'flex', flexDirection: 'row' }}>
-      <Inline>
-        <Button onClick={() => alert('Yes i am!')}>Am I clickable?</Button>
-      </Inline>
-      <Inline space={space}>
-        <Placeholder width={50} height={50} />
-        <Placeholder width={50} height={50} />
-        <Placeholder width={50} height={50} />
-      </Inline>
-    </Box>
-  )
-}
-Adjacent.story = {
-  name: 'with adjacent interactive elements',
-}
-
-export const LeakingExample = () => {
-  const space = select('Space', ALL_SPACES, 7)
-  const withIndex = boolean('Using z-index', true)
-
-  return (
-    <Box
-      css={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <Box
-        sx={{
-          zIndex: withIndex ? '2' : null,
-        }}
-      >
-        <Inline>
-          <Button onClick={() => alert('Yes i am!')}>
-            Am I clickable? Try with high space values
-          </Button>
-        </Inline>
-      </Box>
-      <Box
-        sx={{
-          zIndex: withIndex ? '1' : null,
-        }}
-      >
-        <Inline space={space}>
-          <Placeholder width={50} height={50} />
-          <Placeholder width={50} height={50} />
-          <Placeholder width={50} height={50} />
-        </Inline>
-      </Box>
-    </Box>
-  )
-}
-LeakingExample.story = {
-  name: 'leaking example',
 }
