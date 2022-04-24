@@ -1,9 +1,8 @@
 import React from 'react'
-import { select, number, array, text, boolean } from '@storybook/addon-knobs'
+import { select, number, array, text } from '@storybook/addon-knobs'
 
 import Column from '../Column'
 import Box from '../Box'
-import Inline from '../Inline'
 import Text from '../Text'
 import Card from '../Card'
 import Button from '../Button'
@@ -172,55 +171,4 @@ export const ExampleWithButton = () => {
 }
 ExampleWithButton.story = {
   name: 'example with Button',
-}
-
-// All possible values for `space` according to our theme
-const ALL_SPACES = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-
-export const LeakingExample = () => {
-  const space = select('Space', ALL_SPACES, 6)
-  const withIndex = boolean('Using z-index', true)
-
-  // eslint-disable-next-line no-alert
-  const click = () => alert('Yes I am!')
-
-  return (
-    <Box>
-      <Card>
-        <Stack space={3}>
-          <Box
-            sx={{
-              zIndex: withIndex ? '2' : null,
-            }}
-          >
-            <Inline>
-              <Button onClick={click}>
-                Am I clickable? Try with high space values
-              </Button>
-            </Inline>
-          </Box>
-          <Box
-            sx={{
-              zIndex: withIndex ? '1' : null,
-            }}
-          >
-            <Columns space={space} collapseBelow="mobile">
-              <Column width="fill">
-                <Text>
-                  Your comments over the report had been uploaded. We will
-                  upload the final report shortly.
-                </Text>
-              </Column>
-              <Column width="auto">
-                <Button>Continue</Button>
-              </Column>
-            </Columns>
-          </Box>
-        </Stack>
-      </Card>
-    </Box>
-  )
-}
-LeakingExample.story = {
-  name: 'leaking example',
 }

@@ -10,7 +10,7 @@ const resolveWidth = {
 }
 
 const Column = ({ width, children }) => {
-  const { pt, pl, defaultWidth } = useContext(ColumnsContext)
+  const { defaultWidth } = useContext(ColumnsContext)
 
   // If width is `auto`, we need to make sure the column doesn't break lines
   const preventBreak = width === 'auto'
@@ -18,11 +18,8 @@ const Column = ({ width, children }) => {
   return (
     <Box
       sx={{
-        pt,
-        pl,
         width: resolveWidth[width] ?? width ?? defaultWidth,
         flexShrink: preventBreak ? 0 : null,
-        position: 'static',
       }}
     >
       {children}

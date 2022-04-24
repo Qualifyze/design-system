@@ -1,13 +1,10 @@
-const getColWidth = cols => {
-  return `${100 / cols}%` || `100%`
-}
-
-const useColumns = cols => {
+const useColumns = columnCount => {
   // if we have an array must be responsive
-  if (Array.isArray(cols)) {
-    return cols.map(bpCols => `0 0 ${getColWidth(bpCols)}`)
+  if (Array.isArray(columnCount)) {
+    return columnCount.map(col => `repeat(${col}, 1fr)`)
   }
-  return `0 0 ${getColWidth(cols)}`
+
+  return `repeat(${columnCount}, 1fr)`
 }
 
 export default useColumns
