@@ -1,5 +1,50 @@
 # @qualifyze/design-system
 
+## 2.0.0
+
+### Major Changes
+
+- [#293](https://github.com/Qualifyze/design-system/pull/293) [`31daaf6`](https://github.com/Qualifyze/design-system/commit/31daaf673df8a093d4329fd3436c5a5c85130fa1) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Drop IE11 support in layout components in favor of using flexbox's `gap` property. The affected layout components are:
+
+  - `Stack`
+  - `Inline`
+  - `Tiles`
+  - `Columns`
+
+  These will probably just not have any whitespace between their child components in IE11.
+
+* [#237](https://github.com/Qualifyze/design-system/pull/237) [`89e7167`](https://github.com/Qualifyze/design-system/commit/89e7167677c65adbff8b5964a0cdeefb99e7aa9b) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - New `Tooltip` implementation using Radix UI.
+
+  Example usage before:
+
+  ```jsx
+  <Box sx={{ p: 3, m: 4 }}>
+    <Tooltip
+      dataTooltip="I'm a tooltip!"
+      indicator="chevronUp"
+      variant="default"
+    >
+      Hover over me to see tooltip
+    </Tooltip>
+  </Box>
+  ```
+
+  Example usage after:
+
+  ```jsx
+  <Box sx={{ p: 3, m: 4 }}>
+    <Tooltip>
+      <Tooltip.Trigger asChild>
+        <Text>Hover over me to see tooltip</Text>
+      </Tooltip.Trigger>
+      <Tooltip.Content sideOffset={5}>
+        I'm a tooltip!
+        <Tooltip.Arrow offset={10} />
+      </Tooltip.Content>
+    </Tooltip>
+  </Box>
+  ```
+
 ## 1.11.2
 
 ### Patch Changes
