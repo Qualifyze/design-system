@@ -6,58 +6,31 @@ import flattenChildren from 'react-keyed-flatten-children'
 
 import { propType } from '../../util/style'
 import Box from '../Box'
-import useNegativeValue from '../private/hooks/useNegativeValue'
+import Flex from '../Flex'
 
-import useColumns from './useColumns'
 import useAlignment from './useAlignment'
+import useColumns from './useColumns'
 
 const Tiles = ({ columns, as, space, align, children }) => (
   <Box
     as={as}
     sx={{
-      display: 'block',
+      display: 'grid',
       width: '100%',
-      position: 'static',
-      mt: useNegativeValue(space),
+      gridGap: space,
+      gridTemplateColumns: useColumns(columns),
     }}
   >
-    <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: useAlignment(align),
-        position: 'static',
-        ml: useNegativeValue(space),
-      }}
-    >
-      {Children.map(flattenChildren(children), child => (
-        <Box
-          sx={{
-            'minWidth': 0,
-            'flex': useColumns(columns),
-            'position': 'static',
-            '@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)':
-              {
-                // IE11 needs this overflow, although it doesn't change the layout.
-                // Without it, IE11 creates horizontal scrollbars.
-                overflow: 'hidden',
-              },
-          }}
-        >
-          <Box
-            sx={{
-              height: '100%',
-              position: 'static',
-              /* This needs to be a separate element to support IE11. */
-              paddingTop: space,
-              paddingLeft: space,
-            }}
-          >
-            {child}
-          </Box>
-        </Box>
-      ))}
-    </Box>
+    {Children.map(flattenChildren(children), child => (
+      <Flex
+        sx={{
+          minWidth: 0,
+          justifyContent: useAlignment(align),
+        }}
+      >
+        {child}
+      </Flex>
+    ))}
   </Box>
 )
 
