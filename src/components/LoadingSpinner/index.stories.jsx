@@ -11,11 +11,11 @@ const variants = ['primary', 'secondary', 'light']
 
 export const Default = () => {
   const variant = select('Variant', variants, 'primary')
-  const size = text('Size', '80px')
+  const size = text('Size', '48px')
   const storyBg = text('Background', 'white')
 
   return (
-    <Box bg={storyBg} p={3}>
+    <Box sx={{ bg: storyBg, p: 3 }}>
       <LoadingSpinner variant={variant} size={size} />
     </Box>
   )

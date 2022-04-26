@@ -80,10 +80,10 @@ export default function LoadingSpinner(props) {
 
 LoadingSpinner.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary', 'light']),
-  size: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 LoadingSpinner.defaultProps = {
   variant: 'primary',
-  size: 80,
+  size: 48,
 }
