@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 2.0.1
+
+### Patch Changes
+
+- [#284](https://github.com/Qualifyze/design-system/pull/284) [`e7b70a1`](https://github.com/Qualifyze/design-system/commit/e7b70a1d6f6a5a4aa8ea50cb539b2faedf12ed69) Thanks [@phjardas](https://github.com/phjardas)! - Improve layout for modals and sidebars (QC-1883)
+
 ## 2.0.0
 
 ### Major Changes
