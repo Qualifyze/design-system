@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 
@@ -5,9 +6,6 @@ import Flex from '../Flex'
 
 import ActionsContext from './ActionsContext'
 
-// We need the `.actions` class just to make sure we don't break old designs.
-// For a longer explanation, see the `Button` component.
-// eslint-disable-next-line react/prop-types
 const Actions = ({ children }) => {
   const keyedChildren = flattenChildren(children)
 
@@ -20,6 +18,10 @@ const Actions = ({ children }) => {
       </Flex>
     </ActionsContext.Provider>
   )
+}
+
+Actions.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Actions
