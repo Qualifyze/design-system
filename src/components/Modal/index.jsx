@@ -28,7 +28,16 @@ function useLeftPadding() {
 // eslint-disable-next-line react/prop-types
 function Heading({ children, id }) {
   return (
-    <Box sx={{ pl: useLeftPadding(), pr: 3, pt: 3, pb: 3, mr: '44px' }}>
+    <Box
+      className="modal-internals"
+      sx={{
+        pl: useLeftPadding(),
+        pr: 3,
+        pt: 3,
+        pb: 3,
+        mr: '44px',
+      }}
+    >
       <BaseHeading as="span" level={4} weight="weak" id={id}>
         {children}
       </BaseHeading>
@@ -65,7 +74,14 @@ function Body(props) {
 // eslint-disable-next-line react/prop-types
 function Actions({ children }) {
   return (
-    <Box sx={{ py: 3, pl: useLeftPadding(), pr: 3 }}>
+    <Box
+      className="modal-internals"
+      sx={{
+        py: 3,
+        pl: useLeftPadding(),
+        pr: 3,
+      }}
+    >
       <BaseActions>{children}</BaseActions>
     </Box>
   )
@@ -77,11 +93,11 @@ const DialogContent = styled(BaseDialogContent, {
   shouldForwardProp: prop => prop !== 'maxWidth' && prop !== 'asSidebar',
 })(({ theme, asSidebar, maxWidth }) => ({
   '&[data-reach-dialog-content]': {
-    padding: 0,
-    background: 'white',
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
+    'padding': 0,
+    'background': 'white',
+    'display': 'flex',
+    'flexDirection': 'column',
+    'width': '100%',
     ...(asSidebar
       ? {
           right: 0,
@@ -109,6 +125,12 @@ const DialogContent = styled(BaseDialogContent, {
     },
     [`@media (min-width: ${theme.breakpoints.tablet})`]: {
       width: '50vw',
+    },
+    '& > *:not(.modal-internals)': {
+      display: 'flex',
+      flexDirection: 'column',
+      flexGrow: '1',
+      overflowY: 'auto',
     },
   },
 }))
