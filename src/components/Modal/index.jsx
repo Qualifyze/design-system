@@ -167,11 +167,13 @@ const Modal = ({ isOpen, onDismiss, children, maxWidth, asSidebar }) => {
   // For the heading, we need to provide the id so
   // aria-labelledby can be linked
   const heading = React.Children.map(children, child =>
-    child.type === Heading ? React.cloneElement(child, { id: headingId }) : null
+    child?.type === Heading
+      ? React.cloneElement(child, { id: headingId })
+      : null
   ).filter(Boolean)
 
   const body = React.Children.map(children, child =>
-    child.type === Heading ? null : child
+    child?.type !== Heading ? child : null
   ).filter(Boolean)
 
   return (
