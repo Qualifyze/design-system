@@ -1,5 +1,16 @@
 # @qualifyze/design-system
 
+## 2.0.4
+
+### Patch Changes
+
+- [#311](https://github.com/Qualifyze/design-system/pull/311) [`01cafcb`](https://github.com/Qualifyze/design-system/commit/01cafcb1fdcee49714a1c170d781fe1fb5671c58) Thanks [@gregoralbrecht](https://github.com/gregoralbrecht)! - Modal should allow for more flexible markup
+
+  We noticed that having a `form` in a modal breaks the parent-child
+  relationship needed to make the flexbox layout work. This patch should(tm)
+  fix the false assumption that `Modal.Body` is always a direct descendant
+  of `Modal`.
+
 ## 2.0.3
 
 ### Patch Changes
