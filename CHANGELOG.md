@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 2.0.3
+
+### Patch Changes
+
+- [#309](https://github.com/Qualifyze/design-system/pull/309) [`b287739`](https://github.com/Qualifyze/design-system/commit/b2877390f9f648d7fa48fc0ad82f7aa11040b2bd) Thanks [@phjardas](https://github.com/phjardas)! - Modal: Fix error when child elements are null
+
 ## 2.0.2
 
 ### Patch Changes
