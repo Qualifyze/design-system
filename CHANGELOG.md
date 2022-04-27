@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 2.0.2
+
+### Patch Changes
+
+- [#307](https://github.com/Qualifyze/design-system/pull/307) [`ab2c024`](https://github.com/Qualifyze/design-system/commit/ab2c024a926a8012254a0fec422052a1e654e168) Thanks [@phjardas](https://github.com/phjardas)! - LoadingSpinner: change default size to 48px and fix prop types
+
 ## 2.0.1
 
 ### Patch Changes
