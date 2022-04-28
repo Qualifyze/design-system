@@ -67,6 +67,7 @@ const Base = styled('div')((props) => ({
   'cursor': props.onClick ? 'pointer' : 'text',
   'alignItems': 'center',
   'border': 'none',
+  'transition': '1s',
   '&::after': {
     content: '""',
     boxSizing: 'content-box',
@@ -83,6 +84,7 @@ const Base = styled('div')((props) => ({
   '& > span': {
     'color': props.color.content,
     'marginLeft': props.theme.space[2],
+    'transition': '1s',
     '& > svg': {
       'width': '12px',
       'height': '12px',
