@@ -66,18 +66,21 @@ const Base = styled('span')(
     'height': pixelsForSize[props.size].tagHeight,
     'justifyContent': 'center',
     'borderRadius': '9999px',
-    'cursor': props.onClick ? 'pointer' : 'text',
+    'cursor': typeof props.onClick === 'function' ? 'pointer' : 'text',
     'alignItems': 'center',
     'border': 'none',
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      transform: 'translateY(-50%)',
-      height: pixelsForSize[props.size].hitHeight,
-      width: '100%',
-      top: '50%',
-      left: '0',
-    },
+    ...(typeof props.onClick === 'function' && {
+      '&::after': {
+        // Only show when necessary
+        content: '""',
+        position: 'absolute',
+        transform: 'translateY(-50%)',
+        height: pixelsForSize[props.size].hitHeight,
+        width: '100%',
+        top: '50%',
+        left: '0',
+      },
+    }),
     '&:focus': {
       boxShadow: props.theme.shadows.focusRing,
       border: 'none',
