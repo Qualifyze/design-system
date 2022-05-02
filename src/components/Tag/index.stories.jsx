@@ -1,5 +1,5 @@
 import React from 'react'
-import { array, text } from '@storybook/addon-knobs'
+import { array, text, select, boolean } from '@storybook/addon-knobs'
 
 import Inline from '../Inline'
 import Stack from '../Stack'
@@ -11,6 +11,78 @@ import Tag from './index'
 export default { title: 'Tag', component: Tag }
 
 export const Default = () => {
+  const content = text('Content', 'remote audit')
+  const withOnClick = boolean('Has onClick function?', false)
+  // eslint-disable-next-line no-alert
+  const onClick = withOnClick ? () => alert('Clicked') : undefined
+  const size = select('Size', ['small', 'standard'], 'standard')
+  const tone = select(
+    'Tone',
+    ['positive', 'neutral', 'critical', 'caution', 'info'],
+    'neutral'
+  )
+  const withIcon = boolean('With icon?')
+  const iconName = text('Icon', 'document')
+  const withTrailingIcon = boolean('With trailing icon?')
+  const trailingIconName = text('Trailing icon', 'pencil')
+
+  return (
+    <Tag
+      onClick={onClick}
+      tone={tone}
+      size={size}
+      icon={withIcon ? <Icon name={iconName} /> : null}
+      trailingIcon={withTrailingIcon ? <Icon name={trailingIconName} /> : null}
+    >
+      {content}
+    </Tag>
+  )
+}
+Default.story = {
+  name: 'default',
+}
+
+export const TagGroup = () => {
+  const tags = ['Remote audit', 'Onsite', 'GMP (APIs)']
+  // const content = text('Content', 'remote audit')
+  const withOnClick = boolean('Has onClick function?', false)
+  // eslint-disable-next-line no-alert
+  const onClick = withOnClick ? () => alert('Clicked') : undefined
+  const size = select('Size', ['small', 'standard'], 'standard')
+  const tone = select(
+    'Tone',
+    ['positive', 'neutral', 'critical', 'caution', 'info'],
+    'neutral'
+  )
+  const withIcon = boolean('With icon?')
+  const iconName = text('Icon', 'document')
+  const withTrailingIcon = boolean('With trailing icon?')
+  const trailingIconName = text('Trailing icon', 'pencil')
+
+  return (
+    <Inline space={3}>
+      {tags.map(tag => (
+        <Tag
+          key={tag}
+          onClick={onClick}
+          tone={tone}
+          size={size}
+          icon={withIcon ? <Icon name={iconName} /> : null}
+          trailingIcon={
+            withTrailingIcon ? <Icon name={trailingIconName} /> : null
+          }
+        >
+          {tag}
+        </Tag>
+      ))}
+    </Inline>
+  )
+}
+TagGroup.story = {
+  name: 'Tag group',
+}
+
+export const InsideText = () => {
   const MultipleExamples = array(
     'Tags (seperate by ,)',
     ['Hello world', 'Test'],
@@ -39,22 +111,6 @@ export const Default = () => {
     </Stack>
   )
 }
-Default.story = {
-  name: 'default',
-}
-
-export const WithIcon = () => {
-  const iconName = text('Icon', 'pencil')
-  const content = text('Text', 'Tag including an icon')
-
-  return (
-    <Stack space={4}>
-      <Inline space={1}>
-        <Tag icon={<Icon name={iconName} size="tiny" />}>{content}</Tag>
-      </Inline>
-    </Stack>
-  )
-}
-WithIcon.story = {
-  name: 'with Icon',
+InsideText.story = {
+  name: 'inside text',
 }
