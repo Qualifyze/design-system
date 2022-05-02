@@ -79,6 +79,7 @@ const Base = styled('span')(props => {
     'cursor': props.onClick ? 'pointer' : 'text',
     'alignItems': 'center',
     'border': 'none',
+    'transition': 'background-color 1s',
     '&::after': {
       content: '""',
       boxSizing: 'content-box',
@@ -102,7 +103,6 @@ const Base = styled('span')(props => {
       },
     },
     '&:hover': {
-      'transition': '1s',
       'backgroundColor': tagColor.hoverBackground,
       '& > span': {
         color: tagColor.hoverContent,
