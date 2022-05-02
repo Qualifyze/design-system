@@ -18,97 +18,103 @@ const TagSize = {
   },
 }
 
-const TagColors = (theme, color) => {
-  switch (color) {
+const Base = styled('span')(props => {
+  let tagColor = {}
+  switch (props.tone) {
     case 'info':
-      return {
-        content: theme.colors.primary[700],
-        background: theme.colors.primary[100],
-        hoverContent: theme.colors.primary[800],
-        hoverBackground: theme.colors.primary[200],
+      tagColor = {
+        content: props.theme.colors.primary[700],
+        background: props.theme.colors.primary[100],
+        hoverContent: props.theme.colors.primary[800],
+        hoverBackground: props.theme.colors.primary[200],
       }
+      break
     case 'positive':
-      return {
-        content: theme.colors.green[700],
-        background: theme.colors.green[100],
-        hoverContent: theme.colors.green[800],
-        hoverBackground: theme.colors.green[200],
+      tagColor = {
+        content: props.theme.colors.green[700],
+        background: props.theme.colors.green[100],
+        hoverContent: props.theme.colors.green[800],
+        hoverBackground: props.theme.colors.green[200],
       }
+      break
     case 'caution':
-      return {
-        content: theme.colors.yellow[800],
-        background: theme.colors.yellow[200],
-        hoverContent: theme.colors.yellow[900],
-        hoverBackground: theme.colors.yellow[300],
+      tagColor = {
+        content: props.theme.colors.yellow[800],
+        background: props.theme.colors.yellow[200],
+        hoverContent: props.theme.colors.yellow[900],
+        hoverBackground: props.theme.colors.yellow[300],
       }
+      break
     case 'critical':
-      return {
-        content: theme.colors.red[700],
-        background: theme.colors.red[100],
-        hoverContent: theme.colors.red[800],
-        hoverBackground: theme.colors.red[200],
+      tagColor = {
+        content: props.theme.colors.red[700],
+        background: props.theme.colors.red[100],
+        hoverContent: props.theme.colors.red[800],
+        hoverBackground: props.theme.colors.red[200],
       }
+      break
     case 'neutral':
     default:
-      return {
-        content: theme.colors.grey[700],
-        background: theme.colors.grey[200],
-        hoverContent: theme.colors.grey[800],
-        hoverBackground: theme.colors.grey[300],
+      tagColor = {
+        content: props.theme.colors.grey[700],
+        background: props.theme.colors.grey[200],
+        hoverContent: props.theme.colors.grey[800],
+        hoverBackground: props.theme.colors.grey[300],
       }
+      break
   }
-}
 
-const Base = styled('span')(props => ({
-  'position': 'relative',
-  'paddingRight': props.theme.space[2],
-  'paddingLeft': '0',
-  'paddingTop': '0',
-  'paddingBottom': '0',
-  'whiteSpace': 'nowrap',
-  'height': props.size.tagHeight,
-  'display': 'flex',
-  'justifyContent': 'center',
-  'backgroundColor': TagColors(props.theme, props.tone).background,
-  'borderRadius': props.theme.radii[4],
-  'cursor': props.onClick ? 'pointer' : 'text',
-  'alignItems': 'center',
-  'border': 'none',
-  'transition': '1s',
-  '&::after': {
-    content: '""',
-    boxSizing: 'content-box',
-    position: 'absolute',
-    transform: 'translateY(-50%)',
-    paddingLeft: '4px',
-    paddingRight: '4px',
-    height: props.size.hitHeight,
-    width: '100%',
-    top: '50%',
-    left: '-4px',
-    right: '0',
-  },
-  '& > span': {
-    'color': TagColors(props.theme, props.tone).content,
-    'marginLeft': props.theme.space[2],
-    'transition': '1s',
-    '& > svg': {
-      width: '12px',
-      height: '12px',
+  return {
+    'position': 'relative',
+    'paddingRight': props.theme.space[2],
+    'paddingLeft': '0',
+    'paddingTop': '0',
+    'paddingBottom': '0',
+    'whiteSpace': 'nowrap',
+    'height': props.size.tagHeight,
+    'display': 'flex',
+    'justifyContent': 'center',
+    'backgroundColor': tagColor.background,
+    'borderRadius': props.theme.radii[4],
+    'cursor': props.onClick ? 'pointer' : 'text',
+    'alignItems': 'center',
+    'border': 'none',
+    '&::after': {
+      content: '""',
+      boxSizing: 'content-box',
+      position: 'absolute',
+      transform: 'translateY(-50%)',
+      paddingLeft: '4px',
+      paddingRight: '4px',
+      height: props.size.hitHeight,
+      width: '100%',
+      top: '50%',
+      left: '-4px',
+      right: '0',
     },
-  },
-  '&:hover': {
-    'backgroundColor': TagColors(props.theme, props.tone).hoverBackground,
     '& > span': {
-      color: TagColors(props.theme, props.tone).hoverContent,
+      'color': tagColor.content,
+      'marginLeft': props.theme.space[2],
+      'transition': '1s',
+      '& > svg': {
+        width: '12px',
+        height: '12px',
+      },
     },
-  },
-  '&:focus': {
-    boxShadow: props.theme.shadows.focusRing,
-    border: 'none',
-    outline: 'none',
-  },
-}))
+    '&:hover': {
+      'transition': '1s',
+      'backgroundColor': tagColor.hoverBackground,
+      '& > span': {
+        color: tagColor.hoverContent,
+      },
+    },
+    '&:focus': {
+      boxShadow: props.theme.shadows.focusRing,
+      border: 'none',
+      outline: 'none',
+    },
+  }
+})
 
 const Tag = forwardRef(
   ({ children, as, icon, trailingIcon, onClick, tone, size }, ref) => (
