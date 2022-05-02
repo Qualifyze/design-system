@@ -1,5 +1,5 @@
 import React from 'react'
-import { array, text, select, boolean } from '@storybook/addon-knobs'
+import { text, select, boolean } from '@storybook/addon-knobs'
 
 import Inline from '../Inline'
 import Stack from '../Stack'
@@ -83,25 +83,49 @@ TagGroup.story = {
 }
 
 export const InsideText = () => {
-  const MultipleExamples = array(
-    'Tags (seperate by ,)',
-    ['Hello world', 'Test'],
-    ','
+  const withOnClick = boolean('Has onClick function?', false)
+  // eslint-disable-next-line no-alert
+  const onClick = withOnClick ? () => alert('Clicked') : undefined
+  const size = select('Size', ['small', 'standard'], 'standard')
+  const tone = select(
+    'Tone',
+    ['positive', 'neutral', 'critical', 'caution', 'info'],
+    'neutral'
   )
+  const withIcon = boolean('With icon?', false)
+  const iconName = text('Icon', 'document')
+  const withTrailingIcon = boolean('With trailing icon?', false)
+  const trailingIconName = text('Trailing icon', 'pencil')
 
   return (
     <Stack space={4}>
-      <Inline space={1}>
-        {MultipleExamples.map(content => (
-          <Tag key={`${content}`}>{content}</Tag>
-        ))}
-        <Tag onClick={() => {}}>Clickable Tag</Tag>
-      </Inline>
       <Text>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et <Tag>justo duo dolores et</Tag> ea
-        rebum. Stet clita kasd gubergren, no sea <Tag>takimata</Tag>
+        voluptua. At vero eos et accusam et{' '}
+        <Tag
+          onClick={onClick}
+          tone={tone}
+          size={size}
+          icon={withIcon ? <Icon name={iconName} /> : null}
+          trailingIcon={
+            withTrailingIcon ? <Icon name={trailingIconName} /> : null
+          }
+        >
+          justo duo dolores et
+        </Tag>{' '}
+        ea rebum. Stet clita kasd gubergren, no sea{' '}
+        <Tag
+          onClick={onClick}
+          tone={tone}
+          size={size}
+          icon={withIcon ? <Icon name={iconName} /> : null}
+          trailingIcon={
+            withTrailingIcon ? <Icon name={trailingIconName} /> : null
+          }
+        >
+          takimata
+        </Tag>
         sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
         consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
         labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
