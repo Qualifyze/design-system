@@ -72,7 +72,7 @@ const Base = styled('span')(props => {
     'paddingBottom': '0',
     'whiteSpace': 'nowrap',
     'height': TagSize[props.size].tagHeight,
-    'display': 'flex',
+    'display': 'inline-flex',
     'justifyContent': 'center',
     'backgroundColor': tagColor.background,
     'borderRadius': props.theme.radii[4],
