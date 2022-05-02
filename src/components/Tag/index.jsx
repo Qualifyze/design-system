@@ -12,11 +12,13 @@ const pixelsForSize = {
     textSize: 'standard',
     tagHeight: '30px',
     hitHeight: '44px',
+    trailingIconSize: '20px',
   },
   small: {
     textSize: 'small',
     tagHeight: '24px',
     hitHeight: '32px',
+    trailingIconSize: '18px',
   },
 }
 
@@ -109,9 +111,10 @@ const Tag = forwardRef(
           as="span"
           aria-hidden
           sx={{
+            'display': 'flex',
             'pl': GAP,
             'color': 'currentColor',
-            '& svg': { color: 'currentColor', width: '12px', height: '12px' },
+            '& svg': { color: 'currentColor', width: '16px', height: '16px' },
           }}
         >
           {icon}
@@ -130,19 +133,20 @@ const Tag = forwardRef(
           as="span"
           aria-hidden
           sx={{
-            'mr': GAP,
+            // Magic numbers to make sure the icon aligns nicely
+            'mr': `calc((${pixelsForSize[size].tagHeight} - ${pixelsForSize[size].trailingIconSize}) / 2 + 1px)`,
             'bg': 'white',
             'color': 'currentColor',
             'display': 'flex',
             'borderRadius': '50%',
-            'height': '20px',
-            'width': '20px',
+            'width': pixelsForSize[size].trailingIconSize,
+            'height': pixelsForSize[size].trailingIconSize,
             'justifyContent': 'center',
             'alignItems': 'center',
             '& svg': {
               color: 'currentColor',
-              width: '12px',
-              height: '12px',
+              width: `calc(${pixelsForSize[size].trailingIconSize} - 8px)`,
+              height: `calc(${pixelsForSize[size].trailingIconSize} - 8px)`,
             },
           }}
         >
