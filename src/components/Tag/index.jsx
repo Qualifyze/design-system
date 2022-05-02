@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
-import { styled, theme } from '../../util/style'
+import { styled } from '../../util/style'
 import Text from '../Text'
 import Box from '../Box'
 
 const TagSize = {
-  large: {
+  standard: {
     textSize: 'standard',
     tagHeight: '30px',
     hitHeight: '44px',
@@ -18,51 +18,58 @@ const TagSize = {
   },
 }
 
-const TagColors = {
-  info: {
-    content: theme.colors.primary[700],
-    background: theme.colors.primary[100],
-    hoverContent: theme.colors.primary[800],
-    hoverBackground: theme.colors.primary[200],
-  },
-  positive: {
-    content: theme.colors.green[700],
-    background: theme.colors.green[100],
-    hoverContent: theme.colors.green[800],
-    hoverBackground: theme.colors.green[200],
-  },
-  neutral: {
-    content: theme.colors.grey[700],
-    background: theme.colors.grey[200],
-    hoverContent: theme.colors.grey[800],
-    hoverBackground: theme.colors.grey[300],
-  },
-  caution: {
-    content: theme.colors.yellow[800],
-    background: theme.colors.yellow[200],
-    hoverContent: theme.colors.yellow[900],
-    hoverBackground: theme.colors.yellow[300],
-  },
-  critical: {
-    content: theme.colors.red[700],
-    background: theme.colors.red[100],
-    hoverContent: theme.colors.red[800],
-    hoverBackground: theme.colors.red[200],
-  },
+const TagColors = (theme, color) => {
+  switch (color) {
+    case 'info':
+      return {
+        content: theme.colors.primary[700],
+        background: theme.colors.primary[100],
+        hoverContent: theme.colors.primary[800],
+        hoverBackground: theme.colors.primary[200],
+      }
+    case 'positive':
+      return {
+        content: theme.colors.green[700],
+        background: theme.colors.green[100],
+        hoverContent: theme.colors.green[800],
+        hoverBackground: theme.colors.green[200],
+      }
+    case 'caution':
+      return {
+        content: theme.colors.yellow[800],
+        background: theme.colors.yellow[200],
+        hoverContent: theme.colors.yellow[900],
+        hoverBackground: theme.colors.yellow[300],
+      }
+    case 'critical':
+      return {
+        content: theme.colors.red[700],
+        background: theme.colors.red[100],
+        hoverContent: theme.colors.red[800],
+        hoverBackground: theme.colors.red[200],
+      }
+    case 'neutral':
+    default:
+      return {
+        content: theme.colors.grey[700],
+        background: theme.colors.grey[200],
+        hoverContent: theme.colors.grey[800],
+        hoverBackground: theme.colors.grey[300],
+      }
+  }
 }
 
-const Base = styled('div')((props) => ({
+const Base = styled('span')(props => ({
   'position': 'relative',
-  'boxSizing': 'content-box',
   'paddingRight': props.theme.space[2],
-  'paddingLeft': '0px',
-  'paddingTop': '0px',
-  'paddingBottom': '0px',
+  'paddingLeft': '0',
+  'paddingTop': '0',
+  'paddingBottom': '0',
   'whiteSpace': 'nowrap',
-  'height': props.tagSize.tagHeight,
+  'height': props.size.tagHeight,
   'display': 'flex',
   'justifyContent': 'center',
-  'backgroundColor': props.color.background,
+  'backgroundColor': TagColors(props.theme, props.tone).background,
   'borderRadius': props.theme.radii[4],
   'cursor': props.onClick ? 'pointer' : 'text',
   'alignItems': 'center',
@@ -75,45 +82,45 @@ const Base = styled('div')((props) => ({
     transform: 'translateY(-50%)',
     paddingLeft: '4px',
     paddingRight: '4px',
-    height: props.tagSize.hitHeight,
+    height: props.size.hitHeight,
     width: '100%',
     top: '50%',
     left: '-4px',
     right: '0',
   },
   '& > span': {
-    'color': props.color.content,
+    'color': TagColors(props.theme, props.tone).content,
     'marginLeft': props.theme.space[2],
     'transition': '1s',
     '& > svg': {
-      'width': '12px',
-      'height': '12px',
+      width: '12px',
+      height: '12px',
     },
   },
   '&:hover': {
-    'backgroundColor': props.color.hoverBackground,
+    'backgroundColor': TagColors(props.theme, props.tone).hoverBackground,
     '& > span': {
-      'color': props.color.hoverContent,
+      color: TagColors(props.theme, props.tone).hoverContent,
     },
   },
-  '&:focus-visible': {
-    'border': '4px solid #478FE4',
-    'boxShadow': 'none',
-    'outline': 'none',
+  '&:focus': {
+    boxShadow: props.theme.shadows.focusRing,
+    border: 'none',
+    outline: 'none',
   },
 }))
 
 const Tag = forwardRef(
-  ({ children, as, icon, trailingIcon, onClick, color, tagSize }, ref) => (
+  ({ children, as, icon, trailingIcon, onClick, tone, size }, ref) => (
     <Base
       as={onClick ? 'button' : as}
       ref={ref}
-      color={color}
-      tagSize={tagSize}
+      tone={tone}
+      size={size}
       onClick={onClick}
     >
       {icon ? <Box as="span">{icon}</Box> : null}
-      <Text as="span" weight="medium" size={tagSize.textSize}>
+      <Text as="span" weight="medium" size={TagSize[size].textSize}>
         {children}
       </Text>
       {trailingIcon ? (
@@ -143,8 +150,8 @@ Tag.defaultProps = {
   onClick: null,
   icon: null,
   trailingIcon: null,
-  color: TagColors.neutral,
-  tagSize: TagSize.large,
+  tone: 'neutral',
+  size: 'standard',
 }
 
 Tag.propTypes = {
@@ -154,8 +161,9 @@ Tag.propTypes = {
   children: PropTypes.string.isRequired,
   icon: PropTypes.node,
   trailingIcon: PropTypes.node,
-  color: PropTypes.object,
-  tagSize: PropTypes.object,
+  tone: PropTypes.oneOf(['neutral', 'positive', 'critical', 'warning', 'info']),
+  /** Size of the tag */
+  size: PropTypes.oneOf(['small', 'standard']),
 }
 
 export default Tag
