@@ -1,114 +1,94 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
-import { styled } from '../../util/style'
+import { styled, sx } from '../../util/style'
 import Text from '../Text'
 import Box from '../Box'
 
-const TagSize = {
+const GAP = '8px'
+
+const pixelsForSize = {
   standard: {
     textSize: 'standard',
     tagHeight: '30px',
     hitHeight: '44px',
+    trailingIconSize: '20px',
   },
   small: {
     textSize: 'small',
     tagHeight: '24px',
     hitHeight: '32px',
+    trailingIconSize: '18px',
   },
 }
 
-const TagColors = (theme, color) => {
-  switch (color) {
-    case 'info':
-      return {
-        content: theme.colors.primary[700],
-        background: theme.colors.primary[100],
-        hoverContent: theme.colors.primary[800],
-        hoverBackground: theme.colors.primary[200],
-      }
-    case 'positive':
-      return {
-        content: theme.colors.green[700],
-        background: theme.colors.green[100],
-        hoverContent: theme.colors.green[800],
-        hoverBackground: theme.colors.green[200],
-      }
-    case 'caution':
-      return {
-        content: theme.colors.yellow[800],
-        background: theme.colors.yellow[200],
-        hoverContent: theme.colors.yellow[900],
-        hoverBackground: theme.colors.yellow[300],
-      }
-    case 'critical':
-      return {
-        content: theme.colors.red[700],
-        background: theme.colors.red[100],
-        hoverContent: theme.colors.red[800],
-        hoverBackground: theme.colors.red[200],
-      }
-    case 'neutral':
-    default:
-      return {
-        content: theme.colors.grey[700],
-        background: theme.colors.grey[200],
-        hoverContent: theme.colors.grey[800],
-        hoverBackground: theme.colors.grey[300],
-      }
-  }
+const colorForTone = {
+  neutral: {
+    color: 'grey.800',
+    backgroundColor: 'grey.200',
+    hoverColor: 'grey.800',
+    hoverBackgroundColor: 'grey.300',
+  },
+  info: {
+    color: 'primary.700',
+    hoverColor: 'primary.800',
+    backgroundColor: 'primary.100',
+    hoverBackgroundColor: 'primary.200',
+  },
+  positive: {
+    color: 'green.700',
+    hoverColor: 'green.800',
+    backgroundColor: 'green.100',
+    hoverBackgroundColor: 'green.200',
+  },
+  critical: {
+    color: 'red.700',
+    hoverColor: 'red.800',
+    backgroundColor: 'red.100',
+    hoverBackgroundColor: 'red.200',
+  },
+  caution: {
+    color: 'yellow.800',
+    hoverColor: 'yellow.900',
+    backgroundColor: 'yellow.200',
+    hoverBackgroundColor: 'yellow.300',
+  },
 }
 
-const Base = styled('span')(props => ({
-  'position': 'relative',
-  'paddingRight': props.theme.space[2],
-  'paddingLeft': '0',
-  'paddingTop': '0',
-  'paddingBottom': '0',
-  'whiteSpace': 'nowrap',
-  'height': props.size.tagHeight,
-  'display': 'flex',
-  'justifyContent': 'center',
-  'backgroundColor': TagColors(props.theme, props.tone).background,
-  'borderRadius': props.theme.radii[4],
-  'cursor': props.onClick ? 'pointer' : 'text',
-  'alignItems': 'center',
-  'border': 'none',
-  'transition': '1s',
-  '&::after': {
-    content: '""',
-    boxSizing: 'content-box',
-    position: 'absolute',
-    transform: 'translateY(-50%)',
-    paddingLeft: '4px',
-    paddingRight: '4px',
-    height: props.size.hitHeight,
-    width: '100%',
-    top: '50%',
-    left: '-4px',
-    right: '0',
-  },
-  '& > span': {
-    'color': TagColors(props.theme, props.tone).content,
-    'marginLeft': props.theme.space[2],
-    'transition': '1s',
-    '& > svg': {
-      width: '12px',
-      height: '12px',
+const Base = styled('span')(
+  props => ({
+    'display': 'inline-flex',
+    'position': 'relative',
+    'padding': 0,
+    'margin': 0,
+    'flexDirection': 'row',
+    'whiteSpace': 'nowrap',
+    'height': pixelsForSize[props.size].tagHeight,
+    'justifyContent': 'center',
+    'borderRadius': '9999px',
+    'cursor': typeof props.onClick === 'function' ? 'pointer' : 'text',
+    'alignItems': 'center',
+    'border': 'none',
+    ...(typeof props.onClick === 'function' && {
+      '&::after': {
+        // Only show when necessary
+        content: '""',
+        position: 'absolute',
+        transform: 'translateY(-50%)',
+        height: pixelsForSize[props.size].hitHeight,
+        width: '100%',
+        top: '50%',
+        left: '0',
+      },
+    }),
+    '&:focus': {
+      boxShadow: props.theme.shadows.focusRing,
+      border: 'none',
+      outline: 'none',
     },
-  },
-  '&:hover': {
-    'backgroundColor': TagColors(props.theme, props.tone).hoverBackground,
-    '& > span': {
-      color: TagColors(props.theme, props.tone).hoverContent,
-    },
-  },
-  '&:focus': {
-    boxShadow: props.theme.shadows.focusRing,
-    border: 'none',
-    outline: 'none',
-  },
-}))
+  }),
+  sx
+)
 
 const Tag = forwardRef(
   ({ children, as, icon, trailingIcon, onClick, tone, size }, ref) => (
@@ -118,22 +98,59 @@ const Tag = forwardRef(
       tone={tone}
       size={size}
       onClick={onClick}
+      sx={{
+        color: colorForTone[tone].color,
+        backgroundColor: colorForTone[tone].backgroundColor,
+        ...(typeof onClick === 'function' && {
+          '&:hover, &:focus': {
+            color: colorForTone[tone].hoverColor,
+            backgroundColor: colorForTone[tone].hoverBackgroundColor,
+          },
+        }),
+      }}
     >
-      {icon ? <Box as="span">{icon}</Box> : null}
-      <Text as="span" weight="medium" size={TagSize[size].textSize}>
+      {icon ? (
+        <Box
+          as="span"
+          aria-hidden
+          sx={{
+            'display': 'flex',
+            'pl': GAP,
+            'color': 'currentColor',
+            '& svg': { color: 'currentColor', width: '16px', height: '16px' },
+          }}
+        >
+          {icon}
+        </Box>
+      ) : null}
+      <Text
+        as="span"
+        weight="medium"
+        size={pixelsForSize[size].textSize}
+        sx={{ color: 'currentColor', px: GAP }}
+      >
         {children}
       </Text>
       {trailingIcon ? (
         <Box
           as="span"
+          aria-hidden
           sx={{
-            bg: 'white',
-            display: 'flex',
-            borderRadius: '50%',
-            height: '20px',
-            width: '20px',
-            justifyContent: 'center',
-            alignItems: 'center',
+            // Magic numbers to make sure the icon aligns nicely
+            'mr': `calc((${pixelsForSize[size].tagHeight} - ${pixelsForSize[size].trailingIconSize}) / 2 + 1px)`,
+            'bg': 'white',
+            'color': 'currentColor',
+            'display': 'flex',
+            'borderRadius': '50%',
+            'width': pixelsForSize[size].trailingIconSize,
+            'height': pixelsForSize[size].trailingIconSize,
+            'justifyContent': 'center',
+            'alignItems': 'center',
+            '& svg': {
+              color: 'currentColor',
+              width: `calc(${pixelsForSize[size].trailingIconSize} - 8px)`,
+              height: `calc(${pixelsForSize[size].trailingIconSize} - 8px)`,
+            },
           }}
         >
           {trailingIcon}
