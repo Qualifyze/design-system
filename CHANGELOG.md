@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 2.1.0
+
+### Minor Changes
+
+- [#313](https://github.com/Qualifyze/design-system/pull/313) [`cf86580`](https://github.com/Qualifyze/design-system/commit/cf865809322bc4e6e5a969aee1753bccda20e175) Thanks [@BartekQuali](https://github.com/BartekQuali)! - Updated the Tag component to new design spec
+
 ## 2.0.4
 
 ### Patch Changes
