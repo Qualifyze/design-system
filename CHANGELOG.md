@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 2.1.1
+
+### Patch Changes
+
+- [#316](https://github.com/Qualifyze/design-system/pull/316) [`b9f3492`](https://github.com/Qualifyze/design-system/commit/b9f349217038a3b5d88b9e3b0752e174707bea26) Thanks [@BartekQuali](https://github.com/BartekQuali)! - Fix missmatched tag tone name
+
 ## 2.1.0
 
 ### Minor Changes
