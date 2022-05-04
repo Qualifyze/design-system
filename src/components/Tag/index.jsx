@@ -26,7 +26,7 @@ const colorForTone = {
   neutral: {
     color: 'grey.800',
     backgroundColor: 'grey.200',
-    hoverColor: 'grey.800',
+    hoverColor: 'grey.900',
     hoverBackgroundColor: 'grey.300',
   },
   info: {
@@ -178,7 +178,7 @@ Tag.propTypes = {
   children: PropTypes.string.isRequired,
   icon: PropTypes.node,
   trailingIcon: PropTypes.node,
-  tone: PropTypes.oneOf(['neutral', 'positive', 'critical', 'warning', 'info']),
+  tone: PropTypes.oneOf(['neutral', 'positive', 'critical', 'caution', 'info']),
   /** Size of the tag */
   size: PropTypes.oneOf(['small', 'standard']),
 }
