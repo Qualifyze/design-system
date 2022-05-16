@@ -1,8 +1,8 @@
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
+import * as DropdownMenuPrimitive from '@reach/menu-button'
 
 import { styled } from '../../util/style'
 
-const StyledContent = styled(DropdownMenuPrimitive.Content)(props => ({
+const StyledContent = styled(DropdownMenuPrimitive.MenuList)(props => ({
   'minWidth': '100px',
   'backgroundColor': props.theme.colors.white,
   'borderRadius': props.theme.radii[2],
@@ -39,24 +39,27 @@ const useItemStyles = props => ({
     pointerEvents: 'none',
   },
 
+  '&:hover': {
+    backgroundColor: props.theme.colors.primary[100],
+  },
   '&:focus': {
     backgroundColor: props.theme.colors.primary[100],
   },
 })
 
-const StyledItem = styled(DropdownMenuPrimitive.Item)(useItemStyles)
+const StyledItem = styled(DropdownMenuPrimitive.MenuItem)(useItemStyles)
 
-const StyledTriggerItem = styled(DropdownMenuPrimitive.TriggerItem)(
+const StyledTriggerItem = styled(DropdownMenuPrimitive.MenuButton)(
   useItemStyles
 )
 
-const StyledSeparator = styled(DropdownMenuPrimitive.Separator)(props => ({
+const StyledSeparator = styled.div(props => ({
   height: 1,
   backgroundColor: props.theme.colors.grey[300],
   margin: 5,
 }))
 
-const StyledLabel = styled(DropdownMenuPrimitive.Label)(props => ({
+const StyledLabel = styled(DropdownMenuPrimitive.MenuItem)(props => ({
   paddingTop: props.theme.space[2],
   paddingBottom: props.theme.space[2],
   paddingLeft: props.theme.space[2],
@@ -68,8 +71,8 @@ const StyledLabel = styled(DropdownMenuPrimitive.Label)(props => ({
   textTransform: 'uppercase',
 }))
 
-const DropdownMenu = DropdownMenuPrimitive.Root
-DropdownMenu.Trigger = DropdownMenuPrimitive.Trigger
+const DropdownMenu = DropdownMenuPrimitive.Menu
+DropdownMenu.Trigger = DropdownMenuPrimitive.MenuButton
 DropdownMenu.Content = StyledContent
 DropdownMenu.Item = StyledItem
 DropdownMenu.TriggerItem = StyledTriggerItem
