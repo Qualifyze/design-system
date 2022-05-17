@@ -105,6 +105,7 @@ export const ColoredIcons = () => {
       'neutral',
       'positive',
       'critical',
+      'primary',
       'secondary',
       'info',
       'caution',

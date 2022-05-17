@@ -59,6 +59,9 @@ const SVG = styled('svg')(
       caution: {
         color: 'yellow.700',
       },
+      primary: {
+        color: 'primary.700',
+      },
       secondary: {
         color: 'grey.700',
       },
@@ -101,6 +104,7 @@ Icon.propTypes = {
     'neutral',
     'positive',
     'critical',
+    'primary',
     'secondary',
     'info',
     'caution',
