@@ -1,6 +1,7 @@
 import { boolean, number, select } from '@storybook/addon-knobs'
-import React from 'react'
+import React, { useMemo } from 'react'
 
+import { theme, ThemeProvider } from '../../util/style'
 import Box from '../Box'
 import LoremIpsum from '../private/LoremIpsum'
 
@@ -27,8 +28,11 @@ export const Default = () => {
   const secondaryAction = boolean('secondary action', true)
   const secondaryNav = boolean('secondary nav item', true)
 
+  const themeVersion = select('theme', { blue: 'blue', pink: 'pink' }, 'blue')
+  const theme = useTheme(themeVersion)
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <AppBar position={position} collapseBelow={collapseBelow}>
         <AppBar.Logo>Logo</AppBar.Logo>
         {numberOfNavItems > 0 && (
@@ -42,7 +46,7 @@ export const Default = () => {
         )}
         {secondaryNav && (
           <AppBar.SecondaryNav>
-            <AppBar.NavMenuItem label="Secondary" />
+            <AppBar.NavMenuItem label="Secondary">Hello!</AppBar.NavMenuItem>
           </AppBar.SecondaryNav>
         )}
         {primaryAction && (
@@ -59,8 +63,37 @@ export const Default = () => {
       <Box as="main" sx={{ p: 4, mt: position === 'fixed' ? 70 : 0 }}>
         <LoremIpsum paragraphs={12} />
       </Box>
-    </>
+    </ThemeProvider>
   )
+}
+
+function useTheme(version) {
+  return useMemo(() => {
+    switch (version) {
+      case 'blue':
+        return theme
+      case 'pink':
+        return {
+          ...theme,
+          colors: {
+            ...theme.colors,
+            primary: {
+              100: 'hsl(305, 84%, 94%)',
+              200: 'hsl(305, 84%, 77%)',
+              300: 'hsl(305, 84%, 62%)',
+              400: 'hsl(305, 84%, 48%)',
+              500: 'hsl(305, 84%, 36%)',
+              600: 'hsl(305, 84%, 30%)',
+              700: 'hsl(305, 84%, 24%)',
+              800: 'hsl(305, 84%, 19%)',
+              900: 'hsl(305, 84%, 14%)',
+            },
+          },
+        }
+      default:
+        throw new Error(`Invalid theme version: ${version}`)
+    }
+  }, [version])
 }
 
 Default.story = {

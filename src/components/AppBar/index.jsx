@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Children, useMemo } from 'react'
 
-import { theme, ThemeProvider } from '../../util/style'
+import { ThemeProvider, useTheme } from '../../util/style'
 import Box from '../Box'
 import Hidden from '../Hidden'
 import Icon from '../Icon'
@@ -84,15 +84,21 @@ function selectElements(elements) {
 // We're already using the font sizes from Design System v2
 const v2fontSizes = ['12px', '14px', '16px', '18px']
 
-const themev2 = {
-  ...theme,
-  fontSizes: v2fontSizes,
+function useThemeV2() {
+  const baseTheme = useTheme()
+  return useMemo(
+    () => ({
+      ...baseTheme,
+      fontSizes: v2fontSizes,
+    }),
+    [baseTheme]
+  )
 }
-
 function AppBarContent({ position, children: elements }) {
   const { collapsed, toggleExpanded, expanded } = useAppBarContext()
   const { logo, primaryActions, secondaryActions, primaryNav, secondaryNav } =
     useMemo(() => selectElements(elements), [elements])
+  const themev2 = useThemeV2()
 
   return (
     <ThemeProvider theme={themev2}>
