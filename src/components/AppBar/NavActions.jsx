@@ -17,7 +17,9 @@ export default function NavActions({ children }) {
         my: collapsed ? 2 : 0,
       }}
     >
-      <Inline space={2}>{children}</Inline>
+      <Inline alignY="center" space={2}>
+        {children}
+      </Inline>
     </Box>
   )
 }
