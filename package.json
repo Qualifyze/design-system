@@ -40,7 +40,7 @@
     "@radix-ui/react-tooltip": "^0.1.1",
     "@radix-ui/react-visually-hidden": "^0.1.1",
     "@reach/dialog": "^0.15.3",
-    "@reach/menu-button": "^0.17.0",
+    "@reach/menu-button": "^0.16.2",
     "@reach/rect": "^0.15.3",
     "@react-aria/utils": "^3.9.0",
     "@styled-system/css": "^5.1.5",
