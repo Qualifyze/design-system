@@ -10,9 +10,9 @@ A place to develop React components in a sandboxed environment.
 
 ## Getting Started
 
-Install all dependencies with `npm install` and run our Storybook on a local server with `npm start`.
-
-It's recommended you run the Jest tests in the background while developing with `npm test --watch`.
+- Install [Volta](https://volta.sh/)
+- Install all dependencies with `npm ci`
+- Run Storybook with `npm start`, it will open automatically in your browser.
 
 ## Dependencies
 
@@ -39,26 +39,30 @@ This project includes several components that have to work even when they are la
 
 ### Stack, Inline, Tiles and Columns components with large `space` prop values
 
-Child components of `Stack`, `Inline`, `Tiles` and `Columns` might "leak" into other components if values above 4 are given to it in the `space` prop, blocking interaction with other UI elements like buttons or text. 
+Child components of `Stack`, `Inline`, `Tiles` and `Columns` might "leak" into other components if values above 4 are given to it in the `space` prop, blocking interaction with other UI elements like buttons or text.
 
 Workaround is to wrap the component that "leaks" and the one "leaked into" in `Box` or `Flex` components and provide `z-index` for both.
 For example, with a `Stack` component:
-```jsx
-import Box from "./index";
 
-<Box>
-  <Box sx={{zIndex: 2}}>
-    <Button> You can't click Me!</Button>
-  </Box>
-  <Box sx={{zIndex: 1}}>
-    <Stack space={5}>
-      <Button> Just a regular button</Button>
-    </Stack>
-  </Box>
-</Box>
+```jsx
+import Box from '@qualifyze/design-system'
+
+function App() {
+  return (
+    <Box>
+      <Box sx={{ zIndex: 2 }}>
+        <Button>You can't click Me!</Button>
+      </Box>
+      <Box sx={{ zIndex: 1 }}>
+        <Stack space={5}>
+          <Button>Just a regular button</Button>
+        </Stack>
+      </Box>
+    </Box>
+  )
+}
 ```
 
 For examples of how these components can leak, check their stories in storybook under "leaking example". So far, `Stack` is the only one who has actually given trouble and the only example taken from the platform.
 
 Fixing this requires a major version release because we still need to support [Internet Explorer](https://death-to-ie11.com/).
-
