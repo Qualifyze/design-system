@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 2.1.2
+
+### Patch Changes
+
+- [#321](https://github.com/Qualifyze/design-system/pull/321) [`131cf07`](https://github.com/Qualifyze/design-system/commit/131cf07d9660337ae889d75081a459277a388880) Thanks [@vubogovich](https://github.com/vubogovich)! - Align navigation actions in `AppBar`.
+
 ## 2.1.1
 
 ### Patch Changes
