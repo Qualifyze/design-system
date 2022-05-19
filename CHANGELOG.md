@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 3.1.0
+
+### Minor Changes
+
+- [#325](https://github.com/Qualifyze/design-system/pull/325) [`45d54cf`](https://github.com/Qualifyze/design-system/commit/45d54cfb1fa7cd49689883c5149e80a12050b5fc) Thanks [@phjardas](https://github.com/phjardas)! - Downgrade @reach/menu-button to v16
+
+  v17 tries to import new members from React v18 which fails in current webpack versions.
+
 ## 3.0.0
 
 ### Major Changes
