@@ -1,5 +1,19 @@
 # @qualifyze/design-system
 
+## 3.0.0
+
+### Major Changes
+
+- [#318](https://github.com/Qualifyze/design-system/pull/318) [`bdfce17`](https://github.com/Qualifyze/design-system/commit/bdfce17dad8b1119ca5252d899d9cb26ac489d2a) Thanks [@phjardas](https://github.com/phjardas)! - Migrate dropdown menu to use Reach instead of Radix. The new menu does _not_ support nested menus anymore. Note that there's a known issue with focus handling when using keyboard navigation.
+
+### Minor Changes
+
+- [#222](https://github.com/Qualifyze/design-system/pull/222) [`cf8db94`](https://github.com/Qualifyze/design-system/commit/cf8db94114cac5d89ec5223e58ceeba0e1ecf92e) Thanks [@phjardas](https://github.com/phjardas)! - Reduce usage of secondary color across many components
+
+### Patch Changes
+
+- [#320](https://github.com/Qualifyze/design-system/pull/320) [`16d422f`](https://github.com/Qualifyze/design-system/commit/16d422fb44744e750e090c49204f389d8ffc5dce) Thanks [@phjardas](https://github.com/phjardas)! - AppBar: adapt parent theme instead of overriding it
+
 ## 2.1.2
 
 ### Patch Changes
