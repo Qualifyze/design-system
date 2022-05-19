@@ -16,7 +16,7 @@ export const Default = () => {
     <Box
       sx={{
         p: 4,
-        bg: light ? 'secondary.700' : 'white',
+        bg: light ? 'primary.700' : 'white',
         border: '1px solid black',
       }}
     >
