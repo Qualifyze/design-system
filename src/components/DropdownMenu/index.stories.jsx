@@ -29,14 +29,13 @@ export const Default = () => {
     <Box sx={{ minHeight: '500px' }}>
       <DropdownMenu>
         <Inline>
-          <DropdownMenu.Trigger asChild>
-            <Button
-              variant="secondary"
-              size="small"
-              icon={<Icon name="chevrondown" size="tiny" />}
-            >
-              More
-            </Button>
+          <DropdownMenu.Trigger
+            as={Button}
+            variant="secondary"
+            size="small"
+            icon={<Icon name="chevrondown" size="tiny" />}
+          >
+            More
           </DropdownMenu.Trigger>
         </Inline>
 
@@ -50,23 +49,6 @@ export const Default = () => {
           <DropdownMenu.Item disabled>
             New Private Window <RightSlot>⇧+⌘+N</RightSlot>
           </DropdownMenu.Item>
-          <DropdownMenu>
-            <DropdownMenu.TriggerItem>
-              More Tools{' '}
-              <RightSlot>
-                <Icon name="chevronright" size="tiny" />
-              </RightSlot>
-            </DropdownMenu.TriggerItem>
-            <DropdownMenu.Content sideOffset={2} alignOffset={-5}>
-              <DropdownMenu.Item>
-                Save Page As… <RightSlot>⌘+S</RightSlot>
-              </DropdownMenu.Item>
-              <DropdownMenu.Item>Create Shortcut…</DropdownMenu.Item>
-              <DropdownMenu.Item>Name Window…</DropdownMenu.Item>
-              <DropdownMenu.Separator />
-              <DropdownMenu.Item>Developer Tools</DropdownMenu.Item>
-            </DropdownMenu.Content>
-          </DropdownMenu>
           <DropdownMenu.Separator />
           <DropdownMenu.Label>People</DropdownMenu.Label>
           <DropdownMenu.Item>Pablo</DropdownMenu.Item>
@@ -85,14 +67,13 @@ export const CustomItem = () => {
     <Box sx={{ minHeight: '500px' }}>
       <DropdownMenu>
         <Inline>
-          <DropdownMenu.Trigger asChild>
-            <Button
-              variant="secondary"
-              size="small"
-              icon={<Icon name="chevrondown" size="tiny" />}
-            >
-              Manage account
-            </Button>
+          <DropdownMenu.Trigger
+            as={Button}
+            variant="secondary"
+            size="small"
+            icon={<Icon name="chevrondown" size="tiny" />}
+          >
+            Manage account
           </DropdownMenu.Trigger>
         </Inline>
 
@@ -154,7 +135,7 @@ const resolveBackground = {
 
 const LanguageButton = styled(Button)(props => ({
   'background': 'white',
-  'border': `1px solid ${props.theme.colors.grey[300]}`,
+  'border': 'none',
 
   '&:hover': {
     background: props.theme.colors.primary[100],
@@ -169,14 +150,13 @@ export const LanguageSwitch = () => {
     <Box sx={{ p: 5, bg: resolveBackground[background] }}>
       <DropdownMenu>
         <Inline>
-          <DropdownMenu.Trigger asChild>
-            <LanguageButton
-              variant="secondary"
-              size="small"
-              icon={<Icon name="chevrondown" size="tiny" />}
-            >
-              {localeToDisplayLabel[locale]}
-            </LanguageButton>
+          <DropdownMenu.Trigger
+            as={LanguageButton}
+            variant="secondary"
+            size="small"
+            icon={<Icon name="chevrondown" size="tiny" />}
+          >
+            {localeToDisplayLabel[locale]}
           </DropdownMenu.Trigger>
         </Inline>
 
