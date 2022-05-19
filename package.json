@@ -109,5 +109,9 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0"
+  },
+  "volta": {
+    "node": "14.19.3",
+    "npm": "6.14.17"
   }
 }
