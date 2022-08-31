@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 3.1.1
+
+### Patch Changes
+
+- [#329](https://github.com/Qualifyze/design-system/pull/329) [`1b6a950`](https://github.com/Qualifyze/design-system/commit/1b6a950ecd080aca33ffeb09622009544fbf1542) Thanks [@sirJiggles](https://github.com/sirJiggles)! - Add disabled button styles to the ds
+
 ## 3.1.0
 
 ### Minor Changes
