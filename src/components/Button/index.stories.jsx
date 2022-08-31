@@ -32,6 +32,24 @@ Default.story = {
   name: 'default',
 }
 
+export const Disabled = () => {
+  const variant = select(
+    'Variant',
+    ['primary', 'secondary', 'danger'],
+    'primary'
+  )
+  return (
+    <Inline>
+      <Button disabled variant={variant} onClick={action('Button clicked')}>
+        Cant touch this
+      </Button>
+    </Inline>
+  )
+}
+Disabled.story = {
+  name: 'disabled',
+}
+
 function simulateNetworkRequest() {
   return new Promise(resolve => setTimeout(resolve, 3000))
 }
