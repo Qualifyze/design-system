@@ -38,10 +38,6 @@ const Base = styled('button')(
         '&:hover': {
           bg: 'primary.700',
         },
-        // '&:disabled': {
-        //   bg: props.theme.colors.grey[200],
-        //   color: props.theme.colors.grey[500],
-        // },
       },
       secondary: {
         'color': 'primary.900',
