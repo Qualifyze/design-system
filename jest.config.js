@@ -5,6 +5,5 @@ module.exports = {
   setupFilesAfterEnv: [`<rootDir>/src/util/test/setupTests.js`],
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy',
-    '^typeface-source-sans-pro$': 'identity-obj-proxy',
   },
 }

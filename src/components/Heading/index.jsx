@@ -47,10 +47,10 @@ const Heading = styled('h1', { shouldForwardProp })(
     prop: 'weight',
     variants: {
       regular: {
-        fontWeight: 'bold',
+        fontWeight: 400,
       },
       weak: {
-        fontWeight: 'semibold',
+        fontWeight: 200,
       },
     },
   }),

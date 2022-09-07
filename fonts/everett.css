@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Everett';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200;
+  src: url('./Everett-Light.woff2') format('woff2'),
+    url('./Everett-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Everett';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./Everett-Regular.woff2') format('woff2'),
+    url('./Everett-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Everett';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('./Everett-Medium.woff2') format('woff2'),
+    url('./Everett-Medium.woff') format('woff');
+}

@@ -113,9 +113,9 @@ const fontSizes = [
 const lineHeights = [1, 1.125, 1.25, 1.5]
 
 const fontWeights = {
-  normal: 400,
-  semibold: 600,
-  bold: 700,
+  normal: 200,
+  semibold: 400,
+  bold: 500,
 }
 
 /**
