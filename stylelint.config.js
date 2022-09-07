@@ -8,5 +8,5 @@ module.exports = {
   rules: {
     'declaration-colon-newline-after': null,
   },
-  ignoreFiles: ['**/*.json'],
+  ignoreFiles: ['./.storybook/public/**/*', '**/*.json'],
 }

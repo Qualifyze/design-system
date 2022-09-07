@@ -55,7 +55,6 @@
     "react-select": "^4.3.0",
     "react-spring": "^8.0.27",
     "styled-system": "^5.1.5",
-    "typeface-source-sans-pro": "^1.1.5",
     "yup": "^0.32.9"
   },
   "peerDependencies": {

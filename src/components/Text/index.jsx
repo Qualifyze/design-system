@@ -36,13 +36,13 @@ const Text = styled('p', { shouldForwardProp })(
     prop: 'weight',
     variants: {
       regular: {
-        fontWeight: 'normal',
+        fontWeight: 200,
       },
       medium: {
-        fontWeight: 'semibold',
+        fontWeight: 400,
       },
       strong: {
-        fontWeight: 'bold',
+        fontWeight: 500,
       },
     },
   }),

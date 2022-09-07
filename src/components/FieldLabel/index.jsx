@@ -19,7 +19,7 @@ const FieldLabel = ({
 
   const labelElement = (
     <Text as="span">
-      <Box as="span" sx={{ fontWeight: 'semibold' }}>
+      <Box as="span" sx={{ fontWeight: 500 }}>
         {label}
       </Box>
       {secondaryLabel ? (

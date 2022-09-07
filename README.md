@@ -14,6 +14,15 @@ A place to develop React components in a sandboxed environment.
 - Install all dependencies with `npm ci`
 - Run Storybook with `npm start`, it will open automatically in your browser.
 
+## Fonts
+
+You need to include the new fonts from `@qualifyze/mui-theme`:
+
+```
+import "@qualifyze/mui-theme/fonts/everett/index.css"
+import "@qualifyze/mui-theme/fonts/tobias/index.css"
+```
+
 ## Dependencies
 
 The design system has a dependency on globalThis so if you are using the design system you need to either install a npm package like [globalthis](https://www.npmjs.com/package/globalthis). Or if you have access to core-js in your project you can solve the dependency like this:

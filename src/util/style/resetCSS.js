@@ -6,7 +6,7 @@ export const resetCSS = css`
   /* Base for our type scale */
   html {
     font-size: 112.5%;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: Everett, Roboto, 'Helvetica Neue', Arial, sans-serif;
     word-wrap: break-word;
     height: 100%;
   }
