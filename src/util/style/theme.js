@@ -16,10 +16,10 @@ breakpoints.large = breakpoints[2]
  * Grey: Colors for items that are not that important
  */
 const colors = {
-  pageBackground: 'hsl(228, 33%, 97%)',
-  white: 'hsl(0, 0%, 100%)',
+  pageBackground: 'white',
+  white: 'white',
   background: {
-    0: 'hsl(0, 0%, 100%)',
+    0: 'white',
     100: 'hsl(228, 33%, 97%)',
   },
   primary: {
