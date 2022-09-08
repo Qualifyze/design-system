@@ -144,7 +144,7 @@ const shadows = [
   '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
   '0 0px 20px -3px rgba(0,0,0,1)',
 ]
-shadows.focusRing = '0 0 0 4px #2491eb'
+shadows.focusRing = `0 0 0 4px ${colors.primary[300]}`
 
 const sizes = {
   narrow: '500px',
