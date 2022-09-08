@@ -1,5 +1,22 @@
 # @qualifyze/design-system
 
+## 3.2.1
+
+### Patch Changes
+
+- [#334](https://github.com/Qualifyze/design-system/pull/334) [`e23ee73`](https://github.com/Qualifyze/design-system/commit/e23ee73219674e16a61d02773841bbde7503dd81) Thanks [@phjardas](https://github.com/phjardas)! - Set background color to white
+
+* [#334](https://github.com/Qualifyze/design-system/pull/334) [`97ea365`](https://github.com/Qualifyze/design-system/commit/97ea36574264a982ef3ef424ad984f57c2453087) Thanks [@phjardas](https://github.com/phjardas)! - Fix font weight of bold elements inside of Text
+
+- [#334](https://github.com/Qualifyze/design-system/pull/334) [`455eb3b`](https://github.com/Qualifyze/design-system/commit/455eb3be0efd3506b0fa20157b226e0fd753ca05) Thanks [@phjardas](https://github.com/phjardas)! - Fix color of focus ring
+
+* [#334](https://github.com/Qualifyze/design-system/pull/334) [`1fb6b3d`](https://github.com/Qualifyze/design-system/commit/1fb6b3dc2035fe54b2b968fd0226a9aff0034690) Thanks [@phjardas](https://github.com/phjardas)! - Use grey instead of pink as the secondary color
+
+  Also removes the color `grey[50]` which was [accidentally
+  introduced](https://github.com/Qualifyze/design-system/pull/332/files#diff-bfec1adb785179eff20a9a075d532f32059c2a9de10caacf6e7e20f396423143R48)
+  one day earlier. We can be quite sure that nobody is using this color so
+  far, so no need for a major release.
+
 ## 3.2.0
 
 ### Minor Changes
