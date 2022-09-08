@@ -1,5 +1,13 @@
 # @qualifyze/design-system
 
+## 3.2.0
+
+### Minor Changes
+
+- [#331](https://github.com/Qualifyze/design-system/pull/331) [`af86ebc`](https://github.com/Qualifyze/design-system/commit/af86ebc00078d8479ddb2ae68e8118b38d284939) Thanks [@phjardas](https://github.com/phjardas)! - Use fonts from new branding (Everett)
+
+* [#332](https://github.com/Qualifyze/design-system/pull/332) [`9d7d823`](https://github.com/Qualifyze/design-system/commit/9d7d8233b411a907966192980680fb7760308db8) Thanks [@phjardas](https://github.com/phjardas)! - Use colors from new branding
+
 ## 3.1.1
 
 ### Patch Changes
