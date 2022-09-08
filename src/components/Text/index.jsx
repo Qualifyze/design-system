@@ -10,7 +10,7 @@ import { styled, sx, variant, space, propTypes } from '../../util/style'
 
 const Text = styled('p', { shouldForwardProp })(
   props => ({
-    '& b': {
+    '& b, & strong': {
       fontWeight: props.theme.fontWeights.semibold,
     },
   }),
