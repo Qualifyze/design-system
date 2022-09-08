@@ -16,10 +16,10 @@ breakpoints.large = breakpoints[2]
  * Grey: Colors for items that are not that important
  */
 const colors = {
-  pageBackground: 'hsl(228, 33%, 97%)',
-  white: 'hsl(0, 0%, 100%)',
+  pageBackground: 'white',
+  white: 'white',
   background: {
-    0: 'hsl(0, 0%, 100%)',
+    0: 'white',
     100: 'hsl(228, 33%, 97%)',
   },
   primary: {
@@ -33,19 +33,19 @@ const colors = {
     800: 'hsl(240, 40%, 24%)',
     900: 'hsl(240, 35%, 14%)',
   },
+  // yes, secondary and grey are the same colors.
   secondary: {
-    100: 'hsl(300, 100%, 94%)',
-    200: 'hsl(300, 100%, 87%)',
-    300: 'hsl(305, 84%, 76%)',
-    400: 'hsl(305, 84%, 63%)',
-    500: 'hsl(305, 84%, 53%)',
-    600: 'hsl(305, 84%, 43%)',
-    700: 'hsl(305, 83%, 33%)',
-    800: 'hsl(305, 85%, 23%)',
-    900: 'hsl(305, 83%, 14%)',
+    100: 'hsl(210, 15%, 95%)',
+    200: 'hsl(219, 14%, 89%)',
+    300: 'hsl(220, 14%, 80%)',
+    400: 'hsl(217, 15%, 70%)',
+    500: 'hsl(218, 14%, 50%)',
+    600: 'hsl(217, 17%, 40%)',
+    700: 'hsl(216, 16%, 30%)',
+    800: 'hsl(216, 16%, 20%)',
+    900: 'hsl(222, 14%, 9%)',
   },
   grey: {
-    50: 'hsl(220, 20%, 97%)',
     100: 'hsl(210, 15%, 95%)',
     200: 'hsl(219, 14%, 89%)',
     300: 'hsl(220, 14%, 80%)',
@@ -144,7 +144,7 @@ const shadows = [
   '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
   '0 0px 20px -3px rgba(0,0,0,1)',
 ]
-shadows.focusRing = '0 0 0 4px #2491eb'
+shadows.focusRing = `0 0 0 4px ${colors.primary[300]}`
 
 const sizes = {
   narrow: '500px',
