@@ -1,14 +1,13 @@
+import { boolean, select } from '@storybook/addon-knobs'
 import React from 'react'
-import { text, select, boolean } from '@storybook/addon-knobs'
 
 import Box from '../Box'
 
-import Text from './index'
+import Text from '.'
 
 export default { title: 'Text', component: Text }
 
 export const Default = () => {
-  const content = text('Text', 'Hello world')
   const availableSizes = ['tiny', 'small', 'standard', 'large']
   const size = select('Size', availableSizes, 'standard')
   const availableWeights = ['regular', 'medium', 'strong']
@@ -28,9 +27,11 @@ export const Default = () => {
   const onDark = boolean('On dark background', false)
 
   return (
-    <Box bg={onDark ? 'primary.800' : 'white'}>
+    <Box sx={{ bg: onDark ? 'grey.800' : 'white', p: onDark ? 2 : 0 }}>
       <Text size={size} weight={weight} align={align} tone={tone}>
-        {content}
+        This is a sample text that contains <em>some emphasized words</em>, in
+        addition to a few <strong>strongly emphasized words</strong> and{' '}
+        <b>a few bold words</b> for demonstration purposes.
       </Text>
     </Box>
   )
