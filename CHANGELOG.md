@@ -1,5 +1,11 @@
 # @qualifyze/design-system
 
+## 3.2.2
+
+### Patch Changes
+
+- [#336](https://github.com/Qualifyze/design-system/pull/336) [`a9b2cdc`](https://github.com/Qualifyze/design-system/commit/a9b2cdcdcfb82cc03d0eef89167fa5d3158c5d8c) Thanks [@phjardas](https://github.com/phjardas)! - Exclude node_modules from transitive dependencies in bundle.
+
 ## 3.2.1
 
 ### Patch Changes
