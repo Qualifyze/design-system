@@ -14,7 +14,7 @@ export default defineConfig({
   },
   plugins: [
     resolve({ preferBuiltins: true, extensions: ['.js', '.jsx'] }),
-    babel({ babelHelpers: 'bundled' }),
+    babel({ babelHelpers: 'bundled', exclude: /node_modules/ }),
     commonjs(),
     styles(),
   ],
