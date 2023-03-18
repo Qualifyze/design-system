@@ -21,7 +21,6 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          # keep in sync with package.json#volta
           cache: npm
           node-version-file: package.json
 
